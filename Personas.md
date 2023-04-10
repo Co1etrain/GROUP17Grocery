@@ -2,19 +2,19 @@ Personas of example users (at different levels) who use the app:
 STEP 2:
 ______________________________________
 Who are you? (Admin)
-* My name is Gabe and I am a worker at Safeway, working on minimum wage. 
+* My name is Gabe and I am a worker at this store, earning minimum wage. 
 
 What’s your main goal?
 * (Gabe) My main goal is to restock shelves, scan items at checkout, and tend to customer needs. 
 
 What’s your main barrier to achieving this goal?
 * My main barrier is not having an app to properly manage different items in the grocery store so I can best help the customers
-* I need to be able to change the prices of items for the customers, and add and remove items from inventory as they go out of stock or we get more supply
+* I need to be able to change the prices of items for the customers, update product labels, and add and remove items from inventory as they go out of stock or we get more supply
 
 ________________________________________
 Who are you?  (Super)
-* I am John, the grocery store manager.
-*  I am responsible for overseeing the daily operations, managing employees, and ensuring customer satisfaction.
+* I am John, the grocery store owner.
+* I am responsible for overseeing the daily operations, managing employees, and ensuring customer satisfaction.
 
 What's your main goal?
 * My main goal is to efficiently run the store, maximize sales, and provide a pleasant shopping experience for our customers.
@@ -32,10 +32,9 @@ Who are you? (Customer)
 
 What's your main goal?
 * My main goal is to find an efficient way to do my grocery shopping, ensuring that I get all the necessary items for my family without spending too much time in the store.
-* I want to be able to sort and filter different grocery items based on price and quantity
+* I want to be able to sort and filter different grocery items based on price and ingredients, since once of my kids has a peanut allergy.
 
 
 What's your main barrier to achieving this goal?
 * My main barrier is my limited time due to my demanding job and taking care of my kids. I struggle to find time to plan meals, make shopping lists, and visit the grocery store regularly.
-* Also another barrier would be the price range that different items are placed at that affect my ability to make the purchase or not. 
-
+* Another barrier would be the price range that different items are placed at that affect my ability to make the purchase or not. Being able to sort by these prices would not only save me time, but also budget my week better.
