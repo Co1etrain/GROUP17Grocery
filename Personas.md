@@ -3,6 +3,7 @@ STEP 2:
 ______________________________________
 Who are you? (Admin)
 * My name is Gabe and I am a worker at Safeway, working on minimum wage. 
+
 What’s your main goal?
 * (Gabe) My main goal is to restock shelves, scan items at checkout, and tend to customer needs. 
 
