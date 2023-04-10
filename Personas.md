@@ -1,14 +1,14 @@
 Personas of example users (at different levels) who use the app:
 STEP 2:
 ______________________________________
-Who are you?( Admin)
-My name is Gabe and I am a worker at Safeway, working on minimum wage. 
+Who are you? (Admin)
+* My name is Gabe and I am a worker at Safeway, working on minimum wage. 
 What’s your main goal?
-(Gabe) My main goal is to restock shelves, scan items at checkout, and tend to customer needs. 
+* (Gabe) My main goal is to restock shelves, scan items at checkout, and tend to customer needs. 
 
 What’s your main barrier to achieving this goal?
-My main barrier is not having an app to properly manage different items in the grocery store so I can best help the customers
-I need to be able to change the prices of items for the customers, and add and remove items from inventory as they go out of stock or we get more supply
+* My main barrier is not having an app to properly manage different items in the grocery store so I can best help the customers
+* I need to be able to change the prices of items for the customers, and add and remove items from inventory as they go out of stock or we get more supply
 
 ________________________________________
 Who are you?  (Super)
