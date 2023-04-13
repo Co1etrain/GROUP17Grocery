@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
@@ -8,7 +8,6 @@ function App(): JSX.Element {
         <div className="App">
             <div>
                 <h2 className="CartTitle">Customer&apos;s Cart</h2>
-
                 <Container className="Cart">
                     <CustomerCart></CustomerCart>
                 </Container>
