@@ -6,8 +6,7 @@ export interface Food {
     rating: number;
     calories: number;
     ingredients: string[];
-};
-
+}
 
 export const foodList: Food[] = [
     //1
@@ -29,5 +28,15 @@ export const foodList: Food[] = [
         rating: 7,
         calories: 92,
         ingredients: ["Water", "Flour", "Salt", "egg", "Yeast"]
+    },
+    //3
+    {
+        name: "Peanut Butter",
+        description: "Easy Spread PeanutButter",
+        image: "idk",
+        price: 6.25,
+        rating: 8,
+        calories: 80,
+        ingredients: ["Peanut", "Water"]
     }
 ];
