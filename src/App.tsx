@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
-
+type userType = "owner" | "employee" | "customer";
 function App(): JSX.Element {
+    const [currentUser, setUser] = useState<userType>("owner");
     return (
         <div className="App">
             <div>
