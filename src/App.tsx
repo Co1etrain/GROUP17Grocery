@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
+import { CentralList } from "./components/CentralList";
 
 function App(): JSX.Element {
     return (
@@ -14,6 +15,7 @@ function App(): JSX.Element {
                 <p className="CartText">Total Price: </p>
                 <p className="CartText">Quantity: </p>
             </div>
+            <CentralList></CentralList>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
             </header>
