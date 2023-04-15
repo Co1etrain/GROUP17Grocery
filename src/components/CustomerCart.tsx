@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Food } from "../Interface/food";
+import { Food } from "../interfaces/food";
 
 export function CustomerCart(): JSX.Element {
-    const [cart, setCart] = useState<Food[]>([]);
+    const [cart] = useState<Food[]>([]);
     return (
         <div>
             <ul>

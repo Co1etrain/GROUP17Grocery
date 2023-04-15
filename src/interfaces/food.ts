@@ -7,7 +7,7 @@ export interface Food {
     ingredients: string[];
 }
 
-export const foodList: Food[] = [
+export const FOOD_LIST: Food[] = [
     //1
     {
         name: "Apples",

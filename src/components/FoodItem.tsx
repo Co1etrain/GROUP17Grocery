@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Food } from "../Interface/food";
+import { Food } from "../interfaces/food";
 
 export function FoodItem({
     name,
