@@ -131,14 +131,13 @@ export const foodList: Food[] = [
         ]
     },
     // Robert did 11-20
-    },
+
     //21
     {
         name: "Peanut Chunk Chocolate",
         description: "Savory taste of Peanuts with chocolate",
         image: "idk",
         price: 4.1,
-        rating: 8,
         calories: 200,
         ingredients: ["Sugar, Flour, Peanuts, cocoa "]
     },
@@ -148,7 +147,6 @@ export const foodList: Food[] = [
         description: "Crisy Chips",
         image: "idk",
         price: 4.75,
-        rating: 2,
         calories: 60,
         ingredients: ["Potato, Salt"]
     },
@@ -158,7 +156,6 @@ export const foodList: Food[] = [
         description: "Creamy cookies",
         image: "idk",
         price: 6.12,
-        rating: 8,
         calories: 75,
         ingredients: ["Sugar, Cream filling, Chocolate"]
     },
@@ -168,7 +165,6 @@ export const foodList: Food[] = [
         description: "30 grams of pure isloate Protien per bottle. 18 Bottles",
         image: "idk",
         price: 30.5,
-        rating: 8,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"]
     },
@@ -179,7 +175,6 @@ export const foodList: Food[] = [
         description: "50 grams of pure isloate Protien per Scoop",
         image: "idk",
         price: 55.8,
-        rating: 9,
         calories: 200,
         ingredients: ["Pea Whey Protien, Chocolate, Milk"]
     },
@@ -189,7 +184,6 @@ export const foodList: Food[] = [
         description: "Crispy Rice Cakes with hint of honey",
         image: "idk",
         price: 12.25,
-        rating: 6,
         calories: 80,
         ingredients: ["Rice, Honey, Salt"]
     },
@@ -199,7 +193,6 @@ export const foodList: Food[] = [
         description: "30 grams of pure isloate Protien",
         image: "idk",
         price: 30.5,
-        rating: 8,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"]
     },
@@ -209,7 +202,6 @@ export const foodList: Food[] = [
         description: "Fresh cooking olive oil",
         image: "idk",
         price: 7.85,
-        rating: 8,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"]
     },
@@ -219,7 +211,6 @@ export const foodList: Food[] = [
         description: "Crispy valley oats Granola",
         image: "idk",
         price: 10.3,
-        rating: 10,
         calories: 250,
         ingredients: ["Granola, Sugar, Honey"]
     },
@@ -229,9 +220,9 @@ export const foodList: Food[] = [
         description: "Buttery PopCorn",
         image: "idk",
         price: 30.5,
-        rating: 8,
         calories: 150,
         ingredients: ["Corn, Butter, preservatives"]
+    },
     {
         name: "Eggs",
         description: "Delicious chicken eggs",
