@@ -3,7 +3,6 @@ export interface Food {
     description: string;
     image: string;
     price: number;
-    rating: number;
     calories: number;
     ingredients: string[];
 }
@@ -15,7 +14,6 @@ export const foodList: Food[] = [
         description: "All organic Non-GMO Apples",
         image: "idk",
         price: 2.2,
-        rating: 9,
         calories: 95,
         ingredients: ["Apples"]
     },
@@ -25,7 +23,6 @@ export const foodList: Food[] = [
         description: "Freshly Made Farmer Market Bread",
         image: "idk",
         price: 5.0,
-        rating: 7,
         calories: 92,
         ingredients: ["Water", "Flour", "Salt", "egg", "Yeast"]
     },
@@ -35,7 +32,6 @@ export const foodList: Food[] = [
         description: "Easy Spread PeanutButter",
         image: "idk",
         price: 6.25,
-        rating: 8,
         calories: 80,
         ingredients: ["Peanut", "Water"]
     },
@@ -45,7 +41,6 @@ export const foodList: Food[] = [
         description: "Freshly made Nestle Chip Cookies",
         image: "idk",
         price: 7.5,
-        rating: 10,
         calories: 50,
         ingredients: [
             "Flour",
@@ -61,7 +56,6 @@ export const foodList: Food[] = [
         description: "Fresh Bananas",
         image: "idk",
         price: 1.5,
-        rating: 7,
         calories: 105,
         ingredients: ["Banana"]
     },
@@ -71,7 +65,6 @@ export const foodList: Food[] = [
         description: "Spicy Hummus",
         image: "idk",
         price: 4.35,
-        rating: 9,
         calories: 125,
         ingredients: [
             "Chickpeas",
@@ -93,7 +86,6 @@ export const foodList: Food[] = [
         description: "",
         image: "idk",
         price: 2.5,
-        rating: 4,
         calories: 105,
         ingredients: [
             "Milk",
@@ -110,7 +102,6 @@ export const foodList: Food[] = [
         description: "Frozen Pack of Broccoli",
         image: "idk",
         price: 3.75,
-        rating: 8,
         calories: 100,
         ingredients: ["Banana"]
     },
@@ -120,7 +111,6 @@ export const foodList: Food[] = [
         description: "Savory taste of the Lemon",
         image: "idk",
         price: 3.75,
-        rating: 3,
         calories: 145,
         ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"]
     },
@@ -130,7 +120,6 @@ export const foodList: Food[] = [
         description: "Crisp Salted Cracker, 20 Crackers",
         image: "idk",
         price: 5.65,
-        rating: 7,
         calories: 105,
         ingredients: [
             "Flour",
@@ -147,7 +136,6 @@ export const foodList: Food[] = [
         description: "Delicious chicken eggs",
         image: "idk",
         price: 5.5,
-        rating: 4,
         calories: 120,
         ingredients: ["Eggs"]
     },
@@ -157,7 +145,6 @@ export const foodList: Food[] = [
         description: "Delicious sweet red tomatos",
         image: "idk",
         price: 5.45,
-        rating: 3,
         calories: 100,
         ingredients: ["Tomato"]
     },
@@ -167,7 +154,6 @@ export const foodList: Food[] = [
         description: "Delicious",
         image: "idk",
         price: 5.45,
-        rating: 3,
         calories: 20,
         ingredients: ["Lemon"]
     },
@@ -177,7 +163,6 @@ export const foodList: Food[] = [
         description: "Nice low-calorie snack",
         image: "idk",
         price: 2.15,
-        rating: 2,
         calories: 10,
         ingredients: ["Celery"]
     },
@@ -187,7 +172,6 @@ export const foodList: Food[] = [
         description: "Sweet and juicy snack",
         image: "idk",
         price: 3.45,
-        rating: 4,
         calories: 100,
         ingredients: ["Strawberry"]
     },
@@ -197,7 +181,6 @@ export const foodList: Food[] = [
         description: "High-quality savory cut of meat",
         image: "idk",
         price: 50.95,
-        rating: 5,
         calories: 500,
         ingredients: ["Strawberry"]
     },
@@ -207,7 +190,6 @@ export const foodList: Food[] = [
         description: "Delicious frozen pizza",
         image: "idk",
         price: 7.25,
-        rating: 4,
         calories: 1000,
         ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"]
     },
@@ -217,7 +199,6 @@ export const foodList: Food[] = [
         description: "Popular Latin American cuisine",
         image: "idk",
         price: 3.95,
-        rating: 3,
         calories: 200,
         ingredients: ["Beans, Water, Salt"]
     },
@@ -227,7 +208,6 @@ export const foodList: Food[] = [
         description: "Savory dish, 100% beef",
         image: "idk",
         price: 17.15,
-        rating: 4,
         calories: 300,
         ingredients: ["Beef, Salt, Pepper"]
     },
@@ -237,7 +217,6 @@ export const foodList: Food[] = [
         description: "Tasty cheese",
         image: "idk",
         price: 5.85,
-        rating: 5,
         calories: 275,
         ingredients: ["Milk, Salt, Cheese"]
     }
