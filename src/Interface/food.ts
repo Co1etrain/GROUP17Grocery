@@ -130,7 +130,99 @@ export const foodList: Food[] = [
             "Whole Milk"
         ]
     },
+
     //11
+    {
+        name: "Peanut Chunk Chocolate",
+        description: "Savory taste of Peanuts with chocolate",
+        image: "idk",
+        price: 4.1,
+        calories: 200,
+        ingredients: ["Sugar, Flour, Peanuts, cocoa "]
+    },
+    //12
+    {
+        name: "Potato Chips",
+        description: "Crisy Chips",
+        image: "idk",
+        price: 4.75,
+        calories: 60,
+        ingredients: ["Potato, Salt"]
+    },
+    //13
+    {
+        name: "Oreo's",
+        description: "Creamy cookies",
+        image: "idk",
+        price: 6.12,
+        calories: 75,
+        ingredients: ["Sugar, Cream filling, Chocolate"]
+    },
+    //14
+    {
+        name: "FairLife Protien, Chocolate",
+        description: "30 grams of pure isloate Protien per bottle. 18 Bottles",
+        image: "idk",
+        price: 30.5,
+        calories: 150,
+        ingredients: ["Whey Protien, Chocolate, Milk"]
+    },
+    //15
+    //Make category vegan?
+    {
+        name: "Pea Protien",
+        description: "50 grams of pure isloate Protien per Scoop",
+        image: "idk",
+        price: 55.8,
+        calories: 200,
+        ingredients: ["Pea Whey Protien, Chocolate, Milk"]
+    },
+    //16
+    {
+        name: "Rice Cakes",
+        description: "Crispy Rice Cakes with hint of honey",
+        image: "idk",
+        price: 12.25,
+        calories: 80,
+        ingredients: ["Rice, Honey, Salt"]
+    },
+    //17
+    {
+        name: "FairLife Protien, Chocolate",
+        description: "30 grams of pure isloate Protien",
+        image: "idk",
+        price: 30.5,
+        calories: 150,
+        ingredients: ["Whey Protien, Chocolate, Milk"]
+    },
+    //18
+    {
+        name: "Olive Oil",
+        description: "Fresh cooking olive oil",
+        image: "idk",
+        price: 7.85,
+        calories: 150,
+        ingredients: ["Whey Protien, Chocolate, Milk"]
+    },
+    //19
+    {
+        name: "Granola Bars",
+        description: "Crispy valley oats Granola",
+        image: "idk",
+        price: 10.3,
+        calories: 250,
+        ingredients: ["Granola, Sugar, Honey"]
+    },
+    //20
+    {
+        name: "PopCorn",
+        description: "Buttery PopCorn",
+        image: "idk",
+        price: 30.5,
+        calories: 150,
+        ingredients: ["Corn, Butter, preservatives"]
+    },
+    //21
     {
         name: "Eggs",
         description: "Delicious chicken eggs",
@@ -139,7 +231,7 @@ export const foodList: Food[] = [
         calories: 120,
         ingredients: ["Eggs"]
     },
-    //12
+    //22
     {
         name: "Tomatos",
         description: "Delicious sweet red tomatos",
@@ -148,7 +240,7 @@ export const foodList: Food[] = [
         calories: 100,
         ingredients: ["Tomato"]
     },
-    //13
+    //23
     {
         name: "Lemon",
         description: "Delicious",
@@ -157,7 +249,7 @@ export const foodList: Food[] = [
         calories: 20,
         ingredients: ["Lemon"]
     },
-    //14
+    //24
     {
         name: "Celery",
         description: "Nice low-calorie snack",
@@ -166,7 +258,7 @@ export const foodList: Food[] = [
         calories: 10,
         ingredients: ["Celery"]
     },
-    //15
+    //25
     {
         name: "Strawberries",
         description: "Sweet and juicy snack",
@@ -175,7 +267,7 @@ export const foodList: Food[] = [
         calories: 100,
         ingredients: ["Strawberry"]
     },
-    //16
+    //25
     {
         name: "Ribeye Steak",
         description: "High-quality savory cut of meat",
@@ -184,7 +276,7 @@ export const foodList: Food[] = [
         calories: 500,
         ingredients: ["Strawberry"]
     },
-    //17
+    //27
     {
         name: "Pizza",
         description: "Delicious frozen pizza",
@@ -193,7 +285,7 @@ export const foodList: Food[] = [
         calories: 1000,
         ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"]
     },
-    //18
+    //28
     {
         name: "Black Beans",
         description: "Popular Latin American cuisine",
@@ -202,7 +294,7 @@ export const foodList: Food[] = [
         calories: 200,
         ingredients: ["Beans, Water, Salt"]
     },
-    //19
+    //29
     {
         name: "Ground Beef",
         description: "Savory dish, 100% beef",
@@ -211,7 +303,7 @@ export const foodList: Food[] = [
         calories: 300,
         ingredients: ["Beef, Salt, Pepper"]
     },
-    //20
+    //30
     {
         name: "Cheese",
         description: "Tasty cheese",
