@@ -130,7 +130,6 @@ export const foodList: Food[] = [
             "Whole Milk"
         ]
     },
-    // Robert did 11-20
 
     //21
     {
