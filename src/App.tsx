@@ -16,7 +16,18 @@ function App(): JSX.Element {
 
     return (
         <div className="wrapper">
-            <div>
+            <nav>
+                <span>
+                    <h2 className="CartTitle">Customer&apos;s Cart</h2>
+                    <span className="CartText">
+                        Total Price: <br />
+                        <span className="CartText">Quantity: </span>
+                    </span>
+                </span>
+
+                <Container className="Cart">
+                    <CustomerCart></CustomerCart>
+                </Container>
                 <Form.Group controlId="userSelected">
                     <Form.Label>Select User:</Form.Label>
                     <Form.Select value={currentUser} onChange={updateUser}>
@@ -31,15 +42,8 @@ function App(): JSX.Element {
                         </option>
                     </Form.Select>
                 </Form.Group>
-            </div>
-            <div>
-                <h2 className="CartTitle">Customer&apos;s Cart</h2>
-                <Container className="Cart">
-                    <CustomerCart></CustomerCart>
-                </Container>
-                <p className="CartText">Total Price: </p>
-                <p className="CartText">Quantity: </p>
-            </div>
+            </nav>
+
             <CentralList></CentralList>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript
