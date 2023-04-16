@@ -5,7 +5,7 @@ import { CustomerCart } from "./components/CustomerCart";
 
 function App(): JSX.Element {
     return (
-        <div className="App">
+        <div className="wrapper">
             <div>
                 <h2 className="CartTitle">Customer&apos;s Cart</h2>
 
