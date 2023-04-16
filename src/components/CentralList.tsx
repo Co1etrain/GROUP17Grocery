@@ -16,6 +16,7 @@ export function CentralList(): JSX.Element {
                     price={food.price}
                     calories={food.calories}
                     ingredients={food.ingredients}
+                    category={food.category}
                 ></FoodItem>
             ))}
         </div>
