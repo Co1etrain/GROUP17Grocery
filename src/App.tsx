@@ -16,6 +16,7 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
+            <p>Michael Bocelli</p>
             <div>
                 <Form.Group controlId="userSelected">
                     <Form.Label>Select User:</Form.Label>
