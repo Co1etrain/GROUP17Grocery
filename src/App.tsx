@@ -3,11 +3,9 @@ import "./App.css";
 import { Container, Form } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
-// eslint-disable-next-line
 import { Users, userLookup } from "./interfaces/record";
 
 function App(): JSX.Element {
-    // eslint-disable-next-line
     const [currentUser, setUser] = useState<Users["person"]>("owner");
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
