@@ -21,7 +21,7 @@ Browserslist: caniuse-lite is outdated. Please run:
       at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
 
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (126 ms)
+  ✓ renders the course name somewhere (121 ms)
 
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -40,5 +40,5 @@ All files          |   78.57 |      100 |   71.42 |   78.57 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.353 s
+Time:        2.034 s
 Ran all test suites.
