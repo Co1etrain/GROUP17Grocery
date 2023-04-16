@@ -5,6 +5,7 @@ export interface Food {
     price: number;
     calories: number;
     ingredients: string[];
+    category: string;
 }
 
 export const FOOD_LIST: Food[] = [
@@ -15,7 +16,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 2.2,
         calories: 95,
-        ingredients: ["Apples"]
+        ingredients: ["Apples"],
+        category: "Fruit"
     },
     //2
     {
@@ -24,7 +26,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 5.0,
         calories: 92,
-        ingredients: ["Water", "Flour", "Salt", "egg", "Yeast"]
+        ingredients: ["Water", "Flour", "Salt", "egg", "Yeast"],
+        category: "Other"
     },
     //3
     {
@@ -33,7 +36,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 6.25,
         calories: 80,
-        ingredients: ["Peanut", "Water"]
+        ingredients: ["Peanut", "Water"],
+        category: "Other"
     },
     //4
     {
@@ -48,7 +52,8 @@ export const FOOD_LIST: Food[] = [
             "Butter",
             "Chocolate",
             "Vanilla Extract"
-        ]
+        ],
+        category: "Other"
     },
     //5
     {
@@ -57,7 +62,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 1.5,
         calories: 105,
-        ingredients: ["Banana"]
+        ingredients: ["Banana"],
+        category: "Fruit"
     },
     //6
     {
@@ -78,7 +84,8 @@ export const FOOD_LIST: Food[] = [
             "Salt",
             "Water",
             "Jalepeno"
-        ]
+        ],
+        category: "Other"
     },
     //7
     {
@@ -94,7 +101,8 @@ export const FOOD_LIST: Food[] = [
             "Sugar",
             "Pectin",
             "Natural Flavors"
-        ]
+        ],
+        category: "Dairy"
     },
     //8
     {
@@ -103,7 +111,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 3.75,
         calories: 100,
-        ingredients: ["Banana"]
+        ingredients: ["Banana"],
+        category: "Vegetables"
     },
     //9
     {
@@ -112,7 +121,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 3.75,
         calories: 145,
-        ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"]
+        ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"],
+        category: "Drinks"
     },
     //10
     {
@@ -128,7 +138,8 @@ export const FOOD_LIST: Food[] = [
             "Water",
             "Baking Powder",
             "Whole Milk"
-        ]
+        ],
+        category: "Snacks"
     },
 
     //11
@@ -138,7 +149,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 4.1,
         calories: 200,
-        ingredients: ["Sugar, Flour, Peanuts, cocoa "]
+        ingredients: ["Sugar, Flour, Peanuts, cocoa "],
+        category: "Snacks"
     },
     //12
     {
@@ -147,7 +159,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 4.75,
         calories: 60,
-        ingredients: ["Potato, Salt"]
+        ingredients: ["Potato, Salt"],
+        category: "Snacks"
     },
     //13
     {
@@ -156,7 +169,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 6.12,
         calories: 75,
-        ingredients: ["Sugar, Cream filling, Chocolate"]
+        ingredients: ["Sugar, Cream filling, Chocolate"],
+        category: "Snacks"
     },
     //14
     {
@@ -165,7 +179,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 30.5,
         calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"]
+        ingredients: ["Whey Protien, Chocolate, Milk"],
+        category: "Protien"
     },
     //15
     //Make category vegan?
@@ -175,7 +190,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 55.8,
         calories: 200,
-        ingredients: ["Pea Whey Protien, Chocolate, Milk"]
+        ingredients: ["Pea Whey Protien, Chocolate, Milk"],
+        category: "Protein"
     },
     //16
     {
@@ -184,7 +200,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 12.25,
         calories: 80,
-        ingredients: ["Rice, Honey, Salt"]
+        ingredients: ["Rice, Honey, Salt"],
+        category: "Snacks"
     },
     //17
     {
@@ -193,7 +210,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 30.5,
         calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"]
+        ingredients: ["Whey Protien, Chocolate, Milk"],
+        category: "Protien"
     },
     //18
     {
@@ -202,7 +220,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 7.85,
         calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"]
+        ingredients: ["Whey Protien, Chocolate, Milk"],
+        category: "Other"
     },
     //19
     {
@@ -211,7 +230,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 10.3,
         calories: 250,
-        ingredients: ["Granola, Sugar, Honey"]
+        ingredients: ["Granola, Sugar, Honey"],
+        category: "Snacks"
     },
     //20
     {
@@ -220,7 +240,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 30.5,
         calories: 150,
-        ingredients: ["Corn, Butter, preservatives"]
+        ingredients: ["Corn, Butter, preservatives"],
+        category: "Snacks"
     },
     //21
     {
@@ -229,7 +250,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 5.5,
         calories: 120,
-        ingredients: ["Eggs"]
+        ingredients: ["Eggs"],
+        category: "Dairy"
     },
     //22
     {
@@ -238,7 +260,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 5.45,
         calories: 100,
-        ingredients: ["Tomato"]
+        ingredients: ["Tomato"],
+        category: "Vegetables"
     },
     //23
     {
@@ -247,7 +270,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 5.45,
         calories: 20,
-        ingredients: ["Lemon"]
+        ingredients: ["Lemon"],
+        category: "Fruits"
     },
     //24
     {
@@ -256,7 +280,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 2.15,
         calories: 10,
-        ingredients: ["Celery"]
+        ingredients: ["Celery"],
+        category: "Vegetables"
     },
     //25
     {
@@ -265,7 +290,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 3.45,
         calories: 100,
-        ingredients: ["Strawberry"]
+        ingredients: ["Strawberry"],
+        category: "Fruits"
     },
     //25
     {
@@ -274,7 +300,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 50.95,
         calories: 500,
-        ingredients: ["Strawberry"]
+        ingredients: ["Beef, Salt, Pepper"],
+        category: "Meat"
     },
     //27
     {
@@ -283,7 +310,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 7.25,
         calories: 1000,
-        ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"]
+        ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"],
+        category: "Frozen"
     },
     //28
     {
@@ -292,7 +320,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 3.95,
         calories: 200,
-        ingredients: ["Beans, Water, Salt"]
+        ingredients: ["Beans, Water, Salt"],
+        category: "Vegetables"
     },
     //29
     {
@@ -301,7 +330,8 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 17.15,
         calories: 300,
-        ingredients: ["Beef, Salt, Pepper"]
+        ingredients: ["Beef, Salt, Pepper"],
+        category: "Meat"
     },
     //30
     {
@@ -310,6 +340,7 @@ export const FOOD_LIST: Food[] = [
         image: "idk",
         price: 5.85,
         calories: 275,
-        ingredients: ["Milk, Salt, Cheese"]
+        ingredients: ["Milk, Salt, Cheese"],
+        category: "Dairy"
     }
 ];
