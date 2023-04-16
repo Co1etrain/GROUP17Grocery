@@ -1,3 +1,4 @@
+/* eslint-disable no-extra-parens */
 import React, { useState } from "react";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
