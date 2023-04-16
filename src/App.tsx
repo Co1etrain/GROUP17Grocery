@@ -18,6 +18,7 @@ function App(): JSX.Element {
         <div className="App">
             <p>Michael Bocelli</p>
             <p>Robert Oratorio</p>
+            <p>Sharanjit Singh</p>
             <div>
                 <Form.Group controlId="userSelected">
                     <Form.Label>Select User:</Form.Label>
