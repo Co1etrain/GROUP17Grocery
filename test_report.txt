@@ -5,19 +5,34 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+  console.error
+    Warning: Encountered two children with the same key, `FairLife Protien, Chocolate`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version.
+        at div
+        at CentralList (/home/runner/work/GROUP17Grocery/GROUP17Grocery/src/components/CentralList.tsx:6:27)
+        at div
+        at App (/home/runner/work/GROUP17Grocery/GROUP17Grocery/src/App.tsx:9:36)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at warnOnInvalidKey (node_modules/react-dom/cjs/react-dom.development.js:13620:11)
+      at reconcileChildrenArray (node_modules/react-dom/cjs/react-dom.development.js:13651:21)
+      at reconcileChildFibers (node_modules/react-dom/cjs/react-dom.development.js:14125:14)
+      at reconcileChildren (node_modules/react-dom/cjs/react-dom.development.js:16990:28)
+      at updateHostComponent (node_modules/react-dom/cjs/react-dom.development.js:17632:3)
+
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (54 ms)
+  ✓ renders the course name somewhere (125 ms)
 
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   64.28 |      100 |   57.14 |   64.28 |                   
+All files          |   78.57 |      100 |   71.42 |   78.57 |                   
  src               |      50 |      100 |      50 |      50 |                   
   App.tsx          |      50 |      100 |      50 |      50 | 12-14             
- src/components    |    62.5 |      100 |      60 |    62.5 |                   
+ src/components    |    87.5 |      100 |      80 |    87.5 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
   CustomerCart.tsx |   66.66 |      100 |      50 |   66.66 | 11                
-  FoodItem.tsx     |       0 |      100 |       0 |       0 | 13-14             
+  FoodItem.tsx     |     100 |      100 |     100 |     100 |                   
  src/interfaces    |     100 |      100 |     100 |     100 |                   
   food.ts          |     100 |      100 |     100 |     100 |                   
   record.ts        |     100 |      100 |     100 |     100 |                   
@@ -25,5 +40,5 @@ All files          |   64.28 |      100 |   57.14 |   64.28 |
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.021 s
+Time:        2.105 s
 Ran all test suites.
