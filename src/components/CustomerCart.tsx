@@ -8,7 +8,7 @@ export function CustomerCart(): JSX.Element {
     return (
         <div>
             <ul>
-                {cart.map((food: Food) => (
+                {cart.map((food: Food) => {
                     <FoodItem
                         key={food.name}
                         name={food.name}
@@ -19,7 +19,7 @@ export function CustomerCart(): JSX.Element {
                         ingredients={food.ingredients}
                         category={food.category}
                     ></FoodItem>
-                ))}
+                })}
             </ul>
         </div>
     );
