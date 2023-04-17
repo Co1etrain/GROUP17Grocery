@@ -17,7 +17,7 @@ export function CustomerCart(): JSX.Element {
                         calories={food.calories}
                         ingredients={food.ingredients}
                         category={food.category}
-                    ></FoodItem>
+                    ></FoodItem>;
                 })}
             </ul>
         </div>
