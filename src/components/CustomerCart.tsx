@@ -8,16 +8,18 @@ export function CustomerCart(): JSX.Element {
         <div>
             <ul>
                 {cart.map((food: Food) => {
-                    <FoodItem
-                        key={food.name}
-                        name={food.name}
-                        description={food.description}
-                        image={food.image}
-                        price={food.price}
-                        calories={food.calories}
-                        ingredients={food.ingredients}
-                        category={food.category}
-                    ></FoodItem>;
+                    return (
+                        <FoodItem
+                            key={food.name}
+                            name={food.name}
+                            description={food.description}
+                            image={food.image}
+                            price={food.price}
+                            calories={food.calories}
+                            ingredients={food.ingredients}
+                            category={food.category}
+                        ></FoodItem>
+                    );
                 })}
             </ul>
         </div>
