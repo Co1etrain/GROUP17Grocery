@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Food } from "../interfaces/food";
+import test from "../test_image/test.jpeg";
 
 export function FoodItem({
     name,
@@ -13,10 +14,11 @@ export function FoodItem({
     const [rating] = useState<number>(0);
     return (
         <div>
-            {name}
+            <img src={test} width="100px"></img>
             <div hidden={true}>
-                {description}
+                {name}
                 {image}
+                {description}
                 {price}
                 {calories}
                 {ingredients}
