@@ -205,13 +205,13 @@ export const FOOD_LIST: Food[] = [
     },
     //17
     {
-        name: "FairLife Protien, Chocolate",
-        description: "30 grams of pure isloate Protien",
+        name: "Grapes",
+        description: "Fresh Farm grapes",
         image: "idk",
-        price: 30.5,
-        calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"],
-        category: "Protien"
+        price: 5.2,
+        calories: 300,
+        ingredients: ["Grapes"],
+        category: "Fruits"
     },
     //18
     {
