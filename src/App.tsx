@@ -3,7 +3,6 @@ import "./App.css";
 import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
-// eslint-disable-next-line
 import { Users, userLookup } from "./interfaces/record";
 import { CreateUserForm } from "./components/UserForm";
 
