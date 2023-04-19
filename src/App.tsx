@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Container, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
 import { Users, userLookup } from "./interfaces/record";
@@ -42,12 +42,11 @@ function App(): JSX.Element {
                 </div>
                 <div>
                     <h2 className="CartTitle">Customer&apos;s Cart</h2>
-                    <Container className="Cart">
-                        <CustomerCart></CustomerCart>
-                    </Container>
+                    <CustomerCart></CustomerCart>
                     <p className="CartText">Total Price: </p>
                     <p className="CartText">Quantity: </p>
                 </div>
+
                 <CentralList></CentralList>
                 <header className="App-header">
                     UD CISC275 with React Hooks and TypeScript
