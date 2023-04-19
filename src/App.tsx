@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
+// eslint-disable-next-line
 import { Users, userLookup } from "./interfaces/record";
+import { CreateUserForm } from "./components/UserForm";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -21,22 +23,10 @@ function App(): JSX.Element {
             <p>Sharanjit Singh</p>
             <p>Cole McCaleb</p>
             <p>Andrew Kallai</p>
-            <div>
-                <Form.Group controlId="userSelected">
-                    <Form.Label>Select User:</Form.Label>
-                    <Form.Select value={currentUser} onChange={updateUser}>
-                        <option value="owner">
-                            owner{userLookup["owner"]}
-                        </option>
-                        <option value="employee">
-                            employee{userLookup["employee"]}
-                        </option>
-                        <option value="customer">
-                            customer{userLookup["customer"]}
-                        </option>
-                    </Form.Select>
-                </Form.Group>
-            </div>
+            <CreateUserForm
+                updateUser={updateUser}
+                currentUser={currentUser}
+            ></CreateUserForm>
             <div>
                 <h2 className="CartTitle">Customer&apos;s Cart</h2>
                 <Container className="Cart">
