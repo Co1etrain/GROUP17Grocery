@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Form } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
-import { Users, userLookup } from "./interfaces/record";
+import { Users } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
+import { CreateUserForm } from "./components/UserForm";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -25,20 +25,10 @@ function App(): JSX.Element {
                 <p>Cole McCaleb</p>
                 <p>Andrew Kallai</p>
                 <div>
-                    <Form.Group controlId="userSelected">
-                        <Form.Label>Select User:</Form.Label>
-                        <Form.Select value={currentUser} onChange={updateUser}>
-                            <option value="owner">
-                                owner{userLookup["owner"]}
-                            </option>
-                            <option value="employee">
-                                employee{userLookup["employee"]}
-                            </option>
-                            <option value="customer">
-                                customer{userLookup["customer"]}
-                            </option>
-                        </Form.Select>
-                    </Form.Group>
+                    <CreateUserForm
+                        updateUser={updateUser}
+                        currentUser={currentUser}
+                    ></CreateUserForm>
                 </div>
                 <div>
                     <h2 className="CartTitle">Customer&apos;s Cart</h2>
@@ -46,7 +36,6 @@ function App(): JSX.Element {
                     <p className="CartText">Total Price: </p>
                     <p className="CartText">Quantity: </p>
                 </div>
-
                 <CentralList></CentralList>
                 <header className="App-header">
                     UD CISC275 with React Hooks and TypeScript
