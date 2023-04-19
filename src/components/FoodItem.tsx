@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import test from "../test_image/test.jpeg";
 import { useDrag } from "react-dnd";
-import { type } from "os";
 
 export function FoodItem({
     name,
