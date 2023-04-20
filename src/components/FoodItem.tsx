@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import test from "../test_image/test.jpeg";
 import { useDrag } from "react-dnd";
+import { Button } from "react-bootstrap";
 
 export function FoodItem({
     name,
@@ -19,22 +20,35 @@ export function FoodItem({
             isDragging: !!monitor.isDragging()
         })
     });
+    const [isDescHidden, setIsDescHidden] = useState<boolean>(true);
     const [rating] = useState<number>(0);
     return (
         <div ref={drag}>
-            <img
-                src={test}
-                width="100px"
-                style={{ border: isDragging ? "5px solid black" : "0px" }}
-            ></img>
-            {name}
-            {image}
-            {description}
-            {price}
-            {calories}
-            {ingredients}
-            {category}
-            {rating}
+            <Button onClick={() => setIsDescHidden(!isDescHidden)}>
+                <img
+                    src={test}
+                    width="100px"
+                    style={{ border: isDragging ? "5px solid black" : "0px" }}
+                ></img>
+            </Button>
+            <div hidden={isDescHidden}>
+                <p>
+                    <strong>
+                        {name} - ${price}
+                    </strong>
+                    <br></br>
+                    {description}
+                    <br></br>
+                    {calories} Calories per serving
+                    <br></br>
+                    Ingredients: {ingredients}
+                    <br></br>
+                    {category}
+                    <br></br>
+                    This will be the 5 stars {rating}
+                    {image}
+                </p>
+            </div>
         </div>
     );
 }
