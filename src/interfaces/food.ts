@@ -17,7 +17,7 @@ export const FOOD_LIST: Food[] = [
         price: 2.2,
         calories: 95,
         ingredients: ["Apples"],
-        category: "Fruit"
+        category: "../FoodImages/Apples.png"
     },
     //2
     {
