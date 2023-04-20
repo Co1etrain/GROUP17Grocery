@@ -6,6 +6,7 @@ import { Users } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CreateUserForm } from "./components/UserForm";
+import { Navbar } from "./components/Navbar";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -18,6 +19,7 @@ function App(): JSX.Element {
 
     return (
         <DndProvider backend={HTML5Backend}>
+            <Navbar></Navbar>
             <div className="App">
                 <p>Michael Bocelli</p>
                 <p>Robert Oratorio</p>
