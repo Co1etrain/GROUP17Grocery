@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./App.css";
-import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
 import { Users } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
@@ -31,12 +30,6 @@ function App(): JSX.Element {
                         updateUser={updateUser}
                         currentUser={currentUser}
                     ></CreateUserForm>
-                </div>
-                <div>
-                    <h2 className="CartTitle">Customer&apos;s Cart</h2>
-                    <CustomerCart></CustomerCart>
-                    <p className="CartText">Total Price: </p>
-                    <p className="CartText">Quantity: </p>
                 </div>
                 <CentralList></CentralList>
                 <header className="App-header">
