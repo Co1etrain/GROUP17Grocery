@@ -24,6 +24,10 @@ export function Navbar() {
         setCartList([...cartList, droppedFood[0]]);
     }
 
+    if (isOver) {
+        console.log("Over cart");
+    }
+
     return (
         <NavbarBS sticky="top" className="bg-white shadow-sm mb-3 p-3">
             <Container>
@@ -45,7 +49,7 @@ export function Navbar() {
                     variant="outline-primary"
                     className="rounded-circle"
                 >
-                    Cart
+                    Store
                     <div
                         className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
                         style={{
