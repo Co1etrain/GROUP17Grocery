@@ -5,6 +5,7 @@ import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
 import { Users } from "./interfaces/record";
 import { CreateUserForm } from "./components/UserForm";
+import { Navbar } from "./components/Navbar";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -17,6 +18,7 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
+            <Navbar></Navbar>
             <p>Michael Bocelli</p>
             <p>Robert Oratorio</p>
             <p>Sharanjit Singh</p>
