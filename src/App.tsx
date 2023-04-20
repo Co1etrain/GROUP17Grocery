@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import "./App.css";
-import { Container, Form } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
-import { Users, userLookup } from "./interfaces/record";
+import { Users } from "./interfaces/record";
+import { CreateUserForm } from "./components/UserForm";
+import { Navbar } from "./components/Navbar";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -16,24 +18,16 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
+            <Navbar></Navbar>
             <p>Michael Bocelli</p>
             <p>Robert Oratorio</p>
-            <div>
-                <Form.Group controlId="userSelected">
-                    <Form.Label>Select User:</Form.Label>
-                    <Form.Select value={currentUser} onChange={updateUser}>
-                        <option value="owner">
-                            owner{userLookup["owner"]}
-                        </option>
-                        <option value="employee">
-                            employee{userLookup["employee"]}
-                        </option>
-                        <option value="customer">
-                            customer{userLookup["customer"]}
-                        </option>
-                    </Form.Select>
-                </Form.Group>
-            </div>
+            <p>Sharanjit Singh</p>
+            <p>Cole McCaleb</p>
+            <p>Andrew Kallai</p>
+            <CreateUserForm
+                updateUser={updateUser}
+                currentUser={currentUser}
+            ></CreateUserForm>
             <div>
                 <h2 className="CartTitle">Customer&apos;s Cart</h2>
                 <Container className="Cart">
