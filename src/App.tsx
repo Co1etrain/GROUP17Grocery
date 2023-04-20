@@ -3,8 +3,9 @@ import "./App.css";
 import { Container, Form } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
-import { Users, userLookup } from "./interfaces/record";
+import { userLookup, Users } from "./interfaces/record";
 import { Navbar } from "./components/Navbar";
+import { CreateUserForm } from "./components/UserForm";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -16,20 +17,9 @@ function App(): JSX.Element {
     }
 
     return (
-        <div className="wrapper">
+        <div className="App">
             <Navbar></Navbar>
-            <nav>
-                <span>
-                    <h2 className="CartTitle">Customer&apos;s Cart</h2>
-                    <span className="CartText">
-                        Total Price: <br />
-                        <span className="CartText">Quantity: </span>
-                    </span>
-                </span>
-
-                <Container className="Cart">
-                    <CustomerCart></CustomerCart>
-                </Container>
+            <div>
                 <Form.Group controlId="userSelected">
                     <Form.Label>Select User:</Form.Label>
                     <Form.Select value={currentUser} onChange={updateUser}>
@@ -44,8 +34,15 @@ function App(): JSX.Element {
                         </option>
                     </Form.Select>
                 </Form.Group>
-            </nav>
-
+            </div>
+            <div>
+                <h2 className="CartTitle">Customer&apos;s Cart</h2>
+                <Container className="Cart">
+                    <CustomerCart></CustomerCart>
+                </Container>
+                <p className="CartText">Total Price: </p>
+                <p className="CartText">Quantity: </p>
+            </div>
             <CentralList></CentralList>
             <header className="App-header">
                 UD CISC275 with React Hooks and TypeScript

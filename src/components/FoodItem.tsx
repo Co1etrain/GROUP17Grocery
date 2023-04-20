@@ -7,7 +7,8 @@ export function FoodItem({
     image,
     price,
     calories,
-    ingredients
+    ingredients,
+    category
 }: Food): JSX.Element {
     const [rating] = useState<number>(0);
     return (
@@ -19,6 +20,7 @@ export function FoodItem({
                 {price}
                 {calories}
                 {ingredients}
+                {category}
                 {rating}
             </div>
         </div>

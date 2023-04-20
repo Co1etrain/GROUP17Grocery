@@ -6,17 +6,20 @@ export function CentralList(): JSX.Element {
     const [centralList] = useState<Food[]>(FOOD_LIST);
     return (
         <div>
-            {centralList.map((food: Food) => (
-                <FoodItem
-                    key={food.name}
-                    name={food.name}
-                    description={food.description}
-                    image={food.image}
-                    price={food.price}
-                    calories={food.calories}
-                    ingredients={food.ingredients}
-                ></FoodItem>
-            ))}
+            {centralList.map((food: Food) => {
+                return (
+                    <FoodItem
+                        key={food.name}
+                        name={food.name}
+                        description={food.description}
+                        image={food.image}
+                        price={food.price}
+                        calories={food.calories}
+                        ingredients={food.ingredients}
+                        category={food.category}
+                    ></FoodItem>
+                );
+            })}
         </div>
     );
 }
