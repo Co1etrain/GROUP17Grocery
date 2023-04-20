@@ -45,5 +45,7 @@
         "indent": ["error", 4],
         "quotes": ["error", "double"],
         "semi": ["error", "always"]
+        
+        
     }
 }

@@ -4,6 +4,7 @@ import { Container, Form } from "react-bootstrap";
 import { CustomerCart } from "./components/CustomerCart";
 import { CentralList } from "./components/CentralList";
 import { Users, userLookup } from "./interfaces/record";
+import { Navbar } from "./components/Navbar";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -16,6 +17,7 @@ function App(): JSX.Element {
 
     return (
         <div className="wrapper">
+            <Navbar></Navbar>
             <nav>
                 <span>
                     <h2 className="CartTitle">Customer&apos;s Cart</h2>
