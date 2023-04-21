@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Food } from "../interfaces/food";
-import test from "../test_image/test.jpeg";
 import { useDrag } from "react-dnd";
 import { Button } from "react-bootstrap";
 
@@ -46,7 +45,6 @@ export function FoodItem({
                     {category}
                     <br></br>
                     This will be the 5 stars {rating}
-                    {image}
                 </p>
             </div>
         </div>
