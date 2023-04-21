@@ -9,6 +9,7 @@ import { CustomerCart } from "./CustomerCart";
 export function Navbar() {
     const [cartList, setCartList] = useState<Food[]>([]);
     const [cart, setCart] = useState<boolean>(false);
+    const [quantity, setQuantity] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
         accept: "food",
         drop: (item: Food) => addFoodToCart(item.name),
@@ -22,6 +23,7 @@ export function Navbar() {
             (food: Food) => food.name === name
         );
         setCartList([...cartList, droppedFood[0]]);
+        setQuantity(quantity + 1);
     }
 
     if (isOver) {
@@ -59,10 +61,11 @@ export function Navbar() {
                             position: "absolute",
                             bottom: 0,
                             right: 0,
-                            transform: "translate(25%, 25%)"
+                            transform: "translate(25%, 25%)",
+                            opacity: quantity === 0 ? "0%" : "100%"
                         }}
                     >
-                        3
+                        {quantity}
                     </div>
                 </Button>
                 <Offcanvas show={cart} placement="end">
