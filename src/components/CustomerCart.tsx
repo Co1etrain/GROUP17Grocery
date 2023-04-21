@@ -5,7 +5,7 @@ import "../App.css";
 
 export function CustomerCart({ cartList }: { cartList: Food[] }): JSX.Element {
     return (
-        <div>
+        <div style={{ overflowY: "auto" }}>
             {cartList.map((food: Food) => {
                 return (
                     <FoodItem
