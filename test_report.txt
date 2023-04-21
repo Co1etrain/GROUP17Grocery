@@ -6,25 +6,26 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/App.test.tsx
-  ✓ renders the course name somewhere (167 ms)
+  ✓ renders the course name somewhere (169 ms)
 
-------------------|---------|----------|---------|---------|-------------------
-File              | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
-------------------|---------|----------|---------|---------|-------------------
-All files         |   63.33 |       50 |      50 |   63.33 |                   
- src              |      50 |      100 |      50 |      50 |                   
-  App.tsx         |      50 |      100 |      50 |      50 | 14-16             
- src/components   |    62.5 |       50 |      50 |    62.5 |                   
-  CentralList.tsx |     100 |      100 |     100 |     100 |                   
-  FoodItem.tsx    |   83.33 |       50 |   66.66 |   83.33 | 27                
-  Navbar.tsx      |   42.85 |       50 |      25 |   42.85 | 14,21-24,28,43-76 
-  UserForm.tsx    |     100 |      100 |     100 |     100 |                   
- src/interfaces   |     100 |      100 |     100 |     100 |                   
-  food.ts         |     100 |      100 |     100 |     100 |                   
-  record.ts       |     100 |      100 |     100 |     100 |                   
-------------------|---------|----------|---------|---------|-------------------
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   61.29 |       50 |   47.05 |   61.29 |                   
+ src               |      50 |      100 |      50 |      50 |                   
+  App.tsx          |      50 |      100 |      50 |      50 | 14-16             
+ src/components    |      60 |       50 |   46.66 |      60 |                   
+  CentralList.tsx  |     100 |      100 |     100 |     100 |                   
+  CustomerCart.tsx |       0 |      100 |       0 |       0 | 7-10              
+  FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 27                
+  Navbar.tsx       |   46.15 |       50 |   28.57 |   46.15 | 14,21-24,28,43-71 
+  UserForm.tsx     |     100 |      100 |     100 |     100 |                   
+ src/interfaces    |     100 |      100 |     100 |     100 |                   
+  food.ts          |     100 |      100 |     100 |     100 |                   
+  record.ts        |     100 |      100 |     100 |     100 |                   
+-------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 passed, 1 total
 Tests:       1 passed, 1 total
 Snapshots:   0 total
-Time:        2.256 s
+Time:        2.19 s
 Ran all test suites.
