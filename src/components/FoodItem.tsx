@@ -26,7 +26,7 @@ export function FoodItem({
         <div ref={drag}>
             <Button onClick={() => setIsDescHidden(!isDescHidden)}>
                 <img
-                    src={test}
+                    src={image}
                     width="100px"
                     style={{ border: isDragging ? "5px solid black" : "0px" }}
                 ></img>
