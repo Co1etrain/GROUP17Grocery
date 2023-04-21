@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { FOOD_LIST, Food } from "../interfaces/food";
 import { useDrop } from "react-dnd";
-import { FoodItem } from "./FoodItem";
+import { CustomerCart } from "./CustomerCart";
 
 export function Navbar() {
     const [cartList, setCartList] = useState<Food[]>([]);
@@ -72,20 +72,7 @@ export function Navbar() {
                     >
                         <Offcanvas.Title>Cart</Offcanvas.Title>
                     </Offcanvas.Header>
-                    {cartList.map((food: Food) => {
-                        return (
-                            <FoodItem
-                                key={food.name}
-                                name={food.name}
-                                description={food.description}
-                                image={food.image}
-                                price={food.price}
-                                calories={food.calories}
-                                ingredients={food.ingredients}
-                                category={food.category}
-                            ></FoodItem>
-                        );
-                    })}
+                    <CustomerCart cartList={cartList}></CustomerCart>
                 </Offcanvas>
             </Container>
         </NavbarBS>
