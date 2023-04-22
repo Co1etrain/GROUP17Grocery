@@ -6,6 +6,7 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
+import { CustomerCart } from "./components/CustomerCart";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -31,6 +32,7 @@ function App(): JSX.Element {
                         currentUser={currentUser}
                     ></CreateUserForm>
                 </div>
+                <CustomerCart customerList={[]}></CustomerCart>
                 <CentralList></CentralList>
                 <header className="App-header">
                     UD CISC275 with React Hooks and TypeScript
