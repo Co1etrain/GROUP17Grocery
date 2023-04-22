@@ -27,7 +27,8 @@ export function FoodItem({
                 onClick={() => setIsDescHidden(!isDescHidden)}
                 style={{
                     backgroundColor: "pink",
-                    border: isDragging ? "5px solid Violet" : "0px"
+                    border: isDragging ? "5px solid Violet" : "0px",
+                    margin: "5px"
                 }}
             >
                 <img src={image} width="100px"></img>

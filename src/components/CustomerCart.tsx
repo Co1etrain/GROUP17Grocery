@@ -3,7 +3,6 @@ import { FOOD_LIST, Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
-import { Container } from "react-bootstrap";
 
 export function CustomerCart(
     {
@@ -32,7 +31,7 @@ export function CustomerCart(
     return (
         <>
             <h2>{customerName + "'s"} Cart</h2>
-            <Container
+            <div
                 ref={drop}
                 className="Cart"
                 style={{
@@ -53,7 +52,7 @@ export function CustomerCart(
                         ></FoodItem>
                     );
                 })}
-            </Container>
+            </div>
         </>
     );
 }
