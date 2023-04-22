@@ -38,6 +38,8 @@
 }
 
 .Cart {
+    display: flex;
+    overflow-x: scroll;
     width: 70%;
     border-radius: 10px;
     padding: 20px;

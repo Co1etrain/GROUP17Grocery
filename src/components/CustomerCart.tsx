@@ -29,7 +29,7 @@ export function CustomerCart(
     }
 
     return (
-        <>
+        <div>
             <h2>{customerName + "'s"} Cart</h2>
             <div
                 ref={drop}
@@ -53,6 +53,6 @@ export function CustomerCart(
                     );
                 })}
             </div>
-        </>
+        </div>
     );
 }
