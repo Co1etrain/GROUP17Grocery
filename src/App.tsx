@@ -21,11 +21,6 @@ function App(): JSX.Element {
         <DndProvider backend={HTML5Backend}>
             <Navbar></Navbar>
             <div className="App">
-                <p>Michael Bocelli</p>
-                <p>Robert Oratorio</p>
-                <p>Sharanjit Singh</p>
-                <p>Cole McCaleb</p>
-                <p>Andrew Kallai</p>
                 <div>
                     <CreateUserForm
                         updateUser={updateUser}
@@ -34,12 +29,12 @@ function App(): JSX.Element {
                 </div>
                 <CustomerCart customerList={[]}></CustomerCart>
                 <CentralList></CentralList>
-                <header className="App-header">
-                    UD CISC275 with React Hooks and TypeScript
-                </header>
                 <p>
-                    Edit <code>src/App.tsx</code> and save. This page will
-                    automatically reload.
+                    <p>Michael Bocelli</p>
+                    <p>Robert Oratorio</p>
+                    <p>Sharanjit Singh</p>
+                    <p>Cole McCaleb</p>
+                    <p>Andrew Kallai</p>
                 </p>
             </div>
         </DndProvider>
