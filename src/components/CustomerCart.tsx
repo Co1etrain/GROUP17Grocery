@@ -32,7 +32,13 @@ export function CustomerCart(
     return (
         <>
             <h2>{customerName + "'s"} Cart</h2>
-            <Container ref={drop} className="Cart">
+            <Container
+                ref={drop}
+                className="Cart"
+                style={{
+                    backgroundColor: isOver ? "MediumSeaGreen" : "white"
+                }}
+            >
                 {cartList.map((food: Food) => {
                     return (
                         <FoodItem
