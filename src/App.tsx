@@ -7,6 +7,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
+import { EmployeeCart } from "./components/EmployeeCart";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -27,6 +28,7 @@ function App(): JSX.Element {
                         currentUser={currentUser}
                     ></CreateUserForm>
                 </div>
+                <EmployeeCart employeeList={[]}></EmployeeCart>
                 <CustomerCart customerList={[]}></CustomerCart>
                 <CentralList></CentralList>
                 <p>
