@@ -49,6 +49,11 @@
     border: 5px solid black;
 }
 
+.CentralList {
+    display: flex;
+    overflow-y: scroll;
+}
+
 .CartText {
     text-align: left;
     margin-left: 25px;

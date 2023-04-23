@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
+import "../App.css";
 
 export function CentralList(): JSX.Element {
     const [centralList] = useState<Food[]>(FOOD_LIST);
     return (
-        <div>
+        <div className="CentralList">
             {centralList.map((food: Food) => {
                 return (
                     <FoodItem
