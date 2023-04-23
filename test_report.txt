@@ -22,7 +22,7 @@ Browserslist: caniuse-lite is outdated. Please run:
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (245 ms)
+  ✕ renders the course name somewhere (324 ms)
 
   ● renders the course name somewhere
 
@@ -253,12 +253,12 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   65.51 |       50 |   52.94 |   65.51 |                   
+All files          |   61.29 |    33.33 |      50 |   63.33 |                   
  src               |      50 |      100 |      50 |      50 |                   
   App.tsx          |      50 |      100 |      50 |      50 | 15-17             
- src/components    |   65.21 |       50 |   53.33 |   65.21 |                   
+ src/components    |      60 |    33.33 |      50 |    62.5 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
-  CustomerCart.tsx |   44.44 |       50 |   33.33 |   44.44 | 18,25-28,42       
+  CustomerCart.tsx |   36.36 |       25 |   28.57 |      40 | 18,25-29,44       
   FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 27                
   Navbar.tsx       |      50 |      100 |   33.33 |      50 | 20-48             
   UserForm.tsx     |     100 |      100 |     100 |     100 |                   
@@ -269,5 +269,5 @@ All files          |   65.51 |       50 |   52.94 |   65.51 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.321 s
+Time:        3.266 s
 Ran all test suites.
