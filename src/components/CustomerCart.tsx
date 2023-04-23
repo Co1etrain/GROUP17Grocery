@@ -25,7 +25,9 @@ export function CustomerCart(
         const droppedFood: Food[] = FOOD_LIST.filter(
             (food: Food) => food.name === name
         );
-        setCartList([...cartList, droppedFood[0]]);
+        if (cartList.find((food: Food) => name === food.name) === undefined) {
+            setCartList([...cartList, droppedFood[0]]);
+        }
     }
 
     return (
