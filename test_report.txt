@@ -5,27 +5,269 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-PASS src/App.test.tsx
-  ✓ renders the course name somewhere (237 ms)
+  console.error
+    Warning: validateDOMNesting(...): <p> cannot appear as a descendant of <p>.
+        at p
+        at p
+        at div
+        at DndProvider (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dnd/src/core/DndProvider.tsx:29:25)
+        at App (/home/runner/work/GROUP17Grocery/GROUP17Grocery/src/App.tsx:12:36)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10083:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+
+FAIL src/App.test.tsx
+  ✕ renders the course name somewhere (245 ms)
+
+  ● renders the course name somewhere
+
+    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<nav[39m
+          [33mclass[39m=[32m"bg-white shadow-sm mb-3 p-3 navbar navbar-expand navbar-light sticky-top"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"container"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"me-auto navbar-nav"[39m
+              [33mstyle[39m=[32m"font-size: 2.7rem; font-style: italic;"[39m
+            [36m>[39m
+              [0mHome[0m
+            [36m</div>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"m-3 btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mHello[0m
+            [36m</button>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"rounded-circle btn btn-outline-primary"[39m
+              [33mstyle[39m=[32m"width: 4rem; height: 4rem; position: relative;"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mStore[0m
+              [36m<div[39m
+                [33mclass[39m=[32m"rounded-circle bg-danger d-flex justify-content-center align-items-center"[39m
+                [33mstyle[39m=[32m"color: white; width: 1.5rem; height: 1.5rem; position: absolute; bottom: 0px; right: 0px; transform: translate(25%, 25%);"[39m
+              [36m>[39m
+                [0m3[0m
+              [36m</div>[39m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</nav>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<div>[39m
+            [36m<div>[39m
+              [36m<div>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"form-label"[39m
+                  [33mfor[39m=[32m"userSelected"[39m
+                [36m>[39m
+                  [0mSelect User:[0m
+                [36m</label>[39m
+                [36m<select[39m
+                  [33mclass[39m=[32m"form-select"[39m
+                  [33mid[39m=[32m"userSelected"[39m
+                [36m>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"owner"[39m
+                  [36m>[39m
+                    [0mowner[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"employee"[39m
+                  [36m>[39m
+                    [0memployee[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"customer"[39m
+                  [36m>[39m
+                    [0mcustomer[0m
+                  [36m</option>[39m
+                [36m</select>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h2>[39m
+              [0mundefined's[0m
+              [0m Cart[0m
+            [36m</h2>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"Cart"[39m
+              [33mstyle[39m=[32m"background-color: white;"[39m
+            [36m/>[39m
+          [36m</div>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"CentralList"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mdraggable[39m=[32m"true"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mstyle[39m=[32m"background-color: pink; border: 0px; margin: 5px;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<img[39m
+                  [33msrc[39m=[32m"Apple.png"[39m
+                  [33mwidth[39m=[32m"100px"[39m
+                [36m/>[39m
+              [36m</button>[39m
+              [36m<div[39m
+                [33mhidden[39m=[32m""[39m
+              [36m>[39m
+                [36m<p>[39m
+                  [36m<strong>[39m
+                    [0mApples[0m
+                    [0m - $[0m
+                    [0m2.2[0m
+                  [36m</strong>[39m
+                  [36m<br />[39m
+                  [0mAll organic Non-GMO Apples[0m
+                  [36m<br />[39m
+                  [0m95[0m
+                  [0m Calories per serving[0m
+                  [36m<br />[39m
+                  [0mIngredients: [0m
+                  [0mApples[0m
+                  [36m<br />[39m
+                  [0mFruits[0m
+                  [36m<br />[39m
+                  [0mThis will be the 5 stars [0m
+                  [0m0[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mdraggable[39m=[32m"true"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mstyle[39m=[32m"background-color: pink; border: 0px; margin: 5px;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<img[39m
+                  [33msrc[39m=[32m"Bread.png"[39m
+                  [33mwidth[39m=[32m"100px"[39m
+                [36m/>[39m
+              [36m</button>[39m
+              [36m<div[39m
+                [33mhidden[39m=[32m""[39m
+              [36m>[39m
+                [36m<p>[39m
+                  [36m<strong>[39m
+                    [0mWhole Wheat Bread[0m
+                    [0m - $[0m
+                    [0m5[0m
+                  [36m</strong>[39m
+                  [36m<br />[39m
+                  [0mFreshly Made Farmer Market Bread[0m
+                  [36m<br />[39m
+                  [0m92[0m
+                  [0m Calories per serving[0m
+                  [36m<br />[39m
+                  [0mIngredients: [0m
+                  [0mWater[0m
+                  [0mFlour[0m
+                  [0mSalt[0m
+                  [0megg[0m
+                  [0mYeast[0m
+                  [36m<br />[39m
+                  [0mOther[0m
+                  [36m<br />[39m
+                  [0mThis will be the 5 stars [0m
+                  [0m0[0m
+                [36m</p>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mdraggable[39m=[32m"true"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mstyle[39m=[32m"background-color: pink; border: 0px; margin: 5px;"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [36m<img[39m
+                  [33msrc[39m=[32m"Peanut Butter.png"[39m
+                  [33mwidth[39m=[32m"100px"[39m
+                [36m/>[39m
+              [36m</button>[39m
+              [36m<div[39m
+                [33mhidden[39m=[32m""[39m
+              [36m>[39m
+                [36m<p>[39m
+                  [36m<strong>[39m
+                    [0mPeanut Butter[0m
+                    [0m - $[0m
+                    [0m6.25[0m
+                  [36m</strong>[39m
+                  [36m<br />[39m
+                  [0mEasy Spread PeanutButter[0m
+                  [36m<br />[39m
+                  [0m80[0m
+                  [0m Calories per serving[0m
+                  [36m<br />[39m
+                  [0mIngredients: [0m
+                  [0mPeanut[0m
+                  [0mWater[0m
+                  [36m<br />[39m
+                  [0mOther[0m
+                  [36m<br />[39m
+                  [0mThis will be the 5 stars [0m
+                  [0m0[0m
+                [36m</p>[39m
+              [36m</div>[39m
+           ...
+
+       5 | test("renders the course name somewhere", () => {
+       6 |     render(<App />);
+    >  7 |     const linkElement = screen.getByText(/CISC275/i);
+         |                                ^
+       8 |     expect(linkElement).toBeInTheDocument();
+       9 | });
+      10 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/App.test.tsx:7:32)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |    60.6 |       50 |   47.05 |    60.6 |                   
+All files          |   65.51 |       50 |   52.94 |   65.51 |                   
  src               |      50 |      100 |      50 |      50 |                   
-  App.tsx          |      50 |      100 |      50 |      50 | 14-16             
- src/components    |   59.25 |       50 |   46.66 |   59.25 |                   
+  App.tsx          |      50 |      100 |      50 |      50 | 15-17             
+ src/components    |   65.21 |       50 |   53.33 |   65.21 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
-  CustomerCart.tsx |       0 |      100 |       0 |       0 | 7-10              
-  FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 26                
-  Navbar.tsx       |   46.66 |       50 |   28.57 |   46.66 | 15,22-26,30,45-74 
+  CustomerCart.tsx |   44.44 |       50 |   33.33 |   44.44 | 18,25-28,42       
+  FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 27                
+  Navbar.tsx       |      50 |      100 |   33.33 |      50 | 20-48             
   UserForm.tsx     |     100 |      100 |     100 |     100 |                   
  src/interfaces    |     100 |      100 |     100 |     100 |                   
   food.ts          |     100 |      100 |     100 |     100 |                   
   record.ts        |     100 |      100 |     100 |     100 |                   
 -------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.316 s
+Time:        2.321 s
 Ran all test suites.
