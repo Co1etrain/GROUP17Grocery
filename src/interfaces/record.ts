@@ -2,4 +2,4 @@ import { Food } from "./food";
 export interface Users {
     person: "owner" | "employee" | "customer";
 }
-type CustomerCartRecord = Record<string, Food>;
+export type CustomersRecord = Record<string, Food>;
