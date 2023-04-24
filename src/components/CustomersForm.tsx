@@ -1,7 +1,25 @@
-import React from "react";
-import { useState } from "react";
-import { Button } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 
-export function DisplayCustomerNames(): JSX.Element {
-    return <div></div>;
-    }
+
+interface customerProps {
+    updateSelectedCustomer: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    currentSelectedCustomer: string;
+}
+
+export function DisplayCustomerNames({
+    updateSelectedCustomer,
+    currentSelectedCustomer
+}: customerProps): JSX.Element{ 
+    return (
+        <div>
+            <Form.Group controlId="customerSelected">
+                <Form.Label>Select Customer:</Form.Label>
+                <Form.Select value={currentSelectedCustomer} onChange={updateSelectedCustomer}>
+                    <option value="customer1">customer1</option>
+                </Form.Select>
+            </Form.Group>
+        </div>
+    );
+
+}
