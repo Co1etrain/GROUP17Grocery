@@ -27,7 +27,10 @@ function App(): JSX.Element {
                         currentUser={currentUser}
                     ></CreateUserForm>
                 </div>
-                <CustomerCart customerList={[]}></CustomerCart>
+                <CustomerCart
+                    customerList={[]}
+                    customerName={""}
+                ></CustomerCart>
                 <CentralList></CentralList>
                 <p>
                     <p>Michael Bocelli</p>
