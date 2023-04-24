@@ -30,7 +30,7 @@ function App(): JSX.Element {
                 </div>
                 <CustomerCart customerList={[]}></CustomerCart>
                 <CentralList></CentralList>
-                {/*<GetNames></GetNames>*/}
+                {<GetNames></GetNames>}
                 <p>
                     <p>Michael Bocelli</p>
                     <p>Robert Oratorio</p>
