@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Food } from "../interfaces/food";
-import test from "../test_image/test.jpeg";
 import { useDrag } from "react-dnd";
 import { Button } from "react-bootstrap";
 
@@ -24,12 +23,15 @@ export function FoodItem({
     const [rating] = useState<number>(0);
     return (
         <div ref={drag}>
-            <Button onClick={() => setIsDescHidden(!isDescHidden)}>
-                <img
-                    src={test}
-                    width="100px"
-                    style={{ border: isDragging ? "5px solid black" : "0px" }}
-                ></img>
+            <Button
+                onClick={() => setIsDescHidden(!isDescHidden)}
+                style={{
+                    backgroundColor: "pink",
+                    border: isDragging ? "5px solid Violet" : "0px",
+                    margin: "5px"
+                }}
+            >
+                <img src={image} width="100px"></img>
             </Button>
             <div hidden={isDescHidden}>
                 <p>
@@ -46,7 +48,6 @@ export function FoodItem({
                     {category}
                     <br></br>
                     This will be the 5 stars {rating}
-                    {image}
                 </p>
             </div>
         </div>
