@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
-
+//create a button given a name/ form, name of food and create a new central list without the deleted
 export function CentralList(): JSX.Element {
     const [centralList] = useState<Food[]>(FOOD_LIST);
     return (

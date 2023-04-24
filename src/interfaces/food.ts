@@ -1,18 +1,17 @@
-import apple from "../FoodImages/Apple.png";
-import banana from "../FoodImages/Banana.png";
-import bread from "../FoodImages/Bread.png";
-import broccoli from "../FoodImages/Broccoli.png";
-import chips from "../FoodImages/Chips.png";
-import chocolate from "../FoodImages/Chocolate.png";
-import cookie from "../FoodImages/Cookie.png";
-import cracker from "../FoodImages/Cracker.png";
-import hummus from "../FoodImages/Hummus.png";
-import oreos from "../FoodImages/Oreos.png";
-import pea from "../FoodImages/Pea Protein.png";
-import peanut from "../FoodImages/Peanut Butter.png";
-import protein from "../FoodImages/Protein.png";
-import sprite from "../FoodImages/Sprite.png";
-import yogurt from "../FoodImages/Yogurt.png";
+//import banana from "../FoodImages/Banana.png";
+//import bread from "../FoodImages/Bread.png";  2
+//import broccoli from "../FoodImages/Broccoli.png";
+//import chips from "../FoodImages/Chips.png";
+//import chocolate from "../FoodImages/Chocolate.png";
+//import cookie from "../FoodImages/Cookie.png";
+//import cracker from "../FoodImages/Cracker.png";
+//import hummus from "../FoodImages/Hummus.png";
+//import oreos from "../FoodImages/Oreos.png";
+//import pea from "../FoodImages/Pea Protein.png";
+//import peanut from "../FoodImages/Peanut Butter.png"; 3
+//import protein from "../FoodImages/Protein.png";
+//import sprite from "../FoodImages/Sprite.png";
+//import yogurt from "./FoodImages/Yogurt.png";
 
 export interface Food {
     name: string;
@@ -29,7 +28,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Apples",
         description: "All organic Non-GMO Apples",
-        image: apple,
+        image: require("../FoodImages/Apple.png"),
         price: 2.2,
         calories: 95,
         ingredients: ["Apples"],
@@ -39,7 +38,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Whole Wheat Bread",
         description: "Freshly Made Farmer Market Bread",
-        image: bread,
+        image: require("../FoodImages/Bread.png"),
         price: 5.0,
         calories: 92,
         ingredients: ["Water", "Flour", "Salt", "egg", "Yeast"],
@@ -49,7 +48,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Peanut Butter",
         description: "Easy Spread PeanutButter",
-        image: peanut,
+        image: require("../FoodImages/Peanut Butter.png"),
         price: 6.25,
         calories: 80,
         ingredients: ["Peanut", "Water"],
@@ -59,7 +58,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Chocolate Chip Cookies",
         description: "Freshly made Nestle Chip Cookies",
-        image: cookie,
+        image: require("../FoodImages/Cookie.png"),
         price: 7.5,
         calories: 50,
         ingredients: [
@@ -75,7 +74,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Banana",
         description: "Fresh Bananas",
-        image: banana,
+        image: require("../FoodImages/Banana.png"),
         price: 1.5,
         calories: 105,
         ingredients: ["Banana"],
@@ -85,7 +84,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Hummus",
         description: "Spicy Hummus",
-        image: hummus,
+        image: require("../FoodImages/Hummus.png"),
         price: 4.35,
         calories: 125,
         ingredients: [
@@ -107,7 +106,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Blueberry Yogurt",
         description: "",
-        image: yogurt,
+        image: require("../FoodImages/Yogurt.png"),
         price: 2.5,
         calories: 105,
         ingredients: [
@@ -124,7 +123,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Broccoli",
         description: "Frozen Pack of Broccoli",
-        image: broccoli,
+        image: require("../FoodImages/Broccoli.png"),
         price: 3.75,
         calories: 100,
         ingredients: ["Banana"],
@@ -134,7 +133,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Lemon Lime Soda",
         description: "Savory taste of the Lemon",
-        image: sprite,
+        image: "../FoodImages/Sprite.png",
         price: 3.75,
         calories: 145,
         ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"],
@@ -144,7 +143,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Slighty Salted Cracker",
         description: "Crisp Salted Cracker, 20 Crackers",
-        image: cracker,
+        image: require("../FoodImages/Cracker.png"),
         price: 5.65,
         calories: 105,
         ingredients: [
@@ -162,7 +161,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Peanut Chunk Chocolate",
         description: "Savory taste of Peanuts with chocolate",
-        image: chocolate,
+        image: require("../FoodImages/Chocolate.png"),
         price: 4.1,
         calories: 200,
         ingredients: ["Sugar, Flour, Peanuts, cocoa "],
@@ -172,7 +171,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Potato Chips",
         description: "Crisy Chips",
-        image: chips,
+        image: require("../FoodImages/Chips.png"),
         price: 4.75,
         calories: 60,
         ingredients: ["Potato, Salt"],
@@ -182,7 +181,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Oreo's",
         description: "Creamy cookies",
-        image: oreos,
+        image: require("../FoodImages/Oreos.png"),
         price: 6.12,
         calories: 75,
         ingredients: ["Sugar, Cream filling, Chocolate"],
@@ -192,7 +191,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "FairLife Protien, Chocolate",
         description: "30 grams of pure isloate Protien per bottle. 18 Bottles",
-        image: protein,
+        image: require("../FoodImages/Protein.png"),
         price: 30.5,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"],
@@ -203,7 +202,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Pea Protien",
         description: "50 grams of pure isloate Protien per Scoop",
-        image: pea,
+        image: require("../FoodImages/Pea Protein.png"),
         price: 55.8,
         calories: 200,
         ingredients: ["Pea Whey Protien, Chocolate, Milk"],
