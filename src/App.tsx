@@ -20,6 +20,12 @@ function App(): JSX.Element {
                 food.id === updatedFood.id ? updatedFood : food
             )
         );
+        const foodIndex = FOOD_LIST.findIndex(
+            (food) => food.id === updatedFood.id
+        );
+        if (foodIndex !== -1) {
+            FOOD_LIST[foodIndex] = updatedFood;
+        }
     };
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -43,14 +49,17 @@ function App(): JSX.Element {
                     onCentralListUpdate={handleCentralListUpdate}
                 ></EmployeeCart>
                 <CustomerCart customerList={[]}></CustomerCart>
-                <CentralList foodList={centralList}></CentralList>
-                <p>
+                <CentralList
+                    foodList={centralList}
+                    onFoodUpdate={handleCentralListUpdate}
+                ></CentralList>
+                <div>
                     <p>Michael Bocelli</p>
                     <p>Robert Oratorio</p>
                     <p>Sharanjit Singh</p>
                     <p>Cole McCaleb</p>
                     <p>Andrew Kallai</p>
-                </p>
+                </div>
             </div>
         </DndProvider>
     );

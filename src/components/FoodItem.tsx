@@ -16,7 +16,7 @@ export function FoodItem({
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
-        item: { name: name },
+        item: { id: id },
         collect: (monitor) => ({
             isDragging: !!monitor.isDragging()
         })

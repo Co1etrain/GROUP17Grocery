@@ -3,14 +3,20 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 
-export function CentralList({ foodList }: { foodList: Food[] }): JSX.Element {
+export function CentralList({
+    foodList,
+    onFoodUpdate
+}: {
+    foodList: Food[];
+    onFoodUpdate: (updatedFood: Food) => void;
+}): JSX.Element {
     return (
         <div className="CentralList">
             {foodList.map((food: Food) => {
                 return (
                     <FoodItem
                         id={food.id}
-                        key={food.name}
+                        key={food.id}
                         name={food.name}
                         description={food.description}
                         image={food.image}
@@ -18,6 +24,7 @@ export function CentralList({ foodList }: { foodList: Food[] }): JSX.Element {
                         calories={food.calories}
                         ingredients={food.ingredients}
                         category={food.category}
+                        onFoodUpdate={onFoodUpdate}
                     ></FoodItem>
                 );
             })}

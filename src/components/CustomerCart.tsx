@@ -15,18 +15,18 @@ export function CustomerCart(
     const [cartList, setCartList] = useState<Food[]>(customerList);
     const [{ isOver }, drop] = useDrop({
         accept: "food",
-        drop: (item: Food) => addFoodToCart(item.name),
+        drop: (item: Food) => addFoodToCart(item.id),
         collect: (monitor) => ({
             isOver: !!monitor.isOver()
         })
     });
 
-    function addFoodToCart(name: string) {
-        const droppedFood: Food[] = FOOD_LIST.filter(
-            (food: Food) => food.name === name
+    function addFoodToCart(id: number) {
+        const droppedFood: Food | undefined = FOOD_LIST.find(
+            (food: Food) => food.id === id
         );
-        if (cartList.find((food: Food) => name === food.name) === undefined) {
-            setCartList([...cartList, droppedFood[0]]);
+        if (droppedFood && !cartList.some((food: Food) => id === food.id)) {
+            setCartList([...cartList, droppedFood]);
         }
     }
 
@@ -44,7 +44,7 @@ export function CustomerCart(
                     return (
                         <FoodItem
                             id={food.id}
-                            key={food.name}
+                            key={food.id}
                             name={food.name}
                             description={food.description}
                             image={food.image}
