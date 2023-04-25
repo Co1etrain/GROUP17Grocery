@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
+import { Food } from "../interfaces/food";
+import { CustomersRecord } from "../interfaces/record";
 
 interface customerProps {
     updateSelectedCustomer: (
         event: React.ChangeEvent<HTMLSelectElement>
     ) => void;
     currentSelectedCustomer: string;
+    currentCustomersRecord: string[];
 }
 
 export function DisplayCustomerNames({
     updateSelectedCustomer,
-    currentSelectedCustomer
+    currentSelectedCustomer,
+    currentCustomersRecord
 }: customerProps): JSX.Element {
     return (
         <div>
@@ -20,7 +24,11 @@ export function DisplayCustomerNames({
                     value={currentSelectedCustomer}
                     onChange={updateSelectedCustomer}
                 >
-                    <option value="customer1">customer1</option>
+                    {currentCustomersRecord.map((customer: string) => (
+                        <option key={customer} value={customer}>
+                            {customer}
+                        </option>
+                    ))}
                 </Form.Select>
             </Form.Group>
         </div>

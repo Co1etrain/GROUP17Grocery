@@ -8,13 +8,13 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
-import { GetNames } from "./interfaces/testing";
 import { Food, FOOD_LIST } from "./interfaces/food";
+import { DisplayCustomerNames } from "./components/CustomersForm";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
 
-    function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
+    function updateUser(event: React.ChangeEvent<HTMLSelectElement>): void {
         const toUsersType: Users["person"] = event.target
             .value as Users["person"];
         setUser(toUsersType);
@@ -22,13 +22,26 @@ function App(): JSX.Element {
 
     const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
 
-    function editCustomers(givenCustomer: string, food: Food): void {
+    function editCustomers(givenCustomer: string, food: Food[]): void {
         setCustomers({
             ...currentCustomers,
             [givenCustomer]: food
         });
-        console.log("TOP_DEBUG");
-        console.log(Object.entries(currentCustomers));
+    }
+
+    function removeCustomers(givenCustomer: string): void {
+        const newCustomers: CustomersRecord = currentCustomers;
+        setCustomers({ ...currentCustomers });
+        delete newCustomers[givenCustomer];
+        setCustomers({ ...newCustomers });
+    }
+
+    const [selectedCustomer, setSelectedCustomer] = useState<string>("");
+
+    function updateSelectedCustomer(
+        event: React.ChangeEvent<HTMLSelectElement>
+    ): void {
+        setSelectedCustomer(event.target.value);
     }
 
     return (
@@ -43,9 +56,18 @@ function App(): JSX.Element {
                 </div>
                 <CustomerCart customerList={[]}></CustomerCart>
                 <CentralList></CentralList>
-                {<GetNames></GetNames>}
-                <Button onClick={() => editCustomers("JOHN", FOOD_LIST[0])}>
-                    MOR
+
+                <DisplayCustomerNames
+                    updateSelectedCustomer={updateSelectedCustomer}
+                    currentSelectedCustomer={selectedCustomer}
+                    currentCustomersRecord={Object.keys(currentCustomers)}
+                ></DisplayCustomerNames>
+                <Button onClick={() => editCustomers("JOHN", [FOOD_LIST[0]])}>
+                    MORE
+                    {console.log(Object.entries(currentCustomers))}
+                </Button>
+                <Button onClick={() => removeCustomers("JOHN")}>
+                    LESS
                     {console.log(Object.entries(currentCustomers))}
                 </Button>
 
