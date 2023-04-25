@@ -12,7 +12,7 @@ export function CreateUserForm({
     updateUser
 }: userProps): JSX.Element {
     return (
-        <div>
+        <div style={{ marginRight: "20px" }}>
             <Form.Group controlId="userSelected">
                 <Form.Label>Select User:</Form.Label>
                 <Form.Select value={currentUser} onChange={updateUser}>
