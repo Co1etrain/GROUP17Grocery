@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (216 ms)
+  ✕ renders the course name somewhere (260 ms)
 
   ● renders the course name somewhere
 
@@ -93,6 +93,10 @@ FAIL src/App.test.tsx
               [0m's[0m
               [0m Cart[0m
             [36m</h2>[39m
+            [36m<h3>[39m
+              [0mTotal price: [0m
+              [0m0.00[0m
+            [36m</h3>[39m
             [36m<div[39m
               [33mclass[39m=[32m"Cart"[39m
               [33mstyle[39m=[32m"background-color: white;"[39m
@@ -156,7 +160,7 @@ FAIL src/App.test.tsx
                   [36m<strong>[39m
                     [0mApples[0m
                     [0m - $[0m
-                    [0m2.2[0m
+                    [0m2.20[0m
                   [36m</strong>[39m
                   [36m<br />[39m
                   [0mAll organic Non-GMO Apples[0m
@@ -197,7 +201,7 @@ FAIL src/App.test.tsx
                   [36m<strong>[39m
                     [0mWhole Wheat Bread[0m
                     [0m - $[0m
-                    [0m5[0m
+                    [0m5.00[0m
                   [36m</strong>[39m
                   [36m<br />[39m
                   [0mFreshly Made Farmer Market Bread[0m
@@ -205,11 +209,7 @@ FAIL src/App.test.tsx
                   [0m92[0m
                   [0m Calories per serving[0m
                   [36m<br />[39m
-                  [0mIngredients: [0m
-                  [0mWater, [0m
-                  [0mFlour, [0m
-                  [0mSalt, [0m
-              ...
+                  [0mIngredients...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -232,12 +232,12 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   62.16 |       25 |      50 |   63.88 |                   
+All files          |   61.53 |       25 |      50 |   63.15 |                   
  src               |      50 |      100 |      50 |      50 |                   
   App.tsx          |      50 |      100 |      50 |      50 | 15-17             
- src/components    |   61.29 |       25 |      50 |   63.33 |                   
+ src/components    |    60.6 |       25 |      50 |    62.5 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
-  CustomerCart.tsx |   43.75 |    16.66 |      30 |   46.66 | 27,34-43,71-76    
+  CustomerCart.tsx |   44.44 |    16.66 |      30 |   47.05 | 28,35-45,73-78    
   FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 28                
   IntroHeader.tsx  |     100 |      100 |     100 |     100 |                   
   Navbar.tsx       |      50 |      100 |   33.33 |      50 | 30-59             
@@ -249,5 +249,5 @@ All files          |   62.16 |       25 |      50 |   63.88 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.692 s
+Time:        3.139 s
 Ran all test suites.
