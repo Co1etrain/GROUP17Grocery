@@ -8,9 +8,19 @@ import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { EmployeeCart } from "./components/EmployeeCart";
+import { Food, FOOD_LIST } from "./interfaces/food";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
+    const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+
+    const handleCentralListUpdate = (updatedFood: Food) => {
+        setCentralList((prevList) =>
+            prevList.map((food) =>
+                food.id === updatedFood.id ? updatedFood : food
+            )
+        );
+    };
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
         const toUsersType: Users["person"] = event.target
@@ -28,9 +38,12 @@ function App(): JSX.Element {
                         currentUser={currentUser}
                     ></CreateUserForm>
                 </div>
-                <EmployeeCart employeeList={[]}></EmployeeCart>
+                <EmployeeCart
+                    employeeList={[]}
+                    onCentralListUpdate={handleCentralListUpdate}
+                ></EmployeeCart>
                 <CustomerCart customerList={[]}></CustomerCart>
-                <CentralList></CentralList>
+                <CentralList foodList={centralList}></CentralList>
                 <p>
                     <p>Michael Bocelli</p>
                     <p>Robert Oratorio</p>

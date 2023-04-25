@@ -5,9 +5,11 @@ import "../App.css";
 import { useDrop } from "react-dnd";
 
 export function EmployeeCart({
-    employeeList
+    employeeList,
+    onCentralListUpdate
 }: {
     employeeList: Food[];
+    onCentralListUpdate: (updatedFood: Food) => void;
 }): JSX.Element {
     const [cartList, setCartList] = useState<Food[]>(employeeList);
     const [{ isOver }, drop] = useDrop({
@@ -33,6 +35,7 @@ export function EmployeeCart({
                 food.id === updatedFood.id ? updatedFood : food
             )
         );
+        onCentralListUpdate(updatedFood);
     }
 
     return (

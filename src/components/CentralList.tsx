@@ -3,11 +3,11 @@ import { Food, FOOD_LIST } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 
-export function CentralList(): JSX.Element {
+export function CentralList({ foodList }: { foodList: Food[] }): JSX.Element {
     const [centralList] = useState<Food[]>(FOOD_LIST);
     return (
         <div className="CentralList">
-            {centralList.map((food: Food) => {
+            {foodList.map((food: Food) => {
                 return (
                     <FoodItem
                         id={food.id}
