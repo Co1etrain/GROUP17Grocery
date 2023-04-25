@@ -10,6 +10,7 @@ import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { DisplayCustomerNames } from "./components/CustomersForm";
+import { TextField } from "./components/CustomerInputBox";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -70,7 +71,7 @@ function App(): JSX.Element {
                     LESS
                     {console.log(Object.entries(currentCustomers))}
                 </Button>
-
+                <TextField></TextField>
                 <p>
                     <p>Michael Bocelli</p>
                     <p>Robert Oratorio</p>
