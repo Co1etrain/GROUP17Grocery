@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (260 ms)
+  ✕ renders the course name somewhere (356 ms)
 
   ● renders the course name somewhere
 
@@ -86,6 +86,49 @@ FAIL src/App.test.tsx
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
+          [36m<div>[39m
+            [36m<div[39m
+              [33mstyle[39m=[32m"margin-right: 20px;"[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"form-label"[39m
+                  [33mfor[39m=[32m"userSelected"[39m
+                [36m>[39m
+                  [0mSelect User:[0m
+                [36m</label>[39m
+                [36m<select[39m
+                  [33mclass[39m=[32m"form-select"[39m
+                  [33mid[39m=[32m"userSelected"[39m
+                [36m>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"owner"[39m
+                  [36m>[39m
+                    [0mowner[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"employee"[39m
+                  [36m>[39m
+                    [0memployee[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"customer"[39m
+                  [36m>[39m
+                    [0mcustomer[0m
+                  [36m</option>[39m
+                [36m</select>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+          [36m</div>[39m
+          [36m<div>[39m
+            [36m<h2>[39m
+              [0mEmployee/Manager Cart[0m
+            [36m</h2>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"Cart"[39m
+              [33mstyle[39m=[32m"background-color: white;"[39m
+            [36m/>[39m
+          [36m</div>[39m
           [36m<div[39m
             [33mstyle[39m=[32m"padding-top: 15px;"[39m
           [36m>[39m
@@ -147,6 +190,7 @@ FAIL src/App.test.tsx
                 [33mtype[39m=[32m"button"[39m
               [36m>[39m
                 [36m<img[39m
+                  [33malt[39m=[32m""[39m
                   [33msrc[39m=[32m"Apple.png"[39m
                   [33mwidth[39m=[32m"100px"[39m
                 [36m/>[39m
@@ -167,49 +211,7 @@ FAIL src/App.test.tsx
                   [36m<br />[39m
                   [0m95[0m
                   [0m Calories per serving[0m
-                  [36m<br />[39m
-                  [0mIngredients: [0m
-                  [0mApples[0m
-                  [36m<br />[39m
-                  [0mFruits[0m
-                  [36m<br />[39m
-                  [0mThis will be the 5 stars [0m
-                  [0m0[0m
-                [36m</p>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"Food-Container"[39m
-              [33mdraggable[39m=[32m"true"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"Food-Button btn btn-primary"[39m
-                [33mstyle[39m=[32m"border: 0px;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [36m<img[39m
-                  [33msrc[39m=[32m"Bread.png"[39m
-                  [33mwidth[39m=[32m"100px"[39m
-                [36m/>[39m
-              [36m</button>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"Food-Desc"[39m
-                [33mhidden[39m=[32m""[39m
-                [33mstyle[39m=[32m"border: 5px solid black;"[39m
-              [36m>[39m
-                [36m<p>[39m
-                  [36m<strong>[39m
-                    [0mWhole Wheat Bread[0m
-                    [0m - $[0m
-                    [0m5.00[0m
-                  [36m</strong>[39m
-                  [36m<br />[39m
-                  [0mFreshly Made Farmer Market Bread[0m
-                  [36m<br />[39m
-                  [0m92[0m
-                  [0m Calories per serving[0m
-                  [36m<br />[39m
-                  [0mIngredients...
+                  [36m<br />[39...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -229,25 +231,26 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
--------------------|---------|----------|---------|---------|-------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------|---------|----------|---------|---------|-------------------
-All files          |   61.53 |       25 |      50 |   63.15 |                   
- src               |      50 |      100 |      50 |      50 |                   
-  App.tsx          |      50 |      100 |      50 |      50 | 15-17             
- src/components    |    60.6 |       25 |      50 |    62.5 |                   
-  CentralList.tsx  |     100 |      100 |     100 |     100 |                   
-  CustomerCart.tsx |   44.44 |    16.66 |      30 |   47.05 | 28,35-45,73-78    
-  FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 28                
-  IntroHeader.tsx  |     100 |      100 |     100 |     100 |                   
-  Navbar.tsx       |      50 |      100 |   33.33 |      50 | 30-59             
-  UserForm.tsx     |     100 |      100 |     100 |     100 |                   
- src/interfaces    |     100 |      100 |     100 |     100 |                   
-  food.ts          |     100 |      100 |     100 |     100 |                   
-  record.ts        |     100 |      100 |     100 |     100 |                   
--------------------|---------|----------|---------|---------|-------------------
+-------------------|---------|----------|---------|---------|---------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+-------------------|---------|----------|---------|---------|---------------------
+All files          |   47.05 |    19.23 |   34.09 |   48.78 |                     
+ src               |   30.76 |        0 |   16.66 |   30.76 |                     
+  App.tsx          |   30.76 |        0 |   16.66 |   30.76 | 19-35               
+ src/components    |   48.57 |    22.72 |   36.84 |   50.74 |                     
+  CentralList.tsx  |     100 |      100 |     100 |     100 |                     
+  CustomerCart.tsx |   44.44 |     12.5 |      30 |   47.05 | 28,35-45,73-78      
+  EmployeeCart.tsx |   26.66 |    16.66 |      20 |   28.57 | 17,24-38,52         
+  FoodItem.tsx     |   55.17 |     37.5 |   36.36 |   57.14 | 33-47,52-83,114,121 
+  IntroHeader.tsx  |     100 |      100 |     100 |     100 |                     
+  Navbar.tsx       |      50 |      100 |   33.33 |      50 | 30-59               
+  UserForm.tsx     |     100 |      100 |     100 |     100 |                     
+ src/interfaces    |     100 |      100 |     100 |     100 |                     
+  food.ts          |     100 |      100 |     100 |     100 |                     
+  record.ts        |     100 |      100 |     100 |     100 |                     
+-------------------|---------|----------|---------|---------|---------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.139 s
+Time:        4.085 s
 Ran all test suites.
