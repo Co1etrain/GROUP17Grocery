@@ -36,7 +36,7 @@ function App(): JSX.Element {
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <Navbar></Navbar>
+            <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
             <div className="App">
                 <div>
                     <CreateUserForm
@@ -52,16 +52,16 @@ function App(): JSX.Element {
                     customerList={[]}
                     customerName={""}
                 ></CustomerCart>
+                <h2>Main Inventory</h2>
                 <CentralList
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
                 ></CentralList>
-                <div>
-                    <p>Michael Bocelli</p>
-                    <p>Robert Oratorio</p>
-                    <p>Sharanjit Singh</p>
-                    <p>Cole McCaleb</p>
-                    <p>Andrew Kallai</p>
+                <div className="Footer">
+                    <p style={{ margin: "10px" }}>
+                        Created by Michael Bocelli, Robert Oratorio, Sharanjit
+                        Singh, Cole McCaleb, and Andrew Kallai.
+                    </p>
                 </div>
             </div>
         </DndProvider>

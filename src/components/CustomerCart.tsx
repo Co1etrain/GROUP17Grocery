@@ -44,7 +44,7 @@ export function CustomerCart({
     }
 
     return (
-        <div>
+        <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
 
             <div

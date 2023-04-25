@@ -115,18 +115,19 @@ export function FoodItem({
     };
 
     return (
-        <div ref={drag}>
+        <div ref={drag} className="Food-Container">
             <Button
+                className="Food-Button"
                 onClick={() => setIsDescHidden(!isDescHidden)}
                 style={{
-                    backgroundColor: "pink",
-                    border: isDragging ? "5px solid Violet" : "0px",
-                    margin: "5px"
+                    border: isDragging ? "5px solid Violet" : "0px"
                 }}
             >
                 <img src={image} width="100px" alt="" />
             </Button>
-            <div hidden={isDescHidden}>{renderContent()}</div>
+            <div className="Food-Desc" hidden={isDescHidden}>
+                {renderContent()}
+            </div>
         </div>
     );
 }
