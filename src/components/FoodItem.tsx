@@ -47,6 +47,68 @@ export function FoodItem({
         setEditMode(false);
     };
 
+    const renderContent = () => {
+        if (editMode) {
+            return (
+                <Form onSubmit={handleUpdate}>
+                    <Form.Group>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={editedName}
+                            onChange={(e) => setEditedName(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control
+                            type="text"
+                            value={editedDescription}
+                            onChange={(e) =>
+                                setEditedDescription(e.target.value)
+                            }
+                        />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Label>Price</Form.Label>
+                        <Form.Control
+                            type="number"
+                            value={editedPrice}
+                            onChange={(e) =>
+                                setEditedPrice(parseFloat(e.target.value))
+                            }
+                        />
+                    </Form.Group>
+                    <Button type="submit">Save</Button>
+                    <Button onClick={() => setEditMode(false)}>Cancel</Button>
+                </Form>
+            );
+        } else {
+            return (
+                <>
+                    <p>
+                        <strong>
+                            {name} - ${price}
+                        </strong>
+                        <br />
+                        {description}
+                        <br />
+                        {calories} Calories per serving
+                        <br />
+                        Ingredients: {ingredients}
+                        <br />
+                        {category}
+                        <br />
+                        This will be the 5 stars {rating}
+                    </p>
+                    {onFoodUpdate && (
+                        <Button onClick={() => setEditMode(true)}>Edit</Button>
+                    )}
+                </>
+            );
+        }
+    };
+
     return (
         <div ref={drag}>
             <Button
@@ -57,69 +119,9 @@ export function FoodItem({
                     margin: "5px"
                 }}
             >
-                <img src={image} width="100px"></img>
+                <img src={image} width="100px" alt="" />
             </Button>
-            <div hidden={isDescHidden}>
-                {editMode ? (
-                    <Form onSubmit={handleUpdate}>
-                        <Form.Group>
-                            <Form.Label>Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={editedName}
-                                onChange={(e) => setEditedName(e.target.value)}
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={editedDescription}
-                                onChange={(e) =>
-                                    setEditedDescription(e.target.value)
-                                }
-                            />
-                        </Form.Group>
-                        <Form.Group>
-                            <Form.Label>Price</Form.Label>
-                            <Form.Control
-                                type="number"
-                                value={editedPrice}
-                                onChange={(e) =>
-                                    setEditedPrice(parseFloat(e.target.value))
-                                }
-                            />
-                        </Form.Group>
-                        <Button type="submit">Save</Button>
-                        <Button onClick={() => setEditMode(false)}>
-                            Cancel
-                        </Button>
-                    </Form>
-                ) : (
-                    <>
-                        <p>
-                            <strong>
-                                {name} - ${price}
-                            </strong>
-                            <br></br>
-                            {description}
-                            <br></br>
-                            {calories} Calories per serving
-                            <br></br>
-                            Ingredients: {ingredients}
-                            <br></br>
-                            {category}
-                            <br></br>
-                            This will be the 5 stars {rating}
-                        </p>
-                        {onFoodUpdate && (
-                            <Button onClick={() => setEditMode(true)}>
-                                Edit
-                            </Button>
-                        )}
-                    </>
-                )}
-            </div>
+            <div hidden={isDescHidden}>{renderContent()}</div>
         </div>
     );
 }
