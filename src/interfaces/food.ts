@@ -342,7 +342,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Ground Beef",
         description: "Savory dish, 100% beef",
-        image: "realtive/path/here",
+        image: "../FoodImages/GroundBeef.png",
         price: 17.15,
         calories: 300,
         ingredients: ["Beef, Salt, Pepper"],
@@ -352,7 +352,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Cheese",
         description: "Tasty cheese",
-        image: "realtive/path/here",
+        image: "../FoodImages/Cheese.png",
         price: 5.85,
         calories: 275,
         ingredients: ["Milk, Salt, Cheese"],
