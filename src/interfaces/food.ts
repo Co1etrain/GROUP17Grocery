@@ -282,7 +282,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Lemon",
         description: "Delicious",
-        image: "realtive/path/here",
+        image: "../FoodImages/lemon.png",
         price: 5.45,
         calories: 20,
         ingredients: ["Lemon"],
@@ -292,7 +292,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Celery",
         description: "Nice low-calorie snack",
-        image: "realtive/path/here",
+        image: "../FoodImages/celery.png",
         price: 2.15,
         calories: 10,
         ingredients: ["Celery"],
