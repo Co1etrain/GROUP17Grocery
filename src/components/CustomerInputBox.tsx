@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Form } from "react-bootstrap";
-
+interface customerRecordProps {
+    setTheState: () => void;
+    event: React.ChangeEvent<HTMLInputElement>;
+}
+/*
 export function TextField(): JSX.Element {
     const [customerName, setCustomerName] = useState<string>("");
 
-    function updateCustomerName(event: React.ChangeEvent<HTMLInputElement>) {
-        setCustomerName(event.target.value);
+    function updateCustomerName({setTheState, event}: customerRecordProps) {
+        setTheState(event.target.value);
     }
 
     return (
@@ -17,5 +21,6 @@ export function TextField(): JSX.Element {
                     onChange={updateCustomerName}
                 />
             </Form.Group>
+        </div>
     );
-}
+}*/

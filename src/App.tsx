@@ -9,7 +9,7 @@ import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { DisplayCustomerNames } from "./components/CustomersForm";
-import { TextField } from "./components/CustomerInputBox";
+//import { TextField } from "./components/CustomerInputBox";
 import { IntroHeader } from "./components/IntroHeader";
 
 function App(): JSX.Element {
@@ -69,7 +69,7 @@ function App(): JSX.Element {
                     LESS
                     {console.log(Object.entries(currentCustomers))}
                 </Button>
-                <TextField></TextField>
+                {/*<TextField></TextField>*/}
                 <div className="Footer">
                     <p style={{ margin: "10px" }}>
                         Created by Michael Bocelli, Robert Oratorio, Sharanjit
