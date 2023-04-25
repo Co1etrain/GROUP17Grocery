@@ -125,7 +125,11 @@ export function FoodItem({
             >
                 <img src={image} width="100px" alt="" />
             </Button>
-            <div className="Food-Desc" hidden={isDescHidden}>
+            <div
+                className="Food-Desc"
+                hidden={isDescHidden}
+                style={{ border: "5px solid Black" }}
+            >
                 {renderContent()}
             </div>
         </div>

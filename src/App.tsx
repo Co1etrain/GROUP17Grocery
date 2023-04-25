@@ -9,6 +9,7 @@ import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { EmployeeCart } from "./components/EmployeeCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
+import { IntroHeader } from "./components/IntroHeader";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -37,6 +38,7 @@ function App(): JSX.Element {
     return (
         <DndProvider backend={HTML5Backend}>
             <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
+            <IntroHeader></IntroHeader>
             <div className="App">
                 <div>
                     <CreateUserForm
