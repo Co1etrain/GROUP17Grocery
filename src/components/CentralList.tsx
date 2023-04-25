@@ -1,17 +1,23 @@
-import React, { useState } from "react";
-import { Food, FOOD_LIST } from "../interfaces/food";
+import React from "react";
+import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 //create a button given a name/ form, name of food and create a new central list without the deleted
 
-export function CentralList(): JSX.Element {
-    const [centralList] = useState<Food[]>(FOOD_LIST);
+export function CentralList({
+    foodList,
+    onFoodUpdate
+}: {
+    foodList: Food[];
+    onFoodUpdate: (updatedFood: Food) => void;
+}): JSX.Element {
     return (
         <div className="CentralList">
-            {centralList.map((food: Food) => {
+            {foodList.map((food: Food) => {
                 return (
                     <FoodItem
-                        key={food.name}
+                        id={food.id}
+                        key={food.id}
                         name={food.name}
                         description={food.description}
                         image={food.image}
@@ -19,6 +25,7 @@ export function CentralList(): JSX.Element {
                         calories={food.calories}
                         ingredients={food.ingredients}
                         category={food.category}
+                        onFoodUpdate={onFoodUpdate}
                     ></FoodItem>
                 );
             })}
