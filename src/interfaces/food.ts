@@ -222,7 +222,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Grapes",
         description: "Fresh Farm grapes",
-        image: "idk",
+        image: "../FoodImages/grapes.png",
         price: 5.2,
         calories: 300,
         ingredients: ["Grapes"],
@@ -232,7 +232,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Olive Oil",
         description: "Fresh cooking olive oil",
-        image: "realtive/path/here",
+        image: "../FoodImages/OliveOil.png",
         price: 7.85,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"],
