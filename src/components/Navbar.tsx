@@ -2,31 +2,42 @@ import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBS } from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
+import { Users } from "../interfaces/record";
+import { CreateUserForm } from "./UserForm";
 
-export function Navbar() {
+interface userProps {
+    updateUser: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    currentUser: Users["person"];
+}
+
+export function Navbar({ updateUser, currentUser }: userProps) {
     const [cart, setCart] = useState<boolean>(false);
 
     return (
-        <NavbarBS sticky="top" className="bg-white shadow-sm mb-3 p-3">
+        <NavbarBS sticky="top" className="bg-white shadow-sm mb-0 p-3">
             <Container>
                 <Nav
                     className="me-auto"
                     style={{ fontSize: "2.7rem", fontStyle: "italic" }}
                 >
-                    Home
+                    Glocery
                 </Nav>
-                <Button className="m-3">Hello</Button>
+                <CreateUserForm
+                    updateUser={updateUser}
+                    currentUser={currentUser}
+                ></CreateUserForm>
                 <Button
                     onClick={() => setCart(true)}
                     style={{
-                        width: "4rem",
+                        width: "6rem",
                         height: "4rem",
                         position: "relative"
                     }}
                     variant="outline-primary"
-                    className="rounded-circle"
+                    className="rounded-square"
+                    disabled={currentUser === "customer"}
                 >
-                    Store
+                    <span>Requests</span>
                     <div
                         className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
                         style={{
@@ -39,7 +50,7 @@ export function Navbar() {
                             transform: "translate(25%, 25%)"
                         }}
                     >
-                        3
+                        0
                     </div>
                 </Button>
                 <Offcanvas show={cart} placement="end">
@@ -47,7 +58,7 @@ export function Navbar() {
                         closeButton
                         onClick={() => setCart(false)}
                     >
-                        <Offcanvas.Title>Cart</Offcanvas.Title>
+                        <Offcanvas.Title>Employee Requests</Offcanvas.Title>
                     </Offcanvas.Header>
                 </Offcanvas>
             </Container>
