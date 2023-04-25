@@ -4,7 +4,6 @@ import { CentralList } from "./components/CentralList";
 import { Users } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { EmployeeCart } from "./components/EmployeeCart";
@@ -40,12 +39,6 @@ function App(): JSX.Element {
             <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
             <IntroHeader></IntroHeader>
             <div className="App">
-                <div>
-                    <CreateUserForm
-                        updateUser={updateUser}
-                        currentUser={currentUser}
-                    ></CreateUserForm>
-                </div>
                 <EmployeeCart
                     employeeList={[]}
                     onCentralListUpdate={handleCentralListUpdate}
