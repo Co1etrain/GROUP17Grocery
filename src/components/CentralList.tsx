@@ -2,6 +2,7 @@ import React from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
+//create a button given a name/ form, name of food and create a new central list without the deleted
 
 export function CentralList({
     foodList,
