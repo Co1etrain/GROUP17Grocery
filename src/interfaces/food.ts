@@ -133,7 +133,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Lemon Lime Soda",
         description: "Savory taste of the Lemon",
-        image: "../FoodImages/Sprite.png",
+        image: require("../FoodImages/Sprite.png"),
         price: 3.75,
         calories: 145,
         ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"],
@@ -212,7 +212,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Rice Cakes",
         description: "Crispy Rice Cakes with hint of honey",
-        image: "../FoodImages/RiceCakes.png",
+        image: require("../FoodImages/RiceCakes.png"),
         price: 12.25,
         calories: 80,
         ingredients: ["Rice, Honey, Salt"],
@@ -222,7 +222,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Grapes",
         description: "Fresh Farm grapes",
-        image: "../FoodImages/grapes.png",
+        image: require("../FoodImages/grapes.png"),
         price: 5.2,
         calories: 300,
         ingredients: ["Grapes"],
@@ -232,7 +232,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Olive Oil",
         description: "Fresh cooking olive oil",
-        image: "../FoodImages/OliveOil.png",
+        image: require("../FoodImages/OliveOil.png"),
         price: 7.85,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"],
@@ -242,7 +242,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Granola Bars",
         description: "Crispy valley oats Granola",
-        image: "../FoodImages/GranolaBars.png",
+        image: require("../FoodImages/GranolaBars.png"),
         price: 10.3,
         calories: 250,
         ingredients: ["Granola, Sugar, Honey"],
@@ -252,7 +252,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "PopCorn",
         description: "Buttery PopCorn",
-        image: "../FoodImages/popcorn.png",
+        image: require("../FoodImages/popcorn.png"),
         price: 30.5,
         calories: 150,
         ingredients: ["Corn, Butter, preservatives"],
@@ -262,7 +262,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Eggs",
         description: "Delicious chicken eggs",
-        image: "../FoodImages/eggs.png",
+        image: require("../FoodImages/eggs.png"),
         price: 5.5,
         calories: 120,
         ingredients: ["Eggs"],
@@ -272,7 +272,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Tomatos",
         description: "Delicious sweet red tomatos",
-        image: "../FoodImages/tomatoes.png",
+        image: require("../FoodImages/tomatoes.png"),
         price: 5.45,
         calories: 100,
         ingredients: ["Tomato"],
@@ -282,7 +282,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Lemon",
         description: "Delicious",
-        image: "../FoodImages/lemon.png",
+        image: require("../FoodImages/lemon.png"),
         price: 5.45,
         calories: 20,
         ingredients: ["Lemon"],
@@ -292,7 +292,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Celery",
         description: "Nice low-calorie snack",
-        image: "../FoodImages/celery.png",
+        image: require("../FoodImages/celery.png"),
         price: 2.15,
         calories: 10,
         ingredients: ["Celery"],
@@ -302,7 +302,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Strawberries",
         description: "Sweet and juicy snack",
-        image: "../FoodImages/strawberries.png",
+        image: require("../FoodImages/strawberries.png"),
         price: 3.45,
         calories: 100,
         ingredients: ["Strawberry"],
@@ -312,7 +312,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Ribeye Steak",
         description: "High-quality savory cut of meat",
-        image: "../FoodImages/RibSteak.png",
+        image: require("../FoodImages/RibSteak.png"),
         price: 50.95,
         calories: 500,
         ingredients: ["Beef, Salt, Pepper"],
@@ -322,7 +322,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Pizza",
         description: "Delicious frozen pizza",
-        image: "../FoodImages/Pizza.png",
+        image: require("../FoodImages/Pizza.png"),
         price: 7.25,
         calories: 1000,
         ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"],
@@ -332,7 +332,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Black Beans",
         description: "Popular Latin American cuisine",
-        image: "../FoodImages/BlackBeans.png",
+        image: require("../FoodImages/BlackBeans.png"),
         price: 3.95,
         calories: 200,
         ingredients: ["Beans, Water, Salt"],
@@ -342,7 +342,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Ground Beef",
         description: "Savory dish, 100% beef",
-        image: "../FoodImages/GroundBeef.png",
+        image: require("../FoodImages/GroundBeef.png"),
         price: 17.15,
         calories: 300,
         ingredients: ["Beef, Salt, Pepper"],
@@ -352,7 +352,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Cheese",
         description: "Tasty cheese",
-        image: "../FoodImages/Cheese.png",
+        image: require("../FoodImages/Cheese.png"),
         price: 5.85,
         calories: 275,
         ingredients: ["Milk, Salt, Cheese"],
