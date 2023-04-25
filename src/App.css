@@ -25,8 +25,16 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
+	background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
 }
-
+.description{
+    border: 3px solid #969696;
+        
+}
+.image {
+	background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
+	height: 250px;
+}
 .App-link {
     color: #61dafb;
 }
