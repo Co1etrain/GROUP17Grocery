@@ -22,18 +22,21 @@ export function FoodItem({
     const [isDescHidden, setIsDescHidden] = useState<boolean>(true);
     const [rating] = useState<number>(0);
     return (
-        <div ref={drag}>
+        <div ref={drag} className="Food-Container">
             <Button
+                className="Food-Button"
                 onClick={() => setIsDescHidden(!isDescHidden)}
                 style={{
-                    backgroundColor: "pink",
-                    border: isDragging ? "5px solid Violet" : "0px",
-                    margin: "5px"
+                    border: isDragging ? "5px solid Violet" : "0px"
                 }}
             >
                 <img src={image} width="100px"></img>
             </Button>
-            <div hidden={isDescHidden} style={{ border: "5px solid Black" }}>
+            <div
+                className="Food-Desc"
+                hidden={isDescHidden}
+                style={{ border: "5px solid Black" }}
+            >
                 <p>
                     <strong>
                         {name} - ${price}

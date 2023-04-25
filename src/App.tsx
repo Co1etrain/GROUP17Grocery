@@ -4,7 +4,6 @@ import { CentralList } from "./components/CentralList";
 import { Users } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { IntroHeader } from "./components/IntroHeader";
@@ -20,24 +19,21 @@ function App(): JSX.Element {
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <Navbar></Navbar>
+            <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
             <IntroHeader></IntroHeader>
             <div className="App">
-                <div>
-                    <CreateUserForm
-                        updateUser={updateUser}
-                        currentUser={currentUser}
-                    ></CreateUserForm>
-                </div>
-                <CustomerCart customerList={[]}></CustomerCart>
+                <CustomerCart
+                    customerList={[]}
+                    customerName={""}
+                ></CustomerCart>
+                <h2>Main Inventory</h2>
                 <CentralList></CentralList>
-                <p>
-                    <p>Michael Bocelli</p>
-                    <p>Robert Oratorio</p>
-                    <p>Sharanjit Singh</p>
-                    <p>Cole McCaleb</p>
-                    <p>Andrew Kallai</p>
-                </p>
+                <div className="Footer">
+                    <p style={{ margin: "10px" }}>
+                        Created by Michael Bocelli, Robert Oratorio, Sharanjit
+                        Singh, Cole McCaleb, and Andrew Kallai.
+                    </p>
+                </div>
             </div>
         </DndProvider>
     );
