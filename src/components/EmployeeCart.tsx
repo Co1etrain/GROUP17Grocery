@@ -27,6 +27,14 @@ export function EmployeeCart({
         }
     }
 
+    function handleFoodUpdate(updatedFood: Food) {
+        setCartList((prevCartList) =>
+            prevCartList.map((food) =>
+                food.name === updatedFood.name ? updatedFood : food
+            )
+        );
+    }
+
     return (
         <div>
             <h2>Employee/Manager Cart</h2>
@@ -48,6 +56,7 @@ export function EmployeeCart({
                             calories={food.calories}
                             ingredients={food.ingredients}
                             category={food.category}
+                            onFoodUpdate={handleFoodUpdate}
                         ></FoodItem>
                     );
                 })}
