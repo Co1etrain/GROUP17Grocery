@@ -71,6 +71,24 @@
     background-color: white;
 }
 
+.Food-Container {
+    display: flex;
+}
+
+.Food-Button {
+    margin: 5px;
+    display: flex;
+    float: left;
+    background-color: pink;
+}
+
+.Food-Desc {
+    float: left;
+    width: fit-content;
+    text-align: left;
+    background-color: ghostwhite;
+}
+
 @keyframes App-logo-spin {
     from {
         transform: rotate(0deg);
