@@ -302,7 +302,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Strawberries",
         description: "Sweet and juicy snack",
-        image: "realtive/path/here",
+        image: "../FoodImages/strawberries.png",
         price: 3.45,
         calories: 100,
         ingredients: ["Strawberry"],
@@ -312,7 +312,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Ribeye Steak",
         description: "High-quality savory cut of meat",
-        image: "realtive/path/here",
+        image: "../FoodImages/RibSteak.png",
         price: 50.95,
         calories: 500,
         ingredients: ["Beef, Salt, Pepper"],
