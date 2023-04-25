@@ -25,15 +25,14 @@
     justify-content: center;
     font-size: calc(10px + 2vmin);
     color: white;
-	background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
+    background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
 }
-.description{
+.description {
     border: 3px solid #969696;
-        
 }
 .image {
-	background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
-	height: 250px;
+    background-image: url(https://img.freepik.com/premium-photo/vegetables-fruits-are-food-background-header-healthy-food-website_114160-2135.jpg?w=2000);
+    height: 250px;
 }
 .App-link {
     color: #61dafb;
@@ -61,8 +60,10 @@
 
 .CentralList {
     display: flex;
-    overflow-y: scroll;
-    height: auto;
+    margin: auto;
+    flex-wrap: wrap;
+    margin: 10px;
+    margin-bottom: 50px;
 }
 
 .CartText {
