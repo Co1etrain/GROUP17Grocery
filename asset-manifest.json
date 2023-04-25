@@ -1,15 +1,22 @@
 {
   "files": {
     "main.css": "/GROUP17Grocery/static/css/main.6156372e.css",
-    "main.js": "/GROUP17Grocery/static/js/main.53c59387.js",
+    "main.js": "/GROUP17Grocery/static/js/main.857fc5fe.js",
     "static/js/787.4ef7427d.chunk.js": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js",
+    "static/media/GranolaBars.png": "/GROUP17Grocery/static/media/GranolaBars.ff55c756a96f9d66df0a.png",
+    "static/media/RiceCakes.png": "/GROUP17Grocery/static/media/RiceCakes.f7d01a1f0e2b50c33ff3.png",
+    "static/media/BlackBeans.png": "/GROUP17Grocery/static/media/BlackBeans.8f461fd3b01696baea67.png",
+    "static/media/GroundBeef.png": "/GROUP17Grocery/static/media/GroundBeef.17fb68e18bda3484f28f.png",
+    "static/media/grapes.png": "/GROUP17Grocery/static/media/grapes.27d1d17eeacff25c4dfe.png",
+    "static/media/tomatoes.png": "/GROUP17Grocery/static/media/tomatoes.9c5d3d7c63fca0937710.png",
+    "static/media/popcorn.png": "/GROUP17Grocery/static/media/popcorn.a7e3bceb1a21990eb40c.png",
     "index.html": "/GROUP17Grocery/index.html",
     "main.6156372e.css.map": "/GROUP17Grocery/static/css/main.6156372e.css.map",
-    "main.53c59387.js.map": "/GROUP17Grocery/static/js/main.53c59387.js.map",
+    "main.857fc5fe.js.map": "/GROUP17Grocery/static/js/main.857fc5fe.js.map",
     "787.4ef7427d.chunk.js.map": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6156372e.css",
-    "static/js/main.53c59387.js"
+    "static/js/main.857fc5fe.js"
   ]
 }
