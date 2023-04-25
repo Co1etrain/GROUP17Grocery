@@ -322,7 +322,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Pizza",
         description: "Delicious frozen pizza",
-        image: "realtive/path/here",
+        image: "../FoodImages/Pizza.png",
         price: 7.25,
         calories: 1000,
         ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"],
@@ -332,7 +332,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Black Beans",
         description: "Popular Latin American cuisine",
-        image: "realtive/path/here",
+        image: "../FoodImages/BlackBeans.png",
         price: 3.95,
         calories: 200,
         ingredients: ["Beans, Water, Salt"],
