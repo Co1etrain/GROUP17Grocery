@@ -48,7 +48,10 @@ function App(): JSX.Element {
                     employeeList={[]}
                     onCentralListUpdate={handleCentralListUpdate}
                 ></EmployeeCart>
-                <CustomerCart customerList={[]}></CustomerCart>
+                <CustomerCart
+                    customerList={[]}
+                    customerName={""}
+                ></CustomerCart>
                 <CentralList
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
