@@ -11,7 +11,6 @@ interface CartProps {
 }
 
 const SORT_OPTIONS = [
-    "None",
     "by Name",
     "by Price low to high",
     "by Price high to low"
@@ -47,18 +46,7 @@ export function CustomerCart({
     return (
         <div>
             <h2>{customerName + "'s"} Cart</h2>
-            <Form.Group controlId="sortOptions">
-                <Form.Label>Sort</Form.Label>
-                <Form.Select value={sortType} onChange={updateSortType}>
-                    {SORT_OPTIONS.map((sortOption: string) => {
-                        return (
-                            <option key={sortOption} value={sortOption}>
-                                {sortOption}
-                            </option>
-                        );
-                    })}
-                </Form.Select>
-            </Form.Group>
+
             <div
                 ref={drop}
                 className="Cart"
@@ -66,11 +54,23 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
+                <Form.Group controlId="sortOptions">
+                    <Form.Label>Sort</Form.Label>
+                    <Form.Select value={sortType} onChange={updateSortType}>
+                        {SORT_OPTIONS.map((sortOption: string) => {
+                            return (
+                                <option key={sortOption} value={sortOption}>
+                                    {sortOption}
+                                </option>
+                            );
+                        })}
+                    </Form.Select>
+                </Form.Group>
                 {cartList
                     .sort((a: Food, b: Food) =>
                         sortType === "by Price low to high"
                             ? a.price - b.price
-                            : 0
+                            : a.name.localeCompare(b.name)
                     )
                     .map((food: Food) => {
                         return (
