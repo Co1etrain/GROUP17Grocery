@@ -88,7 +88,7 @@ export function FoodItem({
                 <>
                     <p>
                         <strong>
-                            {name} - ${price}
+                            {name} - ${price.toFixed(2)}
                         </strong>
                         <br />
                         {description}

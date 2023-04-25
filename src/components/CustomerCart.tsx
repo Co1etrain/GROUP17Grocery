@@ -22,6 +22,7 @@ export function CustomerCart({
 }: CartProps): JSX.Element {
     const [cartList, setCartList] = useState<Food[]>(customerList);
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
         accept: "food",
         drop: (item: Food) => addFoodToCart(item.id),
@@ -36,6 +37,7 @@ export function CustomerCart({
         );
         if (droppedFood && !cartList.some((food: Food) => id === food.id)) {
             setCartList([...cartList, droppedFood]);
+            setTotalPrice(totalPrice + droppedFood.price);
         }
     }
 
@@ -46,7 +48,7 @@ export function CustomerCart({
     return (
         <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
-
+            <h3>Total price: {totalPrice.toFixed(2)}</h3>
             <div
                 ref={drop}
                 className="Cart"
