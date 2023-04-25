@@ -101,12 +101,17 @@ export function FoodItem({
                         <br />
                         This will be the 5 stars {rating}
                     </p>
-                    {onFoodUpdate && (
-                        <Button onClick={() => setEditMode(true)}>Edit</Button>
-                    )}
+                    {renderEditButton()}
                 </>
             );
         }
+    };
+
+    const renderEditButton = () => {
+        if (onFoodUpdate) {
+            return <Button onClick={() => setEditMode(true)}>Edit</Button>;
+        }
+        return null;
     };
 
     return (
