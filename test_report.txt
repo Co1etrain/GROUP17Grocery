@@ -22,7 +22,7 @@ Browserslist: caniuse-lite is outdated. Please run:
       at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (324 ms)
+  ✕ renders the course name somewhere (325 ms)
 
   ● renders the course name somewhere
 
@@ -101,13 +101,42 @@ FAIL src/App.test.tsx
           [36m</div>[39m
           [36m<div>[39m
             [36m<h2>[39m
-              [0mundefined's[0m
+              [0m's[0m
               [0m Cart[0m
             [36m</h2>[39m
             [36m<div[39m
               [33mclass[39m=[32m"Cart"[39m
               [33mstyle[39m=[32m"background-color: white;"[39m
-            [36m/>[39m
+            [36m>[39m
+              [36m<div>[39m
+                [36m<label[39m
+                  [33mclass[39m=[32m"form-label"[39m
+                  [33mfor[39m=[32m"sortOptions"[39m
+                [36m>[39m
+                  [0mSort[0m
+                [36m</label>[39m
+                [36m<select[39m
+                  [33mclass[39m=[32m"form-select"[39m
+                  [33mid[39m=[32m"sortOptions"[39m
+                [36m>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"by Name"[39m
+                  [36m>[39m
+                    [0mby Name[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"by Price low to high"[39m
+                  [36m>[39m
+                    [0mby Price low to high[0m
+                  [36m</option>[39m
+                  [36m<option[39m
+                    [33mvalue[39m=[32m"by Price high to low"[39m
+                  [36m>[39m
+                    [0mby Price high to low[0m
+                  [36m</option>[39m
+                [36m</select>[39m
+              [36m</div>[39m
+            [36m</div>[39m
           [36m</div>[39m
           [36m<div[39m
             [33mclass[39m=[32m"CentralList"[39m
@@ -198,39 +227,7 @@ FAIL src/App.test.tsx
               [36m<button[39m
                 [33mclass[39m=[32m"btn btn-primary"[39m
                 [33mstyle[39m=[32m"background-color: pink; border: 0px; margin: 5px;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [36m<img[39m
-                  [33msrc[39m=[32m"Peanut Butter.png"[39m
-                  [33mwidth[39m=[32m"100px"[39m
-                [36m/>[39m
-              [36m</button>[39m
-              [36m<div[39m
-                [33mhidden[39m=[32m""[39m
-              [36m>[39m
-                [36m<p>[39m
-                  [36m<strong>[39m
-                    [0mPeanut Butter[0m
-                    [0m - $[0m
-                    [0m6.25[0m
-                  [36m</strong>[39m
-                  [36m<br />[39m
-                  [0mEasy Spread PeanutButter[0m
-                  [36m<br />[39m
-                  [0m80[0m
-                  [0m Calories per serving[0m
-                  [36m<br />[39m
-                  [0mIngredients: [0m
-                  [0mPeanut[0m
-                  [0mWater[0m
-                  [36m<br />[39m
-                  [0mOther[0m
-                  [36m<br />[39m
-                  [0mThis will be the 5 stars [0m
-                  [0m0[0m
-                [36m</p>[39m
-              [36m</div>[39m
-           ...
+        ...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -253,12 +250,12 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   61.29 |    33.33 |      50 |   63.33 |                   
+All files          |   61.11 |       25 |   47.61 |   62.85 |                   
  src               |      50 |      100 |      50 |      50 |                   
   App.tsx          |      50 |      100 |      50 |      50 | 15-17             
- src/components    |      60 |    33.33 |      50 |    62.5 |                   
+ src/components    |      60 |       25 |   47.36 |   62.06 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
-  CustomerCart.tsx |   36.36 |       25 |   28.57 |      40 | 18,25-29,44       
+  CustomerCart.tsx |   43.75 |    16.66 |      30 |   46.66 | 27,34-43,71-76    
   FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 27                
   Navbar.tsx       |      50 |      100 |   33.33 |      50 | 20-48             
   UserForm.tsx     |     100 |      100 |     100 |     100 |                   
@@ -269,5 +266,5 @@ All files          |   61.29 |    33.33 |      50 |   63.33 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.266 s
+Time:        2.469 s
 Ran all test suites.
