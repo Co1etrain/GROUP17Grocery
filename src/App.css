@@ -1,5 +1,7 @@
 .App {
     text-align: center;
+    background-color: azure;
+    min-height: 100vh;
 }
 
 .App-logo {
@@ -52,12 +54,21 @@
 .CentralList {
     display: flex;
     overflow-y: scroll;
+    height: auto;
 }
 
 .CartText {
     text-align: left;
     margin-left: 25px;
     line-height: 10px;
+}
+
+.Footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
 }
 
 @keyframes App-logo-spin {
