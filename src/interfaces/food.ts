@@ -212,7 +212,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Rice Cakes",
         description: "Crispy Rice Cakes with hint of honey",
-        image: "realtive/path/here",
+        image: "../FoodImages/RiceCakes.png",
         price: 12.25,
         calories: 80,
         ingredients: ["Rice, Honey, Salt"],
