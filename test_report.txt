@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (247 ms)
+  ✕ renders the course name somewhere (303 ms)
 
   ● renders the course name somewhere
 
@@ -76,6 +76,13 @@ FAIL src/App.test.tsx
             [36m</button>[39m
           [36m</div>[39m
         [36m</nav>[39m
+        [36m<div>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [0mWelcome to the best grocery store on the planet[0m
+          [36m</header>[39m
+        [36m</div>[39m
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
@@ -143,6 +150,7 @@ FAIL src/App.test.tsx
               [36m<div[39m
                 [33mclass[39m=[32m"Food-Desc"[39m
                 [33mhidden[39m=[32m""[39m
+                [33mstyle[39m=[32m"border: 5px solid black;"[39m
               [36m>[39m
                 [36m<p>[39m
                   [36m<strong>[39m
@@ -183,6 +191,7 @@ FAIL src/App.test.tsx
               [36m<div[39m
                 [33mclass[39m=[32m"Food-Desc"[39m
                 [33mhidden[39m=[32m""[39m
+                [33mstyle[39m=[32m"border: 5px solid black;"[39m
               [36m>[39m
                 [36m<p>[39m
                   [36m<strong>[39m
@@ -200,18 +209,7 @@ FAIL src/App.test.tsx
                   [0mWater[0m
                   [0mFlour[0m
                   [0mSalt[0m
-                  [0megg[0m
-                  [0mYeast[0m
-                  [36m<br />[39m
-                  [0mOther[0m
-                  [36m<br />[39m
-                  [0mThis will be the 5 stars [0m
-                  [0m0[0m
-                [36m</p>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"Food-Container"...
+                  [...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -234,13 +232,14 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|-------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------|---------|----------|---------|---------|-------------------
-All files          |   61.11 |       25 |   47.61 |   62.85 |                   
+All files          |   62.16 |       25 |      50 |   63.88 |                   
  src               |      50 |      100 |      50 |      50 |                   
-  App.tsx          |      50 |      100 |      50 |      50 | 14-16             
- src/components    |      60 |       25 |   47.36 |   62.06 |                   
+  App.tsx          |      50 |      100 |      50 |      50 | 15-17             
+ src/components    |   61.29 |       25 |      50 |   63.33 |                   
   CentralList.tsx  |     100 |      100 |     100 |     100 |                   
   CustomerCart.tsx |   43.75 |    16.66 |      30 |   46.66 | 27,34-43,71-76    
   FoodItem.tsx     |   83.33 |       50 |   66.66 |   83.33 | 28                
+  IntroHeader.tsx  |     100 |      100 |     100 |     100 |                   
   Navbar.tsx       |      50 |      100 |   33.33 |      50 | 30-59             
   UserForm.tsx     |     100 |      100 |     100 |     100 |                   
  src/interfaces    |     100 |      100 |     100 |     100 |                   
@@ -250,5 +249,5 @@ All files          |   61.11 |       25 |   47.61 |   62.85 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.995 s
+Time:        3.495 s
 Ran all test suites.
