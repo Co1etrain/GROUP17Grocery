@@ -33,7 +33,7 @@ export function FoodItem({
             >
                 <img src={image} width="100px"></img>
             </Button>
-            <div hidden={isDescHidden}>
+            <div hidden={isDescHidden} style={{ border: "5px solid Black" }}>
                 <p>
                     <strong>
                         {name} - ${price}

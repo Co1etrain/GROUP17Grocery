@@ -7,6 +7,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { CreateUserForm } from "./components/UserForm";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
+import { IntroHeader } from "./components/IntroHeader";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -20,6 +21,7 @@ function App(): JSX.Element {
     return (
         <DndProvider backend={HTML5Backend}>
             <Navbar></Navbar>
+            <IntroHeader></IntroHeader>
             <div className="App">
                 <div>
                     <CreateUserForm
