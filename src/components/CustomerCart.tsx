@@ -43,6 +43,7 @@ export function CustomerCart(
                 {cartList.map((food: Food) => {
                     return (
                         <FoodItem
+                            id={food.id}
                             key={food.name}
                             name={food.name}
                             description={food.description}

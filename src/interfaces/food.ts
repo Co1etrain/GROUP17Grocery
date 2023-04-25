@@ -15,6 +15,7 @@ import sprite from "../FoodImages/Sprite.png";
 import yogurt from "../FoodImages/Yogurt.png";
 
 export interface Food {
+    id: number;
     name: string;
     description: string;
     image: string;
@@ -27,6 +28,7 @@ export interface Food {
 export const FOOD_LIST: Food[] = [
     //1
     {
+        id: 1,
         name: "Apples",
         description: "All organic Non-GMO Apples",
         image: apple,
@@ -37,6 +39,7 @@ export const FOOD_LIST: Food[] = [
     },
     //2
     {
+        id: 2,
         name: "Whole Wheat Bread",
         description: "Freshly Made Farmer Market Bread",
         image: bread,
@@ -47,6 +50,7 @@ export const FOOD_LIST: Food[] = [
     },
     //3
     {
+        id: 3,
         name: "Peanut Butter",
         description: "Easy Spread PeanutButter",
         image: peanut,
@@ -57,6 +61,7 @@ export const FOOD_LIST: Food[] = [
     },
     //4
     {
+        id: 4,
         name: "Chocolate Chip Cookies",
         description: "Freshly made Nestle Chip Cookies",
         image: cookie,
@@ -73,6 +78,7 @@ export const FOOD_LIST: Food[] = [
     },
     //5
     {
+        id: 5,
         name: "Banana",
         description: "Fresh Bananas",
         image: banana,
@@ -83,6 +89,7 @@ export const FOOD_LIST: Food[] = [
     },
     //6
     {
+        id: 6,
         name: "Hummus",
         description: "Spicy Hummus",
         image: hummus,
@@ -105,6 +112,7 @@ export const FOOD_LIST: Food[] = [
     },
     //7
     {
+        id: 7,
         name: "Blueberry Yogurt",
         description: "",
         image: yogurt,
@@ -122,6 +130,7 @@ export const FOOD_LIST: Food[] = [
     },
     //8
     {
+        id: 8,
         name: "Broccoli",
         description: "Frozen Pack of Broccoli",
         image: broccoli,
@@ -132,6 +141,7 @@ export const FOOD_LIST: Food[] = [
     },
     //9
     {
+        id: 9,
         name: "Lemon Lime Soda",
         description: "Savory taste of the Lemon",
         image: sprite,
@@ -142,6 +152,7 @@ export const FOOD_LIST: Food[] = [
     },
     //10
     {
+        id: 10,
         name: "Slighty Salted Cracker",
         description: "Crisp Salted Cracker, 20 Crackers",
         image: cracker,
@@ -160,6 +171,7 @@ export const FOOD_LIST: Food[] = [
 
     //11
     {
+        id: 11,
         name: "Peanut Chunk Chocolate",
         description: "Savory taste of Peanuts with chocolate",
         image: chocolate,
@@ -170,6 +182,7 @@ export const FOOD_LIST: Food[] = [
     },
     //12
     {
+        id: 12,
         name: "Potato Chips",
         description: "Crisy Chips",
         image: chips,
@@ -180,6 +193,7 @@ export const FOOD_LIST: Food[] = [
     },
     //13
     {
+        id: 13,
         name: "Oreo's",
         description: "Creamy cookies",
         image: oreos,
@@ -190,6 +204,7 @@ export const FOOD_LIST: Food[] = [
     },
     //14
     {
+        id: 14,
         name: "FairLife Protien, Chocolate",
         description: "30 grams of pure isloate Protien per bottle. 18 Bottles",
         image: protein,
@@ -201,6 +216,7 @@ export const FOOD_LIST: Food[] = [
     //15
     //Make category vegan?
     {
+        id: 15,
         name: "Pea Protien",
         description: "50 grams of pure isloate Protien per Scoop",
         image: pea,
@@ -211,6 +227,7 @@ export const FOOD_LIST: Food[] = [
     },
     //16
     {
+        id: 16,
         name: "Rice Cakes",
         description: "Crispy Rice Cakes with hint of honey",
         image: "realtive/path/here",
@@ -221,6 +238,7 @@ export const FOOD_LIST: Food[] = [
     },
     //17
     {
+        id: 17,
         name: "Grapes",
         description: "Fresh Farm grapes",
         image: "idk",
@@ -231,6 +249,7 @@ export const FOOD_LIST: Food[] = [
     },
     //18
     {
+        id: 18,
         name: "Olive Oil",
         description: "Fresh cooking olive oil",
         image: "realtive/path/here",
@@ -241,6 +260,7 @@ export const FOOD_LIST: Food[] = [
     },
     //19
     {
+        id: 19,
         name: "Granola Bars",
         description: "Crispy valley oats Granola",
         image: "realtive/path/here",
@@ -251,6 +271,7 @@ export const FOOD_LIST: Food[] = [
     },
     //20
     {
+        id: 20,
         name: "PopCorn",
         description: "Buttery PopCorn",
         image: "realtive/path/here",
@@ -261,6 +282,7 @@ export const FOOD_LIST: Food[] = [
     },
     //21
     {
+        id: 21,
         name: "Eggs",
         description: "Delicious chicken eggs",
         image: "realtive/path/here",
@@ -271,6 +293,7 @@ export const FOOD_LIST: Food[] = [
     },
     //22
     {
+        id: 22,
         name: "Tomatos",
         description: "Delicious sweet red tomatos",
         image: "realtive/path/here",
@@ -281,6 +304,7 @@ export const FOOD_LIST: Food[] = [
     },
     //23
     {
+        id: 23,
         name: "Lemon",
         description: "Delicious",
         image: "realtive/path/here",
@@ -291,6 +315,7 @@ export const FOOD_LIST: Food[] = [
     },
     //24
     {
+        id: 24,
         name: "Celery",
         description: "Nice low-calorie snack",
         image: "realtive/path/here",
@@ -301,6 +326,7 @@ export const FOOD_LIST: Food[] = [
     },
     //25
     {
+        id: 25,
         name: "Strawberries",
         description: "Sweet and juicy snack",
         image: "realtive/path/here",
@@ -309,8 +335,9 @@ export const FOOD_LIST: Food[] = [
         ingredients: ["Strawberry"],
         category: "Fruits"
     },
-    //25
+    //26
     {
+        id: 26,
         name: "Ribeye Steak",
         description: "High-quality savory cut of meat",
         image: "realtive/path/here",
@@ -321,6 +348,7 @@ export const FOOD_LIST: Food[] = [
     },
     //27
     {
+        id: 27,
         name: "Pizza",
         description: "Delicious frozen pizza",
         image: "realtive/path/here",
@@ -331,6 +359,7 @@ export const FOOD_LIST: Food[] = [
     },
     //28
     {
+        id: 28,
         name: "Black Beans",
         description: "Popular Latin American cuisine",
         image: "realtive/path/here",
@@ -341,6 +370,7 @@ export const FOOD_LIST: Food[] = [
     },
     //29
     {
+        id: 29,
         name: "Ground Beef",
         description: "Savory dish, 100% beef",
         image: "realtive/path/here",
@@ -351,6 +381,7 @@ export const FOOD_LIST: Food[] = [
     },
     //30
     {
+        id: 30,
         name: "Cheese",
         description: "Tasty cheese",
         image: "realtive/path/here",

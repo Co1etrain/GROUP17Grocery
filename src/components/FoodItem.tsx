@@ -4,6 +4,7 @@ import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
 
 export function FoodItem({
+    id,
     name,
     description,
     image,
@@ -31,18 +32,14 @@ export function FoodItem({
     const handleUpdate = (e: React.FormEvent) => {
         e.preventDefault();
         const updatedFood: Food = {
-            ...{
-                name,
-                description,
-                image,
-                price,
-                calories,
-                ingredients,
-                category
-            },
+            id,
             name: editedName,
             description: editedDescription,
-            price: editedPrice
+            image,
+            price: editedPrice,
+            calories,
+            ingredients,
+            category
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);

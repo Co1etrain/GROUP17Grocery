@@ -30,7 +30,7 @@ export function EmployeeCart({
     function handleFoodUpdate(updatedFood: Food) {
         setCartList((prevCartList) =>
             prevCartList.map((food) =>
-                food.name === updatedFood.name ? updatedFood : food
+                food.id === updatedFood.id ? updatedFood : food
             )
         );
     }
@@ -48,6 +48,7 @@ export function EmployeeCart({
                 {cartList.map((food: Food) => {
                     return (
                         <FoodItem
+                            id={food.id}
                             key={food.name}
                             name={food.name}
                             description={food.description}
