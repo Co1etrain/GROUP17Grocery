@@ -242,7 +242,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "Granola Bars",
         description: "Crispy valley oats Granola",
-        image: "realtive/path/here",
+        image: "../FoodImages/GranolaBars.png",
         price: 10.3,
         calories: 250,
         ingredients: ["Granola, Sugar, Honey"],
@@ -252,7 +252,7 @@ export const FOOD_LIST: Food[] = [
     {
         name: "PopCorn",
         description: "Buttery PopCorn",
-        image: "realtive/path/here",
+        image: "../FoodImages/popcorn.png",
         price: 30.5,
         calories: 150,
         ingredients: ["Corn, Butter, preservatives"],
