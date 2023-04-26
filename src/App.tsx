@@ -8,7 +8,7 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
 import { DisplayCustomerNames } from "./components/CustomersForm";
-//import { TextField } from "./components/CustomerInputBox";
+import { TextField } from "./components/CustomerInputBox";
 import { EmployeeCart } from "./components/EmployeeCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { IntroHeader } from "./components/IntroHeader";
@@ -38,13 +38,6 @@ function App(): JSX.Element {
     }
 
     const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
-
-    function editCustomers(givenCustomer: string, food: Food[]): void {
-        setCustomers({
-            ...currentCustomers,
-            [givenCustomer]: food
-        });
-    }
 
     function removeCustomers(givenCustomer: string): void {
         const newCustomers: CustomersRecord = currentCustomers;
@@ -80,15 +73,14 @@ function App(): JSX.Element {
                     currentSelectedCustomer={selectedCustomer}
                     currentCustomersRecord={Object.keys(currentCustomers)}
                 ></DisplayCustomerNames>
-                <Button onClick={() => editCustomers("JOHN", [FOOD_LIST[0]])}>
-                    MORE
-                    {console.log(Object.entries(currentCustomers))}
-                </Button>
                 <Button onClick={() => removeCustomers("JOHN")}>
                     LESS
                     {console.log(Object.entries(currentCustomers))}
                 </Button>
-                {/*<TextField></TextField>*/}
+                <TextField
+                    addCustomerName={setCustomers}
+                    currentRecord={currentCustomers}
+                ></TextField>
                 <CentralList
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
