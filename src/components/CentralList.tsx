@@ -7,7 +7,7 @@ import "../App.css";
 export function CentralList(): JSX.Element {
     const [centralList] = useState<Food[]>(FOOD_LIST);
     return (
-        <div className="CentralList">
+        <div className="CentralList" id="middle">
             {centralList.map((food: Food) => {
                 return (
                     <FoodItem
