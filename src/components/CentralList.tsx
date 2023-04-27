@@ -12,7 +12,7 @@ export function CentralList({
     onFoodUpdate: (updatedFood: Food) => void;
 }): JSX.Element {
     return (
-        <div className="CentralList">
+        <div className="CentralList" id="middle">
             {foodList.map((food: Food) => {
                 return (
                     <FoodItem
