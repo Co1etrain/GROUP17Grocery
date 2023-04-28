@@ -51,6 +51,7 @@ function App(): JSX.Element {
                 <CentralList
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
+                    currentUser={currentUser}
                 ></CentralList>
                 <div className="Footer">
                     <p style={{ margin: "10px" }}>
