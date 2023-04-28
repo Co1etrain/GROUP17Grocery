@@ -40,6 +40,7 @@ function App(): JSX.Element {
                 <CustomerCart
                     customerList={[]}
                     customerName={""}
+                    centralList={centralList}
                 ></CustomerCart>
                 <h2>Main Inventory</h2>
                 <CentralList

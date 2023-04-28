@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FOOD_LIST, Food } from "../interfaces/food";
+import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
@@ -8,6 +8,7 @@ import { Form } from "react-bootstrap";
 interface CartProps {
     customerList: Food[];
     customerName: string;
+    centralList: Food[];
 }
 
 const SORT_OPTIONS = [
@@ -18,7 +19,8 @@ const SORT_OPTIONS = [
 
 export function CustomerCart({
     customerList,
-    customerName
+    customerName,
+    centralList
 }: CartProps): JSX.Element {
     const [cartList, setCartList] = useState<Food[]>(customerList);
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
@@ -32,7 +34,7 @@ export function CustomerCart({
     });
 
     function addFoodToCart(id: number) {
-        const droppedFood: Food | undefined = FOOD_LIST.find(
+        const droppedFood: Food | undefined = centralList.find(
             (food: Food) => food.id === id
         );
         if (droppedFood && !cartList.some((food: Food) => id === food.id)) {
