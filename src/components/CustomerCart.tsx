@@ -86,6 +86,7 @@ export function CustomerCart({
                                 calories={food.calories}
                                 ingredients={food.ingredients}
                                 category={food.category}
+                                showEditButton={false}
                             ></FoodItem>
                         );
                     })}

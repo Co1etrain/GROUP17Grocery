@@ -26,6 +26,7 @@ export function CentralList({
                         ingredients={food.ingredients}
                         category={food.category}
                         onFoodUpdate={onFoodUpdate}
+                        showEditButton={false}
                     ></FoodItem>
                 );
             })}

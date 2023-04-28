@@ -20,12 +20,6 @@ function App(): JSX.Element {
                 food.id === updatedFood.id ? updatedFood : food
             )
         );
-        const foodIndex = FOOD_LIST.findIndex(
-            (food) => food.id === updatedFood.id
-        );
-        if (foodIndex !== -1) {
-            FOOD_LIST[foodIndex] = updatedFood;
-        }
     };
 
     function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
