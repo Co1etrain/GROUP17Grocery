@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (237 ms)
+  ✕ renders the course name somewhere (248 ms)
 
   ● renders the course name somewhere
 
@@ -154,63 +154,63 @@ FAIL src/App.test.tsx
             [33mclass[39m=[32m"CentralList"[39m
             [33mid[39m=[32m"middle"[39m
           [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"Food-Container"[39m
-              [33mdraggable[39m=[32m"true"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"Food-Button btn btn-primary"[39m
-                [33mstyle[39m=[32m"border: 0px;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [36m<img[39m
-                  [33malt[39m=[32m""[39m
-                  [33msrc[39m=[32m"Apple.png"[39m
-                  [33mwidth[39m=[32m"100px"[39m
-                [36m/>[39m
-              [36m</button>[39m
+            [36m<div>[39m
               [36m<div[39m
-                [33mclass[39m=[32m"Food-Desc"[39m
-                [33mhidden[39m=[32m""[39m
-                [33mstyle[39m=[32m"border: 5px solid black;"[39m
+                [33mclass[39m=[32m"Food-Container"[39m
+                [33mdraggable[39m=[32m"true"[39m
               [36m>[39m
-                [36m<p>[39m
-                  [36m<strong>[39m
-                    [0mApples[0m
-                    [0m - $[0m
-                    [0m2.20[0m
-                  [36m</strong>[39m
-                  [36m<br />[39m
-                  [0mAll organic Non-GMO Apples[0m
-                  [36m<br />[39m
-                  [0m95[0m
-                  [0m Calories per serving[0m
-                  [36m<br />[39m
-                  [0mIngredients: [0m
-                  [0mApples[0m
-                  [36m<br />[39m
-                  [0mFruits[0m
-                  [36m<br />[39m
-                  [0mThis will be the 5 stars [0m
-                  [0m0[0m
-                [36m</p>[39m
                 [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mclass[39m=[32m"Food-Button btn btn-primary"[39m
+                  [33mstyle[39m=[32m"border: 0px;"[39m
                   [33mtype[39m=[32m"button"[39m
                 [36m>[39m
-                  [0mEdit[0m
+                  [36m<img[39m
+                    [33malt[39m=[32m""[39m
+                    [33msrc[39m=[32m"Apple.png"[39m
+                    [33mwidth[39m=[32m"100px"[39m
+                  [36m/>[39m
                 [36m</button>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"Food-Desc"[39m
+                  [33mhidden[39m=[32m""[39m
+                  [33mstyle[39m=[32m"border: 5px solid black;"[39m
+                [36m>[39m
+                  [36m<p>[39m
+                    [36m<strong>[39m
+                      [0mApples[0m
+                      [0m - $[0m
+                      [0m2.20[0m
+                    [36m</strong>[39m
+                    [36m<br />[39m
+                    [0mAll organic Non-GMO Apples[0m
+                    [36m<br />[39m
+                    [0m95[0m
+                    [0m Calories per serving[0m
+                    [36m<br />[39m
+                    [0mIngredients: [0m
+                    [0mApples[0m
+                    [36m<br />[39m
+                    [0mFruits[0m
+                    [36m<br />[39m
+                    [0mThis will be the 5 stars [0m
+                    [0m0[0m
+                  [36m</p>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mEdit[0m
+                  [36m</button>[39m
+                [36m</div>[39m
               [36m</div>[39m
+              [36m<button>[39m
+                [0mDelete[0m
+              [36m</button>[39m
             [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"Food-Container"[39m
-              [33mdraggable[39m=[32m"true"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"Food-Button btn btn-primary"[39m
-                [33mstyle[39m=[32m"border: 0px;"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36...
+            [36m<div>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"Food-Container"[39m
+                [33m...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -233,11 +233,11 @@ FAIL src/App.test.tsx
 -------------------|---------|----------|---------|---------|---------------------
 File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 -------------------|---------|----------|---------|---------|---------------------
-All files          |   47.05 |    19.23 |   34.09 |   48.78 |                     
+All files          |   45.55 |    21.42 |   31.91 |   47.67 |                     
  src               |   30.76 |        0 |   16.66 |   30.76 |                     
   App.tsx          |   30.76 |        0 |   16.66 |   30.76 | 18-34               
- src/components    |   48.57 |    22.72 |   36.84 |   50.74 |                     
-  CentralList.tsx  |     100 |      100 |     100 |     100 |                     
+ src/components    |   46.66 |       25 |   34.14 |   49.29 |                     
+  CentralList.tsx  |   42.85 |       50 |      40 |      50 | 21-22,43            
   CustomerCart.tsx |   44.44 |     12.5 |      30 |   47.05 | 28,35-45,73-78      
   EmployeeCart.tsx |   26.66 |    16.66 |      20 |   28.57 | 17,24-38,52         
   FoodItem.tsx     |   55.17 |     37.5 |   36.36 |   57.14 | 33-47,52-83,114,121 
@@ -251,5 +251,5 @@ All files          |   47.05 |    19.23 |   34.09 |   48.78 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.91 s
+Time:        2.957 s
 Ran all test suites.
