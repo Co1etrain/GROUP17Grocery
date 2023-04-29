@@ -42,7 +42,7 @@ export function EmployeeCart({
     }
 
     return (
-        <div>
+        <div style={{ paddingTop: "15px" }}>
             <h2>Employee/Manager Cart</h2>
             <div
                 ref={drop}
