@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import "../App.css";
-import { Button, Form, Row, Col } from "react-bootstrap";
+//import { Button, Form, Row, Col } from "react-bootstrap";
 import { Users } from "../interfaces/record";
 import { Food } from "../interfaces/food";
+import { useDrop } from "react-dnd";
+import trashClosed from "../trash_images/trash_closed.png";
+import trashOpen from "../trash_images/trash_open.png";
 
 interface DeleteFoodProps {
     centralList: Food[];
@@ -23,30 +26,35 @@ export function DeleteFoodButton({
     setEmployeeList,
     currentUser
 }: DeleteFoodProps): JSX.Element {
-    const [foodToBeDeleted, setFoodToBeDeleted] = useState<string>("");
+    const [{ isOver }, drop] = useDrop({
+        accept: "food",
+        drop: (item: Food) => deleteFood(item.id),
+        collect: (monitor) => ({
+            isOver: !!monitor.isOver()
+        })
+    });
 
-    function deleteFood(name: string) {
-        const newCentralList = centralList.filter(
-            (food) => food.name.toLocaleLowerCase() !== name.toLocaleLowerCase()
-        );
+    function deleteFood(id: number) {
+        const newCentralList = centralList.filter((food) => food.id !== id);
         setCentralList(newCentralList);
 
-        const newCustomerList = customerList.filter(
-            (food) => food.name.toLocaleLowerCase() !== name.toLocaleLowerCase()
-        );
+        const newCustomerList = customerList.filter((food) => food.id !== id);
         setCustomerList(newCustomerList);
 
-        const newEmployeeList = employeeList.filter(
-            (food) => food.name.toLocaleLowerCase() !== name.toLocaleLowerCase()
-        );
+        const newEmployeeList = employeeList.filter((food) => food.id !== id);
         setEmployeeList(newEmployeeList);
     }
 
-    function updateDeletedFood(event: React.ChangeEvent<HTMLInputElement>) {
-        setFoodToBeDeleted(event.target.value);
-    }
-
-    return currentUser === "owner" ? (
+    return (
+        <div>
+            <img
+                ref={currentUser === "owner" ? drop : undefined}
+                src={isOver ? trashOpen : trashClosed}
+                style={{ height: "250px" }}
+            ></img>
+        </div>
+    );
+    /*currentUser === "owner" ? (
         <div>
             <Form.Group controlId="formDeleteFood" as={Row}>
                 <Form.Label column sm={2}>
@@ -68,4 +76,5 @@ export function DeleteFoodButton({
     ) : (
         <div></div>
     );
+    */
 }
