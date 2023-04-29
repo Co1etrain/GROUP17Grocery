@@ -107,11 +107,10 @@
     }
 }
 
-  .scroll-down {
-    color:black;
-
-  }
-  .scroll-down:hover{
-    color:black;
+.scroll-down {
+    color: black;
+}
+.scroll-down:hover {
+    color: black;
     background-color: orange;
-  }
+}

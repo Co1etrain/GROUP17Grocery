@@ -1,27 +1,20 @@
-/* eslint-disable no-extra-parens */
-import React, { useState } from "react";
+import React from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-import { Users } from "../interfaces/record";
-//create a button given a name/ form, name of food and create a new central list without the deleted
+//import { Users } from "../interfaces/record";
+
+interface CentralListProps {
+    centralList: Food[];
+    //setCentralList: (newCentralList: Food[]) => void;
+    onFoodUpdate: (updatedFood: Food) => void;
+    //currentUser: Users["person"];
+}
 
 export function CentralList({
-    foodList,
-    onFoodUpdate,
-    currentUser
-}: {
-    foodList: Food[];
-    onFoodUpdate: (updatedFood: Food) => void;
-    currentUser: Users["person"];
-}): JSX.Element {
-    const [centralList, setCentralList] = useState<Food[]>(foodList);
-
-    function deleteFood(name: string) {
-        const newCentralList = centralList.filter((food) => food.name !== name);
-        setCentralList(newCentralList);
-    }
-
+    centralList,
+    onFoodUpdate
+}: CentralListProps): JSX.Element {
     return (
         <div className="CentralList" id="middle">
             {centralList.map((food: Food) => {
@@ -39,13 +32,6 @@ export function CentralList({
                             category={food.category}
                             onFoodUpdate={onFoodUpdate}
                         ></FoodItem>
-                        {currentUser == "owner" ? (
-                            <button onClick={() => deleteFood(food.name)}>
-                                Delete
-                            </button>
-                        ) : (
-                            <div> Invalid user </div>
-                        )}
                     </div>
                 );
             })}

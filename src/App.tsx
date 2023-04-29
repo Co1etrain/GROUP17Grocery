@@ -9,10 +9,13 @@ import { CustomerCart } from "./components/CustomerCart";
 import { EmployeeCart } from "./components/EmployeeCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { IntroHeader } from "./components/IntroHeader";
+import { DeleteFoodButton } from "./components/DeleteFoodButton";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+    const [customerList, setCustomerList] = useState<Food[]>([]);
+    const [employeeList, setEmployeeList] = useState<Food[]>([]);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
         setCentralList((prevList) =>
@@ -40,19 +43,32 @@ function App(): JSX.Element {
             <IntroHeader></IntroHeader>
             <div className="App">
                 <EmployeeCart
-                    employeeList={[]}
+                    employeeList={employeeList}
+                    setEmployeeList={setEmployeeList}
                     onCentralListUpdate={handleCentralListUpdate}
                 ></EmployeeCart>
                 <CustomerCart
-                    customerList={[]}
+                    customerList={customerList}
+                    setCustomerList={setCustomerList}
                     customerName={""}
                 ></CustomerCart>
                 <h2>Main Inventory</h2>
-                <CentralList
-                    foodList={centralList}
-                    onFoodUpdate={handleCentralListUpdate}
+                <DeleteFoodButton
+                    centralList={centralList}
+                    customerList={customerList}
+                    employeeList={employeeList}
+                    setCentralList={setCentralList}
+                    setCustomerList={setCustomerList}
+                    setEmployeeList={setEmployeeList}
                     currentUser={currentUser}
+                ></DeleteFoodButton>
+                <CentralList
+                    centralList={centralList}
+                    //setCentralList={setCentralList}
+                    onFoodUpdate={handleCentralListUpdate}
+                    //currentUser={currentUser}
                 ></CentralList>
+
                 <div className="Footer">
                     <p style={{ margin: "10px" }}>
                         Created by Michael Bocelli, Robert Oratorio, Sharanjit
