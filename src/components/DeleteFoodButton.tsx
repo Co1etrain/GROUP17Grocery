@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../App.css";
-import { Button, Form } from "react-bootstrap";
+import { Button, Form, Row, Col } from "react-bootstrap";
 import { Users } from "../interfaces/record";
 import { Food } from "../interfaces/food";
 
@@ -47,15 +47,23 @@ export function DeleteFoodButton({
     }
 
     return currentUser === "owner" ? (
-        <div style={{ marginBottom: "100px" }}>
-            <Form.Group controlId="formDeleteFood">
-                <Form.Label>Food name:</Form.Label>
-                <Form.Control
-                    value={foodToBeDeleted}
-                    onChange={updateDeletedFood}
-                />
+        <div>
+            <Form.Group controlId="formDeleteFood" as={Row}>
+                <Form.Label column sm={2}>
+                    Food name:
+                </Form.Label>
+                <Col>
+                    <Form.Control
+                        value={foodToBeDeleted}
+                        onChange={updateDeletedFood}
+                    />
+                </Col>
+                <Col>
+                    <Button onClick={() => deleteFood(foodToBeDeleted)}>
+                        Delete
+                    </Button>
+                </Col>
             </Form.Group>
-            <Button onClick={() => deleteFood(foodToBeDeleted)}>Delete</Button>
         </div>
     ) : (
         <div></div>

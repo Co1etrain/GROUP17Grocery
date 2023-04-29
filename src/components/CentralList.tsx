@@ -2,22 +2,18 @@ import React from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-import { Users } from "../interfaces/record";
-import { Button } from "react-bootstrap";
-import { DeleteFoodButton } from "./DeleteFoodButton";
+//import { Users } from "../interfaces/record";
 
 interface CentralListProps {
     centralList: Food[];
-    setCentralList: (newCentralList: Food[]) => void;
+    //setCentralList: (newCentralList: Food[]) => void;
     onFoodUpdate: (updatedFood: Food) => void;
-    currentUser: Users["person"];
+    //currentUser: Users["person"];
 }
 
 export function CentralList({
     centralList,
-    setCentralList,
-    onFoodUpdate,
-    currentUser
+    onFoodUpdate
 }: CentralListProps): JSX.Element {
     return (
         <div className="CentralList" id="middle">

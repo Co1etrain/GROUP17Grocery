@@ -53,12 +53,6 @@ function App(): JSX.Element {
                     customerName={""}
                 ></CustomerCart>
                 <h2>Main Inventory</h2>
-                <CentralList
-                    centralList={centralList}
-                    setCentralList={setCentralList}
-                    onFoodUpdate={handleCentralListUpdate}
-                    currentUser={currentUser}
-                ></CentralList>
                 <DeleteFoodButton
                     centralList={centralList}
                     customerList={customerList}
@@ -68,6 +62,13 @@ function App(): JSX.Element {
                     setEmployeeList={setEmployeeList}
                     currentUser={currentUser}
                 ></DeleteFoodButton>
+                <CentralList
+                    centralList={centralList}
+                    //setCentralList={setCentralList}
+                    onFoodUpdate={handleCentralListUpdate}
+                    //currentUser={currentUser}
+                ></CentralList>
+
                 <div className="Footer">
                     <p style={{ margin: "10px" }}>
                         Created by Michael Bocelli, Robert Oratorio, Sharanjit
