@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (248 ms)
+  ✕ renders the course name somewhere (220 ms)
 
   ● renders the course name somewhere
 
@@ -150,6 +150,12 @@ FAIL src/App.test.tsx
           [36m<h2>[39m
             [0mMain Inventory[0m
           [36m</h2>[39m
+          [36m<div>[39m
+            [36m<img[39m
+              [33msrc[39m=[32m"trash_closed.png"[39m
+              [33mstyle[39m=[32m"height: 250px;"[39m
+            [36m/>[39m
+          [36m</div>[39m
           [36m<div[39m
             [33mclass[39m=[32m"CentralList"[39m
             [33mid[39m=[32m"middle"[39m
@@ -203,14 +209,8 @@ FAIL src/App.test.tsx
                   [36m</button>[39m
                 [36m</div>[39m
               [36m</div>[39m
-              [36m<button>[39m
-                [0mDelete[0m
-              [36m</button>[39m
             [36m</div>[39m
-            [36m<div>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"Food-Container"[39m
-                [33m...
+            [36...
 
        5 | test("renders the course name somewhere", () => {
        6 |     render(<App />);
@@ -230,26 +230,27 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
--------------------|---------|----------|---------|---------|---------------------
-File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
--------------------|---------|----------|---------|---------|---------------------
-All files          |   45.55 |    21.42 |   31.91 |   47.67 |                     
- src               |   30.76 |        0 |   16.66 |   30.76 |                     
-  App.tsx          |   30.76 |        0 |   16.66 |   30.76 | 18-34               
- src/components    |   46.66 |       25 |   34.14 |   49.29 |                     
-  CentralList.tsx  |   42.85 |       50 |      40 |      50 | 21-22,43            
-  CustomerCart.tsx |   44.44 |     12.5 |      30 |   47.05 | 28,35-45,73-78      
-  EmployeeCart.tsx |   26.66 |    16.66 |      20 |   28.57 | 17,24-38,52         
-  FoodItem.tsx     |   55.17 |     37.5 |   36.36 |   57.14 | 33-47,52-83,114,121 
-  IntroHeader.tsx  |     100 |      100 |     100 |     100 |                     
-  Navbar.tsx       |      50 |      100 |   33.33 |      50 | 30-59               
-  UserForm.tsx     |     100 |      100 |     100 |     100 |                     
- src/interfaces    |     100 |      100 |     100 |     100 |                     
-  food.ts          |     100 |      100 |     100 |     100 |                     
-  record.ts        |     100 |      100 |     100 |     100 |                     
--------------------|---------|----------|---------|---------|---------------------
+-----------------------|---------|----------|---------|---------|---------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+-----------------------|---------|----------|---------|---------|---------------------
+All files              |   44.32 |    23.33 |      34 |   47.25 |                     
+ src                   |      40 |        0 |   16.66 |      40 |                     
+  App.tsx              |      40 |        0 |   16.66 |      40 | 21-37               
+ src/components        |   43.75 |    26.92 |   36.36 |   47.29 |                     
+  CentralList.tsx      |     100 |      100 |     100 |     100 |                     
+  CustomerCart.tsx     |   41.17 |     12.5 |      30 |   43.75 | 29,36-46,74-79      
+  DeleteFoodButton.tsx |   23.07 |       50 |   28.57 |      30 | 31,38-45            
+  EmployeeCart.tsx     |   23.07 |    16.66 |   22.22 |      25 | 20,27-41,55         
+  FoodItem.tsx         |   55.17 |     37.5 |   36.36 |   57.14 | 33-47,52-83,114,121 
+  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                     
+  Navbar.tsx           |      50 |      100 |   33.33 |      50 | 30-59               
+  UserForm.tsx         |     100 |      100 |     100 |     100 |                     
+ src/interfaces        |     100 |      100 |     100 |     100 |                     
+  food.ts              |     100 |      100 |     100 |     100 |                     
+  record.ts            |     100 |      100 |     100 |     100 |                     
+-----------------------|---------|----------|---------|---------|---------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.957 s
+Time:        2.575 s
 Ran all test suites.
