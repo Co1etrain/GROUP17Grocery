@@ -120,7 +120,7 @@ export function FoodItem({
                 className="Food-Button"
                 onClick={() => setIsDescHidden(!isDescHidden)}
                 style={{
-                    border: isDragging ? "5px solid Violet" : "0px"
+                    border: isDragging ? "0px" : "0px"
                 }}
             >
                 <img src={image} width="100px" alt="" />

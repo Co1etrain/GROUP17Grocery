@@ -58,6 +58,13 @@ function App(): JSX.Element {
                             onFoodUpdate={handleCentralListUpdate}
                             //currentUser={currentUser}
                         ></CentralList>
+                    </Col>
+                    <Col>
+                        <EmployeeCart
+                            employeeList={employeeList}
+                            setEmployeeList={setEmployeeList}
+                            onCentralListUpdate={handleCentralListUpdate}
+                        ></EmployeeCart>
                         <DeleteFoodButton
                             centralList={centralList}
                             customerList={customerList}
@@ -67,13 +74,6 @@ function App(): JSX.Element {
                             setEmployeeList={setEmployeeList}
                             currentUser={currentUser}
                         ></DeleteFoodButton>
-                    </Col>
-                    <Col>
-                        <EmployeeCart
-                            employeeList={employeeList}
-                            setEmployeeList={setEmployeeList}
-                            onCentralListUpdate={handleCentralListUpdate}
-                        ></EmployeeCart>
                     </Col>
                 </Row>
                 <div className="Footer">
