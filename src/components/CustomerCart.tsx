@@ -49,7 +49,6 @@ export function CustomerCart({
     return (
         <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
-            <h3>Total price: {totalPrice.toFixed(2)}</h3>
             <div
                 ref={drop}
                 className="Cart"
@@ -57,18 +56,6 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
-                <Form.Group controlId="sortOptions">
-                    <Form.Label>Sort</Form.Label>
-                    <Form.Select value={sortType} onChange={updateSortType}>
-                        {SORT_OPTIONS.map((sortOption: string) => {
-                            return (
-                                <option key={sortOption} value={sortOption}>
-                                    {sortOption}
-                                </option>
-                            );
-                        })}
-                    </Form.Select>
-                </Form.Group>
                 {customerList
                     .sort((a: Food, b: Food) =>
                         sortType === "by Price low to high"
@@ -90,6 +77,21 @@ export function CustomerCart({
                             ></FoodItem>
                         );
                     })}
+            </div>
+            <div style={{ display: "flex" }}>
+                <Form.Group controlId="sortOptions">
+                    <Form.Label>Sort</Form.Label>
+                    <Form.Select value={sortType} onChange={updateSortType}>
+                        {SORT_OPTIONS.map((sortOption: string) => {
+                            return (
+                                <option key={sortOption} value={sortOption}>
+                                    {sortOption}
+                                </option>
+                            );
+                        })}
+                    </Form.Select>
+                </Form.Group>
+                <h3>Total price: {totalPrice.toFixed(2)}</h3>
             </div>
         </div>
     );

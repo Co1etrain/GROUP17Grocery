@@ -46,7 +46,7 @@ export function DeleteFoodButton({
     }
 
     return (
-        <div>
+        <div className="Trash-Can">
             <img
                 ref={currentUser === "owner" ? drop : undefined}
                 src={isOver ? trashOpen : trashClosed}
