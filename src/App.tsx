@@ -12,10 +12,14 @@ import { TextField } from "./components/CustomerInputBox";
 import { EmployeeCart } from "./components/EmployeeCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { IntroHeader } from "./components/IntroHeader";
+import { DeleteFoodButton } from "./components/DeleteFoodButton";
+import { Row, Col } from "react-bootstrap";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+    const [customerList, setCustomerList] = useState<Food[]>([]);
+    const [employeeList, setEmployeeList] = useState<Food[]>([]);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
         setCentralList((prevList) =>
@@ -85,6 +89,39 @@ function App(): JSX.Element {
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
                 ></CentralList>
+                <Row>
+                    <Col>
+                        <CustomerCart
+                            customerList={customerList}
+                            setCustomerList={setCustomerList}
+                            customerName={""}
+                        ></CustomerCart>
+                    </Col>
+                    <Col>
+                        <CentralList
+                            centralList={centralList}
+                            //setCentralList={setCentralList}
+                            onFoodUpdate={handleCentralListUpdate}
+                            //currentUser={currentUser}
+                        ></CentralList>
+                    </Col>
+                    <Col>
+                        <EmployeeCart
+                            employeeList={employeeList}
+                            setEmployeeList={setEmployeeList}
+                            onCentralListUpdate={handleCentralListUpdate}
+                        ></EmployeeCart>
+                        <DeleteFoodButton
+                            centralList={centralList}
+                            customerList={customerList}
+                            employeeList={employeeList}
+                            setCentralList={setCentralList}
+                            setCustomerList={setCustomerList}
+                            setEmployeeList={setEmployeeList}
+                            currentUser={currentUser}
+                        ></DeleteFoodButton>
+                    </Col>
+                </Row>
                 <div className="Footer">
                     <p style={{ margin: "10px" }}>
                         Created by Michael Bocelli, Robert Oratorio, Sharanjit

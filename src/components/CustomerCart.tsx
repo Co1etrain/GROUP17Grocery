@@ -7,6 +7,7 @@ import { Form } from "react-bootstrap";
 
 interface CartProps {
     customerList: Food[];
+    setCustomerList: (newList: Food[]) => void;
     customerName: string;
 }
 
@@ -18,9 +19,9 @@ const SORT_OPTIONS = [
 
 export function CustomerCart({
     customerList,
+    setCustomerList,
     customerName
 }: CartProps): JSX.Element {
-    const [cartList, setCartList] = useState<Food[]>(customerList);
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -35,8 +36,8 @@ export function CustomerCart({
         const droppedFood: Food | undefined = FOOD_LIST.find(
             (food: Food) => food.id === id
         );
-        if (droppedFood && !cartList.some((food: Food) => id === food.id)) {
-            setCartList([...cartList, droppedFood]);
+        if (droppedFood && !customerList.some((food: Food) => id === food.id)) {
+            setCustomerList([...customerList, droppedFood]);
             setTotalPrice(totalPrice + droppedFood.price);
         }
     }
@@ -48,7 +49,6 @@ export function CustomerCart({
     return (
         <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
-            <h3>Total price: {totalPrice.toFixed(2)}</h3>
             <div
                 ref={drop}
                 className="Cart"
@@ -56,19 +56,7 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
-                <Form.Group controlId="sortOptions">
-                    <Form.Label>Sort</Form.Label>
-                    <Form.Select value={sortType} onChange={updateSortType}>
-                        {SORT_OPTIONS.map((sortOption: string) => {
-                            return (
-                                <option key={sortOption} value={sortOption}>
-                                    {sortOption}
-                                </option>
-                            );
-                        })}
-                    </Form.Select>
-                </Form.Group>
-                {cartList
+                {customerList
                     .sort((a: Food, b: Food) =>
                         sortType === "by Price low to high"
                             ? a.price - b.price
@@ -89,6 +77,21 @@ export function CustomerCart({
                             ></FoodItem>
                         );
                     })}
+            </div>
+            <div style={{ display: "flex" }}>
+                <Form.Group controlId="sortOptions">
+                    <Form.Label>Sort</Form.Label>
+                    <Form.Select value={sortType} onChange={updateSortType}>
+                        {SORT_OPTIONS.map((sortOption: string) => {
+                            return (
+                                <option key={sortOption} value={sortOption}>
+                                    {sortOption}
+                                </option>
+                            );
+                        })}
+                    </Form.Select>
+                </Form.Group>
+                <h3>Total price: {totalPrice.toFixed(2)}</h3>
             </div>
         </div>
     );
