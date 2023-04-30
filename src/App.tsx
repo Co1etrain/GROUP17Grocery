@@ -52,28 +52,22 @@ function App(): JSX.Element {
 
     const [selectedCustomer, setSelectedCustomer] = useState<string>("");
 
-    function updateSelectedCustomer(
-        event: React.ChangeEvent<HTMLSelectElement>
-    ): void {
-        setSelectedCustomer(event.target.value);
-    }
-
     return (
         <DndProvider backend={HTML5Backend}>
             <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
             <IntroHeader></IntroHeader>
             <div className="App">
-                <EmployeeCart
+                {/*<EmployeeCart
                     employeeList={[]}
                     onCentralListUpdate={handleCentralListUpdate}
-                ></EmployeeCart>
-                <CustomerCart
+                ></EmployeeCart>*/}
+                {/*<CustomerCart
                     customerList={[]}
                     customerName={""}
-                ></CustomerCart>
+                ></CustomerCart>*/}
                 <h2>Main Inventory</h2>
                 <DisplayCustomerNames
-                    updateSelectedCustomer={updateSelectedCustomer}
+                    setSelectedCustomer={setSelectedCustomer}
                     currentSelectedCustomer={selectedCustomer}
                     currentCustomersRecord={Object.keys(currentCustomers)}
                 ></DisplayCustomerNames>
@@ -85,10 +79,10 @@ function App(): JSX.Element {
                     addCustomerName={setCustomers}
                     currentRecord={currentCustomers}
                 ></TextField>
-                <CentralList
+                {/*<CentralList
                     foodList={centralList}
                     onFoodUpdate={handleCentralListUpdate}
-                ></CentralList>
+                ></CentralList>*/}
                 <Row>
                     <Col>
                         <CustomerCart

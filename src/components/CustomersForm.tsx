@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, Form } from "react-bootstrap";
-import { Food } from "../interfaces/food";
-import { CustomersRecord } from "../interfaces/record";
+//import { Food } from "../interfaces/food";
+//import { CustomersRecord } from "../interfaces/record";
 
 interface customerProps {
-    updateSelectedCustomer: (
-        event: React.ChangeEvent<HTMLSelectElement>
-    ) => void;
+    setSelectedCustomer: (customerName: string) => void;
     currentSelectedCustomer: string;
     currentCustomersRecord: string[];
 }
 
 export function DisplayCustomerNames({
-    updateSelectedCustomer,
+    setSelectedCustomer,
     currentSelectedCustomer,
     currentCustomersRecord
 }: customerProps): JSX.Element {
+    function updateSelectedCustomer(
+        event: React.ChangeEvent<HTMLSelectElement>
+    ): void {
+        setSelectedCustomer(event.target.value);
+    }
+
     return (
         <div>
             <Form.Group controlId="customerSelected">
