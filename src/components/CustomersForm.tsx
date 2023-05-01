@@ -25,12 +25,13 @@ export function DisplayCustomerNames({
                     value={currentSelectedCustomer}
                     onChange={updateSelectedCustomer}
                 >
-                    {/* eslint-disable-next-line */}
-                    {currentCustomersRecord.map((name: string) => (
-                        <option key={name} value={name}>
-                            {name}
-                        </option>
-                    ))}
+                    {currentCustomersRecord.map((name: string) => {
+                        return (
+                            <option key={name} value={name}>
+                                {name}
+                            </option>
+                        );
+                    })}
                 </Form.Select>
             </Form.Group>
         </div>
