@@ -37,7 +37,11 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood && !customerList.some((food: Food) => id === food.id)) {
-            setCustomerList([...customerList, droppedFood]);
+            const newCustomerList: Food[] = customerList.map((food: Food) => ({
+                ...food,
+                Ingredients: [...food.ingredients]
+            }));
+            setCustomerList([...newCustomerList, droppedFood]);
             setTotalPrice(totalPrice + droppedFood.price);
         }
     }
@@ -72,7 +76,7 @@ export function CustomerCart({
                                 image={food.image}
                                 price={food.price}
                                 calories={food.calories}
-                                ingredients={food.ingredients}
+                                ingredients={[...food.ingredients]}
                                 category={food.category}
                             ></FoodItem>
                         );
