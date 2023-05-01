@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
 import "./App.css";
 import { CentralList } from "./components/CentralList";
 import { Users, CustomersRecord } from "./interfaces/record";
@@ -35,54 +34,24 @@ function App(): JSX.Element {
         }
     };
 
-    function updateUser(event: React.ChangeEvent<HTMLSelectElement>): void {
-        const toUsersType: Users["person"] = event.target
-            .value as Users["person"];
-        setUser(toUsersType);
-    }
-
     const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
-
-    function removeCustomers(givenCustomer: string): void {
-        const newCustomers: CustomersRecord = currentCustomers;
-        setCustomers({ ...currentCustomers });
-        delete newCustomers[givenCustomer];
-        setCustomers({ ...newCustomers });
-    }
 
     const [selectedCustomer, setSelectedCustomer] = useState<string>("");
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
+            <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
             <IntroHeader></IntroHeader>
             <div className="App">
-                {/*<EmployeeCart
-                    employeeList={[]}
-                    onCentralListUpdate={handleCentralListUpdate}
-                ></EmployeeCart>*/}
-                {/*<CustomerCart
-                    customerList={[]}
-                    customerName={""}
-                ></CustomerCart>*/}
-                <h2>Main Inventory</h2>
                 <DisplayCustomerNames
                     setSelectedCustomer={setSelectedCustomer}
                     currentSelectedCustomer={selectedCustomer}
                     currentCustomersRecord={Object.keys(currentCustomers)}
                 ></DisplayCustomerNames>
-                <Button onClick={() => removeCustomers("JOHN")}>
-                    LESS
-                    {console.log(Object.entries(currentCustomers))}
-                </Button>
                 <TextField
                     addCustomerName={setCustomers}
                     currentRecord={currentCustomers}
                 ></TextField>
-                {/*<CentralList
-                    foodList={centralList}
-                    onFoodUpdate={handleCentralListUpdate}
-                ></CentralList>*/}
                 <Row>
                     <Col>
                         <CustomerCart
@@ -94,9 +63,7 @@ function App(): JSX.Element {
                     <Col>
                         <CentralList
                             centralList={centralList}
-                            //setCentralList={setCentralList}
                             onFoodUpdate={handleCentralListUpdate}
-                            //currentUser={currentUser}
                         ></CentralList>
                     </Col>
                     <Col>

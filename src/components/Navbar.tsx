@@ -6,7 +6,7 @@ import { Users } from "../interfaces/record";
 import { CreateUserForm } from "./UserForm";
 
 interface userProps {
-    updateUser: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    updateUser: (userType: Users["person"]) => void;
     currentUser: Users["person"];
 }
 

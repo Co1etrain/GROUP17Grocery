@@ -1,7 +1,5 @@
 import React from "react";
-import { Button, Form } from "react-bootstrap";
-//import { Food } from "../interfaces/food";
-//import { CustomersRecord } from "../interfaces/record";
+import { Form } from "react-bootstrap";
 
 interface customerProps {
     setSelectedCustomer: (customerName: string) => void;
@@ -19,7 +17,6 @@ export function DisplayCustomerNames({
     ): void {
         setSelectedCustomer(event.target.value);
     }
-
     return (
         <div>
             <Form.Group controlId="customerSelected">
@@ -28,9 +25,10 @@ export function DisplayCustomerNames({
                     value={currentSelectedCustomer}
                     onChange={updateSelectedCustomer}
                 >
-                    {currentCustomersRecord.map((customer: string) => (
-                        <option key={customer} value={customer}>
-                            {customer}
+                    {/* eslint-disable-next-line */}
+                    {currentCustomersRecord.map((name: string) => (
+                        <option key={name} value={name}>
+                            {name}
                         </option>
                     ))}
                 </Form.Select>
