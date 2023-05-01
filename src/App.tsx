@@ -13,6 +13,7 @@ import { Food, FOOD_LIST } from "./interfaces/food";
 import { IntroHeader } from "./components/IntroHeader";
 import { DeleteFoodButton } from "./components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
+import { AddFoodForm } from "./components/AddFoodForm";
 
 function App(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -72,6 +73,10 @@ function App(): JSX.Element {
                             setEmployeeList={setEmployeeList}
                             onCentralListUpdate={handleCentralListUpdate}
                         ></EmployeeCart>
+                        <AddFoodForm
+                            centralList={centralList}
+                            setCentralList={setCentralList}
+                        ></AddFoodForm>
                         <DeleteFoodButton
                             centralList={centralList}
                             customerList={customerList}
