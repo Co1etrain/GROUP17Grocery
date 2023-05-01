@@ -28,7 +28,11 @@ export function EmployeeCart({
             (food: Food) => food.id === id
         );
         if (employeeList.find((food: Food) => id === food.id) === undefined) {
-            setEmployeeList([...employeeList, droppedFood[0]]);
+            const newEmployeeList: Food[] = employeeList.map((food: Food) => ({
+                ...food,
+                Ingredients: [...food.ingredients]
+            }));
+            setEmployeeList([...newEmployeeList, droppedFood[0]]);
         }
     }
 
@@ -61,7 +65,7 @@ export function EmployeeCart({
                             image={food.image}
                             price={food.price}
                             calories={food.calories}
-                            ingredients={food.ingredients}
+                            ingredients={[...food.ingredients]}
                             category={food.category}
                             onFoodUpdate={handleFoodUpdate}
                         ></FoodItem>

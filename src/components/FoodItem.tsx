@@ -38,7 +38,7 @@ export function FoodItem({
             image,
             price: editedPrice,
             calories,
-            ingredients,
+            ingredients: [...ingredients],
             category
         };
         if (onFoodUpdate) {
