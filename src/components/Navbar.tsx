@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { Users } from "../interfaces/record";
 import { CreateUserForm } from "./UserForm";
+import { Link } from "react-router-dom";
 
 interface userProps {
     updateUser: (userType: Users["person"]) => void;
@@ -20,7 +21,7 @@ export function Navbar({ updateUser, currentUser }: userProps) {
                     className="me-auto"
                     style={{ fontSize: "2.7rem", fontStyle: "italic" }}
                 >
-                    Glocery
+                    <Link to={"/"}>Glocery</Link>
                 </Nav>
                 <CreateUserForm
                     updateUser={updateUser}
