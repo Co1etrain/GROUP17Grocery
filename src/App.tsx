@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
 import { CentralList } from "./components/CentralList";
-import { Users } from "./interfaces/record";
+import { Users, CustomersRecord } from "./interfaces/record";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { Navbar } from "./components/Navbar";
 import { CustomerCart } from "./components/CustomerCart";
+import { DisplayCustomerNames } from "./components/CustomersForm";
+import { TextField } from "./components/CustomerInputBox";
 import { EmployeeCart } from "./components/EmployeeCart";
 import { Food, FOOD_LIST } from "./interfaces/food";
 import { IntroHeader } from "./components/IntroHeader";
@@ -32,17 +34,24 @@ function App(): JSX.Element {
         }
     };
 
-    function updateUser(event: React.ChangeEvent<HTMLSelectElement>) {
-        const toUsersType: Users["person"] = event.target
-            .value as Users["person"];
-        setUser(toUsersType);
-    }
+    const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
+
+    const [selectedCustomer, setSelectedCustomer] = useState<string>("");
 
     return (
         <DndProvider backend={HTML5Backend}>
-            <Navbar updateUser={updateUser} currentUser={currentUser}></Navbar>
+            <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
             <IntroHeader></IntroHeader>
             <div className="App">
+                <DisplayCustomerNames
+                    setSelectedCustomer={setSelectedCustomer}
+                    currentSelectedCustomer={selectedCustomer}
+                    currentCustomersRecord={Object.keys(currentCustomers)}
+                ></DisplayCustomerNames>
+                <TextField
+                    addCustomerName={setCustomers}
+                    currentRecord={currentCustomers}
+                ></TextField>
                 <Row>
                     <Col>
                         <CustomerCart
@@ -54,9 +63,7 @@ function App(): JSX.Element {
                     <Col>
                         <CentralList
                             centralList={centralList}
-                            //setCentralList={setCentralList}
                             onFoodUpdate={handleCentralListUpdate}
-                            //currentUser={currentUser}
                         ></CentralList>
                     </Col>
                     <Col>
