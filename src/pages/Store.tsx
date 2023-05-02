@@ -26,17 +26,11 @@ function Store(): JSX.Element {
                 food.id === updatedFood.id ? updatedFood : food
             )
         );
-        const foodIndex = FOOD_LIST.findIndex(
-            (food) => food.id === updatedFood.id
-        );
-        if (foodIndex !== -1) {
-            FOOD_LIST[foodIndex] = updatedFood;
-        }
     };
 
     const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
 
-    const [selectedCustomer, setSelectedCustomer] = useState<string>("");
+    const [selectedCustomer, setSelectedCustomer] = useState<string>("NO ONE");
 
     return (
         <DndProvider backend={HTML5Backend}>
@@ -45,18 +39,24 @@ function Store(): JSX.Element {
                 <DisplayCustomerNames
                     setSelectedCustomer={setSelectedCustomer}
                     currentSelectedCustomer={selectedCustomer}
-                    currentCustomersRecord={Object.keys(currentCustomers)}
+                    currentRecord={currentCustomers}
+                    setCustomerList={setCustomerList}
                 ></DisplayCustomerNames>
                 <TextField
                     addCustomerName={setCustomers}
                     currentRecord={currentCustomers}
+                    setSelectedCustomer={setSelectedCustomer}
+                    selectedCustomer={selectedCustomer}
+                    setCustomerList={setCustomerList}
                 ></TextField>
                 <Row>
                     <Col>
                         <CustomerCart
                             customerList={customerList}
                             setCustomerList={setCustomerList}
-                            customerName={""}
+                            customerName={selectedCustomer}
+                            currentRecord={currentCustomers}
+                            centralList={centralList}
                         ></CustomerCart>
                     </Col>
                     <Col>
