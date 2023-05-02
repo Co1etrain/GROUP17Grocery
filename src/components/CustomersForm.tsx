@@ -17,6 +17,15 @@ export function DisplayCustomerNames({
     ): void {
         setSelectedCustomer(event.target.value);
     }
+    const customerNames: JSX.Element[] = currentCustomersRecord.map(
+        (name: string) => {
+            return (
+                <option key={name} value={name}>
+                    {name}
+                </option>
+            );
+        }
+    );
     return (
         <div>
             <Form.Group controlId="customerSelected">
@@ -25,13 +34,15 @@ export function DisplayCustomerNames({
                     value={currentSelectedCustomer}
                     onChange={updateSelectedCustomer}
                 >
-                    {currentCustomersRecord.map((name: string) => {
-                        return (
-                            <option key={name} value={name}>
-                                {name}
-                            </option>
-                        );
-                    })}
+                    {[
+                        <option
+                            key={"Select Customer:"}
+                            value={"Select Customer:"}
+                        >
+                            {"Select Customer:"}
+                        </option>,
+                        ...customerNames
+                    ]}
                 </Form.Select>
             </Form.Group>
         </div>

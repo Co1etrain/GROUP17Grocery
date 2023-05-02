@@ -5,11 +5,13 @@ import { CustomersRecord } from "../interfaces/record";
 interface customerRecordProps {
     addCustomerName: (record: CustomersRecord) => void;
     currentRecord: CustomersRecord;
+    selectedCustomer: string;
 }
 
 export function TextField({
     addCustomerName,
-    currentRecord
+    currentRecord,
+    selectedCustomer
 }: customerRecordProps): JSX.Element {
     const [customerName, setCustomerName] = useState<string>("");
 
@@ -40,8 +42,10 @@ export function TextField({
             <Button onClick={() => editCustomers(customerName)}>
                 Add Customer Name
             </Button>
-            <Button onClick={() => removeCustomers(customerName)}>
+            <Button onClick={() => removeCustomers(selectedCustomer)}>
                 Remove Customer Name
+                {console.log(Object.entries(currentRecord))}
+                {console.log(selectedCustomer)}
             </Button>
         </div>
     );

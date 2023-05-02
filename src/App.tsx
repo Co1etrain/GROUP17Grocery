@@ -51,6 +51,7 @@ function App(): JSX.Element {
                 <TextField
                     addCustomerName={setCustomers}
                     currentRecord={currentCustomers}
+                    selectedCustomer={selectedCustomer}
                 ></TextField>
                 <Row>
                     <Col>
