@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (239 ms)
+  ✕ renders the course name somewhere (352 ms)
 
   ● renders the course name somewhere
 
@@ -231,17 +231,17 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|---------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 -----------------------|---------|----------|---------|---------|---------------------
-All files              |      40 |    20.58 |    32.2 |    42.1 |                     
- src                   |   53.33 |        0 |      20 |   53.33 |                     
-  App.tsx              |   53.33 |        0 |      20 |   53.33 | 24-33               
- src/components        |    37.5 |    23.33 |   33.33 |   39.79 |                     
+All files              |   41.37 |    26.47 |   32.75 |   43.63 |                     
+ src                   |   72.72 |        0 |      25 |   72.72 |                     
+  App.tsx              |   72.72 |        0 |      25 |   72.72 | 24-26               
+ src/components        |    37.5 |    28.12 |   33.33 |   39.79 |                     
   CentralList.tsx      |     100 |      100 |     100 |     100 |                     
-  CustomerCart.tsx     |   33.33 |       10 |      30 |      35 | 32,39-55,70-75      
+  CustomerCart.tsx     |   33.33 |       10 |      30 |      35 | 34,41-57,72-77      
   CustomerInputBox.tsx |   16.66 |      100 |   16.66 |   16.66 | 24-40,49-52         
   CustomersForm.tsx    |   33.33 |        0 |   33.33 |   33.33 | 22-24,29            
   DeleteFoodButton.tsx |   23.07 |       50 |   28.57 |      30 | 31,38-45            
   EmployeeCart.tsx     |   23.07 |    16.66 |   22.22 |      25 | 20,27-41,55         
-  FoodItem.tsx         |   55.17 |     37.5 |   36.36 |   57.14 | 33-47,52-83,114,121 
+  FoodItem.tsx         |   55.17 |       50 |   36.36 |   57.14 | 36-50,55-88,117,126 
   IntroHeader.tsx      |     100 |      100 |     100 |     100 |                     
   Navbar.tsx           |      50 |      100 |   33.33 |      50 | 30-59               
   UserForm.tsx         |   33.33 |      100 |      50 |   33.33 | 17-19               
@@ -252,5 +252,5 @@ All files              |      40 |    20.58 |    32.2 |    42.1 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.704 s
+Time:        4.246 s
 Ran all test suites.
