@@ -3,6 +3,7 @@ import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
 import { StarRating } from "star-rating-react-ts";
+import { Users } from "../interfaces/record";
 
 export function FoodItem({
     id,
@@ -13,8 +14,12 @@ export function FoodItem({
     calories,
     ingredients,
     category,
-    onFoodUpdate
-}: Food & { onFoodUpdate?: (updatedFood: Food) => void }): JSX.Element {
+    onFoodUpdate,
+    showEditButton,
+    currentUser
+}: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
+    showEditButton: boolean;
+} & { currentUser: Users["person"] }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -29,8 +34,8 @@ export function FoodItem({
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
 
-    const handleUpdate = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleUpdate = (event: React.FormEvent) => {
+        event.preventDefault();
         const updatedFood: Food = {
             id,
             name: editedName,
@@ -38,7 +43,7 @@ export function FoodItem({
             image,
             price: editedPrice,
             calories,
-            ingredients,
+            ingredients: [...ingredients],
             category
         };
         if (onFoodUpdate) {
@@ -56,7 +61,9 @@ export function FoodItem({
                         <Form.Control
                             type="text"
                             value={editedName}
-                            onChange={(e) => setEditedName(e.target.value)}
+                            onChange={(event) =>
+                                setEditedName(event.target.value)
+                            }
                         />
                     </Form.Group>
                     <Form.Group>
@@ -64,8 +71,8 @@ export function FoodItem({
                         <Form.Control
                             type="text"
                             value={editedDescription}
-                            onChange={(e) =>
-                                setEditedDescription(e.target.value)
+                            onChange={(event) =>
+                                setEditedDescription(event.target.value)
                             }
                         />
                     </Form.Group>
@@ -74,8 +81,8 @@ export function FoodItem({
                         <Form.Control
                             type="number"
                             value={editedPrice}
-                            onChange={(e) =>
-                                setEditedPrice(parseFloat(e.target.value))
+                            onChange={(event) =>
+                                setEditedPrice(parseFloat(event.target.value))
                             }
                         />
                     </Form.Group>
@@ -99,6 +106,7 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
+                        Rating:
                         <StarRating theme={{ size: 30 }}></StarRating>
                     </p>
                     {renderEditButton()}
@@ -108,7 +116,7 @@ export function FoodItem({
     };
 
     const renderEditButton = () => {
-        if (onFoodUpdate) {
+        if (onFoodUpdate && showEditButton && currentUser !== "customer") {
             return <Button onClick={() => setEditMode(true)}>Edit</Button>;
         }
         return null;
@@ -123,7 +131,7 @@ export function FoodItem({
                     border: isDragging ? "0px" : "0px"
                 }}
             >
-                <img src={image} width="100px" alt="" />
+                <img src={image} width="100px" alt="Food icon" />
             </Button>
             <div
                 className="Food-Desc"

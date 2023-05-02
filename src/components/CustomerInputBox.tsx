@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { CustomersRecord } from "../interfaces/record";
+import { Food } from "../interfaces/food";
 
 interface customerRecordProps {
     addCustomerName: (record: CustomersRecord) => void;
     currentRecord: CustomersRecord;
+    setSelectedCustomer: (customerName: string) => void;
+    selectedCustomer: string;
+    setCustomerList: (newList: Food[]) => void;
 }
 
 export function TextField({
     addCustomerName,
-    currentRecord
+    currentRecord,
+    setSelectedCustomer,
+    selectedCustomer,
+    setCustomerList
 }: customerRecordProps): JSX.Element {
     const [customerName, setCustomerName] = useState<string>("");
 
@@ -29,18 +36,28 @@ export function TextField({
         addCustomerName({ ...currentRecord });
         delete newCustomers[givenCustomer];
         addCustomerName({ ...newCustomers });
+        setSelectedCustomer("NO ONE");
+        setCustomerList([]);
     }
 
     return (
-        <div>
+        <div style={{ marginRight: "20px" }}>
             <Form.Group controlId="formCustomerName">
                 <Form.Label>Type Name Here:</Form.Label>
                 <Form.Control onChange={updateCustomerName} />
             </Form.Group>
-            <Button onClick={() => editCustomers(customerName)}>
+            <Button
+                className="m-3"
+                size="sm"
+                onClick={() => editCustomers(customerName)}
+            >
                 Add Customer Name
             </Button>
-            <Button onClick={() => removeCustomers(customerName)}>
+            <Button
+                className="m-3"
+                size="sm"
+                onClick={() => removeCustomers(selectedCustomer)}
+            >
                 Remove Customer Name
             </Button>
         </div>
