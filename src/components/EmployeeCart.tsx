@@ -1,5 +1,5 @@
 import React from "react";
-import { FOOD_LIST, Food } from "../interfaces/food";
+import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
@@ -7,12 +7,14 @@ import { useDrop } from "react-dnd";
 interface EmployeeCartProps {
     employeeList: Food[];
     setEmployeeList: (newList: Food[]) => void;
+    centralList: Food[];
     onCentralListUpdate: (updatedFood: Food) => void;
 }
 
 export function EmployeeCart({
     employeeList,
     setEmployeeList,
+    centralList,
     onCentralListUpdate
 }: EmployeeCartProps): JSX.Element {
     const [{ isOver }, drop] = useDrop({
@@ -24,11 +26,16 @@ export function EmployeeCart({
     });
 
     function addFoodToCart(id: number) {
-        const droppedFood: Food[] = FOOD_LIST.filter(
+        const droppedFood: Food[] = centralList.filter(
             (food: Food) => food.id === id
         );
+
         if (employeeList.find((food: Food) => id === food.id) === undefined) {
-            setEmployeeList([...employeeList, droppedFood[0]]);
+            const newEmployeeList: Food[] = employeeList.map((food: Food) => ({
+                ...food,
+                Ingredients: [...food.ingredients]
+            }));
+            setEmployeeList([...newEmployeeList, droppedFood[0]]);
         }
     }
 
@@ -61,7 +68,7 @@ export function EmployeeCart({
                             image={food.image}
                             price={food.price}
                             calories={food.calories}
-                            ingredients={food.ingredients}
+                            ingredients={[...food.ingredients]}
                             category={food.category}
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}

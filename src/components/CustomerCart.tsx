@@ -83,7 +83,7 @@ export function CustomerCart({
                                 image={food.image}
                                 price={food.price}
                                 calories={food.calories}
-                                ingredients={food.ingredients}
+                                ingredients={[...food.ingredients]}
                                 category={food.category}
                                 showEditButton={false}
                             ></FoodItem>

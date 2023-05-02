@@ -41,7 +41,7 @@ export function FoodItem({
             image,
             price: editedPrice,
             calories,
-            ingredients,
+            ingredients: [...ingredients],
             category
         };
         if (onFoodUpdate) {
@@ -128,7 +128,7 @@ export function FoodItem({
                     border: isDragging ? "0px" : "0px"
                 }}
             >
-                <img src={image} width="100px" alt="" />
+                <img src={image} width="100px" alt="Food icon" />
             </Button>
             <div
                 className="Food-Desc"
