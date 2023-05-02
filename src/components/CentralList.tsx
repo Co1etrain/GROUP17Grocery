@@ -2,18 +2,20 @@ import React from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
+import { Users } from "../interfaces/record";
 //import { Users } from "../interfaces/record";
 
 interface CentralListProps {
     centralList: Food[];
     //setCentralList: (newCentralList: Food[]) => void;
     onFoodUpdate: (updatedFood: Food) => void;
-    //currentUser: Users["person"];
+    currentUser: Users["person"];
 }
 
 export function CentralList({
     centralList,
-    onFoodUpdate
+    onFoodUpdate,
+    currentUser
 }: CentralListProps): JSX.Element {
     return (
         <div style={{ paddingTop: "15px" }}>
@@ -34,6 +36,7 @@ export function CentralList({
                                 category={food.category}
                                 onFoodUpdate={onFoodUpdate}
                                 showEditButton={false}
+                                currentUser={currentUser}
                             ></FoodItem>
                         </div>
                     );

@@ -3,19 +3,22 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
+import { Users } from "../interfaces/record";
 
 interface EmployeeCartProps {
     employeeList: Food[];
     setEmployeeList: (newList: Food[]) => void;
     centralList: Food[];
     onCentralListUpdate: (updatedFood: Food) => void;
+    currentUser: Users["person"];
 }
 
 export function EmployeeCart({
     employeeList,
     setEmployeeList,
     centralList,
-    onCentralListUpdate
+    onCentralListUpdate,
+    currentUser
 }: EmployeeCartProps): JSX.Element {
     const [{ isOver }, drop] = useDrop({
         accept: "food",
@@ -52,7 +55,7 @@ export function EmployeeCart({
         <div style={{ paddingTop: "15px" }}>
             <h2>Employee/Manager Cart</h2>
             <div
-                ref={drop}
+                ref={currentUser !== "customer" ? drop : undefined}
                 className="Cart"
                 style={{
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
@@ -72,6 +75,7 @@ export function EmployeeCart({
                             category={food.category}
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}
+                            currentUser={currentUser}
                         ></FoodItem>
                     );
                 })}
