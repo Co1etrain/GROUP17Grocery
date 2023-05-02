@@ -4,6 +4,7 @@ import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
+import { CustomersRecord } from "../interfaces/record";
 
 interface CartProps {
     customerList: Food[];
@@ -23,7 +24,8 @@ export function CustomerCart({
     customerList,
     setCustomerList,
     customerName,
-    currentRecord
+    currentRecord,
+    centralList
 }: CartProps): JSX.Element {
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -40,8 +42,14 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood && !customerList.some((food: Food) => id === food.id)) {
-            setCustomerList([...customerList, droppedFood]);
-            setTotalPrice(totalPrice + droppedFood.price);
+            if (customerName !== "NO ONE") {
+                currentRecord[customerName] = [...customerList, droppedFood];
+                setCustomerList([...customerList, droppedFood]);
+                setTotalPrice(totalPrice + droppedFood.price);
+            } else {
+                setCustomerList([]);
+                setTotalPrice(0.0);
+            }
         }
     }
 

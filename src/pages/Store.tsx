@@ -12,6 +12,7 @@ import { EmployeeCart } from "../components/EmployeeCart";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
+import { AddFoodForm } from "../components/AddFoodForm";
 
 function Store(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
@@ -32,7 +33,7 @@ function Store(): JSX.Element {
     const [selectedCustomer, setSelectedCustomer] = useState<string>("NO ONE");
 
     return (
-        <DndProvider backend={HTML5Backend}>
+        <div>
             <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
             <div className="App">
                 <DisplayCustomerNames
@@ -68,8 +69,13 @@ function Store(): JSX.Element {
                         <EmployeeCart
                             employeeList={employeeList}
                             setEmployeeList={setEmployeeList}
+                            centralList={centralList}
                             onCentralListUpdate={handleCentralListUpdate}
                         ></EmployeeCart>
+                        <AddFoodForm
+                            centralList={centralList}
+                            setCentralList={setCentralList}
+                        ></AddFoodForm>
                         <DeleteFoodButton
                             centralList={centralList}
                             customerList={customerList}
@@ -88,7 +94,7 @@ function Store(): JSX.Element {
                     </p>
                 </div>
             </div>
-        </DndProvider>
+        </div>
     );
 }
 
