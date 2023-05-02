@@ -92,7 +92,7 @@ Browserslist: caniuse-lite is outdated. Please run:
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (271 ms)
+  ✕ renders the course name somewhere (227 ms)
 
   ● renders the course name somewhere
 
@@ -146,18 +146,18 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    2.06 |        0 |    1.36 |    2.18 |                   
+All files              |    1.97 |        0 |    1.35 |    2.04 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
- src/components        |    0.76 |        0 |       0 |    0.81 |                   
-  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 24-160            
-  CentralList.tsx      |       0 |      100 |       0 |       0 | 18-23             
-  CustomerCart.tsx     |    4.76 |        0 |       0 |       5 | 30-98             
+ src/components        |    0.72 |        0 |       0 |    0.75 |                   
+  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 27-163            
+  CentralList.tsx      |       0 |      100 |       0 |       0 | 20-25             
+  CustomerCart.tsx     |       5 |        0 |       0 |       5 | 32-101            
   CustomerInputBox.tsx |       0 |      100 |       0 |       0 | 21-52             
   CustomersForm.tsx    |       0 |        0 |       0 |       0 | 22-36             
-  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 29-48             
-  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 20-62             
-  FoodItem.tsx         |       0 |        0 |       0 |       0 | 20-126            
+  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 29-64             
+  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-65             
+  FoodItem.tsx         |       0 |        0 |       0 |       0 | 22-128            
   IntroHeader.tsx      |       0 |      100 |       0 |       0 | 6                 
   Navbar.tsx           |       0 |      100 |       0 |       0 | 15-60             
   UserForm.tsx         |       0 |      100 |       0 |       0 | 17-22             
@@ -171,5 +171,5 @@ All files              |    2.06 |        0 |    1.36 |    2.18 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.902 s
+Time:        3.039 s
 Ran all test suites.
