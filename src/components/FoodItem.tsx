@@ -12,8 +12,11 @@ export function FoodItem({
     calories,
     ingredients,
     category,
-    onFoodUpdate
-}: Food & { onFoodUpdate?: (updatedFood: Food) => void }): JSX.Element {
+    onFoodUpdate,
+    showEditButton
+}: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
+    showEditButton: boolean;
+}): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -110,7 +113,7 @@ export function FoodItem({
     };
 
     const renderEditButton = () => {
-        if (onFoodUpdate) {
+        if (onFoodUpdate && showEditButton) {
             return <Button onClick={() => setEditMode(true)}>Edit</Button>;
         }
         return null;
