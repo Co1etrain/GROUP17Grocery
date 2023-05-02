@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { CustomersRecord } from "../interfaces/record";
+import { Food } from "../interfaces/food";
 
 interface customerRecordProps {
     addCustomerName: (record: CustomersRecord) => void;
     currentRecord: CustomersRecord;
+    setSelectedCustomer: (customerName: string) => void;
     selectedCustomer: string;
+    setCustomerList: (newList: Food[]) => void;
 }
 
 export function TextField({
     addCustomerName,
     currentRecord,
-    selectedCustomer
+    setSelectedCustomer,
+    selectedCustomer,
+    setCustomerList
 }: customerRecordProps): JSX.Element {
     const [customerName, setCustomerName] = useState<string>("");
 
@@ -31,6 +36,8 @@ export function TextField({
         addCustomerName({ ...currentRecord });
         delete newCustomers[givenCustomer];
         addCustomerName({ ...newCustomers });
+        setSelectedCustomer("NO ONE");
+        setCustomerList([]);
     }
 
     return (
@@ -44,8 +51,6 @@ export function TextField({
             </Button>
             <Button onClick={() => removeCustomers(selectedCustomer)}>
                 Remove Customer Name
-                {console.log(Object.entries(currentRecord))}
-                {console.log(selectedCustomer)}
             </Button>
         </div>
     );
