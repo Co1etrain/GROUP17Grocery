@@ -6,7 +6,10 @@ import {
     Form,
     InputGroup,
     FloatingLabel,
-    FormText
+    FormText,
+    Stack,
+    Row,
+    Col
 } from "react-bootstrap";
 
 interface AddFoodProps {
@@ -68,30 +71,50 @@ export function AddFoodForm({
             <Modal show={showForm} onHide={closeForm}>
                 <Modal.Header closeButton>
                     <Modal.Title>Please fill out all fields:</Modal.Title>
-                    <Modal.Body>
-                        <FloatingLabel label="Food Name">
-                            <Form.Control
-                                type="food name"
-                                placeholder="Food Name"
-                                aria-label="Name_Field"
-                                onChange={(
-                                    e: React.ChangeEvent<HTMLInputElement>
-                                ) => setName(e.target.value)}
-                            />
-                        </FloatingLabel>
-                        <InputGroup.Text>$</InputGroup.Text>
-                        <FloatingLabel label="Price">
-                            <Form.Control
-                                type="number"
-                                placeholder="Price"
-                                aria-label="Price_Field"
-                                onChange={(
-                                    e: React.ChangeEvent<HTMLInputElement>
-                                ) => setPrice(e.target.value)}
-                            />
-                        </FloatingLabel>
+                </Modal.Header>
+                <Modal.Body>
+                    <Stack gap={3}>
+                        <Form.Group>
+                            <FloatingLabel label="Food Name">
+                                <Form.Control
+                                    type="food name"
+                                    placeholder="Food Name"
+                                    aria-label="Name_Field"
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                    ) => setName(e.target.value)}
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+                        <Row>
+                            <InputGroup as={Col}>
+                                <InputGroup.Text>$</InputGroup.Text>
+                                <Form.Control
+                                    type="number"
+                                    placeholder="Price"
+                                    aria-label="Price_Field"
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                    ) => setPrice(e.target.value)}
+                                />
+                            </InputGroup>
+
+                            <InputGroup as={Col}>
+                                <Form.Control
+                                    type="number"
+                                    placeholder="Calories"
+                                    aria-label="Calorie_Field"
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                    ) => setCalories(e.target.value)}
+                                />
+                                <InputGroup.Text>cal</InputGroup.Text>
+                            </InputGroup>
+                        </Row>
+
                         <FloatingLabel label="Description">
                             <Form.Control
+                                as="textarea"
                                 type="descripton"
                                 placeholder="Description"
                                 aria-label="Description_Field"
@@ -111,19 +134,7 @@ export function AddFoodForm({
                             />
                             <FormText>Ex: https://www.imageurl.com/</FormText>
                         </FloatingLabel>
-                        <InputGroup>
-                            <FloatingLabel label="Calories">
-                                <Form.Control
-                                    type="number"
-                                    placeholder="Image URL"
-                                    aria-label="Image_Field"
-                                    onChange={(
-                                        e: React.ChangeEvent<HTMLInputElement>
-                                    ) => setCalories(e.target.value)}
-                                />
-                                <InputGroup.Text>cal</InputGroup.Text>
-                            </FloatingLabel>
-                        </InputGroup>
+
                         <Form.Group>
                             <Form.Label>Select Aisle</Form.Label>
                             <Form.Select
@@ -140,6 +151,7 @@ export function AddFoodForm({
                         <InputGroup>
                             <FloatingLabel label="Ingredients">
                                 <Form.Control
+                                    as="textarea"
                                     type="ingredients"
                                     placeholder="Ingredients"
                                     aria-label="Ingredients_Field"
@@ -153,16 +165,16 @@ export function AddFoodForm({
                                 </FormText>
                             </FloatingLabel>
                         </InputGroup>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={closeForm}>
-                            Cancel
-                        </Button>
-                        <Button variant="primary" onClick={appendNewFood}>
-                            Add
-                        </Button>
-                    </Modal.Footer>
-                </Modal.Header>
+                    </Stack>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={closeForm}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={appendNewFood}>
+                        Add
+                    </Button>
+                </Modal.Footer>
             </Modal>
         </div>
     );
