@@ -68,6 +68,7 @@ export function EmployeeCart({
                             ingredients={[...food.ingredients]}
                             category={food.category}
                             onFoodUpdate={handleFoodUpdate}
+                            showEditButton={true}
                         ></FoodItem>
                     );
                 })}
