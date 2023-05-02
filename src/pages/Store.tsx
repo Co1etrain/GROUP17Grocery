@@ -1,0 +1,96 @@
+import React, { useState } from "react";
+import "../App.css";
+import { CentralList } from "../components/CentralList";
+import { Users, CustomersRecord } from "../interfaces/record";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { Navbar } from "../components/Navbar";
+import { CustomerCart } from "../components/CustomerCart";
+import { DisplayCustomerNames } from "../components/CustomersForm";
+import { TextField } from "../components/CustomerInputBox";
+import { EmployeeCart } from "../components/EmployeeCart";
+import { Food, FOOD_LIST } from "../interfaces/food";
+import { IntroHeader } from "../components/IntroHeader";
+import { DeleteFoodButton } from "../components/DeleteFoodButton";
+import { Row, Col } from "react-bootstrap";
+
+function Store(): JSX.Element {
+    const [currentUser, setUser] = useState<Users["person"]>("owner");
+    const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+    const [customerList, setCustomerList] = useState<Food[]>([]);
+    const [employeeList, setEmployeeList] = useState<Food[]>([]);
+
+    const handleCentralListUpdate = (updatedFood: Food) => {
+        setCentralList((prevList) =>
+            prevList.map((food) =>
+                food.id === updatedFood.id ? updatedFood : food
+            )
+        );
+    };
+
+    const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
+
+    const [selectedCustomer, setSelectedCustomer] = useState<string>("NO ONE");
+
+    return (
+        <DndProvider backend={HTML5Backend}>
+            <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
+            <div className="App">
+                <DisplayCustomerNames
+                    setSelectedCustomer={setSelectedCustomer}
+                    currentSelectedCustomer={selectedCustomer}
+                    currentRecord={currentCustomers}
+                    setCustomerList={setCustomerList}
+                ></DisplayCustomerNames>
+                <TextField
+                    addCustomerName={setCustomers}
+                    currentRecord={currentCustomers}
+                    setSelectedCustomer={setSelectedCustomer}
+                    selectedCustomer={selectedCustomer}
+                    setCustomerList={setCustomerList}
+                ></TextField>
+                <Row>
+                    <Col>
+                        <CustomerCart
+                            customerList={customerList}
+                            setCustomerList={setCustomerList}
+                            customerName={selectedCustomer}
+                            currentRecord={currentCustomers}
+                            centralList={centralList}
+                        ></CustomerCart>
+                    </Col>
+                    <Col>
+                        <CentralList
+                            centralList={centralList}
+                            onFoodUpdate={handleCentralListUpdate}
+                        ></CentralList>
+                    </Col>
+                    <Col>
+                        <EmployeeCart
+                            employeeList={employeeList}
+                            setEmployeeList={setEmployeeList}
+                            onCentralListUpdate={handleCentralListUpdate}
+                        ></EmployeeCart>
+                        <DeleteFoodButton
+                            centralList={centralList}
+                            customerList={customerList}
+                            employeeList={employeeList}
+                            setCentralList={setCentralList}
+                            setCustomerList={setCustomerList}
+                            setEmployeeList={setEmployeeList}
+                            currentUser={currentUser}
+                        ></DeleteFoodButton>
+                    </Col>
+                </Row>
+                <div className="Footer">
+                    <p style={{ margin: "10px" }}>
+                        Created by Michael Bocelli, Robert Oratorio, Sharanjit
+                        Singh, Cole McCaleb, and Andrew Kallai.
+                    </p>
+                </div>
+            </div>
+        </DndProvider>
+    );
+}
+
+export default Store;
