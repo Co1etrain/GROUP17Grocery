@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import "../App.css";
 import { CentralList } from "../components/CentralList";
 import { Users, CustomersRecord } from "../interfaces/record";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 import { Navbar } from "../components/Navbar";
 import { CustomerCart } from "../components/CustomerCart";
 import { DisplayCustomerNames } from "../components/CustomersForm";
