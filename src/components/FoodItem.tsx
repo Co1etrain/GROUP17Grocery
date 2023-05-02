@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
+import { StarRating } from "star-rating-react-ts";
 
 export function FoodItem({
     id,
@@ -22,7 +23,6 @@ export function FoodItem({
         })
     });
     const [isDescHidden, setIsDescHidden] = useState<boolean>(true);
-    const [rating] = useState<number>(0);
     const [editMode, setEditMode] = useState<boolean>(false);
     const [editedName, setEditedName] = useState<string>(name);
     const [editedDescription, setEditedDescription] =
@@ -99,7 +99,7 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
-                        This will be the 5 stars {rating}
+                        <StarRating theme={{ size: 30 }}></StarRating>
                     </p>
                     {renderEditButton()}
                 </>
