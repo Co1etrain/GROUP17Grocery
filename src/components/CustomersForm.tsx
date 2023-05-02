@@ -34,7 +34,7 @@ export function DisplayCustomerNames({
         }
     );
     return (
-        <div>
+        <div style={{ marginRight: "20px" }}>
             <Form.Group controlId="customerSelected">
                 <Form.Label>Select Customer:</Form.Label>
                 <Form.Select

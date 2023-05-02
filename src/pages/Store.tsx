@@ -4,8 +4,6 @@ import { CentralList } from "../components/CentralList";
 import { Users, CustomersRecord } from "../interfaces/record";
 import { Navbar } from "../components/Navbar";
 import { CustomerCart } from "../components/CustomerCart";
-import { DisplayCustomerNames } from "../components/CustomersForm";
-import { TextField } from "../components/CustomerInputBox";
 import { EmployeeCart } from "../components/EmployeeCart";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
@@ -32,21 +30,16 @@ function Store(): JSX.Element {
 
     return (
         <div>
-            <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
+            <Navbar
+                updateUser={setUser}
+                currentUser={currentUser}
+                addCustomerName={setCustomers}
+                currentRecord={currentCustomers}
+                setSelectedCustomer={setSelectedCustomer}
+                selectedCustomer={selectedCustomer}
+                setCustomerList={setCustomerList}
+            ></Navbar>
             <div className="App">
-                <DisplayCustomerNames
-                    setSelectedCustomer={setSelectedCustomer}
-                    currentSelectedCustomer={selectedCustomer}
-                    currentRecord={currentCustomers}
-                    setCustomerList={setCustomerList}
-                ></DisplayCustomerNames>
-                <TextField
-                    addCustomerName={setCustomers}
-                    currentRecord={currentCustomers}
-                    setSelectedCustomer={setSelectedCustomer}
-                    selectedCustomer={selectedCustomer}
-                    setCustomerList={setCustomerList}
-                ></TextField>
                 <Row>
                     <Col>
                         <CustomerCart
