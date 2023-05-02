@@ -4,8 +4,6 @@ import { CentralList } from "../components/CentralList";
 import { Users, CustomersRecord } from "../interfaces/record";
 import { Navbar } from "../components/Navbar";
 import { CustomerCart } from "../components/CustomerCart";
-import { DisplayCustomerNames } from "../components/CustomersForm";
-import { TextField } from "../components/CustomerInputBox";
 import { EmployeeCart } from "../components/EmployeeCart";
 import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
