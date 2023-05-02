@@ -2,15 +2,19 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-//create a button given a name/ form, name of food and create a new central list without the deleted
+//import { Users } from "../interfaces/record";
+
+interface CentralListProps {
+    centralList: Food[];
+    //setCentralList: (newCentralList: Food[]) => void;
+    onFoodUpdate: (updatedFood: Food) => void;
+    //currentUser: Users["person"];
+}
 
 export function CentralList({
-    foodList,
+    centralList,
     onFoodUpdate
-}: {
-    foodList: Food[];
-    onFoodUpdate: (updatedFood: Food) => void;
-}): JSX.Element {
+}: CentralListProps): JSX.Element {
     const [sort, setSort] = useState<string>("name");
     const [filter, setFilter] = useState<string>("All");
 
@@ -24,7 +28,7 @@ export function CentralList({
         setFilter(event.target.value);
     };
 
-    const filteredList = foodList
+    const filteredList = centralList
         .filter((food) => filter === "All" || food.category === filter)
         .sort((a, b) => {
             if (sort === "name") {
@@ -39,7 +43,8 @@ export function CentralList({
         });
 
     return (
-        <div className="CentralList">
+        <div style={{ paddingTop: "15px" }}>
+            <h2>Main Inventory</h2>
             <div>
                 <div>
                     <label>Sort by:</label>
@@ -67,22 +72,27 @@ export function CentralList({
                     </select>
                 </div>
             </div>
-            {filteredList.map((food: Food) => {
-                return (
-                    <FoodItem
-                        id={food.id}
-                        key={food.id}
-                        name={food.name}
-                        description={food.description}
-                        image={food.image}
-                        price={food.price}
-                        calories={food.calories}
-                        ingredients={food.ingredients}
-                        category={food.category}
-                        onFoodUpdate={onFoodUpdate}
-                    ></FoodItem>
-                );
-            })}
+            <div className="CentralList" id="middle">
+                {filteredList.map((food: Food) => {
+                    return (
+                        <div key={food.id}>
+                            <FoodItem
+                                id={food.id}
+                                key={food.id}
+                                name={food.name}
+                                description={food.description}
+                                image={food.image}
+                                price={food.price}
+                                calories={food.calories}
+                                ingredients={food.ingredients}
+                                category={food.category}
+                                onFoodUpdate={onFoodUpdate}
+                                showEditButton={false}
+                            ></FoodItem>
+                        </div>
+                    );
+                })}
+            </div>
         </div>
     );
 }

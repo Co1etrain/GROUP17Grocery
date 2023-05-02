@@ -1,13 +1,17 @@
 import React, { useState } from "react";
-import { FOOD_LIST, Food } from "../interfaces/food";
+import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
+import { CustomersRecord } from "../interfaces/record";
 
 interface CartProps {
     customerList: Food[];
+    setCustomerList: (newList: Food[]) => void;
     customerName: string;
+    currentRecord: CustomersRecord;
+    centralList: Food[];
 }
 
 const SORT_OPTIONS = [
@@ -18,9 +22,11 @@ const SORT_OPTIONS = [
 
 export function CustomerCart({
     customerList,
-    customerName
+    setCustomerList,
+    customerName,
+    currentRecord,
+    centralList
 }: CartProps): JSX.Element {
-    const [cartList, setCartList] = useState<Food[]>(customerList);
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -32,12 +38,18 @@ export function CustomerCart({
     });
 
     function addFoodToCart(id: number) {
-        const droppedFood: Food | undefined = FOOD_LIST.find(
+        const droppedFood: Food | undefined = centralList.find(
             (food: Food) => food.id === id
         );
-        if (droppedFood && !cartList.some((food: Food) => id === food.id)) {
-            setCartList([...cartList, droppedFood]);
-            setTotalPrice(totalPrice + droppedFood.price);
+        if (droppedFood && !customerList.some((food: Food) => id === food.id)) {
+            if (customerName !== "NO ONE") {
+                currentRecord[customerName] = [...customerList, droppedFood];
+                setCustomerList([...customerList, droppedFood]);
+                setTotalPrice(totalPrice + droppedFood.price);
+            } else {
+                setCustomerList([]);
+                setTotalPrice(0.0);
+            }
         }
     }
 
@@ -48,7 +60,6 @@ export function CustomerCart({
     return (
         <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
-            <h3>Total price: {totalPrice.toFixed(2)}</h3>
             <div
                 ref={drop}
                 className="Cart"
@@ -56,19 +67,7 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
-                <Form.Group controlId="sortOptions">
-                    <Form.Label>Sort</Form.Label>
-                    <Form.Select value={sortType} onChange={updateSortType}>
-                        {SORT_OPTIONS.map((sortOption: string) => {
-                            return (
-                                <option key={sortOption} value={sortOption}>
-                                    {sortOption}
-                                </option>
-                            );
-                        })}
-                    </Form.Select>
-                </Form.Group>
-                {cartList
+                {customerList
                     .sort((a: Food, b: Food) =>
                         sortType === "by Price low to high"
                             ? a.price - b.price
@@ -86,9 +85,25 @@ export function CustomerCart({
                                 calories={food.calories}
                                 ingredients={food.ingredients}
                                 category={food.category}
+                                showEditButton={false}
                             ></FoodItem>
                         );
                     })}
+            </div>
+            <div style={{ display: "flex" }}>
+                <Form.Group controlId="sortOptions">
+                    <Form.Label>Sort</Form.Label>
+                    <Form.Select value={sortType} onChange={updateSortType}>
+                        {SORT_OPTIONS.map((sortOption: string) => {
+                            return (
+                                <option key={sortOption} value={sortOption}>
+                                    {sortOption}
+                                </option>
+                            );
+                        })}
+                    </Form.Select>
+                </Form.Group>
+                <h3>Total price: {totalPrice.toFixed(2)}</h3>
             </div>
         </div>
     );
