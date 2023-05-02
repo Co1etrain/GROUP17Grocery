@@ -1,22 +1,38 @@
 import React from "react";
 import { Form } from "react-bootstrap";
+import { CustomersRecord } from "../interfaces/record";
+import { Food } from "../interfaces/food";
 
 interface customerProps {
     setSelectedCustomer: (customerName: string) => void;
     currentSelectedCustomer: string;
-    currentCustomersRecord: string[];
+    currentRecord: CustomersRecord;
+    setCustomerList: (newList: Food[]) => void;
 }
 
 export function DisplayCustomerNames({
     setSelectedCustomer,
     currentSelectedCustomer,
-    currentCustomersRecord
+    currentRecord,
+    setCustomerList
 }: customerProps): JSX.Element {
     function updateSelectedCustomer(
         event: React.ChangeEvent<HTMLSelectElement>
     ): void {
-        setSelectedCustomer(event.target.value);
+        if (event.target.value !== "Select Customer:") {
+            setSelectedCustomer(event.target.value);
+            setCustomerList(currentRecord[event.target.value]);
+        }
     }
+    const customerNames: JSX.Element[] = Object.keys(currentRecord).map(
+        (name: string) => {
+            return (
+                <option key={name} value={name}>
+                    {name}
+                </option>
+            );
+        }
+    );
     return (
         <div>
             <Form.Group controlId="customerSelected">
@@ -25,13 +41,15 @@ export function DisplayCustomerNames({
                     value={currentSelectedCustomer}
                     onChange={updateSelectedCustomer}
                 >
-                    {currentCustomersRecord.map((name: string) => {
-                        return (
-                            <option key={name} value={name}>
-                                {name}
-                            </option>
-                        );
-                    })}
+                    {[
+                        <option
+                            key={"Select Customer:"}
+                            value={"Select Customer:"}
+                        >
+                            {"Select Customer:"}
+                        </option>,
+                        ...customerNames
+                    ]}
                 </Form.Select>
             </Form.Group>
         </div>
