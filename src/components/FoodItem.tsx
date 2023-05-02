@@ -29,8 +29,8 @@ export function FoodItem({
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
 
-    const handleUpdate = (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleUpdate = (event: React.FormEvent) => {
+        event.preventDefault();
         const updatedFood: Food = {
             id,
             name: editedName,
@@ -56,7 +56,9 @@ export function FoodItem({
                         <Form.Control
                             type="text"
                             value={editedName}
-                            onChange={(e) => setEditedName(e.target.value)}
+                            onChange={(event) =>
+                                setEditedName(event.target.value)
+                            }
                         />
                     </Form.Group>
                     <Form.Group>
@@ -64,8 +66,8 @@ export function FoodItem({
                         <Form.Control
                             type="text"
                             value={editedDescription}
-                            onChange={(e) =>
-                                setEditedDescription(e.target.value)
+                            onChange={(event) =>
+                                setEditedDescription(event.target.value)
                             }
                         />
                     </Form.Group>
@@ -74,8 +76,8 @@ export function FoodItem({
                         <Form.Control
                             type="number"
                             value={editedPrice}
-                            onChange={(e) =>
-                                setEditedPrice(parseFloat(e.target.value))
+                            onChange={(event) =>
+                                setEditedPrice(parseFloat(event.target.value))
                             }
                         />
                     </Form.Group>
