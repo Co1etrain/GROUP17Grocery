@@ -24,8 +24,9 @@ export function CreateUserForm({
             <Form.Group controlId="userSelected">
                 <Form.Label>Select User:</Form.Label>
                 <Form.Select value={currentUser} onChange={changeSelectedUser}>
-                    <option value="owner">Owner</option>
-                    <option value="employee">Employee1</option>
+                    <option value="owner">owner</option>
+                    <option value="employee">employee</option>
+                    <option value="employee">customer</option>
                 </Form.Select>
             </Form.Group>
         </div>
