@@ -35,20 +35,36 @@ export function DeleteFoodButton({
     });
 
     function deleteFood(id: number) {
-        const newCentralList = centralList.filter((food) => food.id !== id);
-        setCentralList(newCentralList);
+        if (currentUser === "owner") {
+            const newCentralList = centralList.filter((food) => food.id !== id);
+            setCentralList(newCentralList);
 
-        const newCustomerList = customerList.filter((food) => food.id !== id);
-        setCustomerList(newCustomerList);
+            const newCustomerList = customerList.filter(
+                (food) => food.id !== id
+            );
+            setCustomerList(newCustomerList);
 
-        const newEmployeeList = employeeList.filter((food) => food.id !== id);
-        setEmployeeList(newEmployeeList);
+            const newEmployeeList = employeeList.filter(
+                (food) => food.id !== id
+            );
+            setEmployeeList(newEmployeeList);
+        } else if (currentUser === "employee") {
+            const newEmployeeList = employeeList.filter(
+                (food) => food.id !== id
+            );
+            setEmployeeList(newEmployeeList);
+        } else {
+            const newCustomerList = customerList.filter(
+                (food) => food.id !== id
+            );
+            setCustomerList(newCustomerList);
+        }
     }
 
     return (
         <div className="Trash-Can">
             <img
-                ref={currentUser === "owner" ? drop : undefined}
+                ref={drop}
                 src={isOver ? trashOpen : trashClosed}
                 style={{ height: "250px" }}
             ></img>

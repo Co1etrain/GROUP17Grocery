@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
+import { Users } from "../interfaces/record";
 
 export function FoodItem({
     id,
@@ -13,10 +14,11 @@ export function FoodItem({
     ingredients,
     category,
     onFoodUpdate,
-    showEditButton
+    showEditButton,
+    currentUser
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
-}): JSX.Element {
+} & { currentUser: Users["person"] }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -113,7 +115,7 @@ export function FoodItem({
     };
 
     const renderEditButton = () => {
-        if (onFoodUpdate && showEditButton) {
+        if (onFoodUpdate && showEditButton && currentUser !== "customer") {
             return <Button onClick={() => setEditMode(true)}>Edit</Button>;
         }
         return null;
