@@ -32,21 +32,16 @@ function Store(): JSX.Element {
 
     return (
         <div>
-            <Navbar updateUser={setUser} currentUser={currentUser}></Navbar>
+            <Navbar
+                updateUser={setUser}
+                currentUser={currentUser}
+                addCustomerName={setCustomers}
+                currentRecord={currentCustomers}
+                setSelectedCustomer={setSelectedCustomer}
+                selectedCustomer={selectedCustomer}
+                setCustomerList={setCustomerList}
+            ></Navbar>
             <div className="App">
-                <DisplayCustomerNames
-                    setSelectedCustomer={setSelectedCustomer}
-                    currentSelectedCustomer={selectedCustomer}
-                    currentRecord={currentCustomers}
-                    setCustomerList={setCustomerList}
-                ></DisplayCustomerNames>
-                <TextField
-                    addCustomerName={setCustomers}
-                    currentRecord={currentCustomers}
-                    setSelectedCustomer={setSelectedCustomer}
-                    selectedCustomer={selectedCustomer}
-                    setCustomerList={setCustomerList}
-                ></TextField>
                 <Row>
                     <Col>
                         <CustomerCart

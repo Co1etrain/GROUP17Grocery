@@ -41,15 +41,23 @@ export function TextField({
     }
 
     return (
-        <div>
+        <div style={{ marginRight: "20px" }}>
             <Form.Group controlId="formCustomerName">
                 <Form.Label>Type Name Here:</Form.Label>
                 <Form.Control onChange={updateCustomerName} />
             </Form.Group>
-            <Button onClick={() => editCustomers(customerName)}>
+            <Button
+                className="m-3"
+                size="sm"
+                onClick={() => editCustomers(customerName)}
+            >
                 Add Customer Name
             </Button>
-            <Button onClick={() => removeCustomers(selectedCustomer)}>
+            <Button
+                className="m-3"
+                size="sm"
+                onClick={() => removeCustomers(selectedCustomer)}
+            >
                 Remove Customer Name
             </Button>
         </div>
