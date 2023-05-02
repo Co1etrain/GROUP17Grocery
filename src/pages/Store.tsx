@@ -10,7 +10,6 @@ import { DisplayCustomerNames } from "../components/CustomersForm";
 import { TextField } from "../components/CustomerInputBox";
 import { EmployeeCart } from "../components/EmployeeCart";
 import { Food, FOOD_LIST } from "../interfaces/food";
-import { IntroHeader } from "../components/IntroHeader";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
 
