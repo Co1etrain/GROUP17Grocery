@@ -4,7 +4,7 @@ import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
-import { CustomersRecord } from "../interfaces/record";
+import { CustomersRecord, Users } from "../interfaces/record";
 
 interface CartProps {
     customerList: Food[];
@@ -12,6 +12,7 @@ interface CartProps {
     customerName: string;
     currentRecord: CustomersRecord;
     centralList: Food[];
+    currentUser: Users["person"];
 }
 
 const SORT_OPTIONS = [
@@ -25,7 +26,8 @@ export function CustomerCart({
     setCustomerList,
     customerName,
     currentRecord,
-    centralList
+    centralList,
+    currentUser
 }: CartProps): JSX.Element {
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -41,7 +43,7 @@ export function CustomerCart({
         const droppedFood: Food | undefined = centralList.find(
             (food: Food) => food.id === id
         );
-        if (droppedFood && !customerList.some((food: Food) => id === food.id)) {
+        if (droppedFood) {
             if (customerName !== "NO ONE") {
                 currentRecord[customerName] = [...customerList, droppedFood];
                 setCustomerList([...customerList, droppedFood]);
@@ -61,7 +63,7 @@ export function CustomerCart({
         <div style={{ paddingTop: "15px" }}>
             <h2>{customerName + "'s"} Cart</h2>
             <div
-                ref={drop}
+                ref={currentUser === "customer" ? drop : undefined}
                 className="Cart"
                 style={{
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
@@ -83,9 +85,10 @@ export function CustomerCart({
                                 image={food.image}
                                 price={food.price}
                                 calories={food.calories}
-                                ingredients={food.ingredients}
+                                ingredients={[...food.ingredients]}
                                 category={food.category}
                                 showEditButton={false}
+                                currentUser={currentUser}
                             ></FoodItem>
                         );
                     })}

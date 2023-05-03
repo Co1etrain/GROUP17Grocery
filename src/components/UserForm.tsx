@@ -22,11 +22,11 @@ export function CreateUserForm({
     return (
         <div style={{ marginRight: "20px" }}>
             <Form.Group controlId="userSelected">
-                <Form.Label>Select User:</Form.Label>
+                <Form.Label>Select Role:</Form.Label>
                 <Form.Select value={currentUser} onChange={changeSelectedUser}>
-                    <option value="owner">owner</option>
-                    <option value="employee">employee</option>
-                    <option value="customer">customer</option>
+                    <option value="owner">Owner</option>
+                    <option value="employee">Employee</option>
+                    <option value="customer">Customer</option>
                 </Form.Select>
             </Form.Group>
         </div>

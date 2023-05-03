@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
+import { StarRating } from "star-rating-react-ts";
+import { Users } from "../interfaces/record";
 
 export function FoodItem({
     id,
@@ -13,10 +15,11 @@ export function FoodItem({
     ingredients,
     category,
     onFoodUpdate,
-    showEditButton
+    showEditButton,
+    currentUser
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
-}): JSX.Element {
+} & { currentUser: Users["person"] }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -25,7 +28,6 @@ export function FoodItem({
         })
     });
     const [isDescHidden, setIsDescHidden] = useState<boolean>(true);
-    const [rating] = useState<number>(0);
     const [editMode, setEditMode] = useState<boolean>(false);
     const [editedName, setEditedName] = useState<string>(name);
     const [editedDescription, setEditedDescription] =
@@ -41,7 +43,7 @@ export function FoodItem({
             image,
             price: editedPrice,
             calories,
-            ingredients,
+            ingredients: [...ingredients],
             category
         };
         if (onFoodUpdate) {
@@ -104,7 +106,8 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
-                        This will be the 5 stars {rating}
+                        Rating:
+                        <StarRating theme={{ size: 30 }}></StarRating>
                     </p>
                     {renderEditButton()}
                 </>
@@ -113,7 +116,7 @@ export function FoodItem({
     };
 
     const renderEditButton = () => {
-        if (onFoodUpdate && showEditButton) {
+        if (onFoodUpdate && showEditButton && currentUser !== "customer") {
             return <Button onClick={() => setEditMode(true)}>Edit</Button>;
         }
         return null;
@@ -128,7 +131,7 @@ export function FoodItem({
                     border: isDragging ? "0px" : "0px"
                 }}
             >
-                <img src={image} width="100px" alt="" />
+                <img src={image} width="100px" alt="Food icon" />
             </Button>
             <div
                 className="Food-Desc"
