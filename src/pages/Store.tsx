@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { CentralList } from "../components/CentralList";
-import { Users, CustomersRecord } from "../interfaces/user";
+import { User } from "../interfaces/user";
 import { Navbar } from "../components/Navbar";
 import { CustomerCart } from "../components/CustomerCart";
 import { EmployeeCart } from "../components/EmployeeCart";
@@ -11,7 +11,12 @@ import { Row, Col } from "react-bootstrap";
 import { AddFoodForm } from "../components/AddFoodForm";
 
 function Store(): JSX.Element {
-    const [currentUser, setUser] = useState<Users["person"]>("owner");
+    const [userList, setUserList] = useState<User[]>([
+        { name: "Owner", role: "owner", foodList: [] },
+        { name: "Employee_Test", role: "employee", foodList: [] },
+        { name: "Customer_Test", role: "customer", foodList: [] }
+    ]);
+    const [currentUser, setCurrentUser] = useState<User>(userList[0]);
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
     const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
@@ -23,10 +28,6 @@ function Store(): JSX.Element {
             )
         );
     };
-
-    const [currentCustomers, setCustomers] = useState<CustomersRecord>({});
-
-    const [selectedCustomer, setSelectedCustomer] = useState<string>("NO ONE");
 
     return (
         <div>
