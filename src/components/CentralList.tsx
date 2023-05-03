@@ -2,7 +2,7 @@ import React from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 //import { Users } from "../interfaces/record";
 
 interface CentralListProps {

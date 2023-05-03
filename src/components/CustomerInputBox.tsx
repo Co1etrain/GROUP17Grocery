@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
-import { CustomersRecord } from "../interfaces/record";
+import { CustomersRecord } from "../interfaces/user";
 import { Food } from "../interfaces/food";
 
 interface customerRecordProps {

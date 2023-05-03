@@ -11,7 +11,7 @@ import {
     Row,
     Col
 } from "react-bootstrap";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 
 interface AddFoodProps {
     centralList: Food[];

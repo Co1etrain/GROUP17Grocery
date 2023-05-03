@@ -3,7 +3,7 @@ import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
 import { StarRating } from "star-rating-react-ts";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 
 export function FoodItem({
     id,

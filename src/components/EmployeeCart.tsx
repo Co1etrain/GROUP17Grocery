@@ -3,7 +3,7 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 
 interface EmployeeCartProps {
     employeeList: Food[];

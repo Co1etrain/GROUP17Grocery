@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { CentralList } from "../components/CentralList";
-import { Users, CustomersRecord } from "../interfaces/record";
+import { Users, CustomersRecord } from "../interfaces/user";
 import { Navbar } from "../components/Navbar";
 import { CustomerCart } from "../components/CustomerCart";
 import { EmployeeCart } from "../components/EmployeeCart";

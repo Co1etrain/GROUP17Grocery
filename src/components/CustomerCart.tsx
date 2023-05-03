@@ -4,7 +4,7 @@ import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/record";
+import { CustomersRecord, Users } from "../interfaces/user";
 
 interface CartProps {
     customerList: Food[];

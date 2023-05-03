@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css";
 //import { Button, Form, Row, Col } from "react-bootstrap";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 import { Food } from "../interfaces/food";
 import { useDrop } from "react-dnd";
 import trashClosed from "../trash_images/trash_closed.png";

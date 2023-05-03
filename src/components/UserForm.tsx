@@ -1,6 +1,6 @@
 import React from "react";
 import { Form } from "react-bootstrap";
-import { Users } from "../interfaces/record";
+import { Users } from "../interfaces/user";
 
 interface userProps {
     updateUser: (userType: Users["person"]) => void;
