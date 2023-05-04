@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-import { Users } from "../interfaces/user";
-//import { Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 
 interface CentralListProps {
     centralList: Food[];
-    //setCentralList: (newCentralList: Food[]) => void;
     onFoodUpdate: (updatedFood: Food) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function CentralList({
@@ -47,7 +45,7 @@ export function CentralList({
     return (
         <div style={{ paddingTop: "15px" }}>
             <h2>Main Inventory</h2>
-            <div>
+            <div hidden={currentUser.role === "owner"}>
                 <div>
                     <label>Sort by:</label>
                     <select value={sort} onChange={handleSortChange}>

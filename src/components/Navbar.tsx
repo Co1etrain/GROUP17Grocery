@@ -2,12 +2,7 @@ import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBS } from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/user";
-import { CreateUserForm } from "./UserForm";
 import { Link } from "react-router-dom";
-import { Food } from "../interfaces/food";
-import { TextField } from "./CustomerInputBox";
-import { DisplayCustomerNames } from "./CustomersForm";
 
 export function Navbar() {
     const [cart, setCart] = useState<boolean>(false);

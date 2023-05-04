@@ -34,13 +34,7 @@ function Store(): JSX.Element {
             <div className="App">
                 <Row>
                     <Col>
-                        <CustomerCart
-                            customerList={customerList}
-                            setCustomerList={setCustomerList}
-                            customerName={selectedCustomer}
-                            centralList={centralList}
-                            currentUser={currentUser}
-                        ></CustomerCart>
+                        <CustomerCart></CustomerCart>
                     </Col>
                     <Col>
                         <CentralList
@@ -51,8 +45,6 @@ function Store(): JSX.Element {
                     </Col>
                     <Col>
                         <EmployeeCart
-                            employeeList={employeeList}
-                            setEmployeeList={setEmployeeList}
                             centralList={centralList}
                             onCentralListUpdate={handleCentralListUpdate}
                             currentUser={currentUser}
