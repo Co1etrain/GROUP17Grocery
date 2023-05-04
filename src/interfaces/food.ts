@@ -1,17 +1,10 @@
-//import banana from "../FoodImages/Banana.png";
-//import bread from "../FoodImages/Bread.png";  2
-//import broccoli from "../FoodImages/Broccoli.png";
-//import chips from "../FoodImages/Chips.png";
-//import chocolate from "../FoodImages/Chocolate.png";
-//import cookie from "../FoodImages/Cookie.png";
-//import cracker from "../FoodImages/Cracker.png";
-//import hummus from "../FoodImages/Hummus.png";
-//import oreos from "../FoodImages/Oreos.png";
-//import pea from "../FoodImages/Pea Protein.png";
-//import peanut from "../FoodImages/Peanut Butter.png"; 3
-//import protein from "../FoodImages/Protein.png";
-//import sprite from "../FoodImages/Sprite.png";
-//import yogurt from "./FoodImages/Yogurt.png";
+export type FoodCategory =
+    | "Fruits"
+    | "Other"
+    | "Dairy"
+    | "Vegetables"
+    | "Snacks"
+    | "Meat";
 
 export interface Food {
     id: number;
@@ -84,7 +77,7 @@ export const FOOD_LIST: Food[] = [
         price: 1.5,
         calories: 105,
         ingredients: ["Banana"],
-        category: "Fruit"
+        category: "Fruits"
     },
     //6
     {
@@ -147,7 +140,7 @@ export const FOOD_LIST: Food[] = [
         price: 3.75,
         calories: 145,
         ingredients: ["Lemon, ", "Lime, ", "Club Soda, ", "Sugar"],
-        category: "Drinks"
+        category: "Other"
     },
     //10
     {
@@ -210,7 +203,7 @@ export const FOOD_LIST: Food[] = [
         price: 30.5,
         calories: 150,
         ingredients: ["Whey Protien, Chocolate, Milk"],
-        category: "Protien"
+        category: "Other"
     },
     //15
     //Make category vegan?
@@ -222,7 +215,7 @@ export const FOOD_LIST: Food[] = [
         price: 55.8,
         calories: 200,
         ingredients: ["Pea Whey Protien, Chocolate, Milk"],
-        category: "Protein"
+        category: "Other"
     },
     //16
     {
@@ -354,7 +347,7 @@ export const FOOD_LIST: Food[] = [
         price: 7.25,
         calories: 1000,
         ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"],
-        category: "Frozen"
+        category: "Other"
     },
     //28
     {
