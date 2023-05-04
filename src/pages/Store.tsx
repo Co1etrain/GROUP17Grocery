@@ -18,7 +18,6 @@ function Store(): JSX.Element {
     ]);
     const [currentUser, setCurrentUser] = useState<User>(userList[0]);
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
-    const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
@@ -31,15 +30,7 @@ function Store(): JSX.Element {
 
     return (
         <div>
-            <Navbar
-                updateUser={setUser}
-                currentUser={currentUser}
-                addCustomerName={setCustomers}
-                currentRecord={currentCustomers}
-                setSelectedCustomer={setSelectedCustomer}
-                selectedCustomer={selectedCustomer}
-                setCustomerList={setCustomerList}
-            ></Navbar>
+            <Navbar></Navbar>
             <div className="App">
                 <Row>
                     <Col>
@@ -47,7 +38,6 @@ function Store(): JSX.Element {
                             customerList={customerList}
                             setCustomerList={setCustomerList}
                             customerName={selectedCustomer}
-                            currentRecord={currentCustomers}
                             centralList={centralList}
                             currentUser={currentUser}
                         ></CustomerCart>

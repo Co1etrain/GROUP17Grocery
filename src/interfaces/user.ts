@@ -5,5 +5,3 @@ export interface User {
     foodList: Food[];
     role: "owner" | "employee" | "customer";
 }
-
-export type CustomersRecord = Record<string, Food[]>;

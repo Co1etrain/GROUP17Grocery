@@ -4,15 +4,12 @@ import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/user";
+import { User } from "../interfaces/user";
 
 interface CartProps {
-    customerList: Food[];
-    setCustomerList: (newList: Food[]) => void;
-    customerName: string;
-    currentRecord: CustomersRecord;
     centralList: Food[];
-    currentUser: Users["person"];
+    currentUser: User;
+    setCurrentUser: (newUser: User) => void;
 }
 
 const SORT_OPTIONS = [
@@ -22,13 +19,13 @@ const SORT_OPTIONS = [
 ];
 
 export function CustomerCart({
-    customerList,
-    setCustomerList,
-    customerName,
-    currentRecord,
     centralList,
-    currentUser
+    currentUser,
+    setCurrentUser
 }: CartProps): JSX.Element {
+    const [customerList, setCustomerList] = useState<Food[]>(
+        currentUser.role === "customer" ? currentUser.foodList : []
+    );
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -44,14 +41,8 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood) {
-            if (customerName !== "NO ONE") {
-                currentRecord[customerName] = [...customerList, droppedFood];
-                setCustomerList([...customerList, droppedFood]);
-                setTotalPrice(totalPrice + droppedFood.price);
-            } else {
-                setCustomerList([]);
-                setTotalPrice(0.0);
-            }
+            setCustomerList([...customerList, droppedFood]);
+            setTotalPrice(totalPrice + droppedFood.price);
         }
     }
 
@@ -61,9 +52,14 @@ export function CustomerCart({
 
     return (
         <div style={{ paddingTop: "15px" }}>
-            <h2>{customerName + "'s"} Cart</h2>
+            <h2>
+                {currentUser.role === "customer"
+                    ? currentUser.name
+                    : "No One" + "'s"}{" "}
+                Cart
+            </h2>
             <div
-                ref={currentUser === "customer" ? drop : undefined}
+                ref={currentUser.role === "customer" ? drop : undefined}
                 className="Cart"
                 style={{
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
