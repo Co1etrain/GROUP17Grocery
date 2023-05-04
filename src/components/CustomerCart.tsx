@@ -38,6 +38,20 @@ export function CustomerCart({
             isOver: !!monitor.isOver()
         })
     });
+    const [searchText, setSearchText] = useState("");
+
+    function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
+        const searchValue = event.target.value;
+        setSearchText(searchValue);
+    }
+
+    function filterFoodByIngredients(food: Food): boolean {
+        if (!searchText) return true;
+
+        return food.ingredients.some((ingredient) =>
+            ingredient.toLowerCase().includes(searchText.toLowerCase())
+        );
+    }
 
     function addFoodToCart(id: number) {
         const droppedFood: Food | undefined = centralList.find(
@@ -69,7 +83,14 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
+                <input
+                    type="text"
+                    placeholder="Search Ingredients"
+                    value={searchText}
+                    onChange={handleSearch}
+                />
                 {customerList
+                    .filter(filterFoodByIngredients)
                     .sort((a: Food, b: Food) =>
                         sortType === "by Price low to high"
                             ? a.price - b.price
