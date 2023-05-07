@@ -69,7 +69,6 @@ export function CentralList({
                             <option value="Fruits">Fruits</option>
                             <option value="Vegetables">Vegetables</option>
                             <option value="Dairy">Dairy</option>
-                            <option value="Drinks">Drinks</option>
                             <option value="Snacks">Snacks</option>
                             <option value="Other">Other</option>
                         </Form.Select>
