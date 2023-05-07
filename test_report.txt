@@ -92,7 +92,7 @@ Browserslist: caniuse-lite is outdated. Please run:
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (160 ms)
+  ✕ renders the course name somewhere (208 ms)
 
   ● renders the course name somewhere
 
@@ -146,13 +146,13 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |     1.8 |        0 |    1.28 |    1.86 |                   
+All files              |    1.09 |        0 |    1.21 |    1.12 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
- src/components        |    0.65 |        0 |       0 |    0.68 |                   
+ src/components        |       0 |        0 |       0 |       0 |                   
   AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 27-163            
-  CentralList.tsx      |       0 |        0 |       0 |       0 | 20-79             
-  CustomerCart.tsx     |       5 |        0 |       0 |       5 | 32-101            
+  CentralList.tsx      |       0 |        0 |       0 |       0 | 20-81             
+  CustomerCart.tsx     |       0 |        0 |       0 |       0 | 26-103            
   CustomerInputBox.tsx |       0 |      100 |       0 |       0 | 21-59             
   CustomersForm.tsx    |       0 |        0 |       0 |       0 | 22-36             
   DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 29-64             
@@ -171,5 +171,5 @@ All files              |     1.8 |        0 |    1.28 |    1.86 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.171 s
+Time:        4.407 s
 Ran all test suites.
