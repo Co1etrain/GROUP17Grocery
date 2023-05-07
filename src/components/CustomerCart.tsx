@@ -15,12 +15,6 @@ interface CartProps {
     currentUser: Users["person"];
 }
 
-const SORT_OPTIONS = [
-    "by Name",
-    "by Price low to high",
-    "by Price high to low"
-];
-
 export function CustomerCart({
     customerList,
     setCustomerList,
@@ -29,7 +23,6 @@ export function CustomerCart({
     centralList,
     currentUser
 }: CartProps): JSX.Element {
-    const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
         accept: "food",
@@ -38,6 +31,22 @@ export function CustomerCart({
             isOver: !!monitor.isOver()
         })
     });
+    const [searchText, setSearchText] = useState("");
+    const [sort, setSort] = useState<string>("name");
+    const [filter, setFilter] = useState<string>("None");
+
+    function handleSearch(event: React.ChangeEvent<HTMLInputElement>) {
+        const searchValue = event.target.value;
+        setSearchText(searchValue);
+    }
+
+    function filterFoodByIngredients(food: Food): boolean {
+        if (!searchText) return true;
+
+        return food.ingredients.some((ingredient) =>
+            ingredient.toLowerCase().includes(searchText.toLowerCase())
+        );
+    }
 
     function addFoodToCart(id: number) {
         const droppedFood: Food | undefined = centralList.find(
@@ -55,9 +64,30 @@ export function CustomerCart({
         }
     }
 
-    function updateSortType(event: React.ChangeEvent<HTMLSelectElement>) {
-        setSortType(event.target.value);
-    }
+    const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSort(event.target.value);
+    };
+
+    const handleFilterChange = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setFilter(event.target.value);
+    };
+
+    const filteredList = customerList
+        .filter((food) => filter === "None" || food.category !== filter)
+        .filter(filterFoodByIngredients)
+        .sort((a, b) => {
+            if (sort === "name") {
+                return a.name.localeCompare(b.name);
+            } else if (sort === "priceLowToHigh") {
+                return a.price - b.price;
+            } else if (sort === "priceHighToLow") {
+                return b.price - a.price;
+            } else {
+                return 0;
+            }
+        });
 
     return (
         <div style={{ paddingTop: "15px" }}>
@@ -69,41 +99,54 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
-                {customerList
-                    .sort((a: Food, b: Food) =>
-                        sortType === "by Price low to high"
-                            ? a.price - b.price
-                            : a.name.localeCompare(b.name)
-                    )
-                    .map((food: Food) => {
-                        return (
-                            <FoodItem
-                                id={food.id}
-                                key={food.id}
-                                name={food.name}
-                                description={food.description}
-                                image={food.image}
-                                price={food.price}
-                                calories={food.calories}
-                                ingredients={[...food.ingredients]}
-                                category={food.category}
-                                showEditButton={false}
-                                currentUser={currentUser}
-                            ></FoodItem>
-                        );
-                    })}
+                {filteredList.map((food: Food) => {
+                    return (
+                        <FoodItem
+                            id={food.id}
+                            key={food.id}
+                            name={food.name}
+                            description={food.description}
+                            image={food.image}
+                            price={food.price}
+                            calories={food.calories}
+                            ingredients={[...food.ingredients]}
+                            category={food.category}
+                            showEditButton={false}
+                            currentUser={currentUser}
+                        ></FoodItem>
+                    );
+                })}
             </div>
+            <input
+                type="text"
+                placeholder="Search Ingredients"
+                value={searchText}
+                onChange={handleSearch}
+                style={{
+                    width: "100%",
+                    marginBottom: "10px"
+                }}
+            />
             <div style={{ display: "flex" }}>
                 <Form.Group controlId="sortOptions">
-                    <Form.Label>Sort</Form.Label>
-                    <Form.Select value={sortType} onChange={updateSortType}>
-                        {SORT_OPTIONS.map((sortOption: string) => {
-                            return (
-                                <option key={sortOption} value={sortOption}>
-                                    {sortOption}
-                                </option>
-                            );
-                        })}
+                    <Form.Label>Sort by:</Form.Label>
+                    <Form.Select value={sort} onChange={handleSortChange}>
+                        <option value="name">Name</option>
+                        <option value="priceLowToHigh">
+                            Price Low to High
+                        </option>
+                        <option value="priceHighToLow">
+                            Price High to Low
+                        </option>
+                    </Form.Select>
+                    <Form.Label>Filter by (Exclude):</Form.Label>
+                    <Form.Select value={filter} onChange={handleFilterChange}>
+                        <option value="All">None</option>
+                        <option value="Fruits">Fruits</option>
+                        <option value="Vegetables">Vegetables</option>
+                        <option value="Dairy">Dairy</option>
+                        <option value="Snacks">Snacks</option>
+                        <option value="Other">Other</option>
                     </Form.Select>
                 </Form.Group>
                 <h3>Total price: {totalPrice.toFixed(2)}</h3>
