@@ -83,12 +83,6 @@ export function CustomerCart({
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"
                 }}
             >
-                <input
-                    type="text"
-                    placeholder="Search Ingredients"
-                    value={searchText}
-                    onChange={handleSearch}
-                />
                 {customerList
                     .filter(filterFoodByIngredients)
                     .sort((a: Food, b: Food) =>
@@ -114,6 +108,16 @@ export function CustomerCart({
                         );
                     })}
             </div>
+            <input
+                type="text"
+                placeholder="Search Ingredients"
+                value={searchText}
+                onChange={handleSearch}
+                style={{
+                    width: "100%",
+                    marginBottom: "10px"
+                }}
+            />
             <div style={{ display: "flex" }}>
                 <Form.Group controlId="sortOptions">
                     <Form.Label>Sort</Form.Label>
