@@ -15,12 +15,6 @@ interface CartProps {
     currentUser: Users["person"];
 }
 
-const SORT_OPTIONS = [
-    "by Name",
-    "by Price low to high",
-    "by Price high to low"
-];
-
 export function CustomerCart({
     customerList,
     setCustomerList,

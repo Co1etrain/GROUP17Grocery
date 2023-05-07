@@ -66,7 +66,7 @@ export const FOOD_LIST: Food[] = [
             "Chocolate, ",
             "Vanilla Extract"
         ],
-        category: "Other"
+        category: "Snacks"
     },
     //5
     {
