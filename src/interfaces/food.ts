@@ -1,17 +1,10 @@
-//import banana from "../FoodImages/Banana.png";
-//import bread from "../FoodImages/Bread.png";  2
-//import broccoli from "../FoodImages/Broccoli.png";
-//import chips from "../FoodImages/Chips.png";
-//import chocolate from "../FoodImages/Chocolate.png";
-//import cookie from "../FoodImages/Cookie.png";
-//import cracker from "../FoodImages/Cracker.png";
-//import hummus from "../FoodImages/Hummus.png";
-//import oreos from "../FoodImages/Oreos.png";
-//import pea from "../FoodImages/Pea Protein.png";
-//import peanut from "../FoodImages/Peanut Butter.png"; 3
-//import protein from "../FoodImages/Protein.png";
-//import sprite from "../FoodImages/Sprite.png";
-//import yogurt from "./FoodImages/Yogurt.png";
+export type FoodCategory =
+    | "Fruits"
+    | "Other"
+    | "Dairy"
+    | "Vegetables"
+    | "Snacks"
+    | "Meat";
 
 export interface Food {
     id: number;
@@ -44,7 +37,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Bread.png"),
         price: 5.0,
         calories: 92,
-        ingredients: ["Water, ", "Flour, ", "Salt, ", "egg, ", "Yeast"],
+        ingredients: ["Water, ", "Flour, ", "Salt, ", "Eggs, ", "Yeast"],
         category: "Other"
     },
     //3
@@ -55,7 +48,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Peanut Butter.png"),
         price: 6.25,
         calories: 80,
-        ingredients: ["Peanut, ", "Water"],
+        ingredients: ["Peanuts, ", "Water"],
         category: "Other"
     },
     //4
@@ -73,7 +66,7 @@ export const FOOD_LIST: Food[] = [
             "Chocolate, ",
             "Vanilla Extract"
         ],
-        category: "Other"
+        category: "Snacks"
     },
     //5
     {
@@ -84,7 +77,7 @@ export const FOOD_LIST: Food[] = [
         price: 1.5,
         calories: 105,
         ingredients: ["Banana"],
-        category: "Fruit"
+        category: "Fruits"
     },
     //6
     {
@@ -98,7 +91,7 @@ export const FOOD_LIST: Food[] = [
             "Chickpeas, ",
             "Tahini, ",
             "Lemon Juice, ",
-            "Olive oil, ",
+            "Olive Oil, ",
             "Garlic, ",
             "Cumin, ",
             "Paprika, ",
@@ -147,7 +140,7 @@ export const FOOD_LIST: Food[] = [
         price: 3.75,
         calories: 145,
         ingredients: ["Lemon, ", "Lime, ", "Club Soda, ", "Sugar"],
-        category: "Drinks"
+        category: "Other"
     },
     //10
     {
@@ -176,7 +169,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Chocolate.png"),
         price: 4.1,
         calories: 200,
-        ingredients: ["Sugar, Flour, Peanuts, cocoa "],
+        ingredients: ["Sugar, ", "Flour, ", "Peanuts, ", "Cocoa"],
         category: "Snacks"
     },
     //12
@@ -187,7 +180,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Chips.png"),
         price: 4.75,
         calories: 60,
-        ingredients: ["Potato, Salt"],
+        ingredients: ["Potato, ", "Salt"],
         category: "Snacks"
     },
     //13
@@ -198,7 +191,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Oreos.png"),
         price: 6.12,
         calories: 75,
-        ingredients: ["Sugar, Cream filling, Chocolate"],
+        ingredients: ["Sugar, ", "Cream Filling, ", "Chocolate"],
         category: "Snacks"
     },
     //14
@@ -209,8 +202,8 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Protein.png"),
         price: 30.5,
         calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"],
-        category: "Protien"
+        ingredients: ["Whey Protien, ", "Chocolate, ", "Milk"],
+        category: "Other"
     },
     //15
     //Make category vegan?
@@ -221,8 +214,8 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Pea Protein.png"),
         price: 55.8,
         calories: 200,
-        ingredients: ["Pea Whey Protien, Chocolate, Milk"],
-        category: "Protein"
+        ingredients: ["Pea Whey Protien, ", "Chocolate, ", "Milk"],
+        category: "Other"
     },
     //16
     {
@@ -232,7 +225,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/RiceCakes.png"),
         price: 12.25,
         calories: 80,
-        ingredients: ["Rice, Honey, Salt"],
+        ingredients: ["Rice, ", "Honey, ", "Salt"],
         category: "Snacks"
     },
     //17
@@ -254,7 +247,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/OliveOil.png"),
         price: 7.85,
         calories: 150,
-        ingredients: ["Whey Protien, Chocolate, Milk"],
+        ingredients: ["Whey Protien, ", "Chocolate, ", "Milk"],
         category: "Other"
     },
     //19
@@ -265,7 +258,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/GranolaBars.png"),
         price: 10.3,
         calories: 250,
-        ingredients: ["Granola, Sugar, Honey"],
+        ingredients: ["Granola, ", "Sugar, ", "Honey"],
         category: "Snacks"
     },
     //20
@@ -276,7 +269,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/popcorn.png"),
         price: 30.5,
         calories: 150,
-        ingredients: ["Corn, Butter, preservatives"],
+        ingredients: ["Corn, ", "Butter, ", "Preservatives"],
         category: "Snacks"
     },
     //21
@@ -342,7 +335,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/RibSteak.png"),
         price: 50.95,
         calories: 500,
-        ingredients: ["Beef, Salt, Pepper"],
+        ingredients: ["Beef, ", "Salt, ", "Pepper"],
         category: "Meat"
     },
     //27
@@ -353,8 +346,8 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Pizza.png"),
         price: 7.25,
         calories: 1000,
-        ingredients: ["Bread, Tomato Sauce, Cheese, Pepperoni"],
-        category: "Frozen"
+        ingredients: ["Bread, ", "Tomato Sauce, ", "Cheese, ", "Pepperoni"],
+        category: "Other"
     },
     //28
     {
@@ -364,7 +357,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/BlackBeans.png"),
         price: 3.95,
         calories: 200,
-        ingredients: ["Beans, Water, Salt"],
+        ingredients: ["Beans, ", "Water, ", "Salt"],
         category: "Vegetables"
     },
     //29
@@ -375,7 +368,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/GroundBeef.png"),
         price: 17.15,
         calories: 300,
-        ingredients: ["Beef, Salt, Pepper"],
+        ingredients: ["Beef, ", "Salt, ", "Pepper"],
         category: "Meat"
     },
     //30
@@ -386,7 +379,7 @@ export const FOOD_LIST: Food[] = [
         image: require("../FoodImages/Cheese.png"),
         price: 5.85,
         calories: 275,
-        ingredients: ["Milk, Salt, Cheese"],
+        ingredients: ["Milk, ", "Salt, ", "Cheese"],
         category: "Dairy"
     }
 ];
