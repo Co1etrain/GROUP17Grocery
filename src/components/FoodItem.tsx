@@ -16,9 +16,11 @@ export function FoodItem({
     category,
     onFoodUpdate,
     showEditButton,
-    currentUser
+    currentUser,
+    customerCart
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
+    customerCart: boolean;
 } & { currentUser: Users["person"] }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
@@ -33,6 +35,7 @@ export function FoodItem({
     const [editedDescription, setEditedDescription] =
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
+    const [rating, setRating] = useState(0);
 
     const handleUpdate = (event: React.FormEvent) => {
         event.preventDefault();
@@ -51,7 +54,6 @@ export function FoodItem({
         }
         setEditMode(false);
     };
-
     const renderContent = () => {
         if (editMode) {
             return (
@@ -106,13 +108,32 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
-                        Rating:
-                        <StarRating theme={{ size: 30 }}></StarRating>
                     </p>
+                    {renderRating()}
                     {renderEditButton()}
                 </>
             );
         }
+    };
+    const renderRating = () => {
+        if (
+            onFoodUpdate &&
+            customerCart == false &&
+            currentUser == "customer"
+        ) {
+            return (
+                <p>
+                    Rating:
+                    <StarRating
+                        initialRating={rating}
+                        onClick={(rate: number) => setRating(rate)}
+                        theme={{ size: 30 }}
+                    ></StarRating>
+                    {rating}
+                </p>
+            );
+        }
+        return null;
     };
 
     const renderEditButton = () => {

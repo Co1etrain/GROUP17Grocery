@@ -89,6 +89,7 @@ export function CustomerCart({
                                 category={food.category}
                                 showEditButton={false}
                                 currentUser={currentUser}
+                                customerCart={false}
                             ></FoodItem>
                         );
                     })}

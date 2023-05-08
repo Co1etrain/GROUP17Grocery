@@ -91,6 +91,7 @@ export function CentralList({
                                 onFoodUpdate={onFoodUpdate}
                                 showEditButton={false}
                                 currentUser={currentUser}
+                                customerCart={true}
                             ></FoodItem>
                         </div>
                     );

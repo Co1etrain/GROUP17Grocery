@@ -76,6 +76,7 @@ export function EmployeeCart({
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}
                             currentUser={currentUser}
+                            customerCart={true}
                         ></FoodItem>
                     );
                 })}
