@@ -55,7 +55,6 @@ export function CustomerCart({
             ];
             setCustomerList(newCustomerList);
 
-            setCurrentUser({ ...currentUser, foodList: newCustomerList });
             const updatedUserList = userList.map((user: User) => ({
                 ...user,
                 foodList: user.foodList.map((food: Food) => ({
@@ -68,7 +67,7 @@ export function CustomerCart({
                     (user: User) => user.name === currentUser.name
                 ),
                 1,
-                currentUser
+                { ...currentUser, foodList: newCustomerList }
             );
             setUserList(updatedUserList);
 

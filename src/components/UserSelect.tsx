@@ -23,6 +23,7 @@ export function UserSelect({
 
         if (newUser) {
             setCurrentUser(newUser);
+            setCustomerList(newUser.foodList);
         }
     }
 
