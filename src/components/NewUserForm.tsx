@@ -10,7 +10,7 @@ interface UserSelectProps {
     setCustomerList: (newList: Food[]) => void;
 }
 
-export function UserSelect({
+export function NewUserForm({
     userList,
     currentUser,
     setCurrentUser,
@@ -32,15 +32,14 @@ export function UserSelect({
             <Form.Group controlId="users">
                 <Form.Label>Select user:</Form.Label>
                 <Form.Select value={currentUser.name} onChange={updateUser}>
+                    {<option value="Owner"></option>}
                     {userList.map((user: User) => {
-                        return (
+                        return user.role === "customer" ? (
                             <option key={user.name} value={user.name}>
-                                {"Name: " +
-                                    user.name +
-                                    " " +
-                                    "Role: " +
-                                    user.role}
+                                {user.name}
                             </option>
+                        ) : (
+                            <></>
                         );
                     })}
                 </Form.Select>
