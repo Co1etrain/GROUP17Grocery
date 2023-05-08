@@ -22,6 +22,7 @@ function Store(): JSX.Element {
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
     const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
+    const [foodId, setFoodId] = useState<number>(FOOD_LIST.length + 1);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
         setCentralList((prevList) =>
@@ -88,6 +89,8 @@ function Store(): JSX.Element {
                             centralList={centralList}
                             setCentralList={setCentralList}
                             currentUser={currentUser}
+                            foodId={foodId}
+                            setFoodId={setFoodId}
                         ></AddFoodForm>
                         <DeleteFoodButton
                             centralList={centralList}

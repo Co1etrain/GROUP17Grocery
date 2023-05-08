@@ -1,9 +1,9 @@
-import React from "react";
-import { Form } from "react-bootstrap";
+import React, { useState } from "react";
+import { Form, Button, Modal, Stack, FloatingLabel } from "react-bootstrap";
 import { User } from "../interfaces/user";
 import { Food } from "../interfaces/food";
 
-interface UserSelectProps {
+interface NewUserFormProps {
     userList: User[];
     currentUser: User;
     setCurrentUser: (newUser: User) => void;
@@ -15,35 +15,88 @@ export function NewUserForm({
     currentUser,
     setCurrentUser,
     setCustomerList
-}: UserSelectProps) {
-    function updateUser(e: React.ChangeEvent<HTMLSelectElement>) {
-        const newUser: User | undefined = userList.find(
-            (user: User) => user.name === e.target.value
+}: NewUserFormProps) {
+    const [newName, setNewName] = useState<string>("");
+    const [newRole, setNewRole] = useState<string>("");
+    const [showForm, setShowForm] = useState<boolean>(false);
+
+    function addNewUser() {
+        const duplicateUser: User | undefined = userList.find(
+            (user: User) => user.name === newName && user.role === newRole
         );
 
-        if (newUser) {
+        const newUser: User = {
+            name: newName,
+            role: newRole as User["role"],
+            foodList: []
+        };
+
+        if (duplicateUser === undefined) {
             setCurrentUser(newUser);
-            setCustomerList(newUser.foodList);
+            if (newUser.role === "customer") setCustomerList(newUser.foodList);
+            closeForm();
+        } else {
+            //error message Alert here
         }
     }
 
+    function closeForm() {
+        setShowForm(false);
+    }
+
     return (
-        <div>
-            <Form.Group controlId="users">
-                <Form.Label>Select user:</Form.Label>
-                <Form.Select value={currentUser.name} onChange={updateUser}>
-                    {<option value="Owner"></option>}
-                    {userList.map((user: User) => {
-                        return user.role === "customer" ? (
-                            <option key={user.name} value={user.name}>
-                                {user.name}
-                            </option>
-                        ) : (
-                            <></>
-                        );
-                    })}
-                </Form.Select>
-            </Form.Group>
+        <div hidden={currentUser.role !== "owner"}>
+            <Button
+                onClick={() => {
+                    setShowForm(true);
+                }}
+            >
+                Add Food
+            </Button>
+
+            <Modal show={showForm} onHide={closeForm}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Please fill out all fields:</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Stack gap={3}>
+                        <Form.Group>
+                            <FloatingLabel label="Food Name">
+                                <Form.Control
+                                    type="food name"
+                                    placeholder="Food Name"
+                                    aria-label="Name_Field"
+                                    onChange={(
+                                        e: React.ChangeEvent<HTMLInputElement>
+                                    ) => setNewName(e.target.value)}
+                                />
+                            </FloatingLabel>
+                        </Form.Group>
+
+                        <Form.Group>
+                            <Form.Label>Select Aisle</Form.Label>
+                            <Form.Select
+                                aria-label="Select food category"
+                                value={newRole}
+                                onChange={(
+                                    e: React.ChangeEvent<HTMLSelectElement>
+                                ) => setNewRole(e.target.value)}
+                            >
+                                <option>employee</option>
+                                <option>customer</option>
+                            </Form.Select>
+                        </Form.Group>
+                    </Stack>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={closeForm}>
+                        Cancel
+                    </Button>
+                    <Button variant="primary" onClick={addNewUser}>
+                        Add
+                    </Button>
+                </Modal.Footer>
+            </Modal>
         </div>
     );
 }
