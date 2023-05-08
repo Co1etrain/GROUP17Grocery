@@ -31,6 +31,23 @@ function Store(): JSX.Element {
         );
     };
 
+    function updateUserList(newFoodList: Food[]) {
+        const updatedUserList = userList.map((user: User) => ({
+            ...user,
+            foodList: user.foodList.map((food: Food) => ({
+                ...food,
+                ingredients: food.ingredients
+            }))
+        }));
+        setCustomerList(newFoodList);
+        updatedUserList.splice(
+            userList.findIndex((user: User) => user.name === currentUser.name),
+            1,
+            { ...currentUser, foodList: newFoodList }
+        );
+        setUserList(updatedUserList);
+    }
+
     return (
         <div>
             <Navbar></Navbar>
@@ -46,13 +63,10 @@ function Store(): JSX.Element {
                 <Row>
                     <Col>
                         <CustomerCart
-                            setCustomerList={setCustomerList}
+                            customerList={customerList}
                             centralList={centralList}
                             currentUser={currentUser}
-                            setCurrentUser={setCurrentUser}
-                            userList={userList}
-                            setUserList={setUserList}
-                            customerList={customerList}
+                            updateUserList={updateUserList}
                         ></CustomerCart>
                     </Col>
                     <Col>
@@ -77,14 +91,14 @@ function Store(): JSX.Element {
                         ></AddFoodForm>
                         <DeleteFoodButton
                             centralList={centralList}
+                            customerList={customerList}
                             employeeList={employeeList}
+                            userList={userList}
+                            currentUser={currentUser}
                             setCentralList={setCentralList}
                             setEmployeeList={setEmployeeList}
-                            currentUser={currentUser}
-                            customerList={[]}
-                            setCustomerList={function (newList: Food[]): void {
-                                throw new Error("Function not implemented.");
-                            }}
+                            setUserList={setUserList}
+                            updateUserList={updateUserList}
                         ></DeleteFoodButton>
                     </Col>
                 </Row>

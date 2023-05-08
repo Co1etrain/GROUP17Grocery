@@ -8,22 +8,16 @@ import { User } from "../interfaces/user";
 
 interface CartProps {
     customerList: Food[];
-    setCustomerList: (newList: Food[]) => void;
     centralList: Food[];
     currentUser: User;
-    setCurrentUser: (newUser: User) => void;
-    userList: User[];
-    setUserList: (newUserList: User[]) => void;
+    updateUserList: (newList: Food[]) => void;
 }
 
 export function CustomerCart({
     customerList,
-    setCustomerList,
     centralList,
     currentUser,
-    setCurrentUser,
-    userList,
-    setUserList
+    updateUserList
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -62,23 +56,8 @@ export function CustomerCart({
                 })),
                 droppedFood
             ];
-            setCustomerList(newCustomerList);
 
-            const updatedUserList = userList.map((user: User) => ({
-                ...user,
-                foodList: user.foodList.map((food: Food) => ({
-                    ...food,
-                    ingredients: food.ingredients
-                }))
-            }));
-            updatedUserList.splice(
-                userList.findIndex(
-                    (user: User) => user.name === currentUser.name
-                ),
-                1,
-                { ...currentUser, foodList: newCustomerList }
-            );
-            setUserList(updatedUserList);
+            updateUserList(newCustomerList);
 
             setTotalPrice(totalPrice + droppedFood.price);
         }

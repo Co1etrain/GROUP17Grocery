@@ -11,20 +11,24 @@ interface DeleteFoodProps {
     centralList: Food[];
     customerList: Food[];
     employeeList: Food[];
-    setCentralList: (newList: Food[]) => void;
-    setCustomerList: (newList: Food[]) => void;
-    setEmployeeList: (newList: Food[]) => void;
+    userList: User[];
     currentUser: User;
+    setCentralList: (newList: Food[]) => void;
+    setEmployeeList: (newList: Food[]) => void;
+    setUserList: (newList: User[]) => void;
+    updateUserList: (newList: Food[]) => void;
 }
 
 export function DeleteFoodButton({
     centralList,
     customerList,
     employeeList,
+    userList,
+    currentUser,
     setCentralList,
-    setCustomerList,
     setEmployeeList,
-    currentUser
+    setUserList,
+    updateUserList
 }: DeleteFoodProps): JSX.Element {
     const [{ isOver }, drop] = useDrop({
         accept: "food",
@@ -34,20 +38,22 @@ export function DeleteFoodButton({
         })
     });
 
+    function ownerDeleteFood(id: number) {
+        const newCentralList = centralList.filter((food) => food.id !== id);
+        setCentralList(newCentralList);
+
+        const newCustomerList = customerList.filter((food) => food.id !== id);
+        // Update every User in userList to have the filtered version
+        const updatedUserList = userList.map((user: User) => ({
+            ...user,
+            foodList: newCustomerList
+        }));
+        setUserList(updatedUserList);
+    }
+
     function deleteFood(id: number) {
         if (currentUser.role === "owner") {
-            const newCentralList = centralList.filter((food) => food.id !== id);
-            setCentralList(newCentralList);
-
-            const newCustomerList = customerList.filter(
-                (food) => food.id !== id
-            );
-            setCustomerList(newCustomerList);
-
-            const newEmployeeList = employeeList.filter(
-                (food) => food.id !== id
-            );
-            setEmployeeList(newEmployeeList);
+            ownerDeleteFood(id);
         } else if (currentUser.role === "employee") {
             const newEmployeeList = employeeList.filter(
                 (food) => food.id !== id
@@ -57,7 +63,7 @@ export function DeleteFoodButton({
             const newCustomerList = customerList.filter(
                 (food) => food.id !== id
             );
-            setCustomerList(newCustomerList);
+            updateUserList(newCustomerList);
         }
     }
 
@@ -70,27 +76,4 @@ export function DeleteFoodButton({
             ></img>
         </div>
     );
-    /*currentUser === "owner" ? (
-        <div>
-            <Form.Group controlId="formDeleteFood" as={Row}>
-                <Form.Label column sm={2}>
-                    Food name:
-                </Form.Label>
-                <Col>
-                    <Form.Control
-                        value={foodToBeDeleted}
-                        onChange={updateDeletedFood}
-                    />
-                </Col>
-                <Col>
-                    <Button onClick={() => deleteFood(foodToBeDeleted)}>
-                        Delete
-                    </Button>
-                </Col>
-            </Form.Group>
-        </div>
-    ) : (
-        <div></div>
-    );
-    */
 }
