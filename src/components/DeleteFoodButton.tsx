@@ -1,11 +1,11 @@
 import React from "react";
 import "../App.css";
 //import { Button, Form, Row, Col } from "react-bootstrap";
-import { Users } from "../interfaces/user";
 import { Food } from "../interfaces/food";
 import { useDrop } from "react-dnd";
 import trashClosed from "../trash_images/trash_closed.png";
 import trashOpen from "../trash_images/trash_open.png";
+import { User } from "../interfaces/user";
 
 interface DeleteFoodProps {
     centralList: Food[];
@@ -14,7 +14,7 @@ interface DeleteFoodProps {
     setCentralList: (newList: Food[]) => void;
     setCustomerList: (newList: Food[]) => void;
     setEmployeeList: (newList: Food[]) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function DeleteFoodButton({
@@ -35,7 +35,7 @@ export function DeleteFoodButton({
     });
 
     function deleteFood(id: number) {
-        if (currentUser === "owner") {
+        if (currentUser.role === "owner") {
             const newCentralList = centralList.filter((food) => food.id !== id);
             setCentralList(newCentralList);
 
@@ -48,7 +48,7 @@ export function DeleteFoodButton({
                 (food) => food.id !== id
             );
             setEmployeeList(newEmployeeList);
-        } else if (currentUser === "employee") {
+        } else if (currentUser.role === "employee") {
             const newEmployeeList = employeeList.filter(
                 (food) => food.id !== id
             );

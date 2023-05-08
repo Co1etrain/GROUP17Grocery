@@ -11,12 +11,12 @@ import {
     Row,
     Col
 } from "react-bootstrap";
-import { Users } from "../interfaces/user";
+import { User } from "../interfaces/user";
 
 interface AddFoodProps {
     centralList: Food[];
     setCentralList: (newList: Food[]) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function AddFoodForm({
@@ -62,7 +62,7 @@ export function AddFoodForm({
     }
 
     return (
-        <div hidden={currentUser !== "owner"}>
+        <div hidden={currentUser.role !== "owner"}>
             <Button
                 onClick={() => {
                     setShowForm(true);

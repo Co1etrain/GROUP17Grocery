@@ -9,15 +9,18 @@ import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
 import { AddFoodForm } from "../components/AddFoodForm";
+import { UserSelect } from "../components/UserSelect";
 
 function Store(): JSX.Element {
     const [userList, setUserList] = useState<User[]>([
         { name: "Owner", role: "owner", foodList: [] },
         { name: "Employee_Test", role: "employee", foodList: [] },
-        { name: "Customer_Test", role: "customer", foodList: [] }
+        { name: "Customer_Test", role: "customer", foodList: [] },
+        { name: "Customer_Test2", role: "customer", foodList: [] }
     ]);
     const [currentUser, setCurrentUser] = useState<User>(userList[0]);
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+    const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
@@ -33,8 +36,24 @@ function Store(): JSX.Element {
             <Navbar></Navbar>
             <div className="App">
                 <Row>
+                    <UserSelect
+                        userList={userList}
+                        currentUser={currentUser}
+                        setCurrentUser={setCurrentUser}
+                        setCustomerList={setCustomerList}
+                    ></UserSelect>
+                </Row>
+                <Row>
                     <Col>
-                        <CustomerCart></CustomerCart>
+                        <CustomerCart
+                            setCustomerList={setCustomerList}
+                            centralList={centralList}
+                            currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
+                            userList={userList}
+                            setUserList={setUserList}
+                            customerList={customerList}
+                        ></CustomerCart>
                     </Col>
                     <Col>
                         <CentralList
@@ -48,6 +67,8 @@ function Store(): JSX.Element {
                             centralList={centralList}
                             onCentralListUpdate={handleCentralListUpdate}
                             currentUser={currentUser}
+                            employeeList={employeeList}
+                            setEmployeeList={setEmployeeList}
                         ></EmployeeCart>
                         <AddFoodForm
                             centralList={centralList}
@@ -56,12 +77,14 @@ function Store(): JSX.Element {
                         ></AddFoodForm>
                         <DeleteFoodButton
                             centralList={centralList}
-                            customerList={customerList}
                             employeeList={employeeList}
                             setCentralList={setCentralList}
-                            setCustomerList={setCustomerList}
                             setEmployeeList={setEmployeeList}
                             currentUser={currentUser}
+                            customerList={[]}
+                            setCustomerList={function (newList: Food[]): void {
+                                throw new Error("Function not implemented.");
+                            }}
                         ></DeleteFoodButton>
                     </Col>
                 </Row>

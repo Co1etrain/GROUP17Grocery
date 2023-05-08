@@ -25,7 +25,7 @@ export function Navbar() {
                     }}
                     variant="outline-primary"
                     className="rounded-square"
-                    disabled={currentUser === "customer"}
+                    disabled={true}
                 >
                     <span>Requests</span>
                     <div

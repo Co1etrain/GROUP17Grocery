@@ -7,9 +7,13 @@ import { Form } from "react-bootstrap";
 import { User } from "../interfaces/user";
 
 interface CartProps {
+    customerList: Food[];
+    setCustomerList: (newList: Food[]) => void;
     centralList: Food[];
     currentUser: User;
     setCurrentUser: (newUser: User) => void;
+    userList: User[];
+    setUserList: (newUserList: User[]) => void;
 }
 
 const SORT_OPTIONS = [
@@ -19,13 +23,14 @@ const SORT_OPTIONS = [
 ];
 
 export function CustomerCart({
+    customerList,
+    setCustomerList,
     centralList,
     currentUser,
-    setCurrentUser
+    setCurrentUser,
+    userList,
+    setUserList
 }: CartProps): JSX.Element {
-    const [customerList, setCustomerList] = useState<Food[]>(
-        currentUser.role === "customer" ? currentUser.foodList : []
-    );
     const [sortType, setSortType] = useState<string>(SORT_OPTIONS[0]);
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -41,9 +46,35 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood) {
-            setCustomerList([...customerList, droppedFood]);
+            const newCustomerList: Food[] = [
+                ...customerList.map((food: Food) => ({
+                    ...food,
+                    ingredients: [...food.ingredients]
+                })),
+                droppedFood
+            ];
+            setCustomerList(newCustomerList);
+
+            setCurrentUser({ ...currentUser, foodList: newCustomerList });
+            const updatedUserList = userList.map((user: User) => ({
+                ...user,
+                foodList: user.foodList.map((food: Food) => ({
+                    ...food,
+                    ingredients: food.ingredients
+                }))
+            }));
+            updatedUserList.splice(
+                userList.findIndex(
+                    (user: User) => user.name === currentUser.name
+                ),
+                1,
+                currentUser
+            );
+            setUserList(updatedUserList);
+
             setTotalPrice(totalPrice + droppedFood.price);
         }
+        console.log(customerList);
     }
 
     function updateSortType(event: React.ChangeEvent<HTMLSelectElement>) {
