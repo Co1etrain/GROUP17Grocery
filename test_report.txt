@@ -86,14 +86,15 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|----------------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
 -----------------------|---------|----------|---------|---------|----------------------------
-All files              |   16.59 |    14.28 |   11.81 |   16.96 |                            
+All files              |    15.6 |    13.84 |   10.74 |   15.96 |                            
  src                   |     100 |      100 |     100 |     100 |                            
   App.tsx              |     100 |      100 |     100 |     100 |                            
- src/components        |    16.9 |    14.75 |      11 |   17.24 |                            
+ src/components        |   15.78 |    14.28 |     9.9 |   16.12 |                            
   AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 31-165                     
   CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 23,29,33-42,80             
   CustomerCart.tsx     |   37.83 |    27.77 |   35.71 |   36.11 | 29,39-40,46-74,78,84,91-98 
   DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 33-81                      
+  DeleteUserModal.tsx  |       0 |        0 |       0 |       0 | 17-89                      
   EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-68                      
   FoodItem.tsx         |   53.57 |    36.36 |   36.36 |   55.55 | 37-52,57-90,119,128        
   IntroHeader.tsx      |     100 |      100 |     100 |     100 |                            
@@ -107,10 +108,10 @@ All files              |   16.59 |    14.28 |   11.81 |   16.96 |
   user.ts              |       0 |        0 |       0 |       0 |                            
  src/pages             |       5 |        0 |   11.11 |    5.26 |                            
   Landing.tsx          |     100 |      100 |     100 |     100 |                            
-  Store.tsx            |       0 |        0 |       0 |       0 | 18-67                      
+  Store.tsx            |       0 |        0 |       0 |       0 | 19-68                      
 -----------------------|---------|----------|---------|---------|----------------------------
 Test Suites: 2 failed, 2 passed, 4 total
 Tests:       2 failed, 5 passed, 7 total
 Snapshots:   0 total
-Time:        6.545 s
+Time:        4.531 s
 Ran all test suites.
