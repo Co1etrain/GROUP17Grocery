@@ -1,30 +1,34 @@
 import React from "react";
 import "../App.css";
 //import { Button, Form, Row, Col } from "react-bootstrap";
-import { Users } from "../interfaces/record";
 import { Food } from "../interfaces/food";
 import { useDrop } from "react-dnd";
 import trashClosed from "../trash_images/trash_closed.png";
 import trashOpen from "../trash_images/trash_open.png";
+import { User } from "../interfaces/user";
 
 interface DeleteFoodProps {
     centralList: Food[];
     customerList: Food[];
     employeeList: Food[];
+    userList: User[];
+    currentUser: User;
     setCentralList: (newList: Food[]) => void;
-    setCustomerList: (newList: Food[]) => void;
     setEmployeeList: (newList: Food[]) => void;
-    currentUser: Users["person"];
+    setUserList: (newList: User[]) => void;
+    updateUserList: (newList: Food[]) => void;
 }
 
 export function DeleteFoodButton({
     centralList,
     customerList,
     employeeList,
+    userList,
+    currentUser,
     setCentralList,
-    setCustomerList,
     setEmployeeList,
-    currentUser
+    setUserList,
+    updateUserList
 }: DeleteFoodProps): JSX.Element {
     const [{ isOver }, drop] = useDrop({
         accept: "food",
@@ -34,30 +38,43 @@ export function DeleteFoodButton({
         })
     });
 
-    function deleteFood(id: number) {
-        if (currentUser === "owner") {
-            const newCentralList = centralList.filter((food) => food.id !== id);
+    function ownerDeleteFood(id: number) {
+        const deletedFood: Food | undefined = centralList.find(
+            (food: Food) => food.id === id
+        );
+        if (deletedFood) {
+            const newCentralList = centralList.filter(
+                (food) => food.name !== deletedFood.name
+            );
             setCentralList(newCentralList);
 
-            const newCustomerList = customerList.filter(
-                (food) => food.id !== id
-            );
-            setCustomerList(newCustomerList);
+            // Update every User in userList to have the filtered version
+            const updatedUserList = userList.map((user: User) => ({
+                ...user,
+                foodList: user.foodList.filter(
+                    (food) => food.name !== deletedFood.name
+                )
+            }));
+            setUserList(updatedUserList);
+        }
+    }
 
-            const newEmployeeList = employeeList.filter(
-                (food) => food.id !== id
-            );
-            setEmployeeList(newEmployeeList);
-        } else if (currentUser === "employee") {
-            const newEmployeeList = employeeList.filter(
-                (food) => food.id !== id
-            );
-            setEmployeeList(newEmployeeList);
+    function employeeDeleteFood(id: number) {
+        const newEmployeeList = employeeList.filter((food) => food.id !== id);
+        setEmployeeList(newEmployeeList);
+    }
+
+    function deleteFood(id: number) {
+        if (currentUser.role === "owner") {
+            ownerDeleteFood(id);
+            employeeDeleteFood(id);
+        } else if (currentUser.role === "employee") {
+            employeeDeleteFood(id);
         } else {
             const newCustomerList = customerList.filter(
                 (food) => food.id !== id
             );
-            setCustomerList(newCustomerList);
+            updateUserList(newCustomerList);
         }
     }
 
@@ -66,31 +83,8 @@ export function DeleteFoodButton({
             <img
                 ref={drop}
                 src={isOver ? trashOpen : trashClosed}
-                style={{ height: "250px" }}
+                style={{ maxHeight: "250px" }}
             ></img>
         </div>
     );
-    /*currentUser === "owner" ? (
-        <div>
-            <Form.Group controlId="formDeleteFood" as={Row}>
-                <Form.Label column sm={2}>
-                    Food name:
-                </Form.Label>
-                <Col>
-                    <Form.Control
-                        value={foodToBeDeleted}
-                        onChange={updateDeletedFood}
-                    />
-                </Col>
-                <Col>
-                    <Button onClick={() => deleteFood(foodToBeDeleted)}>
-                        Delete
-                    </Button>
-                </Col>
-            </Form.Group>
-        </div>
-    ) : (
-        <div></div>
-    );
-    */
 }

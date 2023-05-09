@@ -2,32 +2,9 @@ import React from "react";
 import { Button, Container, Nav, Navbar as NavbarBS } from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/record";
-import { CreateUserForm } from "./UserForm";
 import { Link } from "react-router-dom";
-import { Food } from "../interfaces/food";
-import { TextField } from "./CustomerInputBox";
-import { DisplayCustomerNames } from "./CustomersForm";
 
-interface NavProps {
-    updateUser: (userType: Users["person"]) => void;
-    currentUser: Users["person"];
-    addCustomerName: (record: CustomersRecord) => void;
-    currentRecord: CustomersRecord;
-    setSelectedCustomer: (customerName: string) => void;
-    selectedCustomer: string;
-    setCustomerList: (newList: Food[]) => void;
-}
-
-export function Navbar({
-    updateUser,
-    currentUser,
-    addCustomerName,
-    currentRecord,
-    setSelectedCustomer,
-    selectedCustomer,
-    setCustomerList
-}: NavProps) {
+export function Navbar() {
     const [cart, setCart] = useState<boolean>(false);
 
     return (
@@ -39,25 +16,6 @@ export function Navbar({
                 >
                     <Link to={"/"}>Glocery</Link>
                 </Nav>
-                <div hidden={currentUser !== "owner"}>
-                    <TextField
-                        addCustomerName={addCustomerName}
-                        currentRecord={currentRecord}
-                        setSelectedCustomer={setSelectedCustomer}
-                        selectedCustomer={selectedCustomer}
-                        setCustomerList={setCustomerList}
-                    ></TextField>
-                    <DisplayCustomerNames
-                        setSelectedCustomer={setSelectedCustomer}
-                        currentSelectedCustomer={selectedCustomer}
-                        currentRecord={currentRecord}
-                        setCustomerList={setCustomerList}
-                    ></DisplayCustomerNames>
-                </div>
-                <CreateUserForm
-                    updateUser={updateUser}
-                    currentUser={currentUser}
-                ></CreateUserForm>
                 <Button
                     onClick={() => setCart(true)}
                     style={{
@@ -67,7 +25,7 @@ export function Navbar({
                     }}
                     variant="outline-primary"
                     className="rounded-square"
-                    disabled={currentUser === "customer"}
+                    disabled={true}
                 >
                     <span>Requests</span>
                     <div

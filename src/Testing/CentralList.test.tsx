@@ -1,12 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import { CentralList } from "../components/CentralList";
 import { Food } from "../interfaces/food";
-// import { Users } from "../interfaces/record";
+//import { User } from "../interfaces/user";
 // import { Container } from "react-bootstrap";
 import "@testing-library/jest-dom/extend-expect";
 import assert from "assert";
 import React from "react";
-import "@testing-library/jest-dom/extend-expect";
+//import { jest } from "@jest/globals";
 //import getByText from "@testing-library/dom";
 //import userEvent from "@testing-library/user-event";
 //import Store from "../pages/Store";
@@ -25,7 +25,7 @@ describe("centrallist render", () => {
                 //throw new Error("Function not implemented.");
                 // }}
                 onFoodUpdate={testUpdateFood}
-                currentUser={"owner"}
+                currentUser={{ name: "owner", role: "owner", foodList: [] }}
             />
         );
     });
