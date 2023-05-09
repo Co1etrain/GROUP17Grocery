@@ -150,30 +150,29 @@ FAIL src/App.test.tsx
 -----------------------|---------|----------|---------|---------|-------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -----------------------|---------|----------|---------|---------|-------------------
-All files              |    4.37 |        0 |    2.43 |    4.51 |                   
+All files              |    4.02 |        0 |    2.17 |    4.21 |                   
  src                   |     100 |      100 |     100 |     100 |                   
   App.tsx              |     100 |      100 |     100 |     100 |                   
- src/components        |    3.55 |        0 |    1.31 |    3.68 |                   
-  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 27-163            
-  CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 24,30,34-43,81    
-  CustomerCart.tsx     |       0 |        0 |       0 |       0 | 26-103            
-  CustomerInputBox.tsx |       0 |      100 |       0 |       0 | 21-59             
-  CustomersForm.tsx    |       0 |        0 |       0 |       0 | 22-36             
-  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 29-64             
-  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-65             
-  FoodItem.tsx         |       0 |        0 |       0 |       0 | 23-129            
+ src/components        |    3.37 |        0 |    1.21 |    3.52 |                   
+  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 31-165            
+  CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 23,29,33-42,80    
+  CustomerCart.tsx     |       0 |        0 |       0 |       0 | 26-122            
+  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 33-81             
+  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-68             
+  FoodItem.tsx         |       0 |        0 |       0 |       0 | 22-128            
   IntroHeader.tsx      |       0 |      100 |       0 |       0 | 6                 
-  Navbar.tsx           |       0 |      100 |       0 |       0 | 31-91             
-  UserForm.tsx         |       0 |      100 |       0 |       0 | 17-22             
+  Navbar.tsx           |       0 |      100 |       0 |       0 | 8-49              
+  NewUserForm.tsx      |       0 |        0 |       0 |       0 | 21-96             
+  UserSelect.tsx       |       0 |        0 |       0 |       0 | 20-36             
  src/interfaces        |     100 |      100 |     100 |     100 |                   
   food.ts              |     100 |      100 |     100 |     100 |                   
-  record.ts            |       0 |        0 |       0 |       0 |                   
+  user.ts              |       0 |        0 |       0 |       0 |                   
  src/pages             |       0 |        0 |       0 |       0 |                   
   Landing.tsx          |       0 |      100 |       0 |       0 | 5                 
-  Store.tsx            |       0 |        0 |       0 |       0 | 14-31             
+  Store.tsx            |       0 |        0 |       0 |       0 | 16-64             
 -----------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       1 failed, 3 passed, 4 total
 Snapshots:   0 total
-Time:        3.712 s
+Time:        3.814 s
 Ran all test suites.
