@@ -3,14 +3,14 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
-import { Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 
 interface EmployeeCartProps {
     employeeList: Food[];
     setEmployeeList: (newList: Food[]) => void;
     centralList: Food[];
     onCentralListUpdate: (updatedFood: Food) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function EmployeeCart({
@@ -52,10 +52,13 @@ export function EmployeeCart({
     }
 
     return (
-        <div style={{ paddingTop: "15px" }}>
-            <h2>Employee/Manager Cart</h2>
+        <div
+            style={{ paddingTop: "15px" }}
+            hidden={currentUser.role === "customer"}
+        >
+            <h2>Employee Cart</h2>
             <div
-                ref={currentUser !== "customer" ? drop : undefined}
+                ref={currentUser.role !== "customer" ? drop : undefined}
                 className="Cart"
                 style={{
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"

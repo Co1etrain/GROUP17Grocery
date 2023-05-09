@@ -11,21 +11,24 @@ import {
     Row,
     Col
 } from "react-bootstrap";
-import { Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 
 interface AddFoodProps {
     centralList: Food[];
     setCentralList: (newList: Food[]) => void;
-    currentUser: Users["person"];
+    currentUser: User;
+    foodId: number;
+    setFoodId: (newId: number) => void;
 }
 
 export function AddFoodForm({
     centralList,
     setCentralList,
-    currentUser
+    currentUser,
+    foodId,
+    setFoodId
 }: AddFoodProps): JSX.Element {
     const [showForm, setShowForm] = useState<boolean>(false);
-    const [id, setId] = useState<number>(centralList.length + 1);
     const [name, setName] = useState<string>("");
     const [description, setDescription] = useState<string>("");
     const [image, setImage] = useState<string>("");
@@ -40,10 +43,8 @@ export function AddFoodForm({
             Ingredients: [...food.ingredients]
         }));
 
-        setId(id + 1);
-
         const newFood: Food = {
-            id: id,
+            id: foodId,
             name: name,
             description: description,
             image: image,
@@ -53,6 +54,7 @@ export function AddFoodForm({
             category: category
         };
 
+        setFoodId(foodId + 1);
         setCentralList([...newCentralList, newFood]);
         closeForm();
     }
@@ -62,7 +64,7 @@ export function AddFoodForm({
     }
 
     return (
-        <div hidden={currentUser !== "owner"}>
+        <div hidden={currentUser.role !== "owner"}>
             <Button
                 onClick={() => {
                     setShowForm(true);

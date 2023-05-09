@@ -1,22 +1,31 @@
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { CentralList } from "../components/CentralList";
 import { Food } from "../interfaces/food";
-// import { Users } from "../interfaces/record";
+//import { User } from "../interfaces/user";
 // import { Container } from "react-bootstrap";
 import "@testing-library/jest-dom/extend-expect";
 import assert from "assert";
 import React from "react";
-import { jest } from "@jest/globals";
+//import { jest } from "@jest/globals";
+//import getByText from "@testing-library/dom";
+//import userEvent from "@testing-library/user-event";
+//import Store from "../pages/Store";
 
+//TEST ONE
+function testUpdateFood(updateFood: Food): void {
+    updateFood;
+    throw new Error("Function not implemented.");
+}
 describe("centrallist render", () => {
     beforeEach(() => {
         render(
             <CentralList
                 centralList={[]}
-                onFoodUpdate={function (updatedFood: Food): void {
-                    throw new Error("Function not implemented.");
-                }}
-                currentUser={"owner"}
+                //onFoodUpdate={function (updatedFood: Food): void {
+                //throw new Error("Function not implemented.");
+                // }}
+                onFoodUpdate={testUpdateFood}
+                currentUser={{ name: "owner", role: "owner", foodList: [] }}
             />
         );
     });
@@ -26,6 +35,15 @@ describe("centrallist render", () => {
         //assert(document.getElementById("middle")?.childNodes.length == 30);
         expect(document.getElementById("middle"));
         assert(document.getElementById("middle"));
+    });
+
+    it("Renders Filters List", () => {
+        //expect(document.getElementById("filterFoodType")).toBeInTheDocument();
+        //expect(screen.getByRole("combobox",  id:"filterFoodType" );
+        expect(screen.queryAllByRole("combobox")).toHaveLength(2);
+
+        //expect(document.getElementById("filterFoodType"));
+        //assert(document.getElementById("filterFoodType"));
     });
 });
 
@@ -99,85 +117,5 @@ describe("centrallist render", () => {
 //         expect(sortedFruitItems.length).toBe(2);
 //         expect(sortedFruitItems[0]).toHaveTextContent("Banana");
 //         expect(sortedFruitItems[1]).toHaveTextContent("Apple");
-//     });
-// });
-
-// describe("CentralList component", () => {
-//     const centralListMock = [
-//         {
-//             id: 1,
-//             name: "Apple",
-//             description: "A juicy fruit",
-//             image: "apple.jpg",
-//             price: 1.99,
-//             calories: 95,
-//             ingredients: ["Apple"],
-//             category: "Fruits"
-//         },
-//         {
-//             id: 2,
-//             name: "Carrot",
-//             description: "A crunchy vegetable",
-//             image: "carrot.jpg",
-//             price: 0.99,
-//             calories: 25,
-//             ingredients: ["Carrot"],
-//             category: "Vegetables"
-//         }
-//     ];
-
-//     const onFoodUpdateMock = jest.fn();
-//     const currentUserMock = {
-//         name: "owner"
-//     };
-
-//     it("renders the list of food items", () => {
-//         render(
-//             <CentralList
-//                 centralList={centralListMock}
-//                 onFoodUpdate={onFoodUpdateMock}
-//                 currentUser={currentUserMock}
-//             />
-//         );
-
-//         const foodItems = screen.getAllByTestId("food-item");
-//         expect(foodItems.length).toBe(2);
-//     });
-
-//     it("filters the list by category", () => {
-//         render(
-//             <CentralList
-//                 centralList={centralListMock}
-//                 onFoodUpdate={onFoodUpdateMock}
-//                 currentUser={currentUserMock}
-//             />
-//         );
-
-//         const filterSelect = screen.getByLabelText("Filter by:");
-//         filterSelect.value = "Vegetables";
-//         filterSelect.dispatchEvent(new Event("change"));
-
-//         const foodItems = screen.getAllByTestId("food-item");
-//         expect(foodItems.length).toBe(1);
-//         expect(foodItems[0]).toHaveTextContent("Carrot");
-//     });
-
-//     it("sorts the list by name", () => {
-//         render(
-//             <CentralList
-//                 centralList={centralListMock}
-//                 onFoodUpdate={onFoodUpdateMock}
-//                 currentUser={currentUserMock}
-//             />
-//         );
-
-//         const sortSelect = screen.getByLabelText("Sort by:");
-//         sortSelect.value = "name";
-//         sortSelect.dispatchEvent(new Event("change"));
-
-//         const foodItems = screen.getAllByTestId("food-item");
-//         expect(foodItems.length).toBe(2);
-//         expect(foodItems[0]).toHaveTextContent("Apple");
-//         expect(foodItems[1]).toHaveTextContent("Carrot");
 //     });
 // });

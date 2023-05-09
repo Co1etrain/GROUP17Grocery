@@ -4,24 +4,24 @@ import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
 import { Form } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 
 interface CartProps {
     customerList: Food[];
-    setCustomerList: (newList: Food[]) => void;
-    customerName: string;
-    currentRecord: CustomersRecord;
     centralList: Food[];
-    currentUser: Users["person"];
+    currentUser: User;
+    updateUserList: (newList: Food[]) => void;
+    foodId: number;
+    setFoodId: (newFoodId: number) => void;
 }
 
 export function CustomerCart({
     customerList,
-    setCustomerList,
-    customerName,
-    currentRecord,
     centralList,
-    currentUser
+    currentUser,
+    updateUserList,
+    foodId,
+    setFoodId
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -48,20 +48,30 @@ export function CustomerCart({
         );
     }
 
+    /*
+    Closure which handles receiving a dropped food item and inserting it into the respective user's
+    food list
+    */
     function addFoodToCart(id: number) {
         const droppedFood: Food | undefined = centralList.find(
             (food: Food) => food.id === id
         );
         if (droppedFood) {
-            if (customerName !== "NO ONE") {
-                currentRecord[customerName] = [...customerList, droppedFood];
-                setCustomerList([...customerList, droppedFood]);
-                setTotalPrice(totalPrice + droppedFood.price);
-            } else {
-                setCustomerList([]);
-                setTotalPrice(0.0);
-            }
+            // Deep copy of current customer list, plus new dropped food item with unique ID
+            const newCustomerList: Food[] = [
+                ...customerList.map((food: Food) => ({
+                    ...food,
+                    ingredients: [...food.ingredients]
+                })),
+                { ...droppedFood, id: foodId }
+            ];
+            setFoodId(foodId + 1);
+            // Closure from Store.tsx passed in as props
+            updateUserList(newCustomerList);
+
+            setTotalPrice(totalPrice + droppedFood.price);
         }
+        console.log(customerList);
     }
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -90,10 +100,19 @@ export function CustomerCart({
         });
 
     return (
-        <div style={{ paddingTop: "15px" }}>
-            <h2>{customerName + "'s"} Cart</h2>
+        <div
+            style={{ paddingTop: "15px" }}
+            hidden={currentUser.role !== "customer"}
+        >
+            <h2>
+                {currentUser.role === "customer"
+                    ? currentUser.name + "'s"
+                    : "No one" + "'s"}{" "}
+                Cart
+            </h2>
             <div
-                ref={currentUser === "customer" ? drop : undefined}
+                // If the user is not a customer, then the cart is not droppable
+                ref={currentUser.role === "customer" ? drop : undefined}
                 className="Cart"
                 style={{
                     backgroundColor: isOver ? "MediumSeaGreen" : "white"

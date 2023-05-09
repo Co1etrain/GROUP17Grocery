@@ -8,19 +8,13 @@ import {
 } from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
-import { CustomersRecord, Users } from "../interfaces/record";
-import { CreateUserForm } from "./UserForm";
 import { Link } from "react-router-dom";
-import { Food } from "../interfaces/food";
-import { TextField } from "./CustomerInputBox";
-import { DisplayCustomerNames } from "./CustomersForm";
 import { Request } from "../interfaces/request";
+import { Food } from "../interfaces/food";
+import { User } from "../interfaces/user";
 
 interface NavProps {
-    updateUser: (userType: Users["person"]) => void;
-    currentUser: Users["person"];
-    addCustomerName: (record: CustomersRecord) => void;
-    currentRecord: CustomersRecord;
+    currentUser: User;
     setSelectedCustomer: (customerName: string) => void;
     selectedCustomer: string;
     setCustomerList: (newList: Food[]) => void;
@@ -28,23 +22,20 @@ interface NavProps {
     setRequestList: (newList: Request[]) => void;
     centralList: Food[];
     setCentralList: (newList: Food[]) => void;
+    foodId: number;
+    setFoodId: (newId: number) => void;
 }
 
 export function Navbar({
-    updateUser,
     currentUser,
-    addCustomerName,
-    currentRecord,
-    setSelectedCustomer,
-    selectedCustomer,
-    setCustomerList,
     RequestList,
     setRequestList,
     centralList,
-    setCentralList
+    setCentralList,
+    foodId,
+    setFoodId
 }: NavProps) {
     const [cart, setCart] = useState<boolean>(false);
-    const [id, setId] = useState<number>(centralList.length + 1);
     function appendNewFood(
         name: string,
         description: string,
@@ -59,10 +50,10 @@ export function Navbar({
             Ingredients: [...food.ingredients]
         }));
 
-        setId(id + 1);
+        setFoodId(foodId + 1);
 
         const newFood: Food = {
-            id: id,
+            id: foodId,
             name: name,
             description: description,
             image: image,
@@ -88,25 +79,6 @@ export function Navbar({
                 >
                     <Link to={"/"}>Glocery</Link>
                 </Nav>
-                <div hidden={currentUser !== "owner"}>
-                    <TextField
-                        addCustomerName={addCustomerName}
-                        currentRecord={currentRecord}
-                        setSelectedCustomer={setSelectedCustomer}
-                        selectedCustomer={selectedCustomer}
-                        setCustomerList={setCustomerList}
-                    ></TextField>
-                    <DisplayCustomerNames
-                        setSelectedCustomer={setSelectedCustomer}
-                        currentSelectedCustomer={selectedCustomer}
-                        currentRecord={currentRecord}
-                        setCustomerList={setCustomerList}
-                    ></DisplayCustomerNames>
-                </div>
-                <CreateUserForm
-                    updateUser={updateUser}
-                    currentUser={currentUser}
-                ></CreateUserForm>
                 <Button
                     onClick={() => setCart(true)}
                     style={{
@@ -116,7 +88,7 @@ export function Navbar({
                     }}
                     variant="outline-primary"
                     className="rounded-square"
-                    disabled={currentUser === "customer"}
+                    disabled={currentUser.role !== "owner"}
                 >
                     <span>Requests</span>
                     <div
@@ -171,7 +143,9 @@ export function Navbar({
                                                     request.category
                                                 )
                                             }
-                                            hidden={currentUser !== "owner"}
+                                            hidden={
+                                                currentUser.role !== "owner"
+                                            }
                                         >
                                             APPROVE
                                         </Button>
@@ -179,7 +153,9 @@ export function Navbar({
                                             onClick={() =>
                                                 handleDenyRequest(index)
                                             }
-                                            hidden={currentUser !== "owner"}
+                                            hidden={
+                                                currentUser.role !== "owner"
+                                            }
                                         >
                                             DENY
                                         </Button>
@@ -192,4 +168,7 @@ export function Navbar({
             </Container>
         </NavbarBS>
     );
+}
+function setFoodId(arg0: number) {
+    throw new Error("Function not implemented.");
 }

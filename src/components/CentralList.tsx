@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
-import { Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 import { Form } from "react-bootstrap";
 
 interface CentralListProps {
     centralList: Food[];
-    //setCentralList: (newCentralList: Food[]) => void;
     onFoodUpdate: (updatedFood: Food) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function CentralList({

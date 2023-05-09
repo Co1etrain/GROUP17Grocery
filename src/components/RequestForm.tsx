@@ -11,12 +11,12 @@ import {
     Row,
     Col
 } from "react-bootstrap";
-import { Users } from "../interfaces/record";
+import { User } from "../interfaces/user";
 
 interface AddFoodProps {
     requestList: Request[];
     setRequestList: (newList: Request[]) => void;
-    currentUser: Users["person"];
+    currentUser: User;
 }
 
 export function RequestForm({
@@ -56,7 +56,7 @@ export function RequestForm({
     }
 
     return (
-        <div hidden={currentUser !== "employee"}>
+        <div hidden={currentUser.role !== "employee"}>
             <Button
                 onClick={() => {
                     setShowForm(true);
