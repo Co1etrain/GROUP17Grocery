@@ -35,11 +35,7 @@ export function UserSelect({
                     {userList.map((user: User) => {
                         return (
                             <option key={user.name} value={user.name}>
-                                {"Name: " +
-                                    user.name +
-                                    " | " +
-                                    "Role: " +
-                                    user.role}
+                                {user.name + " (" + user.role + ")"}
                             </option>
                         );
                     })}
