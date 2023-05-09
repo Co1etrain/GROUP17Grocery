@@ -1,22 +1,22 @@
 import { render } from "@testing-library/react";
 import { CentralList } from "../components/CentralList";
 import { Food } from "../interfaces/food";
-// import { Users } from "../interfaces/record";
+//import { User } from "../interfaces/user";
 // import { Container } from "react-bootstrap";
 import "@testing-library/jest-dom/extend-expect";
 import assert from "assert";
 import React from "react";
-import { jest } from "@jest/globals";
+//import { jest } from "@jest/globals";
 
 describe("centrallist render", () => {
     beforeEach(() => {
         render(
             <CentralList
                 centralList={[]}
+                currentUser={{ name: "owner", role: "owner", foodList: [] }}
                 onFoodUpdate={function (updatedFood: Food): void {
-                    throw new Error("Function not implemented.");
+                    throw new Error(updatedFood.name);
                 }}
-                currentUser={"owner"}
             />
         );
     });

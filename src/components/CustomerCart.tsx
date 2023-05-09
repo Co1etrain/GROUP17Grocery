@@ -11,13 +11,17 @@ interface CartProps {
     centralList: Food[];
     currentUser: User;
     updateUserList: (newList: Food[]) => void;
+    foodId: number;
+    setFoodId: (newFoodId: number) => void;
 }
 
 export function CustomerCart({
     customerList,
     centralList,
     currentUser,
-    updateUserList
+    updateUserList,
+    foodId,
+    setFoodId
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -54,8 +58,9 @@ export function CustomerCart({
                     ...food,
                     ingredients: [...food.ingredients]
                 })),
-                droppedFood
+                { ...droppedFood, id: foodId }
             ];
+            setFoodId(foodId + 1);
 
             updateUserList(newCustomerList);
 

@@ -8,13 +8,15 @@ interface NewUserFormProps {
     currentUser: User;
     setCurrentUser: (newUser: User) => void;
     setCustomerList: (newList: Food[]) => void;
+    setUserList: (newList: User[]) => void;
 }
 
 export function NewUserForm({
     userList,
     currentUser,
     setCurrentUser,
-    setCustomerList
+    setCustomerList,
+    setUserList
 }: NewUserFormProps) {
     const [newName, setNewName] = useState<string>("");
     const [newRole, setNewRole] = useState<string>("");
@@ -33,6 +35,17 @@ export function NewUserForm({
 
         if (duplicateUser === undefined) {
             setCurrentUser(newUser);
+            const newUserList: User[] = [
+                ...userList.map((user: User) => ({
+                    ...user,
+                    foodList: user.foodList.map((food: Food) => ({
+                        ...food,
+                        ingredients: [...food.ingredients]
+                    }))
+                })),
+                newUser
+            ];
+            setUserList(newUserList);
             if (newUser.role === "customer") setCustomerList(newUser.foodList);
             closeForm();
         } else {
@@ -51,20 +64,20 @@ export function NewUserForm({
                     setShowForm(true);
                 }}
             >
-                Add Food
+                Add User
             </Button>
 
             <Modal show={showForm} onHide={closeForm}>
                 <Modal.Header closeButton>
-                    <Modal.Title>Please fill out all fields:</Modal.Title>
+                    <Modal.Title>Create New User</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Stack gap={3}>
                         <Form.Group>
-                            <FloatingLabel label="Food Name">
+                            <FloatingLabel label="User Name">
                                 <Form.Control
-                                    type="food name"
-                                    placeholder="Food Name"
+                                    type="user name"
+                                    placeholder="User's Name"
                                     aria-label="Name_Field"
                                     onChange={(
                                         e: React.ChangeEvent<HTMLInputElement>
@@ -74,9 +87,9 @@ export function NewUserForm({
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Label>Select Aisle</Form.Label>
+                            <Form.Label>Select Role</Form.Label>
                             <Form.Select
-                                aria-label="Select food category"
+                                aria-label="Select desired role"
                                 value={newRole}
                                 onChange={(
                                     e: React.ChangeEvent<HTMLSelectElement>

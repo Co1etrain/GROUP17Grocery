@@ -39,16 +39,24 @@ export function DeleteFoodButton({
     });
 
     function ownerDeleteFood(id: number) {
-        const newCentralList = centralList.filter((food) => food.id !== id);
-        setCentralList(newCentralList);
+        const deletedFood: Food | undefined = centralList.find(
+            (food: Food) => food.id === id
+        );
+        if (deletedFood) {
+            const newCentralList = centralList.filter(
+                (food) => food.name !== deletedFood.name
+            );
+            setCentralList(newCentralList);
 
-        const newCustomerList = customerList.filter((food) => food.id !== id);
-        // Update every User in userList to have the filtered version
-        const updatedUserList = userList.map((user: User) => ({
-            ...user,
-            foodList: newCustomerList
-        }));
-        setUserList(updatedUserList);
+            // Update every User in userList to have the filtered version
+            const updatedUserList = userList.map((user: User) => ({
+                ...user,
+                foodList: user.foodList.filter(
+                    (food) => food.name !== deletedFood.name
+                )
+            }));
+            setUserList(updatedUserList);
+        }
     }
 
     function deleteFood(id: number) {

@@ -10,6 +10,7 @@ import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
 import { AddFoodForm } from "../components/AddFoodForm";
 import { UserSelect } from "../components/UserSelect";
+import { NewUserForm } from "../components/NewUserForm";
 
 function Store(): JSX.Element {
     const [userList, setUserList] = useState<User[]>([
@@ -54,12 +55,23 @@ function Store(): JSX.Element {
             <Navbar></Navbar>
             <div className="App">
                 <Row>
-                    <UserSelect
-                        userList={userList}
-                        currentUser={currentUser}
-                        setCurrentUser={setCurrentUser}
-                        setCustomerList={setCustomerList}
-                    ></UserSelect>
+                    <Col>
+                        <UserSelect
+                            userList={userList}
+                            currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
+                            setCustomerList={setCustomerList}
+                        ></UserSelect>
+                    </Col>
+                    <Col>
+                        <NewUserForm
+                            userList={userList}
+                            currentUser={currentUser}
+                            setCurrentUser={setCurrentUser}
+                            setCustomerList={setCustomerList}
+                            setUserList={setUserList}
+                        ></NewUserForm>
+                    </Col>
                 </Row>
                 <Row>
                     <Col>
@@ -68,6 +80,8 @@ function Store(): JSX.Element {
                             centralList={centralList}
                             currentUser={currentUser}
                             updateUserList={updateUserList}
+                            foodId={foodId}
+                            setFoodId={setFoodId}
                         ></CustomerCart>
                     </Col>
                     <Col>
