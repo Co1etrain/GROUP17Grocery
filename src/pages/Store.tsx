@@ -75,10 +75,6 @@ function Store(): JSX.Element {
                 setCentralList={setCentralList}
                 foodId={foodId}
                 setFoodId={setFoodId}
-                setSelectedCustomer={function (customerName: string): void {
-                    throw new Error("Function not implemented.");
-                }}
-                selectedCustomer={""}
             ></Navbar>
             <div className="App">
                 <Row>
