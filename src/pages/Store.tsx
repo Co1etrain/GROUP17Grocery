@@ -42,6 +42,7 @@ function Store(): JSX.Element {
     which has been modified in some capacity (passed in as parameter).
     */
     function updateUserList(newFoodList: Food[]) {
+        // Make deep copy
         const updatedUserList = userList.map((user: User) => ({
             ...user,
             foodList: user.foodList.map((food: Food) => ({

@@ -59,14 +59,17 @@ export function DeleteFoodButton({
         }
     }
 
+    function employeeDeleteFood(id: number) {
+        const newEmployeeList = employeeList.filter((food) => food.id !== id);
+        setEmployeeList(newEmployeeList);
+    }
+
     function deleteFood(id: number) {
         if (currentUser.role === "owner") {
             ownerDeleteFood(id);
+            employeeDeleteFood(id);
         } else if (currentUser.role === "employee") {
-            const newEmployeeList = employeeList.filter(
-                (food) => food.id !== id
-            );
-            setEmployeeList(newEmployeeList);
+            employeeDeleteFood(id);
         } else {
             const newCustomerList = customerList.filter(
                 (food) => food.id !== id

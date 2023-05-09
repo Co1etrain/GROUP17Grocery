@@ -52,8 +52,11 @@ export function EmployeeCart({
     }
 
     return (
-        <div style={{ paddingTop: "15px" }}>
-            <h2>Employee/Manager Cart</h2>
+        <div
+            style={{ paddingTop: "15px" }}
+            hidden={currentUser.role === "customer"}
+        >
+            <h2>Employee Cart</h2>
             <div
                 ref={currentUser.role !== "customer" ? drop : undefined}
                 className="Cart"

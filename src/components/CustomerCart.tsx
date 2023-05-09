@@ -103,8 +103,8 @@ export function CustomerCart({
         <div style={{ paddingTop: "15px" }}>
             <h2>
                 {currentUser.role === "customer"
-                    ? currentUser.name
-                    : "No One" + "'s"}{" "}
+                    ? currentUser.name + "'s"
+                    : "No one" + "'s"}{" "}
                 Cart
             </h2>
             <div
