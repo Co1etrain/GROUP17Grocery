@@ -1,9 +1,14 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
+import { HashRouter } from "react-router-dom";
 
-test("renders the course name somewhere", () => {
-    render(<App />);
+test("Contains two routes", () => {
+    render(
+        <HashRouter>
+            <App />
+        </HashRouter>
+    );
     const linkElement = screen.getByText(/CISC275/i);
     expect(linkElement).toBeInTheDocument();
 });
