@@ -132,7 +132,7 @@ export function Navbar({
                                             <br />
                                         </p>
                                         <Button
-                                            onClick={() =>
+                                            onClick={() => {
                                                 appendNewFood(
                                                     request.name,
                                                     request.description,
@@ -141,8 +141,9 @@ export function Navbar({
                                                     request.calories,
                                                     request.ingredients,
                                                     request.category
-                                                )
-                                            }
+                                                );
+                                                handleDenyRequest(index);
+                                            }}
                                             hidden={
                                                 currentUser.role !== "owner"
                                             }
