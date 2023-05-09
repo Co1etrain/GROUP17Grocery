@@ -13,6 +13,7 @@ import { RequestForm } from "../components/RequestForm";
 import { Request } from "../interfaces/request";
 import { UserSelect } from "../components/UserSelect";
 import { NewUserForm } from "../components/NewUserForm";
+import { DeleteUserModal } from "../components/DeleteUserModal";
 
 function Store(): JSX.Element {
     const [userList, setUserList] = useState<User[]>([
@@ -94,6 +95,11 @@ function Store(): JSX.Element {
                             setCustomerList={setCustomerList}
                             setUserList={setUserList}
                         ></NewUserForm>
+                        <DeleteUserModal
+                            currentUser={currentUser}
+                            userList={userList}
+                            setUserList={setUserList}
+                        ></DeleteUserModal>
                     </Col>
                 </Row>
                 <Row>

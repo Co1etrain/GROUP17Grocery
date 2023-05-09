@@ -19,7 +19,7 @@ export function NewUserForm({
     setUserList
 }: NewUserFormProps) {
     const [newName, setNewName] = useState<string>("");
-    const [newRole, setNewRole] = useState<string>("");
+    const [newRole, setNewRole] = useState<string>("employee");
     const [showForm, setShowForm] = useState<boolean>(false);
 
     function addNewUser() {
