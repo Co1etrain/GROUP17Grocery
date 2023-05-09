@@ -9,12 +9,15 @@ import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
 import { AddFoodForm } from "../components/AddFoodForm";
+import { RequestForm } from "../components/RequestForm";
+import { Request } from "../interfaces/request";
 
 function Store(): JSX.Element {
     const [currentUser, setUser] = useState<Users["person"]>("owner");
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
     const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
+    const [requestList, setRequestList] = useState<Request[]>([]);
 
     const handleCentralListUpdate = (updatedFood: Food) => {
         setCentralList((prevList) =>
@@ -38,6 +41,10 @@ function Store(): JSX.Element {
                 setSelectedCustomer={setSelectedCustomer}
                 selectedCustomer={selectedCustomer}
                 setCustomerList={setCustomerList}
+                RequestList={requestList}
+                setRequestList={setRequestList}
+                centralList={centralList}
+                setCentralList={setCentralList}
             ></Navbar>
             <div className="App">
                 <Row>
@@ -71,6 +78,11 @@ function Store(): JSX.Element {
                             setCentralList={setCentralList}
                             currentUser={currentUser}
                         ></AddFoodForm>
+                        <RequestForm
+                            requestList={requestList}
+                            setRequestList={setRequestList}
+                            currentUser={currentUser}
+                        ></RequestForm>
                         <DeleteFoodButton
                             centralList={centralList}
                             customerList={customerList}

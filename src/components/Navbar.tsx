@@ -1,5 +1,11 @@
 import React from "react";
-import { Button, Container, Nav, Navbar as NavbarBS } from "react-bootstrap";
+import {
+    Button,
+    Container,
+    Nav,
+    Navbar as NavbarBS,
+    OffcanvasBody
+} from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { CustomersRecord, Users } from "../interfaces/record";
@@ -8,6 +14,7 @@ import { Link } from "react-router-dom";
 import { Food } from "../interfaces/food";
 import { TextField } from "./CustomerInputBox";
 import { DisplayCustomerNames } from "./CustomersForm";
+import { Request } from "../interfaces/request";
 
 interface NavProps {
     updateUser: (userType: Users["person"]) => void;
@@ -17,6 +24,10 @@ interface NavProps {
     setSelectedCustomer: (customerName: string) => void;
     selectedCustomer: string;
     setCustomerList: (newList: Food[]) => void;
+    RequestList: Request[];
+    setRequestList: (newList: Request[]) => void;
+    centralList: Food[];
+    setCentralList: (newList: Food[]) => void;
 }
 
 export function Navbar({
@@ -26,10 +37,48 @@ export function Navbar({
     currentRecord,
     setSelectedCustomer,
     selectedCustomer,
-    setCustomerList
+    setCustomerList,
+    RequestList,
+    setRequestList,
+    centralList,
+    setCentralList
 }: NavProps) {
     const [cart, setCart] = useState<boolean>(false);
+    const [id, setId] = useState<number>(centralList.length + 1);
+    function appendNewFood(
+        name: string,
+        description: string,
+        image: string,
+        price: number,
+        calories: number,
+        ingredients: string[],
+        category: string
+    ) {
+        const newCentralList = centralList.map((food: Food) => ({
+            ...food,
+            Ingredients: [...food.ingredients]
+        }));
 
+        setId(id + 1);
+
+        const newFood: Food = {
+            id: id,
+            name: name,
+            description: description,
+            image: image,
+            price: price,
+            calories: calories,
+            ingredients: ingredients,
+            category: category
+        };
+
+        setCentralList([...newCentralList, newFood]);
+    }
+    function handleDenyRequest(index: number) {
+        const newRequestList = [...RequestList];
+        newRequestList.splice(index, 1);
+        setRequestList(newRequestList);
+    }
     return (
         <NavbarBS sticky="top" className="bg-white shadow-sm mb-0 p-3">
             <Container>
@@ -82,7 +131,7 @@ export function Navbar({
                             transform: "translate(25%, 25%)"
                         }}
                     >
-                        0
+                        {RequestList.length}
                     </div>
                 </Button>
                 <Offcanvas show={cart} placement="end">
@@ -92,6 +141,53 @@ export function Navbar({
                     >
                         <Offcanvas.Title>Employee Requests</Offcanvas.Title>
                     </Offcanvas.Header>
+                    <OffcanvasBody>
+                        <ul>
+                            {RequestList.map((request, index) => (
+                                <li key={index}>
+                                    <div>
+                                        <p>
+                                            <strong>{request.name}</strong>
+                                            <br />
+                                            {request.description}
+                                            <br />
+                                            {request.calories} Calories per
+                                            serving
+                                            <br />
+                                            Ingredients: {request.ingredients}
+                                            <br />
+                                            {request.category}
+                                            <br />
+                                        </p>
+                                        <Button
+                                            onClick={() =>
+                                                appendNewFood(
+                                                    request.name,
+                                                    request.description,
+                                                    request.image,
+                                                    request.price,
+                                                    request.calories,
+                                                    request.ingredients,
+                                                    request.category
+                                                )
+                                            }
+                                            hidden={currentUser !== "owner"}
+                                        >
+                                            APPROVE
+                                        </Button>
+                                        <Button
+                                            onClick={() =>
+                                                handleDenyRequest(index)
+                                            }
+                                            hidden={currentUser !== "owner"}
+                                        >
+                                            DENY
+                                        </Button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </OffcanvasBody>
                 </Offcanvas>
             </Container>
         </NavbarBS>
