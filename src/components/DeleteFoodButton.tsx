@@ -83,7 +83,7 @@ export function DeleteFoodButton({
             <img
                 ref={drop}
                 src={isOver ? trashOpen : trashClosed}
-                style={{ height: "250px" }}
+                style={{ maxHeight: "250px" }}
             ></img>
         </div>
     );
