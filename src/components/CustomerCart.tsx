@@ -48,11 +48,16 @@ export function CustomerCart({
         );
     }
 
+    /*
+    Closure which handles receiving a dropped food item and inserting it into the respective user's
+    food list
+    */
     function addFoodToCart(id: number) {
         const droppedFood: Food | undefined = centralList.find(
             (food: Food) => food.id === id
         );
         if (droppedFood) {
+            // Deep copy of current customer list, plus new dropped food item with unique ID
             const newCustomerList: Food[] = [
                 ...customerList.map((food: Food) => ({
                     ...food,
@@ -61,7 +66,7 @@ export function CustomerCart({
                 { ...droppedFood, id: foodId }
             ];
             setFoodId(foodId + 1);
-
+            // Closure from Store.tsx passed in as props
             updateUserList(newCustomerList);
 
             setTotalPrice(totalPrice + droppedFood.price);
@@ -103,6 +108,7 @@ export function CustomerCart({
                 Cart
             </h2>
             <div
+                // If the user is not a customer, then the cart is not droppable
                 ref={currentUser.role === "customer" ? drop : undefined}
                 className="Cart"
                 style={{

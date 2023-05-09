@@ -25,6 +25,10 @@ function Store(): JSX.Element {
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
     const [foodId, setFoodId] = useState<number>(FOOD_LIST.length + 1);
 
+    /*
+    Closure which handles updating the central list according to edits made to food objects
+    within the employee list.
+    */
     const handleCentralListUpdate = (updatedFood: Food) => {
         setCentralList((prevList) =>
             prevList.map((food) =>
@@ -33,6 +37,10 @@ function Store(): JSX.Element {
         );
     };
 
+    /*
+    Closure which handles deep copying the user list and updating the specific user's list
+    which has been modified in some capacity (passed in as parameter).
+    */
     function updateUserList(newFoodList: Food[]) {
         const updatedUserList = userList.map((user: User) => ({
             ...user,
@@ -42,6 +50,7 @@ function Store(): JSX.Element {
             }))
         }));
         setCustomerList(newFoodList);
+        // Insert updated user object into deep copy of user list
         updatedUserList.splice(
             userList.findIndex((user: User) => user.name === currentUser.name),
             1,
@@ -50,6 +59,7 @@ function Store(): JSX.Element {
         setUserList(updatedUserList);
     }
 
+    // Render all components
     return (
         <div>
             <Navbar></Navbar>

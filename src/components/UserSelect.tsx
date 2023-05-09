@@ -37,7 +37,7 @@ export function UserSelect({
                             <option key={user.name} value={user.name}>
                                 {"Name: " +
                                     user.name +
-                                    " " +
+                                    " | " +
                                     "Role: " +
                                     user.role}
                             </option>
