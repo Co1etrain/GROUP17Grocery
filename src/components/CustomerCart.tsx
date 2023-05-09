@@ -100,7 +100,10 @@ export function CustomerCart({
         });
 
     return (
-        <div style={{ paddingTop: "15px" }}>
+        <div
+            style={{ paddingTop: "15px" }}
+            hidden={currentUser.role !== "customer"}
+        >
             <h2>
                 {currentUser.role === "customer"
                     ? currentUser.name + "'s"

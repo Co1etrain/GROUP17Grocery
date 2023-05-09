@@ -91,7 +91,11 @@ a {
     margin: 5px;
     display: flex;
     float: left;
-    background-color: pink;
+    background-color: rgb(192, 215, 255);
+}
+
+.Food-Button:hover {
+    transform: scale(1.1);
 }
 
 .Food-Desc {

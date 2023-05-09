@@ -94,15 +94,6 @@ function Store(): JSX.Element {
                             foodId={foodId}
                             setFoodId={setFoodId}
                         ></CustomerCart>
-                    </Col>
-                    <Col>
-                        <CentralList
-                            centralList={centralList}
-                            onFoodUpdate={handleCentralListUpdate}
-                            currentUser={currentUser}
-                        ></CentralList>
-                    </Col>
-                    <Col>
                         <EmployeeCart
                             centralList={centralList}
                             onCentralListUpdate={handleCentralListUpdate}
@@ -128,6 +119,13 @@ function Store(): JSX.Element {
                             setUserList={setUserList}
                             updateUserList={updateUserList}
                         ></DeleteFoodButton>
+                    </Col>
+                    <Col>
+                        <CentralList
+                            centralList={centralList}
+                            onFoodUpdate={handleCentralListUpdate}
+                            currentUser={currentUser}
+                        ></CentralList>
                     </Col>
                 </Row>
                 <div className="Footer">
