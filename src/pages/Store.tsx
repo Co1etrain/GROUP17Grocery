@@ -9,6 +9,8 @@ import { Food, FOOD_LIST } from "../interfaces/food";
 import { DeleteFoodButton } from "../components/DeleteFoodButton";
 import { Row, Col } from "react-bootstrap";
 import { AddFoodForm } from "../components/AddFoodForm";
+import { RequestForm } from "../components/RequestForm";
+import { Request } from "../interfaces/request";
 import { UserSelect } from "../components/UserSelect";
 import { NewUserForm } from "../components/NewUserForm";
 
@@ -23,6 +25,7 @@ function Store(): JSX.Element {
     const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
     const [customerList, setCustomerList] = useState<Food[]>([]);
     const [employeeList, setEmployeeList] = useState<Food[]>([]);
+    const [requestList, setRequestList] = useState<Request[]>([]);
     const [foodId, setFoodId] = useState<number>(FOOD_LIST.length + 1);
 
     /*
@@ -63,7 +66,20 @@ function Store(): JSX.Element {
     // Render all components
     return (
         <div>
-            <Navbar></Navbar>
+            <Navbar
+                currentUser={currentUser}
+                setCustomerList={setCustomerList}
+                RequestList={requestList}
+                setRequestList={setRequestList}
+                centralList={centralList}
+                setCentralList={setCentralList}
+                foodId={foodId}
+                setFoodId={setFoodId}
+                setSelectedCustomer={function (customerName: string): void {
+                    throw new Error("Function not implemented.");
+                }}
+                selectedCustomer={""}
+            ></Navbar>
             <div className="App">
                 <Row>
                     <Col>
@@ -108,6 +124,11 @@ function Store(): JSX.Element {
                             foodId={foodId}
                             setFoodId={setFoodId}
                         ></AddFoodForm>
+                        <RequestForm
+                            requestList={requestList}
+                            setRequestList={setRequestList}
+                            currentUser={currentUser}
+                        ></RequestForm>
                         <DeleteFoodButton
                             centralList={centralList}
                             customerList={customerList}

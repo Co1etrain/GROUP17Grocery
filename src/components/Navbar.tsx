@@ -1,12 +1,75 @@
 import React from "react";
-import { Button, Container, Nav, Navbar as NavbarBS } from "react-bootstrap";
+import {
+    Button,
+    Container,
+    Nav,
+    Navbar as NavbarBS,
+    OffcanvasBody
+} from "react-bootstrap";
 import { useState } from "react";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Request } from "../interfaces/request";
+import { Food } from "../interfaces/food";
+import { User } from "../interfaces/user";
 
-export function Navbar() {
+interface NavProps {
+    currentUser: User;
+    setSelectedCustomer: (customerName: string) => void;
+    selectedCustomer: string;
+    setCustomerList: (newList: Food[]) => void;
+    RequestList: Request[];
+    setRequestList: (newList: Request[]) => void;
+    centralList: Food[];
+    setCentralList: (newList: Food[]) => void;
+    foodId: number;
+    setFoodId: (newId: number) => void;
+}
+
+export function Navbar({
+    currentUser,
+    RequestList,
+    setRequestList,
+    centralList,
+    setCentralList,
+    foodId,
+    setFoodId
+}: NavProps) {
     const [cart, setCart] = useState<boolean>(false);
+    function appendNewFood(
+        name: string,
+        description: string,
+        image: string,
+        price: number,
+        calories: number,
+        ingredients: string[],
+        category: string
+    ) {
+        const newCentralList = centralList.map((food: Food) => ({
+            ...food,
+            Ingredients: [...food.ingredients]
+        }));
 
+        setFoodId(foodId + 1);
+
+        const newFood: Food = {
+            id: foodId,
+            name: name,
+            description: description,
+            image: image,
+            price: price,
+            calories: calories,
+            ingredients: ingredients,
+            category: category
+        };
+
+        setCentralList([...newCentralList, newFood]);
+    }
+    function handleDenyRequest(index: number) {
+        const newRequestList = [...RequestList];
+        newRequestList.splice(index, 1);
+        setRequestList(newRequestList);
+    }
     return (
         <NavbarBS sticky="top" className="bg-white shadow-sm mb-0 p-3">
             <Container>
@@ -25,7 +88,7 @@ export function Navbar() {
                     }}
                     variant="outline-primary"
                     className="rounded-square"
-                    disabled={true}
+                    disabled={currentUser.role !== "owner"}
                 >
                     <span>Requests</span>
                     <div
@@ -40,7 +103,7 @@ export function Navbar() {
                             transform: "translate(25%, 25%)"
                         }}
                     >
-                        0
+                        {RequestList.length}
                     </div>
                 </Button>
                 <Offcanvas show={cart} placement="end">
@@ -50,8 +113,63 @@ export function Navbar() {
                     >
                         <Offcanvas.Title>Employee Requests</Offcanvas.Title>
                     </Offcanvas.Header>
+                    <OffcanvasBody>
+                        <ul>
+                            {RequestList.map((request, index) => (
+                                <li key={index}>
+                                    <div>
+                                        <p>
+                                            <strong>{request.name}</strong>
+                                            <br />
+                                            {request.description}
+                                            <br />
+                                            {request.calories} Calories per
+                                            serving
+                                            <br />
+                                            Ingredients: {request.ingredients}
+                                            <br />
+                                            {request.category}
+                                            <br />
+                                        </p>
+                                        <Button
+                                            onClick={() => {
+                                                appendNewFood(
+                                                    request.name,
+                                                    request.description,
+                                                    request.image,
+                                                    request.price,
+                                                    request.calories,
+                                                    request.ingredients,
+                                                    request.category
+                                                );
+                                                handleDenyRequest(index);
+                                            }}
+                                            hidden={
+                                                currentUser.role !== "owner"
+                                            }
+                                        >
+                                            APPROVE
+                                        </Button>
+                                        <Button
+                                            onClick={() =>
+                                                handleDenyRequest(index)
+                                            }
+                                            hidden={
+                                                currentUser.role !== "owner"
+                                            }
+                                        >
+                                            DENY
+                                        </Button>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                    </OffcanvasBody>
                 </Offcanvas>
             </Container>
         </NavbarBS>
     );
+}
+function setFoodId(arg0: number) {
+    throw new Error("Function not implemented.");
 }
