@@ -15,8 +15,6 @@ import { User } from "../interfaces/user";
 
 interface NavProps {
     currentUser: User;
-    setSelectedCustomer: (customerName: string) => void;
-    selectedCustomer: string;
     setCustomerList: (newList: Food[]) => void;
     RequestList: Request[];
     setRequestList: (newList: Request[]) => void;
@@ -115,61 +113,61 @@ export function Navbar({
                     </Offcanvas.Header>
                     <OffcanvasBody>
                         <ul>
-                            {RequestList.map((request, index) => (
-                                <li key={index}>
-                                    <div>
-                                        <p>
-                                            <strong>{request.name}</strong>
-                                            <br />
-                                            {request.description}
-                                            <br />
-                                            {request.calories} Calories per
-                                            serving
-                                            <br />
-                                            Ingredients: {request.ingredients}
-                                            <br />
-                                            {request.category}
-                                            <br />
-                                        </p>
-                                        <Button
-                                            onClick={() => {
-                                                appendNewFood(
-                                                    request.name,
-                                                    request.description,
-                                                    request.image,
-                                                    request.price,
-                                                    request.calories,
-                                                    request.ingredients,
-                                                    request.category
-                                                );
-                                                handleDenyRequest(index);
-                                            }}
-                                            hidden={
-                                                currentUser.role !== "owner"
-                                            }
-                                        >
-                                            APPROVE
-                                        </Button>
-                                        <Button
-                                            onClick={() =>
-                                                handleDenyRequest(index)
-                                            }
-                                            hidden={
-                                                currentUser.role !== "owner"
-                                            }
-                                        >
-                                            DENY
-                                        </Button>
-                                    </div>
-                                </li>
-                            ))}
+                            {RequestList.map((request, index) => {
+                                return (
+                                    <li key={index}>
+                                        <div>
+                                            <p>
+                                                <strong>{request.name}</strong>
+                                                <br />
+                                                {request.description}
+                                                <br />
+                                                {request.calories} Calories per
+                                                serving
+                                                <br />
+                                                Ingredients:{" "}
+                                                {request.ingredients}
+                                                <br />
+                                                {request.category}
+                                                <br />
+                                            </p>
+                                            <Button
+                                                onClick={() => {
+                                                    appendNewFood(
+                                                        request.name,
+                                                        request.description,
+                                                        request.image,
+                                                        request.price,
+                                                        request.calories,
+                                                        request.ingredients,
+                                                        request.category
+                                                    );
+                                                    handleDenyRequest(index);
+                                                }}
+                                                hidden={
+                                                    currentUser.role !== "owner"
+                                                }
+                                            >
+                                                APPROVE
+                                            </Button>
+                                            <Button
+                                                onClick={() =>
+                                                    handleDenyRequest(index)
+                                                }
+                                                hidden={
+                                                    currentUser.role !== "owner"
+                                                }
+                                            >
+                                                DENY
+                                            </Button>
+                                        </div>
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </OffcanvasBody>
                 </Offcanvas>
             </Container>
         </NavbarBS>
     );
-}
-function setFoodId(arg0: number) {
-    throw new Error("Function not implemented.");
 }
