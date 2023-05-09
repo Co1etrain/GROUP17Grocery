@@ -6,173 +6,111 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 PASS src/Testing/CentralList.test.tsx
-PASS src/Testing/store.test.tsx
-FAIL src/App.test.tsx
+FAIL src/CustomerCart.test.tsx
   ● Console
 
-    console.error
-      Error: Uncaught [Error: useRoutes() may be used only in the context of a <Router> component.]
-          at reportException (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:66:24)
-          at innerInvokeEventListeners (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-          at invokeEventListeners (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.invokeGuardedCallbackDev (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22779:12) Error: useRoutes() may be used only in the context of a <Router> component.
-          at Object.invariant [as UNSAFE_invariant] (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@remix-run/router/history.ts:480:11)
-          at useRoutesImpl (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-router/lib/hooks.tsx:339:3)
-          at useRoutes (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-router/lib/hooks.tsx:330:10)
-          at Routes (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-router/lib/components.tsx:403:10)
-          at renderWithHooks (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-          at mountIndeterminateComponent (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-          at beginWork (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-          at HTMLUnknownElement.callCallback (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-          at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-          at innerInvokeEventListeners (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-          at invokeEventListeners (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-          at HTMLUnknownElementImpl._dispatch (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-          at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-          at HTMLUnknownElement.dispatchEvent (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-          at Object.invokeGuardedCallbackDev (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-          at invokeGuardedCallback (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-          at beginWork$1 (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-          at performUnitOfWork (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-          at workLoopSync (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-          at renderRootSync (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-          at performSyncWorkOnRoot (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-          at scheduleUpdateOnFiber (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-          at updateContainer (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-          at /home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:26021:7
-          at unbatchedUpdates (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-          at legacyRenderSubtreeIntoContainer (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-          at Object.render (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-          at /home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@testing-library/react/dist/pure.js:101:25
-          at batchedUpdates$1 (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-          at act (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-          at render (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@testing-library/react/dist/pure.js:97:26)
-          at Object.<anonymous> (/home/runner/work/GROUP17Grocery/GROUP17Grocery/src/App.test.tsx:6:5)
-          at Promise.then.completed (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/utils.js:391:28)
-          at new Promise (<anonymous>)
-          at callAsyncCircusFn (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/utils.js:316:10)
-          at _callCircusTest (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/run.js:218:40)
-          at _runTest (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/run.js:155:3)
-          at _runTestsForDescribeBlock (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/run.js:66:9)
-          at run (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/run.js:25:3)
-          at runAndTransformResultsToJestFormat (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit.js:170:21)
-          at jestAdapter (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-circus/build/legacy-code-todo-rewrite/jestAdapter.js:82:19)
-          at runTestInternal (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-runner/build/runTest.js:389:16)
-          at runTest (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-runner/build/runTest.js:475:34)
-          at TestRunner.runTests (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-runner/build/index.js:111:12)
-          at TestScheduler.scheduleTests (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@jest/core/build/TestScheduler.js:333:13)
-          at runJest (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@jest/core/build/runJest.js:404:19)
-          at _run10000 (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@jest/core/build/cli/index.js:320:7)
-          at runCLI (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/@jest/core/build/cli/index.js:173:3)
-          at Object.run (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/jest-cli/build/cli/index.js:155:37)
+    console.log
+      []
 
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at reportException (node_modules/jsdom/lib/jsdom/living/helpers/runtime-script-errors.js:70:28)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:341:9)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
+      at Object.<anonymous> (src/CustomerCart.test.tsx:112:17)
 
-    console.error
-      The above error occurred in the <Routes> component:
-      
-          at Routes (/home/runner/work/GROUP17Grocery/GROUP17Grocery/node_modules/react-router/lib/components.tsx:400:3)
-          at App
-      
-      Consider adding an error boundary to your tree to customize error handling behavior.
-      Visit https://reactjs.org/link/error-boundaries to learn more about error boundaries.
+  ● CustomerCart Component tests › The cart has one item and price is updated to match
 
-      at logCapturedError (node_modules/react-dom/cjs/react-dom.development.js:20085:23)
-      at update.callback (node_modules/react-dom/cjs/react-dom.development.js:20118:5)
-      at callCallback (node_modules/react-dom/cjs/react-dom.development.js:12318:12)
-      at commitUpdateQueue (node_modules/react-dom/cjs/react-dom.development.js:12339:9)
-      at commitLifeCycles (node_modules/react-dom/cjs/react-dom.development.js:20736:11)
-      at commitLayoutEffects (node_modules/react-dom/cjs/react-dom.development.js:23426:7)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+    expect(received).toHaveLength(expected)
 
-  ● renders the course name somewhere
+    Expected length: 1
+    Received length: 0
+    Received array:  []
 
-    useRoutes() may be used only in the context of a <Router> component.
+      112 |         console.log(mockCustomerList);
+      113 |         const currentCart = screen.queryAllByRole("listitem");
+    > 114 |         expect(currentCart).toHaveLength(1);
+          |                             ^
+      115 |         expect(
+      116 |             screen.getByText(
+      117 |                 "Total price: " + mockCustomerList[0].price.toFixed(2)
 
-      4 |
-      5 | test("renders the course name somewhere", () => {
-    > 6 |     render(<App />);
-        |     ^
-      7 |     const linkElement = screen.getByText(/CISC275/i);
-      8 |     expect(linkElement).toBeInTheDocument();
-      9 | });
+      at Object.<anonymous> (src/CustomerCart.test.tsx:114:29)
 
-      at Object.invariant [as UNSAFE_invariant] (node_modules/@remix-run/router/history.ts:480:11)
-      at useRoutesImpl (node_modules/react-router/lib/hooks.tsx:339:3)
-      at useRoutes (node_modules/react-router/lib/hooks.tsx:330:10)
-      at Routes (node_modules/react-router/lib/components.tsx:403:10)
-      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
-      at mountIndeterminateComponent (node_modules/react-dom/cjs/react-dom.development.js:17811:13)
-      at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19049:16)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-      at innerInvokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-      at invokeEventListeners (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-      at HTMLUnknownElementImpl._dispatch (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-      at HTMLUnknownElementImpl.dispatchEvent (node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-      at HTMLUnknownElement.dispatchEvent (node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34)
-      at Object.invokeGuardedCallbackDev (node_modules/react-dom/cjs/react-dom.development.js:3994:16)
-      at invokeGuardedCallback (node_modules/react-dom/cjs/react-dom.development.js:4056:31)
-      at beginWork$1 (node_modules/react-dom/cjs/react-dom.development.js:23964:7)
-      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22779:12)
-      at workLoopSync (node_modules/react-dom/cjs/react-dom.development.js:22707:5)
-      at renderRootSync (node_modules/react-dom/cjs/react-dom.development.js:22670:7)
-      at performSyncWorkOnRoot (node_modules/react-dom/cjs/react-dom.development.js:22293:18)
-      at scheduleUpdateOnFiber (node_modules/react-dom/cjs/react-dom.development.js:21881:7)
-      at updateContainer (node_modules/react-dom/cjs/react-dom.development.js:25482:3)
-      at node_modules/react-dom/cjs/react-dom.development.js:26021:7
-      at unbatchedUpdates (node_modules/react-dom/cjs/react-dom.development.js:22431:12)
-      at legacyRenderSubtreeIntoContainer (node_modules/react-dom/cjs/react-dom.development.js:26020:5)
-      at Object.render (node_modules/react-dom/cjs/react-dom.development.js:26103:10)
-      at node_modules/@testing-library/react/dist/pure.js:101:25
-      at batchedUpdates$1 (node_modules/react-dom/cjs/react-dom.development.js:22380:12)
-      at act (node_modules/react-dom/cjs/react-dom-test-utils.development.js:1042:14)
-      at render (node_modules/@testing-library/react/dist/pure.js:97:26)
-      at Object.<anonymous> (src/App.test.tsx:6:5)
+PASS src/Testing/store.test.tsx
+FAIL src/App.test.tsx
+  ● Contains two routes
+
+    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, <script />, <style />
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div>[39m
+          [36m<div>[39m
+            [36m<header[39m
+              [33mclass[39m=[32m"Intro-header"[39m
+            [36m>[39m
+              [36m<strong>[39m
+                [0mWelcome to the BEST grocery store on the planet[0m
+              [36m</strong>[39m
+              [36m<a[39m
+                [33mhref[39m=[32m"#/store"[39m
+              [36m>[39m
+                [36m<span[39m
+                  [33mclass[39m=[32m"scroll-down"[39m
+                  [33mstyle[39m=[32m"border: 10px solid black;"[39m
+                [36m>[39m
+                  [0mSHOP NOW[0m
+                [36m</span>[39m
+              [36m</a>[39m
+            [36m</header>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+    [36m</body>[39m
+
+      10 |         </HashRouter>
+      11 |     );
+    > 12 |     const linkElement = screen.getByText(/CISC275/i);
+         |                                ^
+      13 |     expect(linkElement).toBeInTheDocument();
+      14 | });
+      15 |
+
+      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
+      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
+      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
+      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/App.test.tsx:12:32)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |    4.02 |        0 |    2.17 |    4.21 |                   
- src                   |     100 |      100 |     100 |     100 |                   
-  App.tsx              |     100 |      100 |     100 |     100 |                   
- src/components        |    3.37 |        0 |    1.21 |    3.52 |                   
-  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 31-165            
-  CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 23,29,33-42,80    
-  CustomerCart.tsx     |       0 |        0 |       0 |       0 | 26-122            
-  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 33-81             
-  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-68             
-  FoodItem.tsx         |       0 |        0 |       0 |       0 | 22-128            
-  IntroHeader.tsx      |       0 |      100 |       0 |       0 | 6                 
-  Navbar.tsx           |       0 |      100 |       0 |       0 | 8-49              
-  NewUserForm.tsx      |       0 |        0 |       0 |       0 | 21-96             
-  UserSelect.tsx       |       0 |        0 |       0 |       0 | 20-36             
- src/interfaces        |     100 |      100 |     100 |     100 |                   
-  food.ts              |     100 |      100 |     100 |     100 |                   
-  user.ts              |       0 |        0 |       0 |       0 |                   
- src/pages             |       0 |        0 |       0 |       0 |                   
-  Landing.tsx          |       0 |      100 |       0 |       0 | 5                 
-  Store.tsx            |       0 |        0 |       0 |       0 | 16-64             
------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 3 passed, 4 total
+-----------------------|---------|----------|---------|---------|----------------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
+-----------------------|---------|----------|---------|---------|----------------------------
+All files              |   16.59 |    14.28 |   11.81 |   16.96 |                            
+ src                   |     100 |      100 |     100 |     100 |                            
+  App.tsx              |     100 |      100 |     100 |     100 |                            
+ src/components        |    16.9 |    14.75 |      11 |   17.24 |                            
+  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 31-165                     
+  CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 23,29,33-42,80             
+  CustomerCart.tsx     |   37.83 |    27.77 |   35.71 |   36.11 | 29,39-40,46-74,78,84,91-98 
+  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 33-81                      
+  EmployeeCart.tsx     |       0 |        0 |       0 |       0 | 23-68                      
+  FoodItem.tsx         |   53.57 |    36.36 |   36.36 |   55.55 | 37-52,57-90,119,128        
+  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                            
+  Navbar.tsx           |       0 |      100 |       0 |       0 | 36-155                     
+  NewUserForm.tsx      |       0 |        0 |       0 |       0 | 21-96                      
+  RequestForm.tsx      |       0 |      100 |       0 |       0 | 27-157                     
+  UserSelect.tsx       |       0 |        0 |       0 |       0 | 20-36                      
+ src/interfaces        |     100 |      100 |     100 |     100 |                            
+  food.ts              |     100 |      100 |     100 |     100 |                            
+  request.ts           |       0 |        0 |       0 |       0 |                            
+  user.ts              |       0 |        0 |       0 |       0 |                            
+ src/pages             |       5 |        0 |   11.11 |    5.26 |                            
+  Landing.tsx          |     100 |      100 |     100 |     100 |                            
+  Store.tsx            |       0 |        0 |       0 |       0 | 18-67                      
+-----------------------|---------|----------|---------|---------|----------------------------
+Test Suites: 2 failed, 2 passed, 4 total
+Tests:       2 failed, 5 passed, 7 total
 Snapshots:   0 total
-Time:        3.814 s
+Time:        6.545 s
 Ran all test suites.
