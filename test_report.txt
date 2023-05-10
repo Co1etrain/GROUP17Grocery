@@ -5,115 +5,42 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
+PASS src/Testing/CustomerCart.test.tsx
 PASS src/Testing/EmployeeCart.test.tsx
 PASS src/Testing/CentralList.test.tsx
-FAIL src/CustomerCart.test.tsx
-  ● Console
-
-    console.log
-      []
-
-      at Object.<anonymous> (src/CustomerCart.test.tsx:112:17)
-
-  ● CustomerCart Component tests › The cart has one item and price is updated to match
-
-    expect(received).toHaveLength(expected)
-
-    Expected length: 1
-    Received length: 0
-    Received array:  []
-
-      112 |         console.log(mockCustomerList);
-      113 |         const currentCart = screen.queryAllByRole("listitem");
-    > 114 |         expect(currentCart).toHaveLength(1);
-          |                             ^
-      115 |         expect(
-      116 |             screen.getByText(
-      117 |                 "Total price: " + mockCustomerList[0].price.toFixed(2)
-
-      at Object.<anonymous> (src/CustomerCart.test.tsx:114:29)
-
 PASS src/Testing/FoodItem.test.tsx
+PASS src/Testing/App.test.tsx
 PASS src/Testing/store.test.tsx
-FAIL src/App.test.tsx
-  ● Contains two routes
+-----------------------|---------|----------|---------|---------|-------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------|---------|----------|---------|---------|-------------------
+All files              |    40.8 |    41.53 |   29.75 |   42.43 |                   
+ src                   |     100 |      100 |     100 |     100 |                   
+  App.tsx              |     100 |      100 |     100 |     100 |                   
+ src/components        |   39.47 |    42.85 |   29.72 |   41.01 |                   
+  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-165      
+  CentralList.tsx      |   58.82 |       25 |   66.66 |   58.82 | 23,29,37-42       
+  CustomerCart.tsx     |   70.27 |    77.77 |   71.42 |   69.44 | 29,56-74,98       
+  DeleteFoodButton.tsx |      12 |     12.5 |   16.66 |   13.04 | 35,42-77          
+  DeleteUserModal.tsx  |   26.66 |        0 |   27.27 |   28.57 | 20-37,44,75-89    
+  EmployeeCart.tsx     |   26.66 |     37.5 |      30 |   30.76 | 25,32-51          
+  FoodItem.tsx         |   57.14 |    63.63 |   36.36 |   59.25 | 37-52,57-90,128   
+  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                   
+  Navbar.tsx           |    12.5 |      100 |   11.11 |   13.33 | 46-69,81-155      
+  NewUserForm.tsx      |      20 |        0 |   11.11 |   21.05 | 26-57,64-96       
+  RequestForm.tsx      |   39.13 |      100 |    8.33 |    40.9 | 37-55,62-157      
+  UserSelect.tsx       |   28.57 |        0 |      50 |   28.57 | 20-26             
+ src/interfaces        |     100 |      100 |     100 |     100 |                   
+  food.ts              |     100 |      100 |     100 |     100 |                   
+  request.ts           |       0 |        0 |       0 |       0 |                   
+  user.ts              |       0 |        0 |       0 |       0 |                   
+ src/pages             |      50 |        0 |   22.22 |   52.63 |                   
+  Landing.tsx          |     100 |      100 |     100 |     100 |                   
+  Store.tsx            |   47.36 |        0 |    12.5 |      50 | 37-64             
+-----------------------|---------|----------|---------|---------|-------------------
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div>[39m
-          [36m<div>[39m
-            [36m<header[39m
-              [33mclass[39m=[32m"Intro-header"[39m
-            [36m>[39m
-              [36m<strong>[39m
-                [0mWelcome to the BEST grocery store on the planet[0m
-              [36m</strong>[39m
-              [36m<a[39m
-                [33mhref[39m=[32m"#/store"[39m
-              [36m>[39m
-                [36m<span[39m
-                  [33mclass[39m=[32m"scroll-down"[39m
-                  [33mstyle[39m=[32m"border: 10px solid black;"[39m
-                [36m>[39m
-                  [0mSHOP NOW[0m
-                [36m</span>[39m
-              [36m</a>[39m
-            [36m</header>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
-
-      10 |         </HashRouter>
-      11 |     );
-    > 12 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-      13 |     expect(linkElement).toBeInTheDocument();
-      14 | });
-      15 |
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:12:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
-
------------------------|---------|----------|---------|---------|----------------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s          
------------------------|---------|----------|---------|---------|----------------------------
-All files              |    17.6 |    23.07 |   13.22 |   18.06 |                            
- src                   |     100 |      100 |     100 |     100 |                            
-  App.tsx              |     100 |      100 |     100 |     100 |                            
- src/components        |   17.98 |     23.8 |   12.61 |   18.43 |                            
-  AddFoodForm.tsx      |       0 |      100 |       0 |       0 | 31-165                     
-  CentralList.tsx      |   35.29 |        0 |   16.66 |   35.29 | 23,29,33-42,80             
-  CustomerCart.tsx     |   37.83 |    27.77 |   35.71 |   36.11 | 29,39-40,46-74,78,84,91-98 
-  DeleteFoodButton.tsx |       0 |        0 |       0 |       0 | 33-81                      
-  DeleteUserModal.tsx  |       0 |        0 |       0 |       0 | 17-89                      
-  EmployeeCart.tsx     |   26.66 |     37.5 |      30 |   30.76 | 25,32-51                   
-  FoodItem.tsx         |   57.14 |    63.63 |   36.36 |   59.25 | 37-52,57-90,128            
-  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                            
-  Navbar.tsx           |       0 |      100 |       0 |       0 | 36-155                     
-  NewUserForm.tsx      |       0 |        0 |       0 |       0 | 21-96                      
-  RequestForm.tsx      |       0 |      100 |       0 |       0 | 27-157                     
-  UserSelect.tsx       |       0 |        0 |       0 |       0 | 20-36                      
- src/interfaces        |     100 |      100 |     100 |     100 |                            
-  food.ts              |     100 |      100 |     100 |     100 |                            
-  request.ts           |       0 |        0 |       0 |       0 |                            
-  user.ts              |       0 |        0 |       0 |       0 |                            
- src/pages             |       5 |        0 |   11.11 |    5.26 |                            
-  Landing.tsx          |     100 |      100 |     100 |     100 |                            
-  Store.tsx            |       0 |        0 |       0 |       0 | 19-68                      
------------------------|---------|----------|---------|---------|----------------------------
-Test Suites: 2 failed, 4 passed, 6 total
-Tests:       2 failed, 15 passed, 17 total
+Test Suites: 6 passed, 6 total
+Tests:       24 passed, 24 total
 Snapshots:   0 total
-Time:        5.246 s
+Time:        7.807 s
 Ran all test suites.
