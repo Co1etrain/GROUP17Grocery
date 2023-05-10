@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import { CustomerCart } from "./components/CustomerCart";
-import { Food, FOOD_LIST } from "./interfaces/food";
-import { User } from "./interfaces/user";
+import { CustomerCart } from "../components/CustomerCart";
+import { Food, FOOD_LIST } from "../interfaces/food";
+import { User } from "../interfaces/user";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
