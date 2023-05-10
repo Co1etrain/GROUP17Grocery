@@ -33,6 +33,7 @@ FAIL src/CustomerCart.test.tsx
 
       at Object.<anonymous> (src/CustomerCart.test.tsx:114:29)
 
+PASS src/Testing/FoodItem.test.tsx
 PASS src/Testing/store.test.tsx
 FAIL src/App.test.tsx
   ● Contains two routes
@@ -111,8 +112,8 @@ All files              |    17.6 |    23.07 |   13.22 |   18.06 |
   Landing.tsx          |     100 |      100 |     100 |     100 |                            
   Store.tsx            |       0 |        0 |       0 |       0 | 19-68                      
 -----------------------|---------|----------|---------|---------|----------------------------
-Test Suites: 2 failed, 3 passed, 5 total
-Tests:       2 failed, 10 passed, 12 total
+Test Suites: 2 failed, 4 passed, 6 total
+Tests:       2 failed, 15 passed, 17 total
 Snapshots:   0 total
-Time:        5.356 s
+Time:        5.246 s
 Ran all test suites.
