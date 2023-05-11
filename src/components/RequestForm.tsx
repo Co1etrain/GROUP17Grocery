@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Food } from "../interfaces/food";
+import { Request } from "../interfaces/request";
 import {
     Modal,
     Button,
@@ -14,19 +14,15 @@ import {
 import { User } from "../interfaces/user";
 
 interface AddFoodProps {
-    centralList: Food[];
-    setCentralList: (newList: Food[]) => void;
+    requestList: Request[];
+    setRequestList: (newList: Request[]) => void;
     currentUser: User;
-    foodId: number;
-    setFoodId: (newId: number) => void;
 }
 
-export function AddFoodForm({
-    centralList,
-    setCentralList,
-    currentUser,
-    foodId,
-    setFoodId
+export function RequestForm({
+    requestList,
+    setRequestList,
+    currentUser
 }: AddFoodProps): JSX.Element {
     const [showForm, setShowForm] = useState<boolean>(false);
     const [name, setName] = useState<string>("");
@@ -37,14 +33,11 @@ export function AddFoodForm({
     const [category, setCategory] = useState<string>("");
     const [ingredients, setIngredients] = useState<string>("");
 
-    function appendNewFood() {
-        const newCentralList = centralList.map((food: Food) => ({
-            ...food,
-            Ingredients: [...food.ingredients]
+    function requestNewFood() {
+        const newRequestList = requestList.map((request: Request) => ({
+            ...request
         }));
-
-        const newFood: Food = {
-            id: foodId,
+        const newFood: Request = {
             name: name,
             description: description,
             image: image,
@@ -54,8 +47,7 @@ export function AddFoodForm({
             category: category
         };
 
-        setFoodId(foodId + 1);
-        setCentralList([...newCentralList, newFood]);
+        setRequestList([...newRequestList, newFood]);
         closeForm();
     }
 
@@ -64,13 +56,13 @@ export function AddFoodForm({
     }
 
     return (
-        <div hidden={currentUser.role !== "owner"}>
+        <div hidden={currentUser.role !== "employee"}>
             <Button
                 onClick={() => {
                     setShowForm(true);
                 }}
             >
-                Add Food
+                Request Food
             </Button>
 
             <Modal show={showForm} onHide={closeForm}>
@@ -176,8 +168,8 @@ export function AddFoodForm({
                     <Button variant="secondary" onClick={closeForm}>
                         Cancel
                     </Button>
-                    <Button variant="primary" onClick={appendNewFood}>
-                        Add
+                    <Button variant="primary" onClick={requestNewFood}>
+                        Request
                     </Button>
                 </Modal.Footer>
             </Modal>
