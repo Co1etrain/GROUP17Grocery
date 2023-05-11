@@ -61,7 +61,7 @@ export function CentralList({
                     </select>
                 </div>
                 <br></br>
-                <div>
+                <div id="filterFoodType">
                     <label>Filter by:</label>
                     <select value={filter} onChange={handleFilterChange}>
                         <option value="All">All</option>
