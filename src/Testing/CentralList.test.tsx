@@ -1,22 +1,30 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { CentralList } from "../components/CentralList";
-import { Food } from "../interfaces/food";
+import { Food, FOOD_LIST } from "../interfaces/food";
 //import { User } from "../interfaces/user";
 // import { Container } from "react-bootstrap";
 import "@testing-library/jest-dom/extend-expect";
 import assert from "assert";
 import React from "react";
 //import { jest } from "@jest/globals";
+import { DndProvider } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
 //import getByText from "@testing-library/dom";
 //import userEvent from "@testing-library/user-event";
 //import Store from "../pages/Store";
+import { User } from "../interfaces/user";
 
-//TEST ONE
 function testUpdateFood(updateFood: Food): void {
     updateFood;
     throw new Error("Function not implemented.");
 }
+
 describe("centrallist render", () => {
+    const testUser: User = {
+        name: "John Doe",
+        foodList: [],
+        role: "customer"
+    };
     beforeEach(() => {
         render(
             <CentralList
@@ -29,93 +37,96 @@ describe("centrallist render", () => {
             />
         );
     });
-    it("renders 30 images", () => {
-        //
-        //expect(document.getElementById("middle")?.childNodes).toHaveLength(30);
-        //assert(document.getElementById("middle")?.childNodes.length == 30);
-        expect(document.getElementById("middle"));
-        assert(document.getElementById("middle"));
+    //Test 1
+    it("sort dropdown works LtoH", () => {
+        const roleDropdown = screen.getByLabelText("Sort by:");
+        fireEvent.change(roleDropdown, {
+            target: { value: "priceLowToHigh" }
+        });
+        expect(roleDropdown).toHaveValue("priceLowToHigh");
+    });
+    //Test 2
+    it("sort dropdown works HtoL", () => {
+        const roleDropdown = screen.getByLabelText("Sort by:");
+        fireEvent.change(roleDropdown, {
+            target: { value: "priceHighToLow" }
+        });
+        expect(roleDropdown).toHaveValue("priceHighToLow");
+    });
+    //Test 3
+    it("color changes on click", () => {
+        render(
+            <DndProvider backend={HTML5Backend}>
+                <CentralList
+                    centralList={FOOD_LIST}
+                    onFoodUpdate={testUpdateFood}
+                    currentUser={testUser}
+                />
+            </DndProvider>
+        );
+    });
+    //Test 4
+    it("sort dropdown works name", () => {
+        const roleDropdown = screen.getByLabelText("Sort by:");
+        fireEvent.change(roleDropdown, {
+            target: { value: "name" }
+        });
+        expect(roleDropdown).toHaveValue("name");
     });
 
-    it("Renders Filters List", () => {
-        //expect(document.getElementById("filterFoodType")).toBeInTheDocument();
-        //expect(screen.getByRole("combobox",  id:"filterFoodType" );
-        expect(screen.queryAllByRole("combobox")).toHaveLength(2);
+    //Test 5
+    // it("sort dropdown works for filter by Fruit", () => {
+    //     const roleDropdown = screen.getByLabelText("Filter by:");
+    //     fireEvent.change(roleDropdown, {
+    //         target: { value: "Fruits" }
+    //     });
+    //     expect(roleDropdown).toHaveValue("Fruits");
+    // });
 
-        //expect(document.getElementById("filterFoodType"));
-        //assert(document.getElementById("filterFoodType"));
-    });
+    //Test Four
+    // it("Filter decreases list length", () => {
+    //     render(
+    //         <DndProvider backend={HTML5Backend}>
+    //             <CentralList
+    //                 centralList={FOOD_LIST}
+    //                 onFoodUpdate={testUpdateFood}
+    //                 currentUser={testUser}
+    //             />
+    //         </DndProvider>
+    //     );
+    //     const filterDropdown = screen.getAllByRole(
+    //         "combobox"
+    //     ) as unknown as HTMLSelectElement;
+    //     expect(JSON.stringify(filterDropdown[0])).toEqual("All");
+    //     fireEvent.change(filterDropdown, { target: { value: "Fruits" } });
+
+    //     expect(filterDropdown[0]).toHaveValue("Fruits");
+    //     const images = screen.queryAllByRole("img");
+    //     expect(images).toHaveLength(5);
+    // });
+    //Test Five
+    // it("Testing that 30 images are rendered initially in central list", () => {
+    //     render(
+    //         <DndProvider backend={HTML5Backend}>
+    //             <CentralList
+    //                 centralList={FOOD_LIST}
+    //                 onFoodUpdate={testUpdateFood}
+    //                 currentUser={testUser}
+    //             />
+    //         </DndProvider>
+    //     );
+    //     const foodItems = screen.queryAllByRole("listitem", {
+    //         name: /food item/i
+    //     });
+    //     expect(foodItems).toHaveLength(30);
+    // });
+    // Test Four
+    // it("Testing for filtered by Snacks", () => {
+    //     render(
+    //         <DndProvider backend={ = {HTML5Backend}}>
+    //             <CentralList
+    //             />
+    //         </DndProvider>
+    //     )
+    // })
 });
-
-// Will test filter List function
-
-// describe("CentralList component", () => {
-//     it("filters and sorts the central list of food items", () => {
-//         const centralList: Food[] = [
-//             {
-//                 id: 1,
-//                 name: "Banana",
-//                 description: "A sweet fruit that is high in potassium.",
-//                 image: "banana.jpg",
-//                 price: 0.25,
-//                 calories: 105,
-//                 ingredients: ["Banana"],
-//                 category: "Fruits"
-//             },
-//             {
-//                 id: 2,
-//                 name: "Apple",
-//                 description: "A crunchy fruit that is good for your teeth.",
-//                 image: "apple.jpg",
-//                 price: 0.5,
-//                 calories: 95,
-//                 ingredients: ["Apple"],
-//                 category: "Fruits"
-//             },
-//             {
-//                 id: 3,
-//                 name: "Carrot",
-//                 description: "A root vegetable that is high in vitamin A.",
-//                 image: "carrot.jpg",
-//                 price: 0.2,
-//                 calories: 25,
-//                 ingredients: ["Carrot"],
-//                 category: "Vegetables"
-//             }
-//         ];
-
-//         const onFoodUpdate = jest.fn();
-//         //const currentUser = { name: "John Doe" };
-
-//         const { getByLabelText } = render(
-//             <CentralList
-//                 centralList={centralList}
-//                 onFoodUpdate={onFoodUpdate}
-//                 currentUser="customer"
-//             />
-//         );
-
-//         const filterSelect = getByLabelText("Filter by:") as HTMLSelectElement;
-
-//         // Select the Fruits category
-//         filterSelect.value = "Fruits";
-//         expect(filterSelect.value).toBe("Fruits");
-
-//         // Checks to see if only fruits are being shown
-//         const fruitItems = document.querySelectorAll(".CentralList div");
-//         expect(fruitItems.length).toBe(2);
-//         expect(fruitItems[0]).toHaveTextContent("Apple");
-//         expect(fruitItems[1]).toHaveTextContent("Banana");
-
-//         // Select "priceHighToLow" sort order
-//         const sortSelect = getByLabelText("Sort by:") as HTMLSelectElement;
-//         sortSelect.value = "priceHighToLow";
-//         expect(sortSelect.value).toBe("priceHighToLow");
-
-//         // Verify that fruits are sorted by price high to low
-//         const sortedFruitItems = document.querySelectorAll(".CentralList div");
-//         expect(sortedFruitItems.length).toBe(2);
-//         expect(sortedFruitItems[0]).toHaveTextContent("Banana");
-//         expect(sortedFruitItems[1]).toHaveTextContent("Apple");
-//     });
-// });

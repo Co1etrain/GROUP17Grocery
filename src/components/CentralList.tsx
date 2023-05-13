@@ -42,6 +42,7 @@ export function CentralList({
                 return 0;
             }
         });
+    //                <div id="filterFoodType">
 
     return (
         <div style={{ paddingTop: "15px" }}>
