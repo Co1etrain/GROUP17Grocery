@@ -12,42 +12,45 @@ describe("CentralList", () => {
         foodList: [],
         role: "customer"
     };
-
+    //Test 1
     test("check if 30 images in CentralList array of Foods", () => {
         const foods: Food[] = FOOD_LIST.filter(
             (food: Food) => food.image !== undefined
         );
         expect(foods).toHaveLength(30);
     });
+    //Test 2
     test("renders CentralList component", () => {
         render(
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => {}}
+                    onFoodUpdate={(updatedFood: Food) => ""}
                     currentUser={testUser}
                 />
             </DndProvider>
         );
     });
+    //Test 3
     test("Main Inventory is displayed", () => {
         render(
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => {}}
+                    onFoodUpdate={(updatedFood: Food) => ""}
                     currentUser={testUser}
                 />
             </DndProvider>
         );
         expect(screen.getByText("Main Inventory")).toBeInTheDocument();
     });
+    //Test 4
     test("Two selection boxes are present", () => {
         render(
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => {}}
+                    onFoodUpdate={(updatedFood: Food) => ""}
                     currentUser={testUser}
                 />
             </DndProvider>

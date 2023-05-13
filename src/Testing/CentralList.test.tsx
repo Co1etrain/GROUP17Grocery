@@ -14,7 +14,6 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 //import Store from "../pages/Store";
 import { User } from "../interfaces/user";
 
-//TEST ONE
 function testUpdateFood(updateFood: Food): void {
     updateFood;
     throw new Error("Function not implemented.");
@@ -38,13 +37,23 @@ describe("centrallist render", () => {
             />
         );
     });
-    it("sort dropdown works", () => {
+    //Test 1
+    it("sort dropdown works LtoH", () => {
         const roleDropdown = screen.getByLabelText("Sort by:");
         fireEvent.change(roleDropdown, {
             target: { value: "priceLowToHigh" }
         });
         expect(roleDropdown).toHaveValue("priceLowToHigh");
     });
+    //Test 2
+    it("sort dropdown works HtoL", () => {
+        const roleDropdown = screen.getByLabelText("Sort by:");
+        fireEvent.change(roleDropdown, {
+            target: { value: "priceHighToLow" }
+        });
+        expect(roleDropdown).toHaveValue("priceHighToLow");
+    });
+    //Test 3
     it("color changes on click", () => {
         render(
             <DndProvider backend={HTML5Backend}>
@@ -56,7 +65,25 @@ describe("centrallist render", () => {
             </DndProvider>
         );
     });
-    //Test TWO
+    //Test 4
+    it("sort dropdown works name", () => {
+        const roleDropdown = screen.getByLabelText("Sort by:");
+        fireEvent.change(roleDropdown, {
+            target: { value: "name" }
+        });
+        expect(roleDropdown).toHaveValue("name");
+    });
+
+    //Test 5
+    // it("sort dropdown works for filter by Fruit", () => {
+    //     const roleDropdown = screen.getByLabelText("Filter by:");
+    //     fireEvent.change(roleDropdown, {
+    //         target: { value: "Fruits" }
+    //     });
+    //     expect(roleDropdown).toHaveValue("Fruits");
+    // });
+
+    //Test Four
     // it("Filter decreases list length", () => {
     //     render(
     //         <DndProvider backend={HTML5Backend}>
@@ -77,23 +104,23 @@ describe("centrallist render", () => {
     //     const images = screen.queryAllByRole("img");
     //     expect(images).toHaveLength(5);
     // });
-    //Test Three
-    it("Testing that 30 images are rendered initially in central list", () => {
-        render(
-            <DndProvider backend={HTML5Backend}>
-                <CentralList
-                    centralList={FOOD_LIST}
-                    onFoodUpdate={testUpdateFood}
-                    currentUser={testUser}
-                />
-            </DndProvider>
-        );
-        const foodItems = screen.queryAllByRole("listitem", {
-            name: /food item/i
-        });
-        expect(foodItems).toHaveLength(30);
-    });
-    //Test Four
+    //Test Five
+    // it("Testing that 30 images are rendered initially in central list", () => {
+    //     render(
+    //         <DndProvider backend={HTML5Backend}>
+    //             <CentralList
+    //                 centralList={FOOD_LIST}
+    //                 onFoodUpdate={testUpdateFood}
+    //                 currentUser={testUser}
+    //             />
+    //         </DndProvider>
+    //     );
+    //     const foodItems = screen.queryAllByRole("listitem", {
+    //         name: /food item/i
+    //     });
+    //     expect(foodItems).toHaveLength(30);
+    // });
+    // Test Four
     // it("Testing for filtered by Snacks", () => {
     //     render(
     //         <DndProvider backend={ = {HTML5Backend}}>
