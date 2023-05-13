@@ -1,18 +1,12 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import {
-    fireEvent,
-    getByTestId,
-    getByText,
-    render,
-    screen
-} from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import assert from "assert";
+
 import React from "react";
 import { Navbar } from "../components/Navbar";
 import { MemoryRouter } from "react-router-dom";
 import { Request } from "../interfaces/request";
-import { Food } from "../interfaces/food";
+
 import { User } from "../interfaces/user";
 import { BrowserRouter } from "react-router-dom";
 
