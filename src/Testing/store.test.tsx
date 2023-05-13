@@ -7,6 +7,11 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 
 describe("CentralList", () => {
+    function onFoodUpdate(input: Food): void {
+        input;
+        return void 0;
+    }
+
     const testUser: User = {
         name: "John Doe",
         foodList: [],
@@ -25,7 +30,7 @@ describe("CentralList", () => {
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => ""}
+                    onFoodUpdate={onFoodUpdate}
                     currentUser={testUser}
                 />
             </DndProvider>
@@ -37,7 +42,7 @@ describe("CentralList", () => {
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => ""}
+                    onFoodUpdate={onFoodUpdate}
                     currentUser={testUser}
                 />
             </DndProvider>
@@ -50,11 +55,23 @@ describe("CentralList", () => {
             <DndProvider backend={HTML5Backend}>
                 <CentralList
                     centralList={FOOD_LIST}
-                    onFoodUpdate={(updatedFood: Food) => ""}
+                    onFoodUpdate={onFoodUpdate}
                     currentUser={testUser}
                 />
             </DndProvider>
         );
         expect(screen.queryAllByRole("combobox")).toHaveLength(2);
+    });
+    test("Checks to see if three selection options are present for the sort by: form", () => {
+        render(
+            <DndProvider backend={HTML5Backend}>
+                <CentralList
+                    centralList={FOOD_LIST}
+                    onFoodUpdate={onFoodUpdate}
+                    currentUser={testUser}
+                />
+            </DndProvider>
+        );
+        expect(screen.queryAllByRole("combobox")[0]).toHaveLength(3);
     });
 });
