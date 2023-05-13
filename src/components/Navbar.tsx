@@ -87,6 +87,7 @@ export function Navbar({
                     variant="outline-primary"
                     className="rounded-square"
                     disabled={currentUser.role !== "owner"}
+                    data-testid="requests-button"
                 >
                     <span>Requests</span>
                     <div
@@ -100,6 +101,7 @@ export function Navbar({
                             right: 0,
                             transform: "translate(25%, 25%)"
                         }}
+                        data-testid="requests-badge"
                     >
                         {RequestList.length}
                     </div>
@@ -111,7 +113,7 @@ export function Navbar({
                     >
                         <Offcanvas.Title>Employee Requests</Offcanvas.Title>
                     </Offcanvas.Header>
-                    <OffcanvasBody>
+                    <OffcanvasBody data-testid="requests-body">
                         <ul>
                             {RequestList.map((request, index) => {
                                 return (
