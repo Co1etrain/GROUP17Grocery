@@ -40,7 +40,7 @@ test("renders the requests button", () => {
     expect(requestsButton).toBeInTheDocument();
 });
 
-test('renders the title "Glocery"', () => {
+test("renders the title", () => {
     const mockUser: User = {
         name: "John Doe",
         foodList: [],
