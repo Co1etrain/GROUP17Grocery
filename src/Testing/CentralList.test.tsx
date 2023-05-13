@@ -4,7 +4,7 @@ import { Food, FOOD_LIST } from "../interfaces/food";
 //import { User } from "../interfaces/user";
 // import { Container } from "react-bootstrap";
 import "@testing-library/jest-dom/extend-expect";
-import assert from "assert";
+//import assert from "assert";
 import React from "react";
 //import { jest } from "@jest/globals";
 import { DndProvider } from "react-dnd";
