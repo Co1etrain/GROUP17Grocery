@@ -8,40 +8,41 @@ Browserslist: caniuse-lite is outdated. Please run:
 PASS src/Testing/CustomerCart.test.tsx
 PASS src/Testing/EmployeeCart.test.tsx
 PASS src/Testing/CentralList.test.tsx
+PASS src/Testing/Navbar.test.tsx
 PASS src/Testing/NewUserForm.test.tsx
 PASS src/Testing/FoodItem.test.tsx
 PASS src/Testing/App.test.tsx
 PASS src/Testing/store.test.tsx
------------------------|---------|----------|---------|---------|-------------------
-File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------|---------|----------|---------|---------|-------------------
-All files              |      42 |    41.53 |   32.23 |   43.69 |                   
- src                   |     100 |      100 |     100 |     100 |                   
-  App.tsx              |     100 |      100 |     100 |     100 |                   
- src/components        |   40.78 |    42.85 |   32.43 |   42.39 |                   
-  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-165      
-  CentralList.tsx      |   58.82 |       25 |   66.66 |   58.82 | 23,29,37-42       
-  CustomerCart.tsx     |   70.27 |    77.77 |   71.42 |   69.44 | 29,56-74,98       
-  DeleteFoodButton.tsx |      12 |     12.5 |   16.66 |   13.04 | 35,42-77          
-  DeleteUserModal.tsx  |   26.66 |        0 |   27.27 |   28.57 | 20-37,44,75-89    
-  EmployeeCart.tsx     |   26.66 |     37.5 |      30 |   30.76 | 25,32-51          
-  FoodItem.tsx         |   57.14 |    63.63 |   36.36 |   59.25 | 37-52,57-90,128   
-  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                   
-  Navbar.tsx           |    12.5 |      100 |   11.11 |   13.33 | 46-69,81-155      
-  NewUserForm.tsx      |      35 |        0 |   44.44 |   36.84 | 26-57             
-  RequestForm.tsx      |   39.13 |      100 |    8.33 |    40.9 | 37-55,62-157      
-  UserSelect.tsx       |   28.57 |        0 |      50 |   28.57 | 20-26             
- src/interfaces        |     100 |      100 |     100 |     100 |                   
-  food.ts              |     100 |      100 |     100 |     100 |                   
-  request.ts           |       0 |        0 |       0 |       0 |                   
-  user.ts              |       0 |        0 |       0 |       0 |                   
- src/pages             |      50 |        0 |   22.22 |   52.63 |                   
-  Landing.tsx          |     100 |      100 |     100 |     100 |                   
-  Store.tsx            |   47.36 |        0 |    12.5 |      50 | 37-64             
------------------------|---------|----------|---------|---------|-------------------
+-----------------------|---------|----------|---------|---------|----------------------
+File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
+-----------------------|---------|----------|---------|---------|----------------------
+All files              |    42.4 |    41.53 |   33.05 |   44.11 |                      
+ src                   |     100 |      100 |     100 |     100 |                      
+  App.tsx              |     100 |      100 |     100 |     100 |                      
+ src/components        |   41.22 |    42.85 |   33.33 |   42.85 |                      
+  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-165         
+  CentralList.tsx      |   58.82 |       25 |   66.66 |   58.82 | 23,29,37-42          
+  CustomerCart.tsx     |   70.27 |    77.77 |   71.42 |   69.44 | 29,56-74,98          
+  DeleteFoodButton.tsx |      12 |     12.5 |   16.66 |   13.04 | 35,42-77             
+  DeleteUserModal.tsx  |   26.66 |        0 |   27.27 |   28.57 | 20-37,44,75-89       
+  EmployeeCart.tsx     |   26.66 |     37.5 |      30 |   30.76 | 25,32-51             
+  FoodItem.tsx         |   57.14 |    63.63 |   36.36 |   59.25 | 37-52,57-90,128      
+  IntroHeader.tsx      |     100 |      100 |     100 |     100 |                      
+  Navbar.tsx           |   18.75 |      100 |   22.22 |      20 | 46-69,81-112,138-157 
+  NewUserForm.tsx      |      35 |        0 |   44.44 |   36.84 | 26-57                
+  RequestForm.tsx      |   39.13 |      100 |    8.33 |    40.9 | 37-55,62-157         
+  UserSelect.tsx       |   28.57 |        0 |      50 |   28.57 | 20-26                
+ src/interfaces        |     100 |      100 |     100 |     100 |                      
+  food.ts              |     100 |      100 |     100 |     100 |                      
+  request.ts           |       0 |        0 |       0 |       0 |                      
+  user.ts              |       0 |        0 |       0 |       0 |                      
+ src/pages             |      50 |        0 |   22.22 |   52.63 |                      
+  Landing.tsx          |     100 |      100 |     100 |     100 |                      
+  Store.tsx            |   47.36 |        0 |    12.5 |      50 | 37-64                
+-----------------------|---------|----------|---------|---------|----------------------
 
-Test Suites: 7 passed, 7 total
-Tests:       29 passed, 29 total
+Test Suites: 8 passed, 8 total
+Tests:       34 passed, 34 total
 Snapshots:   0 total
-Time:        9.523 s
+Time:        8.708 s
 Ran all test suites.
