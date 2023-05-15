@@ -3,7 +3,7 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { useDrop } from "react-dnd";
-import { Form } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 import { User } from "../interfaces/user";
 
 interface CartProps {
@@ -111,6 +111,58 @@ export function CustomerCart({
                 Cart
             </h2>
             <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center"
+                }}
+            >
+                <Form.Group controlId="sortOptions">
+                    <Row>
+                        <Col>
+                            <Form.Label>Sort by:</Form.Label>
+                            <Form.Select
+                                value={sort}
+                                onChange={handleSortChange}
+                            >
+                                <option value="name">Name</option>
+                                <option value="priceLowToHigh">
+                                    Price Low to High
+                                </option>
+                                <option value="priceHighToLow">
+                                    Price High to Low
+                                </option>
+                            </Form.Select>
+                        </Col>
+                        <Col>
+                            <Form.Label>Filter by (Exclude):</Form.Label>
+                            <Form.Select
+                                value={filter}
+                                onChange={handleFilterChange}
+                            >
+                                <option value="All">None</option>
+                                <option value="Fruits">Fruits</option>
+                                <option value="Vegetables">Vegetables</option>
+                                <option value="Dairy">Dairy</option>
+                                <option value="Snacks">Snacks</option>
+                                <option value="Other">Other</option>
+                            </Form.Select>
+                        </Col>
+                    </Row>
+                    <p style={{ margin: "10px" }}></p>
+                    <input
+                        type="text"
+                        placeholder="Search Ingredients"
+                        value={searchText}
+                        onChange={handleSearch}
+                        style={{
+                            width: "100%",
+                            marginBottom: "10px"
+                        }}
+                    />
+                </Form.Group>
+            </div>
+            <div
                 // If the user is not a customer, then the cart is not droppable
                 ref={currentUser.role === "customer" ? drop : undefined}
                 className="Cart"
@@ -136,40 +188,7 @@ export function CustomerCart({
                     );
                 })}
             </div>
-            <input
-                type="text"
-                placeholder="Search Ingredients"
-                value={searchText}
-                onChange={handleSearch}
-                style={{
-                    width: "100%",
-                    marginBottom: "10px"
-                }}
-            />
-            <div style={{ display: "flex" }}>
-                <Form.Group controlId="sortOptions">
-                    <Form.Label>Sort by:</Form.Label>
-                    <Form.Select value={sort} onChange={handleSortChange}>
-                        <option value="name">Name</option>
-                        <option value="priceLowToHigh">
-                            Price Low to High
-                        </option>
-                        <option value="priceHighToLow">
-                            Price High to Low
-                        </option>
-                    </Form.Select>
-                    <Form.Label>Filter by (Exclude):</Form.Label>
-                    <Form.Select value={filter} onChange={handleFilterChange}>
-                        <option value="All">None</option>
-                        <option value="Fruits">Fruits</option>
-                        <option value="Vegetables">Vegetables</option>
-                        <option value="Dairy">Dairy</option>
-                        <option value="Snacks">Snacks</option>
-                        <option value="Other">Other</option>
-                    </Form.Select>
-                </Form.Group>
-                <h3>Total price: {totalPrice.toFixed(2)}</h3>
-            </div>
+            <h3>Total price: {totalPrice.toFixed(2)}</h3>
         </div>
     );
 }

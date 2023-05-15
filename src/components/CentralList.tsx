@@ -3,7 +3,7 @@ import { Food } from "../interfaces/food";
 import { FoodItem } from "./FoodItem";
 import "../App.css";
 import { User } from "../interfaces/user";
-import { Form } from "react-bootstrap";
+import { Col, Form, Row } from "react-bootstrap";
 
 interface CentralListProps {
     centralList: Food[];
@@ -48,33 +48,49 @@ export function CentralList({
         <div style={{ paddingTop: "15px" }}>
             <h2>Main Inventory</h2>
             <div>
-                <div style={{ display: "flex" }}>
+                <div
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
+                >
                     <Form.Group controlId="sortOptions">
-                        <Form.Label>Sort by:</Form.Label>
-                        <Form.Select value={sort} onChange={handleSortChange}>
-                            <option value="name">Name</option>
-                            <option value="priceLowToHigh">
-                                Price Low to High
-                            </option>
-                            <option value="priceHighToLow">
-                                Price High to Low
-                            </option>
-                        </Form.Select>
-                        <Form.Label>Filter by:</Form.Label>
-                        <Form.Select
-                            value={filter}
-                            onChange={handleFilterChange}
-                        >
-                            <option value="All">All</option>
-                            <option value="Fruits">Fruits</option>
-                            <option value="Vegetables">Vegetables</option>
-                            <option value="Dairy">Dairy</option>
-                            <option value="Snacks">Snacks</option>
-                            <option value="Other">Other</option>
-                        </Form.Select>
+                        <Row>
+                            <Col>
+                                <Form.Label>Sort by:</Form.Label>
+                                <Form.Select
+                                    value={sort}
+                                    onChange={handleSortChange}
+                                >
+                                    <option value="name">Name</option>
+                                    <option value="priceLowToHigh">
+                                        Price Low to High
+                                    </option>
+                                    <option value="priceHighToLow">
+                                        Price High to Low
+                                    </option>
+                                </Form.Select>
+                            </Col>
+                            <Col>
+                                <Form.Label>Filter by:</Form.Label>
+                                <Form.Select
+                                    value={filter}
+                                    onChange={handleFilterChange}
+                                >
+                                    <option value="All">All</option>
+                                    <option value="Fruits">Fruits</option>
+                                    <option value="Vegetables">
+                                        Vegetables
+                                    </option>
+                                    <option value="Dairy">Dairy</option>
+                                    <option value="Snacks">Snacks</option>
+                                    <option value="Other">Other</option>
+                                </Form.Select>
+                            </Col>
+                        </Row>
                     </Form.Group>
                 </div>
-                <br></br>
             </div>
             <div className="CentralList" id="middle">
                 {filteredList.map((food: Food) => {
