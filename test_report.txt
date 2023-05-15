@@ -21,7 +21,7 @@ All files              |    42.8 |    41.53 |   33.88 |   44.53 |
  src                   |     100 |      100 |     100 |     100 |                      
   App.tsx              |     100 |      100 |     100 |     100 |                      
  src/components        |   41.66 |    42.85 |   34.23 |   43.31 |                      
-  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-165         
+  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-169         
   CentralList.tsx      |    64.7 |       25 |   83.33 |    64.7 | 29,37-42             
   CustomerCart.tsx     |   70.27 |    77.77 |   71.42 |   69.44 | 29,56-74,98          
   DeleteFoodButton.tsx |      12 |     12.5 |   16.66 |   13.04 | 35,42-77             
@@ -45,5 +45,5 @@ All files              |    42.8 |    41.53 |   33.88 |   44.53 |
 Test Suites: 9 passed, 9 total
 Tests:       41 passed, 41 total
 Snapshots:   0 total
-Time:        8.864 s
+Time:        9.483 s
 Ran all test suites.
