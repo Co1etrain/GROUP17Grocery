@@ -149,7 +149,7 @@ export function CustomerCart({
                             </Form.Select>
                         </Col>
                     </Row>
-                    <br></br>
+                    <p style={{ margin: "10px" }}></p>
                     <input
                         type="text"
                         placeholder="Search Ingredients"
@@ -162,7 +162,6 @@ export function CustomerCart({
                     />
                 </Form.Group>
             </div>
-            <br></br>
             <div
                 // If the user is not a customer, then the cart is not droppable
                 ref={currentUser.role === "customer" ? drop : undefined}
