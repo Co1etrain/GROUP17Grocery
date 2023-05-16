@@ -12,15 +12,33 @@ PASS src/Testing/Navbar.test.tsx
 PASS src/Testing/NewUserForm.test.tsx
 PASS src/Testing/FoodItem.test.tsx
 PASS src/Testing/store.test.tsx
+FAIL src/Testing/DeleteUserModal.test.tsx
+  ● New User Form Tests › The button opens a modal window with number of buttons === 2
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 1
+
+      75 |
+      76 |         const modalButtons = screen.getAllByRole("button");
+    > 77 |         expect(modalButtons.length).toBe(2);
+         |                                     ^
+      78 |     });
+      79 | });
+      80 |
+
+      at Object.<anonymous> (src/Testing/DeleteUserModal.test.tsx:77:37)
+
 PASS src/Testing/App.test.tsx
 PASS src/Testing/template.test.tsx
 -----------------------|---------|----------|---------|---------|----------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
 -----------------------|---------|----------|---------|---------|----------------------
-All files              |    42.8 |    41.53 |   33.88 |   44.53 |                      
+All files              |   43.07 |    41.53 |    34.1 |   44.75 |                      
  src                   |     100 |      100 |     100 |     100 |                      
   App.tsx              |     100 |      100 |     100 |     100 |                      
- src/components        |   41.66 |    42.85 |   34.23 |   43.31 |                      
+ src/components        |   42.01 |    42.85 |   34.45 |   43.61 |                      
   AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-63,70-169         
   CentralList.tsx      |    64.7 |       25 |   83.33 |    64.7 | 29,37-42             
   CustomerCart.tsx     |   70.27 |    77.77 |   71.42 |   69.44 | 29,56-74,98          
@@ -31,6 +49,7 @@ All files              |    42.8 |    41.53 |   33.88 |   44.53 |
   IntroHeader.tsx      |     100 |      100 |     100 |     100 |                      
   Navbar.tsx           |   18.75 |      100 |   22.22 |      20 | 46-69,81-112,138-157 
   NewUserForm.tsx      |      35 |        0 |   44.44 |   36.84 | 26-57                
+  OwnerFoodView.tsx    |      50 |      100 |    37.5 |      50 | 19,26-45,70-74       
   RequestForm.tsx      |   39.13 |      100 |    8.33 |    40.9 | 37-55,62-157         
   UserSelect.tsx       |   28.57 |        0 |      50 |   28.57 | 20-26                
  src/interfaces        |     100 |      100 |     100 |     100 |                      
@@ -39,11 +58,11 @@ All files              |    42.8 |    41.53 |   33.88 |   44.53 |
   user.ts              |       0 |        0 |       0 |       0 |                      
  src/pages             |      50 |        0 |   22.22 |   52.63 |                      
   Landing.tsx          |     100 |      100 |     100 |     100 |                      
-  Store.tsx            |   47.36 |        0 |    12.5 |      50 | 37-64                
+  Store.tsx            |   47.36 |        0 |    12.5 |      50 | 38-65                
 -----------------------|---------|----------|---------|---------|----------------------
 
-Test Suites: 9 passed, 9 total
-Tests:       41 passed, 41 total
+Test Suites: 1 failed, 9 passed, 10 total
+Tests:       1 failed, 43 passed, 44 total
 Snapshots:   0 total
-Time:        8.561 s
+Time:        10.191 s
 Ran all test suites.

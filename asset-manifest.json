@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/GROUP17Grocery/static/css/main.535525f0.css",
-    "main.js": "/GROUP17Grocery/static/js/main.cdc61b83.js",
+    "main.js": "/GROUP17Grocery/static/js/main.db05f68e.js",
     "static/js/787.4ef7427d.chunk.js": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js",
     "static/media/GranolaBars.png": "/GROUP17Grocery/static/media/GranolaBars.3281e9f6f4c559e574d2.png",
-    "static/media/RibSteak.png": "/GROUP17Grocery/static/media/RibSteak.1f201c281f83bd0608cc.png",
     "static/media/BlackBeans.png": "/GROUP17Grocery/static/media/BlackBeans.fc1e66219c75e30c124b.png",
     "static/media/RiceCakes.png": "/GROUP17Grocery/static/media/RiceCakes.7e905bde257b138318e0.png",
     "static/media/GroundBeef.png": "/GROUP17Grocery/static/media/GroundBeef.3ce2ae5963623553701d.png",
-    "static/media/popcorn.png": "/GROUP17Grocery/static/media/popcorn.1cb15019474d4421919d.png",
+    "static/media/popcorn.png": "/GROUP17Grocery/static/media/popcorn.32cfc189d6b84b229102.png",
+    "static/media/RibSteak.png": "/GROUP17Grocery/static/media/RibSteak.11ec8d4bd4e93c1f86e6.png",
     "static/media/grapes.png": "/GROUP17Grocery/static/media/grapes.3cdc28f0928339e22ad2.png",
     "static/media/tomatoes.png": "/GROUP17Grocery/static/media/tomatoes.2562d58bb0339e5b8bb4.png",
     "index.html": "/GROUP17Grocery/index.html",
     "main.535525f0.css.map": "/GROUP17Grocery/static/css/main.535525f0.css.map",
-    "main.cdc61b83.js.map": "/GROUP17Grocery/static/js/main.cdc61b83.js.map",
+    "main.db05f68e.js.map": "/GROUP17Grocery/static/js/main.db05f68e.js.map",
     "787.4ef7427d.chunk.js.map": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.535525f0.css",
-    "static/js/main.cdc61b83.js"
+    "static/js/main.db05f68e.js"
   ]
 }
