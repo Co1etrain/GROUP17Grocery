@@ -14,6 +14,7 @@ import { Request } from "../interfaces/request";
 import { UserSelect } from "../components/UserSelect";
 import { NewUserForm } from "../components/NewUserForm";
 import { DeleteUserModal } from "../components/DeleteUserModal";
+import { OwnerFoodView } from "../components/OwnerFoodView";
 
 function Store(): JSX.Element {
     const [userList, setUserList] = useState<User[]>([
@@ -100,6 +101,10 @@ function Store(): JSX.Element {
                             userList={userList}
                             setUserList={setUserList}
                         ></DeleteUserModal>
+                        <OwnerFoodView
+                            currentUser={currentUser}
+                            userList={userList}
+                        ></OwnerFoodView>
                     </Col>
                 </Row>
                 <Row>
