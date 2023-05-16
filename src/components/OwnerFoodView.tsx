@@ -13,7 +13,7 @@ export function OwnerFoodView({
     userList
 }: OwnerFoodViewProps): JSX.Element {
     const [showForm, setShowForm] = useState<boolean>(false);
-    const [selectedFood, setSelectedFood] = useState<string>("Apple");
+    const [selectedFood, setSelectedFood] = useState<string>("Apples");
 
     function closeForm() {
         setShowForm(false);
