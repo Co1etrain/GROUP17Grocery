@@ -1,13 +1,14 @@
 import { DeleteUserModal } from "../components/DeleteUserModal";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import React, { useState } from "react";
-import { User } from "../interfaces/user";
+import React from "react";
+//import { User } from "../interfaces/user";
 
 function doNothing() {
     // Intentionally empty
 }
 
+/*
 interface Props {
     userList: User[];
 }
@@ -24,6 +25,7 @@ function TestComponent({ userList }: Props): JSX.Element {
         />
     );
 }
+*/
 
 describe("New User Form Tests", () => {
     test("The button renders if current user is owner", () => {
