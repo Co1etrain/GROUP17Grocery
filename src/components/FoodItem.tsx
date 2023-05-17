@@ -15,9 +15,12 @@ export function FoodItem({
     category,
     onFoodUpdate,
     showEditButton,
-    currentUser
+    currentUser,
+    showRating,
+    ratings
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
+    showRating: boolean;
 } & { currentUser: User }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
@@ -32,6 +35,12 @@ export function FoodItem({
     const [editedDescription, setEditedDescription] =
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
+    const [customerRating, setCustomerRating] = useState<boolean>(false);
+    const [rating, setRating] = useState<string>(ratings);
+    // This is the Control
+    function updateRating(event: React.ChangeEvent<HTMLSelectElement>) {
+        setRating(event.target.value);
+    }
 
     const handleUpdate = (event: React.FormEvent) => {
         event.preventDefault();
@@ -43,13 +52,15 @@ export function FoodItem({
             price: editedPrice,
             calories,
             ingredients: [...ingredients],
-            category
+            category,
+            ratings: rating
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);
         }
 
         setEditMode(false);
+        setCustomerRating(false);
     };
 
     const renderContent = () => {
@@ -90,6 +101,42 @@ export function FoodItem({
                     <Button onClick={() => setEditMode(false)}>Cancel</Button>
                 </Form>
             );
+        }
+        if (customerRating) {
+            return (
+                <>
+                    <p>
+                        <strong>
+                            {name} - ${price.toFixed(2)}
+                        </strong>
+                        <br />
+                        {description}
+                        <br />
+                        {calories} Calories per serving
+                        <br />
+                        Ingredients: {ingredients}
+                        <br />
+                        {category}
+                        <br />
+                        <Form.Group>
+                            <Form.Label>Rating:</Form.Label>
+                            <Form.Select
+                                value={rating}
+                                onChange={(event) => {
+                                    updateRating(event);
+                                    handleUpdate(event);
+                                }}
+                            >
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </Form.Select>
+                        </Form.Group>
+                    </p>
+                </>
+            );
         } else {
             return (
                 <>
@@ -106,7 +153,7 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
-                        Rating:
+                        {renderRatingButton()}
                     </p>
                     {renderEditButton()}
                 </>
@@ -117,6 +164,12 @@ export function FoodItem({
     const renderEditButton = () => {
         if (onFoodUpdate && showEditButton && currentUser.role !== "customer") {
             return <Button onClick={() => setEditMode(true)}>Edit</Button>;
+        }
+        return null;
+    };
+    const renderRatingButton = () => {
+        if (showRating && currentUser.role === "customer") {
+            return setCustomerRating(true);
         }
         return null;
     };

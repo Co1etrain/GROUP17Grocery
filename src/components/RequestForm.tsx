@@ -165,7 +165,11 @@ export function RequestForm({
                     </Stack>
                 </Modal.Body>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={closeForm}>
+                    <Button
+                        variant="secondary"
+                        onClick={closeForm}
+                        data-testid="CancelButton"
+                    >
                         Cancel
                     </Button>
                     <Button variant="primary" onClick={requestNewFood}>
