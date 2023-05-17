@@ -1,5 +1,5 @@
 import { EmployeeCart } from "../components/EmployeeCart";
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import { FOOD_LIST, Food } from "../interfaces/food";
 import "@testing-library/jest-dom/extend-expect";
 import React, { useState } from "react";
@@ -127,6 +127,63 @@ describe("Renders Employee Cart", () => {
         );
 
         // Check that the added FoodItem is displayed in the EmployeeCart
+        const updatedFoodItems = container.querySelectorAll(".Food-Desc");
+        expect(updatedFoodItems.length).toBe(1);
+    });
+    it("can edit food name and description", async () => {
+        const updatedName = "Updated Apples";
+        const updatedDescription = "Updated description for Apples";
+
+        render(
+            <DndProvider backend={HTML5Backend}>
+                <TestComponent empList={[FOOD_LIST[0]]} />
+            </DndProvider>
+        );
+
+        // click edit button to open form
+        const editButton = screen.getByText("Edit");
+        fireEvent.click(editButton);
+
+        // fill out the form
+        const nameInput = await screen.findByDisplayValue("Apples");
+        const descriptionInput = await screen.findByDisplayValue(
+            "All organic Non-GMO Apples"
+        );
+
+        // simulate user typing in the form
+        fireEvent.change(nameInput, { target: { value: "Updated Apples" } });
+        fireEvent.change(descriptionInput, {
+            target: { value: "Updated description for Apples" }
+        });
+
+        // find and click the save button
+        const saveButton = screen.getByText("Save");
+        fireEvent.click(saveButton);
+
+        // check that the form is updated
+        expect(nameInput).toHaveValue(updatedName);
+        expect(descriptionInput).toHaveValue(updatedDescription);
+    });
+    it("dropping works", () => {
+        const { container } = render(
+            <DndProvider backend={HTML5Backend}>
+                <TestComponent empList={[FOOD_LIST[0]]} />
+            </DndProvider>
+        );
+
+        const draggableItem = container.querySelector(
+            ".Food-Container"
+        ) as Element;
+        fireEvent.dragStart(draggableItem);
+
+        const cartElement = container.querySelector(".Cart");
+        if (cartElement) {
+            fireEvent.drop(cartElement, {
+                dataTransfer: { getData: () => JSON.stringify(FOOD_LIST[0]) }
+            });
+        }
+
+        // Check that the dropped FoodItem is displayed in the EmployeeCart
         const updatedFoodItems = container.querySelectorAll(".Food-Desc");
         expect(updatedFoodItems.length).toBe(1);
     });
