@@ -102,9 +102,14 @@ export function FoodItem({
                         <br />
                         {calories} Calories per serving
                         <br />
-                        Ingredients: {ingredients}
+                        Ingredients:{" "}
+                        {ingredients.reduce(
+                            (finalString: string, ingredient: string): string =>
+                                finalString + ingredient + ", ",
+                            ""
+                        )}
                         <br />
-                        {category}
+                        Aisle: {category}
                         <br />
                         Rating:
                     </p>
