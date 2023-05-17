@@ -1,5 +1,5 @@
 import { NewUserForm } from "../components/NewUserForm";
-import { fireEvent, render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { Food } from "../interfaces/food";
 import "@testing-library/jest-dom/extend-expect";
 import React, { useState } from "react";
@@ -115,5 +115,31 @@ describe("NewUserForm Works Correctly", () => {
         const roleDropdown = screen.getByLabelText("Select desired role");
         fireEvent.change(roleDropdown, { target: { value: "customer" } });
         expect(roleDropdown).toHaveValue("customer");
+    });
+    it("adds new user to list and closes modal", async () => {
+        render(
+            <DndProvider backend={HTML5Backend}>
+                <TestComponent
+                    currentUser={{ name: "Owner", role: "owner", foodList: [] }}
+                />
+            </DndProvider>
+        );
+        const addUserButton = screen.getByText("Add User");
+        fireEvent.click(addUserButton);
+
+        const nameInput = screen.getByPlaceholderText("User's Name");
+        fireEvent.change(nameInput, { target: { value: "Test New User" } });
+
+        const roleDropdown = screen.getByLabelText("Select desired role");
+        fireEvent.change(roleDropdown, { target: { value: "customer" } });
+
+        const addNewUserButton = screen.getByText("Add");
+        fireEvent.click(addNewUserButton);
+
+        await waitFor(() => {
+            expect(
+                screen.queryByText("Create New User")
+            ).not.toBeInTheDocument();
+        });
     });
 });
