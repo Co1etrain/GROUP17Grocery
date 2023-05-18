@@ -184,6 +184,7 @@ export function CustomerCart({
                             category={food.category}
                             carts={food.carts}
                             showEditButton={false}
+                            showCarts={false}
                             currentUser={currentUser}
                         ></FoodItem>
                     );

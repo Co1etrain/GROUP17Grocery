@@ -106,8 +106,10 @@ export function CentralList({
                                 calories={food.calories}
                                 ingredients={[...food.ingredients]}
                                 category={food.category}
+                                carts={food.carts}
                                 onFoodUpdate={onFoodUpdate}
                                 showEditButton={false}
+                                showCarts={true}
                                 currentUser={currentUser}
                             ></FoodItem>
                         </div>

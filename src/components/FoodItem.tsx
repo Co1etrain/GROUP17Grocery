@@ -16,10 +16,11 @@ export function FoodItem({
     carts,
     onFoodUpdate,
     showEditButton,
+    showCarts,
     currentUser
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
-} & { currentUser: User }): JSX.Element {
+} & { showCarts: boolean } & { currentUser: User }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -114,11 +115,21 @@ export function FoodItem({
                         Aisle: {category}
                         <br />
                         Rating:
+                        <br />
+                        {renderInHowManyCarts()}
                     </p>
                     {renderEditButton()}
                 </>
             );
         }
+    };
+
+    const renderInHowManyCarts = () => {
+        return currentUser.role === "owner" && showCarts ? (
+            <span style={{ fontWeight: "bolder" }}>
+                Appears {carts} times in various carts.
+            </span>
+        ) : null;
     };
 
     const renderEditButton = () => {
