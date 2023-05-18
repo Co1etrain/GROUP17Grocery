@@ -14,6 +14,7 @@ import { Request } from "../interfaces/request";
 import { UserSelect } from "../components/UserSelect";
 import { NewUserForm } from "../components/NewUserForm";
 import { DeleteUserModal } from "../components/DeleteUserModal";
+import { OwnerFoodView } from "../components/OwnerFoodView";
 
 function Store(): JSX.Element {
     const [userList, setUserList] = useState<User[]>([
@@ -64,6 +65,35 @@ function Store(): JSX.Element {
         setUserList(updatedUserList);
     }
 
+    /*
+    Closure which handles the additional feature of updating the number of times
+    the given food appears in user lists. Function finds the food in the central list, and
+    either adds 1 or subtracts one to the number, depending on whether this function
+    was called when adding a food to a cart, or deleting one.
+    */
+    function updateNumberOfAppearances(givenFood: Food, isAdding: boolean) {
+        const deleteVal: number = isAdding ? 1 : -1;
+        // Find the food in the central list
+        const givenFoodIndex: number = centralList.findIndex(
+            (food: Food) => food.name === givenFood.name
+        );
+        // Increase/decrease the number of times it can be found in all user carts
+        const updatedFood: Food = {
+            ...givenFood,
+            ingredients: [...givenFood.ingredients],
+            appearances: givenFood.appearances + deleteVal
+        };
+        const deepCentralCopy: Food[] = [
+            ...centralList.map((food: Food) => ({
+                ...food,
+                ingredients: [...food.ingredients]
+            }))
+        ];
+        // Put the updated food back into the central list
+        deepCentralCopy.splice(givenFoodIndex, 1, updatedFood);
+        setCentralList(deepCentralCopy);
+    }
+
     // Render all components
     return (
         <div>
@@ -100,6 +130,10 @@ function Store(): JSX.Element {
                             userList={userList}
                             setUserList={setUserList}
                         ></DeleteUserModal>
+                        <OwnerFoodView
+                            currentUser={currentUser}
+                            userList={userList}
+                        ></OwnerFoodView>
                     </Col>
                 </Row>
                 <Row>
@@ -111,6 +145,9 @@ function Store(): JSX.Element {
                             updateUserList={updateUserList}
                             foodId={foodId}
                             setFoodId={setFoodId}
+                            updateNumberOfAppearances={
+                                updateNumberOfAppearances
+                            }
                         ></CustomerCart>
                         <EmployeeCart
                             centralList={centralList}
@@ -141,6 +178,9 @@ function Store(): JSX.Element {
                             setEmployeeList={setEmployeeList}
                             setUserList={setUserList}
                             updateUserList={updateUserList}
+                            updateNumberOfAppearances={
+                                updateNumberOfAppearances
+                            }
                         ></DeleteFoodButton>
                     </Col>
                     <Col>

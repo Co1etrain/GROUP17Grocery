@@ -13,6 +13,7 @@ interface CartProps {
     updateUserList: (newList: Food[]) => void;
     foodId: number;
     setFoodId: (newFoodId: number) => void;
+    updateNumberOfAppearances: (givenFood: Food, isAdding: boolean) => void;
 }
 
 export function CustomerCart({
@@ -21,7 +22,8 @@ export function CustomerCart({
     currentUser,
     updateUserList,
     foodId,
-    setFoodId
+    setFoodId,
+    updateNumberOfAppearances
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -76,7 +78,8 @@ export function CustomerCart({
             setFoodId(foodId + 1);
             // Closure from Store.tsx passed in as props
             updateUserList(newCustomerList);
-
+            // Update how many times the dropped food appears in users' lists
+            updateNumberOfAppearances(droppedFood, true);
             setTotalPrice(totalPrice + droppedFood.price);
         }
         console.log(customerList);
@@ -190,7 +193,9 @@ export function CustomerCart({
                             calories={food.calories}
                             ingredients={[...food.ingredients]}
                             category={food.category}
+                            appearances={food.appearances}
                             showEditButton={false}
+                            showAppearances={false}
                             currentUser={currentUser}
                             showRating={true}
                             ratings={food.ratings}

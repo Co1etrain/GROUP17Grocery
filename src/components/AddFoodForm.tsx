@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Food } from "../interfaces/food";
+import { Food, FoodCategory } from "../interfaces/food";
 import {
     Modal,
     Button,
@@ -34,7 +34,7 @@ export function AddFoodForm({
     const [image, setImage] = useState<string>("");
     const [price, setPrice] = useState<string>("0");
     const [calories, setCalories] = useState<string>("0");
-    const [category, setCategory] = useState<string>("");
+    const [category, setCategory] = useState<string>("Fruits");
     const [ingredients, setIngredients] = useState<string>("");
 
     function appendNewFood() {
@@ -51,8 +51,9 @@ export function AddFoodForm({
             price: parseInt(price),
             calories: parseInt(calories),
             ingredients: ingredients.split(","),
-            category: category,
-            ratings: "1"
+            ratings: "1",
+            category: category as FoodCategory,
+            appearances: 0
         };
 
         setFoodId(foodId + 1);
@@ -150,8 +151,12 @@ export function AddFoodForm({
                                     e: React.ChangeEvent<HTMLSelectElement>
                                 ) => setCategory(e.target.value)}
                             >
-                                <option>category1</option>
-                                <option>category2</option>
+                                <option>Fruits</option>
+                                <option>Other</option>
+                                <option>Dairy</option>
+                                <option>Vegetables</option>
+                                <option>Snacks</option>
+                                <option>Meat</option>
                             </Form.Select>
                         </Form.Group>
                         <InputGroup>

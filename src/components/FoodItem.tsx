@@ -14,15 +14,17 @@ export function FoodItem({
     calories,
     ingredients,
     category,
+    appearances,
     onFoodUpdate,
     showEditButton,
-    currentUser,
+    showAppearances,
     showRating,
+    currentUser,
     ratings
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
     showRating: boolean;
-} & { currentUser: User }): JSX.Element {
+} & { showAppearances: boolean } & { currentUser: User }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -50,7 +52,8 @@ export function FoodItem({
             calories,
             ingredients: [...ingredients],
             category,
-            ratings: rating
+            ratings: rating,
+            appearances
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);
@@ -149,14 +152,31 @@ export function FoodItem({
                         <br />
                         {calories} Calories per serving
                         <br />
-                        Ingredients: {ingredients}
+                        Ingredients:{" "}
+                        {ingredients.reduce(
+                            (finalString: string, ingredient: string): string =>
+                                finalString + ingredient + ", ",
+                            ""
+                        )}
                         <br />
-                        {category}
+                        Aisle: {category}
                         <br />
                         {renderRatingButton()}
+                        <br />
+                        {renderInHowManyCarts()}
                     </p>
                     {renderEditButton()}
                 </>
+            );
+        }
+    };
+
+    const renderInHowManyCarts = () => {
+        if (currentUser.role === "owner" && showAppearances) {
+            return (
+                <span style={{ fontWeight: "bolder" }}>
+                    Appears {appearances} time(s) in customer carts.
+                </span>
             );
         }
     };

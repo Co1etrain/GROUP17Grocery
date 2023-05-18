@@ -17,6 +17,7 @@ interface DeleteFoodProps {
     setEmployeeList: (newList: Food[]) => void;
     setUserList: (newList: User[]) => void;
     updateUserList: (newList: Food[]) => void;
+    updateNumberOfAppearances: (givenFood: Food, isAdding: boolean) => void;
 }
 
 export function DeleteFoodButton({
@@ -28,7 +29,8 @@ export function DeleteFoodButton({
     setCentralList,
     setEmployeeList,
     setUserList,
-    updateUserList
+    updateUserList,
+    updateNumberOfAppearances
 }: DeleteFoodProps): JSX.Element {
     const [{ isOver }, drop] = useDrop({
         accept: "food",
@@ -64,6 +66,23 @@ export function DeleteFoodButton({
         setEmployeeList(newEmployeeList);
     }
 
+    function customerDeleteFood(id: number) {
+        const deletedFood: Food | undefined = customerList.find(
+            (food: Food) => food.id === id
+        );
+        if (deletedFood) {
+            const deletedFoodInCentral: Food | undefined = centralList.find(
+                (food: Food) => food.name === deletedFood.name
+            );
+            if (deletedFoodInCentral) {
+                updateNumberOfAppearances(deletedFoodInCentral, false);
+            }
+        }
+
+        const newCustomerList = customerList.filter((food) => food.id !== id);
+        updateUserList(newCustomerList);
+    }
+
     function deleteFood(id: number) {
         if (currentUser.role === "owner") {
             ownerDeleteFood(id);
@@ -71,10 +90,7 @@ export function DeleteFoodButton({
         } else if (currentUser.role === "employee") {
             employeeDeleteFood(id);
         } else {
-            const newCustomerList = customerList.filter(
-                (food) => food.id !== id
-            );
-            updateUserList(newCustomerList);
+            customerDeleteFood(id);
         }
     }
 

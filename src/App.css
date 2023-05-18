@@ -49,14 +49,16 @@ a {
 
 .Cart {
     display: flex;
-    overflow-x: scroll;
-    max-width: 400px;
+    margin: auto;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-width: 500px;
     border-radius: 10px;
     padding: 20px;
-    margin: auto;
-    min-height: 200px;
+    height: 365px;
     margin-bottom: 20px;
     border: 5px solid black;
+    overflow-y: scroll;
 }
 
 .CentralList {
@@ -84,6 +86,7 @@ a {
 }
 
 .Food-Container {
+    position: relative;
     display: flex;
 }
 
@@ -92,6 +95,7 @@ a {
     display: flex;
     float: left;
     background-color: rgb(192, 215, 255);
+    height: 110px;
 }
 
 .Food-Button:hover {
@@ -99,10 +103,12 @@ a {
 }
 
 .Food-Desc {
-    float: left;
-    width: fit-content;
+    position: absolute;
+    left: 100%;
+    width: 200px;
     text-align: left;
     background-color: ghostwhite;
+    z-index: 1;
 }
 
 .Trash-Can {
