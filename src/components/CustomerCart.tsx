@@ -13,6 +13,7 @@ interface CartProps {
     updateUserList: (newList: Food[]) => void;
     foodId: number;
     setFoodId: (newFoodId: number) => void;
+    setCentralList: (newList: Food[]) => void;
 }
 
 export function CustomerCart({
@@ -21,7 +22,8 @@ export function CustomerCart({
     currentUser,
     updateUserList,
     foodId,
-    setFoodId
+    setFoodId,
+    setCentralList
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -68,10 +70,30 @@ export function CustomerCart({
             setFoodId(foodId + 1);
             // Closure from Store.tsx passed in as props
             updateUserList(newCustomerList);
-
+            // Update how many carts the dopped item appears in
+            updateCentralList(droppedFood);
             setTotalPrice(totalPrice + droppedFood.price);
         }
         console.log(customerList);
+    }
+
+    function updateCentralList(droppedFood: Food) {
+        const droppedFoodIndex: number = centralList.findIndex(
+            (food: Food) => food.name === droppedFood.name
+        );
+        const updatedFood: Food = {
+            ...droppedFood,
+            ingredients: [...droppedFood.ingredients],
+            carts: droppedFood.carts + 1
+        };
+        const deepCentralCopy: Food[] = [
+            ...centralList.map((food: Food) => ({
+                ...food,
+                ingredients: [...food.ingredients]
+            }))
+        ];
+        deepCentralCopy.splice(droppedFoodIndex, 1, updatedFood);
+        setCentralList(deepCentralCopy);
     }
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {

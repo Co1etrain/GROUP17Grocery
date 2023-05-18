@@ -22,7 +22,7 @@ function TestComponent({ customerList }: Props): JSX.Element {
         { name: "Cust2", role: "customer", foodList: [] }
     ]);
     const [currentUser] = useState<User>(userList[0]);
-    const [centralList] = useState<Food[]>(FOOD_LIST);
+    const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
     const [, setCustomerList] = useState<Food[]>([]);
     const [foodId, setFoodId] = useState<number>(FOOD_LIST.length + 1);
 
@@ -53,6 +53,7 @@ function TestComponent({ customerList }: Props): JSX.Element {
             updateUserList={updateUserList}
             foodId={foodId}
             setFoodId={setFoodId}
+            setCentralList={setCentralList}
         />
     );
 }
@@ -76,6 +77,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    setCentralList={doNothing}
                 />
             </DndProvider>
         );
@@ -97,6 +99,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    setCentralList={doNothing}
                 />
             </DndProvider>
         );
@@ -118,6 +121,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    setCentralList={doNothing}
                 />
             </DndProvider>
         );

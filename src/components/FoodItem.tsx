@@ -127,7 +127,7 @@ export function FoodItem({
     const renderInHowManyCarts = () => {
         return currentUser.role === "owner" && showCarts ? (
             <span style={{ fontWeight: "bolder" }}>
-                Appears {carts} times in various carts.
+                Appears {carts} times in customers' carts.
             </span>
         ) : null;
     };

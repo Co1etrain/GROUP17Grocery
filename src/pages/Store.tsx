@@ -116,6 +116,7 @@ function Store(): JSX.Element {
                             updateUserList={updateUserList}
                             foodId={foodId}
                             setFoodId={setFoodId}
+                            setCentralList={setCentralList}
                         ></CustomerCart>
                         <EmployeeCart
                             centralList={centralList}
