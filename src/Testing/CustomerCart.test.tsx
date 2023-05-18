@@ -169,7 +169,7 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            carts: 0
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -186,7 +186,7 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            carts: 0
+                            appearances: 0
                         }
                     ]}
                 />
@@ -231,7 +231,7 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            carts: 0
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -248,7 +248,7 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            carts: 0
+                            appearances: 0
                         }
                     ]}
                 />
@@ -286,7 +286,7 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            carts: 0
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -303,7 +303,7 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            carts: 0
+                            appearances: 0
                         }
                     ]}
                 />
