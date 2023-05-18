@@ -128,7 +128,7 @@ export function FoodItem({
         if (currentUser.role === "owner" && showAppearances) {
             return (
                 <span style={{ fontWeight: "bolder" }}>
-                    Appears {appearances} times in various customer carts.
+                    Appears {appearances} time(s) in various customer carts.
                 </span>
             );
         }
