@@ -57,6 +57,14 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood) {
+            const updatedCart = new Map<string, Food>();
+
+            customerList.forEach((food) => {
+                if (food.name === droppedFood.name) {
+                    food.ratings = droppedFood.ratings;
+                }
+                updatedCart.set(food.id.toString(), food);
+            });
             // Deep copy of current customer list, plus new dropped food item with unique ID
             const newCustomerList: Food[] = [
                 ...customerList.map((food: Food) => ({

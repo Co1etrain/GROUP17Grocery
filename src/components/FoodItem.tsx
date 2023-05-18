@@ -3,6 +3,7 @@ import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
 import { User } from "../interfaces/user";
+import { CustomerCart } from "./CustomerCart";
 
 export function FoodItem({
     id,
@@ -36,11 +37,7 @@ export function FoodItem({
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
     const [customerRating, setCustomerRating] = useState<boolean>(false);
-    const [rating, setRating] = useState<string>(ratings);
-    // This is the Control
-    function updateRating(event: React.ChangeEvent<HTMLSelectElement>) {
-        setRating(event.target.value);
-    }
+    const [rating, setRating] = useState<string>(ratings.toString());
 
     const handleUpdate = (event: React.FormEvent) => {
         event.preventDefault();
@@ -118,22 +115,25 @@ export function FoodItem({
                         <br />
                         {category}
                         <br />
-                        <Form.Group>
-                            <Form.Label>Rating:</Form.Label>
-                            <Form.Select
-                                value={rating}
-                                onChange={(event) => {
-                                    updateRating(event);
-                                    handleUpdate(event);
-                                }}
-                            >
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </Form.Select>
-                        </Form.Group>
+                        <Form onSubmit={handleUpdate}>
+                            <Form.Group>
+                                <Form.Label>Rating:</Form.Label>
+                                <Form.Select
+                                    value={rating}
+                                    onChange={(
+                                        event: React.ChangeEvent<HTMLSelectElement>
+                                    ) => setRating(event.target.value)}
+                                >
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </Form.Select>
+                            </Form.Group>
+                            <Button type="submit">Save Rating</Button>
+                            {ratings}
+                        </Form>
                     </p>
                 </>
             );
@@ -168,7 +168,7 @@ export function FoodItem({
         return null;
     };
     const renderRatingButton = () => {
-        if (showRating && currentUser.role === "customer") {
+        if (onFoodUpdate && showRating && currentUser.role === "customer") {
             return setCustomerRating(true);
         }
         return null;
