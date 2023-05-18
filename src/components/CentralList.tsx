@@ -107,6 +107,7 @@ export function CentralList({
                                 ingredients={[...food.ingredients]}
                                 category={food.category}
                                 appearances={food.appearances}
+                                rating={food.rating}
                                 onFoodUpdate={onFoodUpdate}
                                 showEditButton={false}
                                 showAppearances={true}

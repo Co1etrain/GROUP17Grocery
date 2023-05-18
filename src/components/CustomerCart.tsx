@@ -186,6 +186,7 @@ export function CustomerCart({
                             ingredients={[...food.ingredients]}
                             category={food.category}
                             appearances={food.appearances}
+                            rating={food.rating}
                             showEditButton={false}
                             showAppearances={false}
                             currentUser={currentUser}

@@ -169,7 +169,8 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         },
                         {
                             id: 2,
@@ -186,7 +187,8 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         }
                     ]}
                 />
@@ -231,7 +233,8 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         },
                         {
                             id: 2,
@@ -248,7 +251,8 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         }
                     ]}
                 />
@@ -286,7 +290,8 @@ describe("CustomerCart Component tests", () => {
                             calories: 95,
                             ingredients: ["Apples"],
                             category: "Fruits",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         },
                         {
                             id: 2,
@@ -303,7 +308,8 @@ describe("CustomerCart Component tests", () => {
                                 "Yeast"
                             ],
                             category: "Other",
-                            appearances: 0
+                            appearances: 0,
+                            rating: 0
                         }
                     ]}
                 />

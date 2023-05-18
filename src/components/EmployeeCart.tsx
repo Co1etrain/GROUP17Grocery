@@ -77,6 +77,7 @@ export function EmployeeCart({
                             ingredients={[...food.ingredients]}
                             category={food.category}
                             appearances={food.appearances}
+                            rating={food.rating}
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}
                             showAppearances={false}
