@@ -22,7 +22,7 @@ function TestComponent({ customerList }: Props): JSX.Element {
         { name: "Cust2", role: "customer", foodList: [] }
     ]);
     const [currentUser] = useState<User>(userList[0]);
-    const [centralList, setCentralList] = useState<Food[]>(FOOD_LIST);
+    const [centralList] = useState<Food[]>(FOOD_LIST);
     const [, setCustomerList] = useState<Food[]>([]);
     const [foodId, setFoodId] = useState<number>(FOOD_LIST.length + 1);
 
