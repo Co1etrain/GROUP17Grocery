@@ -125,11 +125,13 @@ export function FoodItem({
     };
 
     const renderInHowManyCarts = () => {
-        return currentUser.role === "owner" && showAppearances ? (
-            <span style={{ fontWeight: "bolder" }}>
-                Appears {appearances} times in customers' carts.
-            </span>
-        ) : null;
+        if (currentUser.role === "owner" && showAppearances) {
+            return (
+                <span style={{ fontWeight: "bolder" }}>
+                    Appears {appearances} times in various customer carts.
+                </span>
+            );
+        }
     };
 
     const renderEditButton = () => {

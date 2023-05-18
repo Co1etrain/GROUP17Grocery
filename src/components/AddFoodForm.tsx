@@ -52,7 +52,7 @@ export function AddFoodForm({
             calories: parseInt(calories),
             ingredients: ingredients.split(","),
             category: category as FoodCategory,
-            carts: 0
+            appearances: 0
         };
 
         setFoodId(foodId + 1);

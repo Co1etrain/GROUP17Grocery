@@ -76,10 +76,10 @@ export function EmployeeCart({
                             calories={food.calories}
                             ingredients={[...food.ingredients]}
                             category={food.category}
-                            carts={food.carts}
+                            appearances={food.appearances}
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}
-                            showCarts={false}
+                            showAppearances={false}
                             currentUser={currentUser}
                         ></FoodItem>
                     );
