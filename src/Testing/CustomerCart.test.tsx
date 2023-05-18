@@ -53,6 +53,8 @@ function TestComponent({ customerList }: Props): JSX.Element {
             updateUserList={updateUserList}
             foodId={foodId}
             setFoodId={setFoodId}
+            // Do nothing since we are not testing central list here
+            updateNumberOfAppearances={doNothing}
         />
     );
 }
@@ -76,6 +78,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );
@@ -97,6 +100,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );
@@ -118,6 +122,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );
@@ -163,7 +168,8 @@ describe("CustomerCart Component tests", () => {
                             price: 2.2,
                             calories: 95,
                             ingredients: ["Apples"],
-                            category: "Fruits"
+                            category: "Fruits",
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -179,7 +185,8 @@ describe("CustomerCart Component tests", () => {
                                 "Eggs, ",
                                 "Yeast"
                             ],
-                            category: "Other"
+                            category: "Other",
+                            appearances: 0
                         }
                     ]}
                 />
@@ -223,7 +230,8 @@ describe("CustomerCart Component tests", () => {
                             price: 2.2,
                             calories: 95,
                             ingredients: ["Apples"],
-                            category: "Fruits"
+                            category: "Fruits",
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -239,7 +247,8 @@ describe("CustomerCart Component tests", () => {
                                 "Eggs, ",
                                 "Yeast"
                             ],
-                            category: "Other"
+                            category: "Other",
+                            appearances: 0
                         }
                     ]}
                 />
@@ -276,7 +285,8 @@ describe("CustomerCart Component tests", () => {
                             price: 2.2,
                             calories: 95,
                             ingredients: ["Apples"],
-                            category: "Fruits"
+                            category: "Fruits",
+                            appearances: 0
                         },
                         {
                             id: 2,
@@ -292,7 +302,8 @@ describe("CustomerCart Component tests", () => {
                                 "Eggs, ",
                                 "Yeast"
                             ],
-                            category: "Other"
+                            category: "Other",
+                            appearances: 0
                         }
                     ]}
                 />

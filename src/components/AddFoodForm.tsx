@@ -51,7 +51,8 @@ export function AddFoodForm({
             price: parseInt(price),
             calories: parseInt(calories),
             ingredients: ingredients.split(","),
-            category: category as FoodCategory
+            category: category as FoodCategory,
+            appearances: 0
         };
 
         setFoodId(foodId + 1);
