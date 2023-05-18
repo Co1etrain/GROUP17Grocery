@@ -13,6 +13,7 @@ export function FoodItem({
     calories,
     ingredients,
     category,
+    carts,
     onFoodUpdate,
     showEditButton,
     currentUser
@@ -43,7 +44,8 @@ export function FoodItem({
             price: editedPrice,
             calories,
             ingredients: [...ingredients],
-            category
+            category,
+            carts
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);

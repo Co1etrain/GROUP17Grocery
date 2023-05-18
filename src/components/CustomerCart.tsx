@@ -182,6 +182,7 @@ export function CustomerCart({
                             calories={food.calories}
                             ingredients={[...food.ingredients]}
                             category={food.category}
+                            carts={food.carts}
                             showEditButton={false}
                             currentUser={currentUser}
                         ></FoodItem>
