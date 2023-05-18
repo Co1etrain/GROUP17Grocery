@@ -53,7 +53,8 @@ function TestComponent({ customerList }: Props): JSX.Element {
             updateUserList={updateUserList}
             foodId={foodId}
             setFoodId={setFoodId}
-            setCentralList={setCentralList}
+            // Do nothing since we are not testing central list here
+            updateNumberOfAppearances={doNothing}
         />
     );
 }
@@ -77,7 +78,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
-                    setCentralList={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );
@@ -99,7 +100,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
-                    setCentralList={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );
@@ -121,7 +122,7 @@ describe("CustomerCart Component tests", () => {
                     updateUserList={doNothing}
                     foodId={0}
                     setFoodId={doNothing}
-                    setCentralList={doNothing}
+                    updateNumberOfAppearances={doNothing}
                 />
             </DndProvider>
         );

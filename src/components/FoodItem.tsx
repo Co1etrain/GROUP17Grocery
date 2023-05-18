@@ -13,14 +13,14 @@ export function FoodItem({
     calories,
     ingredients,
     category,
-    carts,
+    appearances,
     onFoodUpdate,
     showEditButton,
-    showCarts,
+    showAppearances,
     currentUser
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
-} & { showCarts: boolean } & { currentUser: User }): JSX.Element {
+} & { showAppearances: boolean } & { currentUser: User }): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -46,7 +46,7 @@ export function FoodItem({
             calories,
             ingredients: [...ingredients],
             category,
-            carts
+            appearances
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);
@@ -125,9 +125,9 @@ export function FoodItem({
     };
 
     const renderInHowManyCarts = () => {
-        return currentUser.role === "owner" && showCarts ? (
+        return currentUser.role === "owner" && showAppearances ? (
             <span style={{ fontWeight: "bolder" }}>
-                Appears {carts} times in customers' carts.
+                Appears {appearances} times in customers' carts.
             </span>
         ) : null;
     };

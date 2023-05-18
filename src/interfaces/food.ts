@@ -15,7 +15,7 @@ export interface Food {
     calories: number;
     ingredients: string[];
     category: string;
-    carts: number; // field which tells you how many carts this food is in, by name
+    appearances: number; // field which tells you how many times this food appears in users' lists
 }
 
 export const FOOD_LIST: Food[] = [
@@ -29,7 +29,7 @@ export const FOOD_LIST: Food[] = [
         calories: 95,
         ingredients: ["Apples"],
         category: "Fruits",
-        carts: 0
+        appearances: 0
     },
     //2
     {
@@ -41,7 +41,7 @@ export const FOOD_LIST: Food[] = [
         calories: 92,
         ingredients: ["Water", "Flour", "Salt", "Eggs", "Yeast"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //3
     {
@@ -53,7 +53,7 @@ export const FOOD_LIST: Food[] = [
         calories: 80,
         ingredients: ["Peanuts", "Water"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //4
     {
@@ -71,7 +71,7 @@ export const FOOD_LIST: Food[] = [
             "Vanilla Extract"
         ],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //5
     {
@@ -83,7 +83,7 @@ export const FOOD_LIST: Food[] = [
         calories: 105,
         ingredients: ["Banana"],
         category: "Fruits",
-        carts: 0
+        appearances: 0
     },
     //6
     {
@@ -107,7 +107,7 @@ export const FOOD_LIST: Food[] = [
             "Jalepeno"
         ],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //7
     {
@@ -126,7 +126,7 @@ export const FOOD_LIST: Food[] = [
             "Natural Flavors"
         ],
         category: "Dairy",
-        carts: 0
+        appearances: 0
     },
     //8
     {
@@ -138,7 +138,7 @@ export const FOOD_LIST: Food[] = [
         calories: 100,
         ingredients: ["Broccoli"],
         category: "Vegetables",
-        carts: 0
+        appearances: 0
     },
     //9
     {
@@ -150,7 +150,7 @@ export const FOOD_LIST: Food[] = [
         calories: 145,
         ingredients: ["Lemon", "Lime", "Club Soda", "Sugar"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //10
     {
@@ -169,7 +169,7 @@ export const FOOD_LIST: Food[] = [
             "Whole Milk"
         ],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
 
     //11
@@ -182,7 +182,7 @@ export const FOOD_LIST: Food[] = [
         calories: 200,
         ingredients: ["Sugar", "Flour", "Peanuts", "Cocoa"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //12
     {
@@ -194,7 +194,7 @@ export const FOOD_LIST: Food[] = [
         calories: 60,
         ingredients: ["Potato", "Salt"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //13
     {
@@ -206,7 +206,7 @@ export const FOOD_LIST: Food[] = [
         calories: 75,
         ingredients: ["Sugar", "Cream Filling", "Chocolate"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //14
     {
@@ -218,7 +218,7 @@ export const FOOD_LIST: Food[] = [
         calories: 150,
         ingredients: ["Whey Protien", "Chocolate", "Milk"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //15
     //Make category vegan?
@@ -231,7 +231,7 @@ export const FOOD_LIST: Food[] = [
         calories: 200,
         ingredients: ["Pea Whey Protien", "Chocolate", "Milk"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //16
     {
@@ -243,7 +243,7 @@ export const FOOD_LIST: Food[] = [
         calories: 80,
         ingredients: ["Rice", "Honey", "Salt"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //17
     {
@@ -255,7 +255,7 @@ export const FOOD_LIST: Food[] = [
         calories: 300,
         ingredients: ["Grapes"],
         category: "Fruits",
-        carts: 0
+        appearances: 0
     },
     //18
     {
@@ -267,7 +267,7 @@ export const FOOD_LIST: Food[] = [
         calories: 150,
         ingredients: ["Whey Protien", "Chocolate", "Milk"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //19
     {
@@ -279,7 +279,7 @@ export const FOOD_LIST: Food[] = [
         calories: 250,
         ingredients: ["Granola", "Sugar", "Honey"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //20
     {
@@ -291,7 +291,7 @@ export const FOOD_LIST: Food[] = [
         calories: 150,
         ingredients: ["Corn", "Butter", "Preservatives"],
         category: "Snacks",
-        carts: 0
+        appearances: 0
     },
     //21
     {
@@ -303,7 +303,7 @@ export const FOOD_LIST: Food[] = [
         calories: 120,
         ingredients: ["Eggs"],
         category: "Dairy",
-        carts: 0
+        appearances: 0
     },
     //22
     {
@@ -315,7 +315,7 @@ export const FOOD_LIST: Food[] = [
         calories: 100,
         ingredients: ["Tomato"],
         category: "Vegetables",
-        carts: 0
+        appearances: 0
     },
     //23
     {
@@ -327,7 +327,7 @@ export const FOOD_LIST: Food[] = [
         calories: 20,
         ingredients: ["Lemon"],
         category: "Fruits",
-        carts: 0
+        appearances: 0
     },
     //24
     {
@@ -339,7 +339,7 @@ export const FOOD_LIST: Food[] = [
         calories: 10,
         ingredients: ["Celery"],
         category: "Vegetables",
-        carts: 0
+        appearances: 0
     },
     //25
     {
@@ -351,7 +351,7 @@ export const FOOD_LIST: Food[] = [
         calories: 100,
         ingredients: ["Strawberry"],
         category: "Fruits",
-        carts: 0
+        appearances: 0
     },
     //26
     {
@@ -363,7 +363,7 @@ export const FOOD_LIST: Food[] = [
         calories: 500,
         ingredients: ["Beef", "Salt", "Pepper"],
         category: "Meat",
-        carts: 0
+        appearances: 0
     },
     //27
     {
@@ -375,7 +375,7 @@ export const FOOD_LIST: Food[] = [
         calories: 1000,
         ingredients: ["Bread", "Tomato Sauce", "Cheese", "Pepperoni"],
         category: "Other",
-        carts: 0
+        appearances: 0
     },
     //28
     {
@@ -387,7 +387,7 @@ export const FOOD_LIST: Food[] = [
         calories: 200,
         ingredients: ["Beans", "Water", "Salt"],
         category: "Vegetables",
-        carts: 0
+        appearances: 0
     },
     //29
     {
@@ -399,7 +399,7 @@ export const FOOD_LIST: Food[] = [
         calories: 300,
         ingredients: ["Beef", "Salt, ", "Pepper"],
         category: "Meat",
-        carts: 0
+        appearances: 0
     },
     //30
     {
@@ -411,6 +411,6 @@ export const FOOD_LIST: Food[] = [
         calories: 275,
         ingredients: ["Milk", "Salt", "Cheese"],
         category: "Dairy",
-        carts: 0
+        appearances: 0
     }
 ];

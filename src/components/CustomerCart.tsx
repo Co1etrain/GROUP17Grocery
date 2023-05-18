@@ -13,7 +13,7 @@ interface CartProps {
     updateUserList: (newList: Food[]) => void;
     foodId: number;
     setFoodId: (newFoodId: number) => void;
-    setCentralList: (newList: Food[]) => void;
+    updateNumberOfAppearances: (givenFood: Food, isAdding: boolean) => void;
 }
 
 export function CustomerCart({
@@ -23,7 +23,7 @@ export function CustomerCart({
     updateUserList,
     foodId,
     setFoodId,
-    setCentralList
+    updateNumberOfAppearances
 }: CartProps): JSX.Element {
     const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
@@ -70,30 +70,11 @@ export function CustomerCart({
             setFoodId(foodId + 1);
             // Closure from Store.tsx passed in as props
             updateUserList(newCustomerList);
-            // Update how many carts the dopped item appears in
-            updateCentralList(droppedFood);
+            // Update how many times the dropped food appears in users' lists
+            updateNumberOfAppearances(droppedFood, true);
             setTotalPrice(totalPrice + droppedFood.price);
         }
         console.log(customerList);
-    }
-
-    function updateCentralList(droppedFood: Food) {
-        const droppedFoodIndex: number = centralList.findIndex(
-            (food: Food) => food.name === droppedFood.name
-        );
-        const updatedFood: Food = {
-            ...droppedFood,
-            ingredients: [...droppedFood.ingredients],
-            carts: droppedFood.carts + 1
-        };
-        const deepCentralCopy: Food[] = [
-            ...centralList.map((food: Food) => ({
-                ...food,
-                ingredients: [...food.ingredients]
-            }))
-        ];
-        deepCentralCopy.splice(droppedFoodIndex, 1, updatedFood);
-        setCentralList(deepCentralCopy);
     }
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -204,9 +185,9 @@ export function CustomerCart({
                             calories={food.calories}
                             ingredients={[...food.ingredients]}
                             category={food.category}
-                            carts={food.carts}
+                            appearances={food.appearances}
                             showEditButton={false}
-                            showCarts={false}
+                            showAppearances={false}
                             currentUser={currentUser}
                         ></FoodItem>
                     );
