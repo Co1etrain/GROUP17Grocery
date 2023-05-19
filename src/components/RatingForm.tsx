@@ -12,6 +12,15 @@ export function RatingForm({
     rating,
     setRating
 }: RatingProps): JSX.Element {
+    function updateRating(event: React.ChangeEvent<HTMLInputElement>) {
+        if (
+            parseInt(event.target.value) >= 1 &&
+            parseInt(event.target.value) <= 5
+        ) {
+            setRating(event.target.value);
+        }
+    }
+
     return (
         <div>
             <Form onSubmit={handleUpdate}>
@@ -20,7 +29,7 @@ export function RatingForm({
                     <Form.Control
                         type="number"
                         value={rating}
-                        onChange={(event) => setRating(event.target.value)}
+                        onChange={updateRating}
                     />
                 </Form.Group>
                 <Button type="submit">Rate</Button>
