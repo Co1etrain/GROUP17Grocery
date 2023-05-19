@@ -81,6 +81,7 @@ export function EmployeeCart({
                             onFoodUpdate={handleFoodUpdate}
                             showEditButton={true}
                             showAppearances={false}
+                            showRating={false}
                             currentUser={currentUser}
                         ></FoodItem>
                     );

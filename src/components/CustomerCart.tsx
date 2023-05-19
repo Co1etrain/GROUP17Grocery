@@ -189,6 +189,7 @@ export function CustomerCart({
                             rating={food.rating}
                             showEditButton={false}
                             showAppearances={false}
+                            showRating={true}
                             currentUser={currentUser}
                         ></FoodItem>
                     );

@@ -111,6 +111,7 @@ export function CentralList({
                                 onFoodUpdate={onFoodUpdate}
                                 showEditButton={false}
                                 showAppearances={true}
+                                showRating={false}
                                 currentUser={currentUser}
                             ></FoodItem>
                         </div>
