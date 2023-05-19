@@ -59,13 +59,21 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood) {
+            // Find duplicate to share rating
+            const dupFood: Food | undefined = customerList.find(
+                (food: Food) => food.name === droppedFood.name
+            );
             // Deep copy of current customer list, plus new dropped food item with unique ID
             const newCustomerList: Food[] = [
                 ...customerList.map((food: Food) => ({
                     ...food,
                     ingredients: [...food.ingredients]
                 })),
-                { ...droppedFood, id: foodId }
+                {
+                    ...droppedFood,
+                    id: foodId,
+                    rating: dupFood ? dupFood.rating : 0
+                }
             ];
             setFoodId(foodId + 1);
             // Closure from Store.tsx passed in as props
@@ -100,6 +108,31 @@ export function CustomerCart({
                 return 0;
             }
         });
+
+    function updateRating(updatedFood: Food) {
+        const dupFoods: Food[] = customerList.filter(
+            (food: Food) => food.name === updatedFood.name
+        );
+
+        const updatedFoods: Food[] = [
+            ...dupFoods.map((food: Food) => ({
+                ...food,
+                ingredients: [...food.ingredients],
+                rating: updatedFood.rating
+            }))
+        ];
+
+        const updatedCustomerList: Food[] = [
+            ...customerList
+                .filter((food: Food) => food.name !== updatedFood.name)
+                .map((food: Food) => ({
+                    ...food,
+                    ingredients: [...food.ingredients]
+                })),
+            ...updatedFoods
+        ];
+        updateUserList(updatedCustomerList);
+    }
 
     return (
         <div
@@ -186,6 +219,7 @@ export function CustomerCart({
                             category={food.category}
                             appearances={food.appearances}
                             rating={food.rating}
+                            onFoodUpdate={updateRating}
                             showEditButton={false}
                             showAppearances={false}
                             showRating={true}

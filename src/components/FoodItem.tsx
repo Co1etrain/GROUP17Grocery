@@ -53,7 +53,7 @@ export function FoodItem({
             ingredients: [...ingredients],
             category,
             appearances,
-            rating
+            rating: parseInt(newRating)
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);
@@ -134,6 +134,7 @@ export function FoodItem({
         if (currentUser.role === "customer" && showRating) {
             return (
                 <RatingForm
+                    handleUpdate={handleUpdate}
                     rating={newRating}
                     setRating={setNewRating}
                 ></RatingForm>
