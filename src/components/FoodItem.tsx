@@ -3,6 +3,7 @@ import { Food } from "../interfaces/food";
 import { useDrag } from "react-dnd";
 import { Button, Form } from "react-bootstrap";
 import { User } from "../interfaces/user";
+import { RatingForm } from "./RatingForm";
 
 export function FoodItem({
     id,
@@ -14,13 +15,17 @@ export function FoodItem({
     ingredients,
     category,
     appearances,
+    rating,
     onFoodUpdate,
     showEditButton,
     showAppearances,
+    showRating,
     currentUser
 }: Food & { onFoodUpdate?: (updatedFood: Food) => void } & {
     showEditButton: boolean;
-} & { showAppearances: boolean } & { currentUser: User }): JSX.Element {
+} & { showAppearances: boolean } & { currentUser: User } & {
+    showRating: boolean;
+}): JSX.Element {
     const [{ isDragging }, drag] = useDrag({
         type: "food",
         item: { id: id },
@@ -34,6 +39,7 @@ export function FoodItem({
     const [editedDescription, setEditedDescription] =
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
+    const [newRating, setNewRating] = useState<string>("" + rating);
 
     const handleUpdate = (event: React.FormEvent) => {
         event.preventDefault();
@@ -46,7 +52,8 @@ export function FoodItem({
             calories,
             ingredients: [...ingredients],
             category,
-            appearances
+            appearances,
+            rating: parseInt(newRating)
         };
         if (onFoodUpdate) {
             onFoodUpdate(updatedFood);
@@ -96,7 +103,7 @@ export function FoodItem({
         } else {
             return (
                 <>
-                    <p>
+                    <div>
                         <strong>
                             {name} - ${price.toFixed(2)}
                         </strong>
@@ -114,12 +121,23 @@ export function FoodItem({
                         <br />
                         Aisle: {category}
                         <br />
-                        Rating:
-                        <br />
+                        {renderRating()}
                         {renderInHowManyCarts()}
-                    </p>
+                    </div>
                     {renderEditButton()}
                 </>
+            );
+        }
+    };
+
+    const renderRating = () => {
+        if (currentUser.role === "customer" && showRating) {
+            return (
+                <RatingForm
+                    handleUpdate={handleUpdate}
+                    rating={newRating}
+                    setRating={setNewRating}
+                ></RatingForm>
             );
         }
     };

@@ -65,7 +65,10 @@ export function CustomerCart({
                     ...food,
                     ingredients: [...food.ingredients]
                 })),
-                { ...droppedFood, id: foodId }
+                {
+                    ...droppedFood,
+                    id: foodId
+                }
             ];
             setFoodId(foodId + 1);
             // Closure from Store.tsx passed in as props
@@ -74,7 +77,6 @@ export function CustomerCart({
             updateNumberOfAppearances(droppedFood, true);
             setTotalPrice(totalPrice + droppedFood.price);
         }
-        console.log(customerList);
     }
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -101,6 +103,26 @@ export function CustomerCart({
                 return 0;
             }
         });
+
+    function updateRating(updatedFood: Food) {
+        const updatedFoodIndex: number = customerList.findIndex(
+            (food: Food) => food.id === updatedFood.id
+        );
+
+        const updatedCustomerList: Food[] = [
+            ...customerList.map((food: Food) => ({
+                ...food,
+                ingredients: [...food.ingredients]
+            }))
+        ];
+
+        updatedCustomerList.splice(updatedFoodIndex, 1, {
+            ...updatedFood,
+            ingredients: [...updatedFood.ingredients]
+        });
+
+        updateUserList(updatedCustomerList);
+    }
 
     return (
         <div
@@ -186,8 +208,11 @@ export function CustomerCart({
                             ingredients={[...food.ingredients]}
                             category={food.category}
                             appearances={food.appearances}
+                            rating={food.rating}
+                            onFoodUpdate={updateRating}
                             showEditButton={false}
                             showAppearances={false}
+                            showRating={true}
                             currentUser={currentUser}
                         ></FoodItem>
                     );

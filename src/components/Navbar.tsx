@@ -59,7 +59,8 @@ export function Navbar({
             calories: calories,
             ingredients: ingredients,
             category: category,
-            appearances: 0
+            appearances: 0,
+            rating: 0
         };
 
         setCentralList([...newCentralList, newFood]);

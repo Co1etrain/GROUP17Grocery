@@ -20,6 +20,7 @@ describe("FoodItem", () => {
                     currentUser={testUser}
                     showEditButton={true}
                     showAppearances={true}
+                    showRating={false}
                 />
             </DndProvider>
         );
@@ -39,6 +40,7 @@ describe("FoodItem", () => {
                     currentUser={testUser}
                     showEditButton={true}
                     showAppearances={true}
+                    showRating={false}
                 />
             </DndProvider>
         );
@@ -58,6 +60,7 @@ describe("FoodItem", () => {
                     currentUser={testUser}
                     showEditButton={true}
                     showAppearances={true}
+                    showRating={true}
                 />
             </DndProvider>
         );
@@ -74,6 +77,7 @@ describe("FoodItem", () => {
                     currentUser={testUser}
                     showEditButton={true}
                     showAppearances={true}
+                    showRating={false}
                 />
             </DndProvider>
         );
@@ -89,6 +93,7 @@ describe("FoodItem", () => {
                     currentUser={testUser}
                     showEditButton={true}
                     showAppearances={true}
+                    showRating={false}
                 />
             </DndProvider>
         );
