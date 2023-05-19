@@ -28,7 +28,7 @@ export function UserSelect({
     }
 
     return (
-        <div>
+        <div style={{ width: "300px" }}>
             <Form.Group controlId="users">
                 <Form.Label>Select user:</Form.Label>
                 <Form.Select value={currentUser.name} onChange={updateUser}>
