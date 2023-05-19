@@ -59,10 +59,6 @@ export function CustomerCart({
             (food: Food) => food.id === id
         );
         if (droppedFood) {
-            // Find duplicate to share rating
-            const dupFood: Food | undefined = customerList.find(
-                (food: Food) => food.name === droppedFood.name
-            );
             // Deep copy of current customer list, plus new dropped food item with unique ID
             const newCustomerList: Food[] = [
                 ...customerList.map((food: Food) => ({
@@ -71,8 +67,7 @@ export function CustomerCart({
                 })),
                 {
                     ...droppedFood,
-                    id: foodId,
-                    rating: dupFood ? dupFood.rating : 0
+                    id: foodId
                 }
             ];
             setFoodId(foodId + 1);
@@ -110,27 +105,22 @@ export function CustomerCart({
         });
 
     function updateRating(updatedFood: Food) {
-        const dupFoods: Food[] = customerList.filter(
-            (food: Food) => food.name === updatedFood.name
+        const updatedFoodIndex: number = customerList.findIndex(
+            (food: Food) => food.id === updatedFood.id
         );
 
-        const updatedFoods: Food[] = [
-            ...dupFoods.map((food: Food) => ({
+        const updatedCustomerList: Food[] = [
+            ...customerList.map((food: Food) => ({
                 ...food,
-                ingredients: [...food.ingredients],
-                rating: updatedFood.rating
+                ingredients: [...food.ingredients]
             }))
         ];
 
-        const updatedCustomerList: Food[] = [
-            ...customerList
-                .filter((food: Food) => food.name !== updatedFood.name)
-                .map((food: Food) => ({
-                    ...food,
-                    ingredients: [...food.ingredients]
-                })),
-            ...updatedFoods
-        ];
+        updatedCustomerList.splice(updatedFoodIndex, 1, {
+            ...updatedFood,
+            ingredients: [...updatedFood.ingredients]
+        });
+
         updateUserList(updatedCustomerList);
     }
 
