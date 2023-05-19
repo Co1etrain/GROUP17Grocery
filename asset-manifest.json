@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GROUP17Grocery/static/css/main.535525f0.css",
-    "main.js": "/GROUP17Grocery/static/js/main.5e5d8235.js",
+    "main.js": "/GROUP17Grocery/static/js/main.cf4a7c07.js",
     "static/js/787.4ef7427d.chunk.js": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js",
     "static/media/GranolaBars.png": "/GROUP17Grocery/static/media/GranolaBars.3281e9f6f4c559e574d2.png",
     "static/media/BlackBeans.png": "/GROUP17Grocery/static/media/BlackBeans.fc1e66219c75e30c124b.png",
@@ -13,11 +13,11 @@
     "static/media/tomatoes.png": "/GROUP17Grocery/static/media/tomatoes.2562d58bb0339e5b8bb4.png",
     "index.html": "/GROUP17Grocery/index.html",
     "main.535525f0.css.map": "/GROUP17Grocery/static/css/main.535525f0.css.map",
-    "main.5e5d8235.js.map": "/GROUP17Grocery/static/js/main.5e5d8235.js.map",
+    "main.cf4a7c07.js.map": "/GROUP17Grocery/static/js/main.cf4a7c07.js.map",
     "787.4ef7427d.chunk.js.map": "/GROUP17Grocery/static/js/787.4ef7427d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.535525f0.css",
-    "static/js/main.5e5d8235.js"
+    "static/js/main.cf4a7c07.js"
   ]
 }

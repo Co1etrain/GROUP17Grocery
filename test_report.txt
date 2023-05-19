@@ -35,21 +35,22 @@ PASS src/Testing/template.test.tsx
 -----------------------|---------|----------|---------|---------|----------------------
 File                   | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s    
 -----------------------|---------|----------|---------|---------|----------------------
-All files              |    51.6 |       52 |   43.79 |   52.61 |                      
+All files              |   51.19 |     51.8 |   43.35 |   52.14 |                      
  src                   |     100 |      100 |     100 |     100 |                      
   App.tsx              |     100 |      100 |     100 |     100 |                      
- src/components        |   52.98 |    54.92 |   45.96 |   53.97 |                      
-  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-64,71-170         
+ src/components        |   52.47 |    54.43 |   45.38 |   53.38 |                      
+  AddFoodForm.tsx      |    37.5 |      100 |    8.33 |   39.13 | 41-65,72-171         
   CentralList.tsx      |    64.7 |       25 |   83.33 |    64.7 | 29,37-42             
-  CustomerCart.tsx     |   68.42 |    77.77 |   71.42 |   67.56 | 31,58-77,101         
+  CustomerCart.tsx     |   60.46 |    77.77 |   58.82 |   59.52 | 31,58-78,103-124     
   DeleteFoodButton.tsx |    9.09 |     8.33 |   13.33 |      10 | 37,44-93             
   DeleteUserModal.tsx  |   26.66 |        0 |   27.27 |   28.57 | 20-37,44,75-89       
   EmployeeCart.tsx     |      80 |       75 |      90 |   84.61 | 37-41                
-  FoodItem.tsx         |   90.62 |    86.66 |   76.92 |   90.32 | 88-93,148            
+  FoodItem.tsx         |   91.66 |    89.47 |   78.57 |   91.42 | 95-100,166           
   IntroHeader.tsx      |     100 |      100 |     100 |     100 |                      
-  Navbar.tsx           |   18.75 |      100 |   22.22 |      20 | 46-70,82-113,139-158 
+  Navbar.tsx           |   18.75 |      100 |   22.22 |      20 | 46-71,83-114,140-159 
   NewUserForm.tsx      |      95 |       50 |   88.88 |   94.73 | 41                   
   OwnerFoodView.tsx    |      50 |      100 |    37.5 |      50 | 19,26-45,70-74       
+  RatingForm.tsx       |   33.33 |        0 |      50 |   33.33 | 16-20                
   RequestForm.tsx      |   39.13 |      100 |    8.33 |    40.9 | 37-55,62-157         
   UserSelect.tsx       |   28.57 |        0 |      50 |   28.57 | 20-26                
  src/interfaces        |     100 |      100 |     100 |     100 |                      
@@ -64,5 +65,5 @@ All files              |    51.6 |       52 |   43.79 |   52.61 |
 Test Suites: 1 failed, 9 passed, 10 total
 Tests:       1 failed, 46 passed, 47 total
 Snapshots:   0 total
-Time:        9.259 s
+Time:        9.568 s
 Ran all test suites.
