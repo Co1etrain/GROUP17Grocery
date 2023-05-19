@@ -130,12 +130,12 @@ a {
 .Super-Buttons {
     display: flex;
     float: left;
-    margin-top: 5px;
 }
 
 .User-Control {
+    display: flex;
     margin: 10px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .row {

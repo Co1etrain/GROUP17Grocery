@@ -110,29 +110,47 @@ function Store(): JSX.Element {
             <div className="App">
                 <Row>
                     <div className="User-Control">
-                        <UserSelect
-                            userList={userList}
-                            currentUser={currentUser}
-                            setCurrentUser={setCurrentUser}
-                            setCustomerList={setCustomerList}
-                        ></UserSelect>
-                        <div className="Super-Buttons">
-                            <NewUserForm
+                        <div className="User-Left-Panel">
+                            <UserSelect
                                 userList={userList}
                                 currentUser={currentUser}
                                 setCurrentUser={setCurrentUser}
                                 setCustomerList={setCustomerList}
-                                setUserList={setUserList}
-                            ></NewUserForm>
-                            <DeleteUserModal
-                                currentUser={currentUser}
+                            ></UserSelect>
+                            <div className="Super-Buttons">
+                                <NewUserForm
+                                    userList={userList}
+                                    currentUser={currentUser}
+                                    setCurrentUser={setCurrentUser}
+                                    setCustomerList={setCustomerList}
+                                    setUserList={setUserList}
+                                ></NewUserForm>
+                                <DeleteUserModal
+                                    currentUser={currentUser}
+                                    userList={userList}
+                                    setUserList={setUserList}
+                                ></DeleteUserModal>
+                                <OwnerFoodView
+                                    currentUser={currentUser}
+                                    userList={userList}
+                                ></OwnerFoodView>
+                            </div>
+                        </div>
+                        <div className="User-Right-Panel">
+                            <DeleteFoodButton
+                                centralList={centralList}
+                                customerList={customerList}
+                                employeeList={employeeList}
                                 userList={userList}
-                                setUserList={setUserList}
-                            ></DeleteUserModal>
-                            <OwnerFoodView
                                 currentUser={currentUser}
-                                userList={userList}
-                            ></OwnerFoodView>
+                                setCentralList={setCentralList}
+                                setEmployeeList={setEmployeeList}
+                                setUserList={setUserList}
+                                updateUserList={updateUserList}
+                                updateNumberOfAppearances={
+                                    updateNumberOfAppearances
+                                }
+                            ></DeleteFoodButton>
                         </div>
                     </div>
                 </Row>
@@ -168,20 +186,6 @@ function Store(): JSX.Element {
                             setRequestList={setRequestList}
                             currentUser={currentUser}
                         ></RequestForm>
-                        <DeleteFoodButton
-                            centralList={centralList}
-                            customerList={customerList}
-                            employeeList={employeeList}
-                            userList={userList}
-                            currentUser={currentUser}
-                            setCentralList={setCentralList}
-                            setEmployeeList={setEmployeeList}
-                            setUserList={setUserList}
-                            updateUserList={updateUserList}
-                            updateNumberOfAppearances={
-                                updateNumberOfAppearances
-                            }
-                        ></DeleteFoodButton>
                     </Col>
                     <Col>
                         <CentralList
