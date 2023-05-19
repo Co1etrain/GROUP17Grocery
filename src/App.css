@@ -126,3 +126,18 @@ a {
     background-color: orange;
     font-size: larger;
 }
+
+.Super-Buttons {
+    display: flex;
+    float: left;
+    margin-top: 5px;
+}
+
+.User-Control {
+    margin: 10px;
+    margin-bottom: 5px;
+}
+
+.row {
+    margin: 0;
+}

@@ -109,32 +109,32 @@ function Store(): JSX.Element {
             ></Navbar>
             <div className="App">
                 <Row>
-                    <Col>
+                    <div className="User-Control">
                         <UserSelect
                             userList={userList}
                             currentUser={currentUser}
                             setCurrentUser={setCurrentUser}
                             setCustomerList={setCustomerList}
                         ></UserSelect>
-                    </Col>
-                    <Col>
-                        <NewUserForm
-                            userList={userList}
-                            currentUser={currentUser}
-                            setCurrentUser={setCurrentUser}
-                            setCustomerList={setCustomerList}
-                            setUserList={setUserList}
-                        ></NewUserForm>
-                        <DeleteUserModal
-                            currentUser={currentUser}
-                            userList={userList}
-                            setUserList={setUserList}
-                        ></DeleteUserModal>
-                        <OwnerFoodView
-                            currentUser={currentUser}
-                            userList={userList}
-                        ></OwnerFoodView>
-                    </Col>
+                        <div className="Super-Buttons">
+                            <NewUserForm
+                                userList={userList}
+                                currentUser={currentUser}
+                                setCurrentUser={setCurrentUser}
+                                setCustomerList={setCustomerList}
+                                setUserList={setUserList}
+                            ></NewUserForm>
+                            <DeleteUserModal
+                                currentUser={currentUser}
+                                userList={userList}
+                                setUserList={setUserList}
+                            ></DeleteUserModal>
+                            <OwnerFoodView
+                                currentUser={currentUser}
+                                userList={userList}
+                            ></OwnerFoodView>
+                        </div>
+                    </div>
                 </Row>
                 <Row>
                     <Col>

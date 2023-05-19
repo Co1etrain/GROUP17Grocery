@@ -25,7 +25,6 @@ export function CustomerCart({
     setFoodId,
     updateNumberOfAppearances
 }: CartProps): JSX.Element {
-    const [totalPrice, setTotalPrice] = useState<number>(0);
     const [{ isOver }, drop] = useDrop({
         accept: "food",
         drop: (item: Food) => addFoodToCart(item.id),
@@ -75,7 +74,6 @@ export function CustomerCart({
             updateUserList(newCustomerList);
             // Update how many times the dropped food appears in users' lists
             updateNumberOfAppearances(droppedFood, true);
-            setTotalPrice(totalPrice + droppedFood.price);
         }
     }
 
@@ -218,7 +216,6 @@ export function CustomerCart({
                     );
                 })}
             </div>
-            <h3>Total price: {totalPrice.toFixed(2)}</h3>
         </div>
     );
 }
