@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 
-export function RatingForm(): JSX.Element {
-    const [rating, setRating] = useState<string>("1");
+interface RatingProps {
+    rating: string;
+    setRating: (newRating: string) => void;
+}
 
+export function RatingForm({ rating, setRating }: RatingProps): JSX.Element {
     return (
         <div>
             Rating:

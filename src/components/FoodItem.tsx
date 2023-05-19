@@ -39,6 +39,7 @@ export function FoodItem({
     const [editedDescription, setEditedDescription] =
         useState<string>(description);
     const [editedPrice, setEditedPrice] = useState<number>(price);
+    const [newRating, setNewRating] = useState<string>("" + rating);
 
     const handleUpdate = (event: React.FormEvent) => {
         event.preventDefault();
@@ -131,7 +132,12 @@ export function FoodItem({
 
     const renderRating = () => {
         if (currentUser.role === "customer" && showRating) {
-            return <RatingForm></RatingForm>;
+            return (
+                <RatingForm
+                    rating={newRating}
+                    setRating={setNewRating}
+                ></RatingForm>
+            );
         }
     };
 

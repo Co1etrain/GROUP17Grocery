@@ -74,7 +74,6 @@ export function CustomerCart({
             updateNumberOfAppearances(droppedFood, true);
             setTotalPrice(totalPrice + droppedFood.price);
         }
-        console.log(customerList);
     }
 
     const handleSortChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
