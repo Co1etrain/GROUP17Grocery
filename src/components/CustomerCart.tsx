@@ -124,7 +124,7 @@ export function CustomerCart({
 
     return (
         <div
-            style={{ paddingTop: "15px" }}
+            style={{ paddingTop: "15px", paddingBottom: "40px" }}
             hidden={currentUser.role !== "customer"}
         >
             <h2>
